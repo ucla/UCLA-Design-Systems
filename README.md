@@ -19,3 +19,35 @@ Our goal is to provide flexible resources and tools for any person or team who c
 - [Fractal Documentation](https://fractal.build/guide/documentation/)
 - [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start/)
 - [Stylelint](https://stylelint.io)
+
+---
+
+## For Designers
+
+- [Brand Guidelines](https://brand.ucla.edu)
+- [Design Files](./help/designers/artifacts.md)
+
+---
+
+## For Consumers
+- [How To Navigate the Website](./help/consumers/navigatingSite.md)
+- [Components Status](./help/consumers/componentStatus.md)
+- [Component Design, Code Documentation and Example Usage (Website)](#)
+- [How To Include Library in Your Web Project (Website)](#)
+
+---
+
+### Have questions on how to consume or contribute to this library? Please reach out to one of our developers:
+- [Post an Issue](https://github.com/ucla/UCLA-Design-Systems/issues)
+- [Join the Slack Discussion](#)
+- [Internal Project Maintainer](./help/internal/tableofcontents.md)
+
+---
+
+## Notes
+
+**Maintained By:** A campus community of designers and developers
+
+**Built with:** [Fractal Component Library](https://fractal.build/)
+
+**Created by:** Strategic Communications
