@@ -17,3 +17,5 @@ Our goal is to provide flexible resources and tools for any person or team who c
 ### Toolset
 
 - [Fractal Documentation](https://fractal.build/guide/documentation/)
+- [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start/)
+- [Stylelint](https://stylelint.io)
