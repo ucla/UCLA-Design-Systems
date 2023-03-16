@@ -2,10 +2,24 @@
   "name": "ucla-design-systems",
   "version": "0.1.0",
   "dependencies": {
-    "@frctl/fractal": "^1.5.15"
+    "@frctl/fractal": "^1.5.15",
+    "@frctl/mandelbrot": "^1.10.3"
   },
   "scripts": {
     "fractal:start": "fractal start --sync",
     "fractal:build": "fractal build"
+  },
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-image": "^6.2.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-stylelint": "^11.0.0",
+    "sass": "^1.49.7",
+    "stylelint": "^13.7.1"
   }
 }

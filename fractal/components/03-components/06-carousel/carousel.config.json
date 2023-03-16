@@ -1,0 +1,29 @@
+{
+	"title": "Carousel",
+	"status": "in_progress",
+	"collated": true,
+	"variants": [
+		{
+			"name": "default",
+			"label": "Text"
+		},
+		{
+			"name": "card",
+			"context": {
+				"order": 2
+			}
+		},
+		{
+			"name": "image",
+			"context": {
+				"order": 3
+			}
+		},
+		{
+			"name": "play-pause",
+			"context": {
+				"order": 4
+			}
+		}
+	]
+}

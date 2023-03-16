@@ -1,0 +1,199 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/_mixins/helper";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+.fixed-table {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  &__scroller {
+    margin-left: calc(36% + 16px); /* If you change this line you must also change the nested class ".fixed-table__sticky-col" width to match. */
+    overflow-x: auto;
+    overflow-y: visible;
+
+    // padding-bottom: 5px;
+
+    @media (min-width: breakpoints.breakpoint-min(md)) {
+      overflow-x: visible;
+      margin-left: 0;
+    }
+  }
+
+  &__wrapper {
+    border: none;
+    border-spacing: 0;
+    width: 100%;
+
+    thead {
+      th {
+        font-size: variables.$ucla-font-size-xx-small;
+        line-height: 1;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: colors.$medium-grey5;
+        padding: 8px 16px;
+        word-wrap: break-word;
+        text-align: left;
+
+        // this is named right-align in typography.scss
+        &.align-right {
+          text-align: right;
+        }
+      }
+    }
+
+    @-moz-document url-prefix() {
+      .fixed-table__sticky-col {
+        margin-top: -24px;
+
+        @media (min-width: breakpoints.breakpoint-min(md)) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    tbody {
+      & > tr:nth-child(odd),
+      & > tr:nth-child(odd) td:nth-child(1) {
+        background-color: colors.$lightest-grey-2;
+      }
+
+      & > tr:nth-child(even),
+      & > tr:nth-child(even) td:nth-child(1) {
+        background-color: colors.$white;
+      }
+
+      & > tr.blue-total,
+      & > tr.blue-total td:nth-child(1) {
+        background-color: colors.$lightest-blue;
+        font-weight: bold;
+      }
+
+      & > tr.yellow-total,
+      & > tr.yellow-total td:nth-child(1) {
+        background-color: colors.$ucla-gold;
+        font-weight: bold;
+
+        & > td {
+          border: none;
+        }
+      }
+
+      td {
+        font-size: variables.$ucla-font-size-xx-small;
+        line-height: 1.33;
+        color: colors.$grey-80;
+        padding: 8px 16px;
+        word-wrap: break-word;
+      }
+    }
+
+    tfoot {
+      & > tr.blue-total,
+      & > tr.blue-total td:nth-child(1) {
+        background-color: colors.$lightest-blue;
+        font-weight: bold;
+      }
+
+      & > tr.yellow-total,
+      & > tr.yellow-total td:nth-child(1) {
+        background-color: colors.$ucla-gold;
+        font-weight: bold;
+
+        & > td {
+          border: none;
+        }
+      }
+
+      td {
+        font-size: variables.$ucla-font-size-xx-small;
+        line-height: 1.33;
+        color: colors.$medium-grey5;
+        padding: 8px 16px;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  // Sorting tables can be found on the faculty Awards pages /about/awards-and-honors/faculty/
+  #sortTable {
+    opacity: 0;
+    filter: alpha(opacity=0);
+
+    tr th:nth-child(1) {
+      position: absolute;
+      width: 34%;
+
+      @media (min-width: breakpoints.breakpoint-min(md)) {
+        position: relative;
+      }
+    }
+    
+    th {
+      position: relative;
+      cursor: pointer;
+      padding-left: 32px;
+
+      &::before {
+        color: colors.$medium-grey5;
+        display: block;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: 25px 30px;
+        left: 9px;
+        top: 0px;
+        width: 20px;
+        height: 20px;
+        background-image: url('../icons/denotive/sort--default.svg');
+        content: '';
+      }
+
+      &.sorting-asc {
+        &::before {
+          background-image: url('../icons/denotive/sort--ascending.svg');
+        }
+      }
+
+      &.sorting-desc {
+        &::before {
+          background-image: url('../icons/denotive/sort--descending.svg');
+        }
+      }
+    }
+  }
+
+  &__sticky-col {
+    left: 0;
+    position: absolute;
+    top: auto;
+    width: 36%; /* If you change this line change you must also change the parent class ".fixed-table__scroller" margin-left to match. */
+    overflow-y: scroll;
+    font-weight: bold;
+
+    @media (min-width: breakpoints.breakpoint-min(md)) {
+      min-width: 300px;
+      position: relative;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 8px;
+
+    &-track {
+      box-shadow: inset 0 -1px 0 0 colors.$grey-10, inset 0 1px 0 0 colors.$grey-10;
+      border-radius: 4px;
+    }
+
+    &-thumb {
+      background: colors.$default-state;
+      border-radius: 4px;
+
+      &:hover {
+        background: colors.$hover-state;
+      }
+    }
+  }
+}

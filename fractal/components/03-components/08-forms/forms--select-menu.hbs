@@ -1,0 +1,91 @@
+<h2 class="mt-24">Select Menu</h2>
+<!-- Select Menu Only -->
+<div class="select">
+  <label class="select__label" for="solo_selection">Label</label>
+  <select class="select__menu" name="solo_selection">
+    <option class="select__placeholder" disabled selected>Make a selection</option>
+    <option class="select__option" value="Epsum">Epsum factorial non deposit quid</option>
+    <option class="select__option" value="Pro">Pro quo hic escorol olypian</option>
+    <option class="select__option" value="Et">Et gorilla congolium sic</option>
+    <option class="select__option" value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
+  </select>
+  <span class="select__help">Helpful text goes here</span>
+  <span class="select__error">Error message hidden</span>
+</div>
+
+<!-- Select Menu in Form -->
+<form class="example-form-short">
+  <div class="select">
+    <label class="select__label" for="example_selection">Label</label>
+    <select class="select__menu" name="example_selection">
+      <option class="select__placeholder" disabled selected>Make a selection</option>
+      <option class="select__option" value="Epsum">Epsum factorial non deposit quid</option>
+      <option class="select__option" value="Pro">Pro quo hic escorol olypian</option>
+      <option class="select__option" value="Et">Et gorilla congolium sic</option>
+      <option class="select__option" value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
+    </select>
+    <span class="select__help">Helpful text goes here</span>
+    <span class="select__error">Error message hidden</span>
+  </div>
+  <button class="btn btn--lightbg">Submit To Trigger Error</button>
+</form>
+
+<!-- Full Width Select Menu in Form -->
+<form class="example-form-full-width">
+  <div class="select full-width" style="width: 600px; max-width: 100%;">
+    <label class="select__label" for="example_selection-fullwidth">Full-width Label and Dropdown Menu</label>
+    <select class="select__menu" name="example_selection-fullwidth">
+      <option class="select__placeholder" disabled selected>Make a selection</option>
+      <option class="select__option" value="Epsum">Epsum factorial non deposit quid</option>
+      <option class="select__option" value="Pro">Pro quo hic escorol olypian</option>
+      <option class="select__option" value="Et">Et gorilla congolium sic</option>
+      <option class="select__option" value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
+      <option class="select__option" value="Ad" >This selection is an error</option>
+    </select>
+    <span class="select__help">Helpful text goes here</span>
+    <span class="select__error">Error message is hidden</span>
+  </div>
+  <button class="btn btn--lightbg">Submit To Trigger Error</button>
+</form>
+
+<!-- Example Error Handling -->
+<script>
+  $(document).ready(function (){
+
+    $(".example-form-short").submit(function(e){
+      e.preventDefault();
+      // Example error returned from server
+      var jsonReturned = { "errors": [{"example_selection": "This is not a valid selection"}] };
+      var errorsArr = jsonReturned.errors;
+      // Example parsing of JSON data
+      if (errorsArr.length) {
+        for ( var i = 0 ; i < errorsArr.length; i++ ) {
+          for ( key in errorsArr[i] ) {
+            var inputFieldName = key;
+            var inputErrorMessage = errorsArr[i][key];
+            // call UCLA Script Library function to update error message and show error message
+            triggerError(inputFieldName, inputErrorMessage);
+          }
+        }
+      }
+    });
+
+    $(".example-form-full-width").submit(function(e){
+      e.preventDefault();
+      // Example error returned from server
+      var jsonReturned = { "errors": [{"example_selection-fullwidth": "This is not a valid selection"}] };
+      var errorsArr = jsonReturned.errors;
+      // Example parsing of JSON data
+      if (errorsArr.length) {
+        for ( var i = 0 ; i < errorsArr.length; i++ ) {
+          for ( key in errorsArr[i] ) {
+            var inputFieldName = key;
+            var inputErrorMessage = errorsArr[i][key];
+            // call UCLA Script Library function to update error message and show error message
+            triggerError(inputFieldName, inputErrorMessage);
+          }
+        }
+      }
+    });
+  });
+</script>

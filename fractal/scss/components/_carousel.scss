@@ -1,0 +1,223 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+// Orginal CSS comes from SplideJS carousel v2.4.24. https://github.com/Splidejs/splide/tree/master/dist/css
+// This CSS has been modfied to fit UCLA's needs.
+// Documentation on themeing Splide can be found here, https://splidejs.com/themes/
+
+@keyframes splide-loading {
+  0% {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.splide {
+  visibility: hidden;
+  outline: none;
+  position: relative;
+
+  &--draggable > .splide__track > .splide__list > .splide__slide {
+    user-select: none;
+  }
+
+  &--fade > .splide__track > .splide__list {
+    display: block;
+  }
+
+  &--fade > .splide__track > .splide__list > .splide__slide {
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+  }
+
+  &--fade > .splide__track > .splide__list > .splide__slide.is-active {
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  &--rtl {
+    direction: rtl;
+  }
+
+  &--ttb > .splide__track > .splide__list {
+    display: block;
+  }
+
+  &--ttb > .splide__pagination {
+    width: auto;
+  }
+
+  &__container {
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  &__list {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: max-content;
+    will-change: transform;
+  }
+
+  &.is-active .splide__list {
+    display: flex;
+  }
+
+  &__arrow {
+    background: colors.$ucla-blue;
+    border: 0;
+    margin: 1px;
+    width: 40px;
+    height: 40px;
+
+    &--prev {
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+
+      svg {
+        transform: scaleX(-1); /* Equal to rotateZ(45deg) */
+      }
+    }
+
+    &--next {
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+    svg {
+      width: 12px;
+      height: 12px;
+
+      path {
+        fill: colors.$white;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: colors.$ucla-gold;
+      color: colors.$black;
+
+      svg path {
+        fill: colors.$black;
+      }
+    }
+
+    &:focus {
+      outline: 1px solid colors.$active-state;
+      outline-offset: 1px;
+    }
+  }
+
+  &__pagination {
+    align-items: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    width: 95%;
+
+    li {
+      display: inline-block;
+      line-height: 1;
+      list-style-type: none;
+      margin: 0;
+
+      button.splide__pagination__page {
+        background: colors.$white;
+        border: 1px solid colors.$grey-40;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        margin: 2px;
+
+        &.is-active {
+          background: colors.$active-state;
+          border: 1px solid colors.$active-state;
+        }
+
+        &:hover {
+          background: colors.$hover-state;
+          border: 1px solid colors.$hover-state;
+          cursor: pointer;
+        }
+
+        &:focus {
+          outline: 1px dotted colors.$focus-state;
+        }
+      }
+    }
+  }
+
+  &__play,
+  &__pause {
+    background: colors.$ucla-blue;
+    border: 0;
+    border-radius: 2px;
+    margin: 1px;
+    color: colors.$white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: variables.$ucla-font-size-xxx-small;
+    padding: 3px;
+
+    &:hover {
+      cursor: pointer;
+      background: colors.$ucla-gold;
+      color: colors.$black;
+    }
+
+    &:focus {
+      outline: 1px dotted colors.$active-state;
+      outline-offset: 1px;
+    }
+  }
+
+  &__slide {
+    outline: none;
+    position: relative;
+    box-sizing: border-box;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    list-style-type: none !important;
+    margin: 0;
+
+    img {
+      vertical-align: bottom;
+    }
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  &__spinner {
+    animation: splide-loading 1s linear infinite;
+    border: 2px solid #999;
+    border-left-color: transparent;
+    border-radius: 50%;
+    bottom: 0;
+    display: inline-block;
+    height: 20px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+  }
+
+  &__track {
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+  }
+}

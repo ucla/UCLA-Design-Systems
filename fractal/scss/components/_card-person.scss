@@ -1,0 +1,91 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/_mixins/helper";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+.person-card,
+.person-card-grey {
+  height: auto;
+  position: relative;
+  background: colors.$white;
+  vertical-align: top;
+
+  @media only screen and (min-width: breakpoints.breakpoint-min(xs)) {
+    max-width: 376px;
+    margin: 0 16px 32px;
+  }
+
+  &__info-wrapper {
+    position: relative;
+    bottom: 32px;
+    background: colors.$white;
+    z-index: 0;
+    padding: 64px 32px 32px;
+  }
+
+  &-grey > &__info-wrapper {
+    background: colors.$grey-5;
+  }
+
+  &__image {
+    width: 160px;
+    height: 160px;
+    padding-left: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__name {
+    color: colors.$default-state;
+    font-size: variables.$ucla-font-size-large;
+    line-height: 1.125;
+    margin-bottom: 8px;
+  }
+
+  &__department {
+    color: colors.$medium-grey4;
+    font-size: variables.$ucla-font-size-medium-small;
+    line-height: 1.125;
+    margin-bottom: 12px;
+  }
+
+  &__description {
+    margin-bottom: 8px;
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.5;
+    color: colors.$medium-grey5;
+    max-height: 300px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contact-details {
+    display: flex;
+    align-items: center;
+
+    p.person-card__contact-label {
+      width: 4.375rem;
+      font-weight: bold;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &__photo-credit {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 1.125rem;
+  }
+
+  &:first-child {
+    margin-top: 0;
+
+    @media only screen and (min-width: breakpoints.breakpoint-min(sm)) {
+      margin-top: 40px;
+    }
+  }
+}

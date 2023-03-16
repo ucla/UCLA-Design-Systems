@@ -1,0 +1,73 @@
+<h2>Form Text Input</h2>
+<!-- Text Input Only -->
+<div class="text">
+  <label class="text__label" for="solo_textinput">Label</label>
+  <input class="text__input" type="text" name="solo_textinput">
+  <span class="text__help">Helpful text goes here</span>
+  <span class="text__error">Error message is hidden</span>
+</div>
+
+<!-- Text Input in Form -->
+<form class="example-form-short">
+  <div class="text">
+    <label class="text__label" for="example_textinput">Label</label>
+    <input class="text__input" type="text" name="example_textinput">
+    <span class="text__help">Helpful text goes here</span>
+    <span class="text__error">Error message is hidden</span>
+  </div>
+  <button type="submit" class="btn btn--lightbg">Submit To Trigger Error</button>
+</form>
+
+<!-- Full Width Text Input in Form -->
+<form class="example-form-full-width">
+  <div class="text full-width" style="width: 600px; max-width: 100%;">
+    <label class="text__label" for="example_textinput-fullwidth">Label</label>
+    <input class="text__input" type="text" name="example_textinput-fullwidth">
+    <span class="text__help">Helpful text goes here</span>
+    <span class="text__error">Error message is hidden</span>
+  </div>
+  <button type="submit" class="btn btn--lightbg">Submit To Trigger Error</button>
+</form>
+
+<!-- Example Error Handling -->
+<script>
+  $(document).ready(function (){
+
+    $(".example-form-short").submit(function(e){
+      e.preventDefault();
+      // Example error returned from server
+      var jsonReturned = { "errors": [{"example_textinput": "Error message here"}] };
+      var errorsArr = jsonReturned.errors;
+      // Example parsing of JSON data
+      if (errorsArr.length) {
+        for ( var i = 0 ; i < errorsArr.length; i++ ) {
+          for ( key in errorsArr[i] ) {
+            var inputFieldName = key;
+            var inputErrorMessage = errorsArr[i][key];
+            // call UCLA Script Library function to update error message and show error message
+            triggerError(inputFieldName, inputErrorMessage);
+          }
+        }
+      }
+    })
+
+    $(".example-form-full-width").submit(function(e){
+      e.preventDefault();
+      // Example error returned from server
+      var jsonReturned = { "errors": [{"example_textinput-fullwidth": "Error message here"}] };
+      var errorsArr = jsonReturned.errors;
+      // Example parsing of JSON data
+      if (errorsArr.length) {
+        for ( var i = 0 ; i < errorsArr.length; i++ ) {
+          for ( key in errorsArr[i] ) {
+            var inputFieldName = key;
+            var inputErrorMessage = errorsArr[i][key];
+            // call UCLA Script Library function to update error message and show error message
+            triggerError(inputFieldName, inputErrorMessage);
+          }
+        }
+      }
+    })
+
+  })
+</script>

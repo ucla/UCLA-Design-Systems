@@ -1,0 +1,119 @@
+{
+	"title": "typography",
+	"collated": "true",
+	"status": "ready",
+	"variants": [
+		{
+			"name": "default",
+			"label": "H 1"
+		},
+		{
+			"name": "h2",
+			"context": {
+				"order": 2
+			}
+		},
+		{
+			"name": "h3",
+			"context": {
+				"order": 3
+			}
+		},
+		{
+			"name": "h4",
+			"context": {
+				"order": 4
+			}
+		},
+		{
+			"name": "h5",
+			"context": {
+				"order": 5
+			}
+		},
+		{
+			"name": "h6",
+			"context": {
+				"order": 6
+			}
+		},
+		{
+			"name": "paragraph-lead",
+			"context": {
+				"order": 7
+			}
+		},
+		{
+			"name": "paragraph",
+			"context": {
+				"order": 8
+			}
+		},
+		{
+			"name": "paragraph-small",
+			"context": {
+				"order": 9
+			}
+		},
+		{
+			"name": "code",
+			"context": {
+				"order": 10
+			}
+		},
+		{
+			"name": "left-align",
+			"context": {
+				"order": 11
+			}
+		},
+		{
+			"name": "center-align",
+			"context": {
+				"order": 12
+			}
+		},
+		{
+			"name": "right-align",
+			"context": {
+				"order": 13
+			}
+		},
+		{
+			"name": "strong",
+			"context": {
+				"order": 14
+			}
+		},
+		{
+			"name": "emphasis",
+			"context": {
+				"order": 15
+			}
+		},
+		{
+			"name": "deleted",
+			"context": {
+				"order": 16
+			}
+		},
+		{
+			"name": "marked",
+			"context": {
+				"order": 17
+			}
+		},
+		{
+			"name": "inserted",
+			"context": {
+				"order": 18
+			}
+		},
+		{
+			"name": "blockquote",
+			"context": {
+				"order": 19
+			}
+		}
+	]
+}

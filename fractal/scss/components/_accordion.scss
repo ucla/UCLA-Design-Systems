@@ -1,0 +1,142 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+.accordion {
+  display: block;
+  margin: 0 auto;
+  width: 98%;
+
+  &__title {
+    border: 0;
+    border-top: 1px solid colors.$grey-10;
+    width: 100%;
+    text-align: left;
+    color: colors.$default-state;
+    font-size: variables.$ucla-font-size-medium;
+    line-height: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    background: rgba(0 0 0 / 0%);
+    margin-top: 1px;
+    padding: 20px 64px 20px 16px;
+
+    &:focus {
+      outline: 3px solid colors.$focus-state;
+      outline-offset: -3px;
+    }
+
+    &:hover,
+    &:active {
+      background: colors.$hover-state;
+      color: colors.$white;
+      cursor: pointer;
+
+      &::after {
+        background: url("../icons/denotive/down--white.svg");
+        background-position: center;
+        background-size: contain;
+        position: absolute;
+        right: 16px;
+        top: 20px;
+        width: 24px;
+        height: 24px;
+      }
+
+      @media (min-width: breakpoints.breakpoint-min(md)) {
+        &::after {
+          right: 16px;
+          top: 16px;
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+
+    &.active {
+      &::after {
+        transform: scaleY(-1);
+      }
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      background: url("../icons/denotive/down--blue.svg");
+      background-position: center;
+      background-size: contain;
+      position: absolute;
+      right: 16px;
+      top: 20px;
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (min-width: breakpoints.breakpoint-min(md)) {
+      font-size: variables.$ucla-font-size-large;
+      padding: 18px 64px 18px 16px;
+
+      &::after {
+        background-size: contain;
+        right: 16px;
+        top: 16px;
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  &__content {
+    display: none;
+    padding: 16px;
+    padding-bottom: 32px;
+
+    &.show-me {
+      display: block;
+    }
+  }
+
+  &.accordion-last {
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid colors.$grey-10;
+    }
+  }
+}
+
+// load more code
+.load-more {
+  &.btn {
+    border: 2px solid colors.$default-state;
+    background: colors.$white;
+    padding: 12px 16px 8px;
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.25;
+    color: colors.$default-state;
+
+    &:hover {
+      background: colors.$hover-state;
+      border-color: colors.$hover-state;
+      color: colors.$white;
+    }
+
+    &:focus {
+      background: colors.$focus-state;
+      border-color: colors.$focus-state;
+      color: colors.$white;
+      outline: 1px dotted colors.$focus-state;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      background: colors.$active-state;
+      border-color: colors.$active-state;
+      color: colors.$white;
+    }
+  }
+}

@@ -1,0 +1,1229 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/_mixins/helper";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+/* ------------------------------------
+    Header
+  ------------------------------------ */
+#header {
+  border-bottom: 1px solid colors.$grey-10;
+
+  .site-name a {
+    &:focus {
+      outline: 1px dotted colors.$hover-state;
+    }
+  }
+
+  .header-logo {
+    a {
+      &:focus {
+        outline: 1px dotted colors.$white;
+      }
+    }
+  }
+}
+
+/* ------------------------------------
+    Breadcrumb
+  ------------------------------------ */
+.breadcrumb {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+  overflow-y: scroll;
+  width: 100%;
+  width: calc(100% - 5px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: inline-block;
+
+  @media (min-width: breakpoints.breakpoint-min(lg)) {
+    width: 100%;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__item {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.125;
+    font-weight: bold;
+    border-radius: 1px;
+
+    a {
+      text-decoration: none;
+      color: colors.$default-state;
+
+      &:hover {
+        background-color: colors.$hover-state;
+        color: colors.$white;
+      }
+
+      &:focus {
+        outline: 1px dotted colors.$hover-state;
+      }
+    }
+
+    &::before {
+      content: "/";
+      display: inline;
+      padding: 0 8px;
+      margin: 0;
+      font-weight: normal;
+      color: #949494;
+    }
+
+    &--first {
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  &--white {
+    color: colors.$white;
+    position: relative;
+
+    .breadcrumb__item {
+      a {
+        color: colors.$white;
+
+        &:hover {
+          background-color: colors.$hover-state-dark;
+          color: colors.$medium-grey5;
+        }
+      }
+
+      &::before {
+        color: colors.$white;
+      }
+    }
+  }
+
+  &--fade {
+    display: inline-block;
+    position: relative;
+    width: 0;
+    height: 25px;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 24px;
+      top: 0;
+      right: 0;
+      background: rgb(255 255 255);
+      background: linear-gradient(90deg, rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 100%) 84%, rgb(255 255 255 / 100%) 100%);
+    }
+
+    &.white {
+      &::after {
+        background: rgb(39 116 174);
+        background: linear-gradient(90deg, rgb(39 116 174 / 0%) 0%, rgb(39 116 174 / 100%) 84%, rgb(39 116 174 / 100%) 100%);
+      }
+    }
+  }
+}
+
+/* ------------------------------------
+  Header Logo
+------------------------------------ */
+.header-logo {
+  background-color: colors.$ucla-blue;
+  padding: 8px 24px;
+  max-height: 48px;
+
+  @media (min-width: breakpoints.breakpoint-min(lg)) {
+    padding: 12px 24px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    max-width: 1176px;
+    margin: 0 auto;
+  }
+
+  &__image {
+    display: inline-block;
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  .breadcrumb {
+    position: static;
+    width: calc(100% - 100px);
+    margin-top: 5px;
+
+    &> .breadcrumb__item::before {
+      padding: 0 4px;
+    }
+  }
+}
+
+/* --------------------------------------
+  Site Name
+------------------------------------ */
+
+.site-name {
+  font-weight: bold;
+  font-size: variables.$ucla-font-size-x-large;
+  line-height: 1;
+  margin-bottom: 16px;
+
+  a {
+    text-decoration: none;
+    color: colors.$medium-grey5;
+    display: inline-block;
+  }
+}
+
+/* --------------------------------------
+    Header Wrap
+  ------------------------------------ */
+.header-wrap {
+  display: block;
+  max-width: 1176px;
+  margin: 0 auto;
+  padding: 16px 0 0;
+  position: relative;
+  top: 1px;
+  min-height: 41px;
+
+  @media (min-width: breakpoints.breakpoint-min(lg)) {
+    padding: 24px 24px 0;
+    min-height: auto;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  .site-name {
+    float: left;
+    width: 75%;
+    margin-left: 24px;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      width: 50%;
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+
+    a {
+      margin-bottom: 0;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  #menu-secondary {
+    float: right;
+    width: 50%;
+    position: relative;
+    display: none;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      display: block;
+    }
+
+    .nav-secondary {
+      float: right;
+      position: relative;
+      top: -6px;
+    }
+  }
+}
+
+/* ------------------------------------
+    Navigation Container
+  ------------------------------------ */
+#menu {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  @media (min-width: breakpoints.breakpoint-min(lg)) {
+    width: auto;
+  }
+
+  .nav-primary {
+    right: -100%;
+    top: 43px;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      top: 0;
+      z-index: 100;
+    }
+
+    &__list {
+      float: right;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        width: auto;
+        position: relative;
+        left: auto;
+        top: auto;
+      }
+    }
+
+    &--is-active {
+      right: 0%;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        right: 0;
+      }
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    right: 0;
+    bottom: -31px;
+    margin-right: 24px;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      display: none;
+      margin-right: 0;
+    }
+  }
+}
+
+/* ------------------------------------
+    Secondary navigation
+  ------------------------------------ */
+.nav-secondary {
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: variables.$ucla-font-size-small;
+    line-height: 1.286;
+    font-weight: bold;
+    color: colors.$default-state;
+    display: block;
+    padding: 8px 16px;
+    margin-left: 2px;
+    border-radius: 2px;
+
+    &:hover {
+      color: colors.$white;
+      background-color: colors.$hover-state;
+    }
+
+    &:active {
+      color: colors.$white;
+      background-color: colors.$active-state;
+    }
+
+    &:focus {
+      outline: 1px dotted colors.$hover-state;
+    }
+
+    &--active {
+      color: colors.$white;
+      background-color: colors.$default-state;
+    }
+  }
+}
+
+/* ------------------------------------
+    Primary Main navigation
+  ------------------------------------ */
+.nav-primary {
+  position: relative;
+  border-top: 1px solid colors.$medium-grey3;
+  transition: right 0.5s ease;
+
+  @media (min-width: breakpoints.breakpoint-min(lg)) {
+    float: left;
+    left: 0%;
+    border-top: none;
+  }
+
+  /* The main list of navigation links. */
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      list-style: none;
+      background: colors.$white;
+      // padding-right: 2px;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        background: none;
+      }
+
+      &::before {
+        content: "";
+        margin: 0;
+        padding: 0;
+        display: none;
+      }
+    }
+
+    /* Make the navigation a flexbox above 1024px */
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      display: flex;
+    }
+
+    /* Style li(s) */
+    li {
+      margin: 0;
+      min-width: 100%;
+      border-bottom: 1px solid colors.$medium-grey3;
+
+      /* Style li(s) above 1024px */
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        min-width: inherit;
+        flex-basis: auto;
+        align-self: flex-end;
+        // border: 1px solid transparent;
+        border-bottom: 0;
+        margin-right: 4px;
+
+        &:hover {
+          /* Keep top level item hover state when inside child elesearch-iconts */
+          & > .nav-primary__link {
+            background: colors.$hover-state;
+            color: colors.$white;
+
+            &::after {
+              filter: brightness(0) invert(1);
+            }
+          }
+
+          /* Show child links on hover of parents container */
+          & > ul {
+            margin-top: 0;
+            z-index: 820;
+          }
+        }
+
+        &:nth-last-child(-n+4) {
+          & > .nav-primary__sublist {
+            right: -4px;
+            
+            .nav-primary__sublist-2 {
+              right: 20rem !important;
+              margin-right: -10px !important;
+            }
+          }
+        }
+      }
+
+      /* Style child links below 1024px */
+      & > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          list-style: none;
+
+          &::before {
+            content: "";
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        a {
+          display: block;
+          background-color: colors.$grey-10;
+
+          /* Unset child link styles above 1024px */
+          @media (min-width: breakpoints.breakpoint-min(lg)) {
+            background-color: colors.$white;
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    a {
+      &.nav-primary__link--current-page {
+        border-left: 4px solid colors.$ucla-gold;
+        padding-left: 20px;
+      }
+    }
+
+    .nav-primary__sublist {
+      a {
+        &.nav-primary__link--current-page {
+          padding-left: 44px;
+        }
+      }
+    }
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      padding-right: 10px;
+
+      a {
+        &.nav-primary__link--current-page {
+          border-left: 0;
+          position: relative;
+
+          &::before {
+            content: "";
+            display: block;
+            width: calc(100% - 30px);
+            height: 4px;
+            position: absolute;
+            background: colors.$ucla-gold;
+            bottom: 8px;
+            left: 16px;
+          }
+        }
+      }
+
+      &:hover {
+        .nav-primary__toggle {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      .nav-primary__sublist {
+        .nav-primary__item {
+          padding-right: 0;
+
+          a {
+            &.nav-primary__link--current-page {
+              border-left: 4px solid colors.$ucla-gold;
+              padding-left: 12px;
+
+              &::before {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__toggle {
+    background-color: colors.$white;
+    border: 0;
+    border-left: 1px solid colors.$medium-grey3;
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+
+    &.is-open {
+      &::after {
+        transform: rotate(-90deg);
+      }
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: colors.$hover-state;
+
+      &::after {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    // &:focus {
+    //   outline-offset: -0.25rem;
+    //   outline: 4px solid colors.$hover-state;
+    // }
+    &:focus {
+      outline-offset: -4px;
+      outline: 4px solid colors.$hover-state;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        outline-offset: -0.25rem;
+        outline: 1px dotted colors.$hover-state;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1em;
+      background: url("../icons/denotive/right-arrow--blue.svg") no-repeat center;
+      background-size: 24px;
+    }
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      width: 2em;
+      height: auto;
+      cursor: pointer;
+
+      &:hover {
+        background: none;
+      }
+
+      // &:focus {
+      //   outline: 0;
+      // }
+    }
+  }
+
+  &__toggle-2 {
+    background-color: colors.$lightest-grey-2;
+    border: 0;
+    border-left: 1px solid colors.$medium-grey3;
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+
+    &.is-open {
+      &::after {
+        transform: rotate(-90deg);
+      }
+    }
+
+    &::after {
+      transform: rotate(90deg);
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        transform: none;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: colors.$hover-state;
+
+      &::after {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    // &:focus {
+    //   outline-offset: -0.25rem;
+    //   outline: 4px solid colors.$hover-state;
+    // }
+
+    &:focus {
+      outline-offset: -4px;
+      outline: 4px solid colors.$hover-state;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        outline-offset: -0.25rem;
+        outline: 1px dotted colors.$hover-state;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1em;
+      background: url("../icons/denotive/right-arrow--blue.svg") no-repeat center;
+      background-size: 24px;
+    }
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      background: none;
+      border: none;
+      width: 2em;
+      height: auto;
+      cursor: pointer;
+
+      &:hover {
+        background: none;
+      }
+
+      // &:focus {
+      //   outline: 0;
+      // }
+    }
+  }
+
+  /* Child list ul(s) */
+  &__sublist {
+    width: 100%;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      position: absolute;
+      width: 20rem;
+      //top: 44px;
+    }
+
+    &--open {
+      display: block;
+    }
+
+    /* TODO refactor this to .nav-primary__list li>ul li */
+    .nav-primary__item {
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        border: 1px solid colors.$grey-10;
+        border-top: 0;
+
+        a {
+          padding: 14px 16px;
+        }
+      }
+
+      &:first-child {
+        border-top: 1px solid colors.$medium-grey3;
+
+        @media (min-width: breakpoints.breakpoint-min(lg)) {
+          border-top: 1px solid colors.$grey-10;
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0;
+
+        @media (min-width: breakpoints.breakpoint-min(lg)) {
+          border-bottom: 1px solid colors.$grey-10;
+        }
+      }
+    }
+
+    .nav-primary__link {
+      padding: 14px 24px 14px 48px;
+      background-color: colors.$lightest-grey-2;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        background-color: colors.$white;
+      }
+    }
+  }
+
+  /* The children of the sublist */
+  &__sublist-2 {
+    width: 100%;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      position: absolute;
+      width: 20rem;
+      list-style-position: outside !important;
+      right: -20rem;
+      top: -1px;
+    }
+
+    &--open {
+      display: block;
+    }
+
+    /* TODO refactor this to .nav-primary__list li>ul li */
+    .nav-primary__item {
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        border: 1px solid colors.$grey-10;
+        border-top: 0;
+
+        a {
+          padding: 14px 16px;
+        }
+      }
+
+      &:first-child {
+        border-top: 1px solid colors.$medium-grey3;
+
+        @media (min-width: breakpoints.breakpoint-min(lg)) {
+          border-top: 1px solid colors.$grey-10;
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0;
+
+        @media (min-width: breakpoints.breakpoint-min(lg)) {
+          border-bottom: 1px solid colors.$grey-10;
+        }
+      }
+    }
+
+    .nav-primary__link {
+      padding: 14px 24px 14px 72px;
+      background-color: colors.$grey-8;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        background-color: colors.$white;
+      }
+    }
+  }
+
+  /* Link styling
+     TODO most of this could be moved to the a selector. Really only need this to target the has children class. */
+  &__link {
+    display: block;
+
+    &:hover {
+      outline: 4px solid colors.$hover-state;
+      outline-offset: -0.25rem;
+      // color: colors.$white;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        background: colors.$hover-state;
+        color: colors.$white;
+        outline: 0;
+      }
+    }
+
+    &:focus {
+      outline-offset: -4px;
+      outline: 4px solid colors.$hover-state;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        outline-offset: -0.25rem;
+        outline: 1px dotted colors.$hover-state;
+      }
+    }
+
+    &:active {
+      background: colors.$hover-state;
+      color: colors.$white;
+    }
+
+    &--has-children {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > *:nth-child(1) {
+        flex: 1;
+      }
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        display: inline-block;
+        position: relative;
+        padding-right: 0;
+        // padding-right: 2px;
+
+
+        .nav-primary__link {
+          &:hover {
+            border-bottom: 1px;
+          }
+        }
+
+        & > a {
+          display: box;
+          display: flexbox;
+          display: flex;
+          align-items: center;
+
+          &.nav-primary__link {
+            padding-right: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  &__link-2 {
+    display: block;
+
+    &:hover {
+      outline: 4px solid colors.$hover-state;
+      outline-offset: -0.25rem;
+      // color: colors.$white;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        background: colors.$hover-state;
+        color: colors.$white;
+        outline: 0;
+      }
+    }
+
+
+    &:focus {
+      outline-offset: -4px;
+      outline: 4px solid colors.$hover-state;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        outline-offset: -0.25rem;
+        outline: 1px dotted colors.$hover-state;
+      }
+    }
+
+    &:active {
+      background: colors.$hover-state;
+      color: colors.$white;
+    }
+
+    &--has-children {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > *:nth-child(1) {
+        flex: 1;
+      }
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        // display: inline-block;
+        position: relative;
+        padding-right: 0;
+        // padding-right: 2px;
+
+
+        .nav-primary__link {
+          &:hover {
+            border-bottom: 1px;
+          }
+        }
+
+        &:hover {
+          & > .nav-primary__toggle-2 {      
+            filter: brightness(0) invert(1);
+          }
+        }
+
+        & > a {
+          display: box;
+          display: flexbox;
+          display: flex;
+          align-items: center;
+
+          &.nav-primary__link {
+            padding-right: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Hide child items with this class
+     Class added vis JS */
+  &__sublist {
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__sublist-2 {
+    &--hidden {
+      display: none;
+    }
+  }
+
+  /* All primary nav links */
+  a {
+    color: colors.$default-state;
+    font-weight: bold;
+    font-size: variables.$ucla-font-size-default;
+    line-height: 20px;
+    text-decoration: none;
+    padding: 14px 24px;
+    cursor: pointer;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      padding: 8px 16px 12px;
+      font-size: variables.$ucla-font-size-medium-small;
+      line-height: 24px;
+    }
+  }
+
+  /* Search Form */
+  &__search-mobile,
+  &__search-desktop {
+    .nav-primary__search-form {
+      display: block;
+      position: relative;
+
+      &::before {
+        display: block;
+        content: " ";
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        background-image: url("../icons/denotive/search--grey60.svg");
+        background-position: center;
+        background-size: contain;
+        margin: 12px;
+        background-size: cover;
+        z-index: 2;
+      }
+
+      label {
+        width: 100%;
+        display: block;
+        position: inherit;
+
+        @media (min-width: breakpoints.breakpoint-min(lg)) {
+          display: inline-block;
+          width: 91%;
+          margin: 0;
+          border: 1px solid colors.$grey-80;
+        }
+
+        input {
+          width: 100%;
+          padding: 11px 12px 11px 38px;
+          background: #ebebeb;
+          border: 0;
+          appearance: none;
+
+          &::-webkit-search-cancel-button {
+            background-image: url("../icons/denotive/clear--grey60.svg");
+            background-size: 23px;
+            appearance: none;
+            width: 23px;
+            height: 23px;
+          }
+
+          &:focus {
+            // outline-offset: -0.25rem;
+            // outline: 1px dotted #0079bf;
+            outline: 0;
+            box-shadow: inset 0px 0px 0px 3px #0079BF, inset 0px -1px 0px #CCCCCC;
+          }
+        }
+      }
+
+      .nav-primary__search-submit {
+        display: none;
+
+        @media (min-width: breakpoints.breakpoint-min(lg)) {
+          display: inline-block;
+          width: 8%;
+          padding: 12px !important;
+          appearance: none;
+          background: #00598c;
+          color: colors.$white;
+          border: 0;
+          border-radius: 0 2px 2px 0;
+          margin-left: -5px;
+        }
+      }
+    }
+  }
+
+  /* Search Mobile */
+  &__search-mobile {
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      display: none;
+    }
+  }
+
+  /* Search Desktop */
+  &__search-desktop {
+    display: none;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      display: inline-block;
+      // height: 44px;
+      // width: 52px;
+      position: relative;
+      // top: -5px;
+    }
+
+    .nav-primary__search-desktop-button {
+      display: none;
+
+      &:hover {
+        background: #0079bf;
+        cursor: pointer;
+
+        svg {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      &:focus {
+        outline-offset: -0.25rem;
+        outline: 1px dotted #0079bf;
+      }
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        display: block;
+        height: 44px;
+        width: 52px;
+        padding-bottom: 15px;
+        padding-top: 11px;
+        background: transparent;
+        appearance: none;
+        border: 0;
+
+        &--is-active {
+          background: #0079bf;
+
+          svg {
+            filter: brightness(0) invert(1);
+            width: 18px;
+            height: 18px;
+          }
+
+          &:focus {
+            outline: 1px dotted colors.$white;
+          }
+        }
+      }
+    }
+
+    .nav-primary__search-block-form {
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        display: none;
+        background: colors.$white;
+        padding: 17px 32px 15px;
+        border: 1px solid #ccc;
+
+        &--is-active {
+          display: block;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------------
+    Hamburger Navigation
+  ------------------------------------ */
+.hamburger {
+  width: 40px;
+  height: 40px;
+  padding: 14px 12px;
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+
+  &:focus {
+    outline-offset: -0.25rem;
+    outline: 1px dotted colors.$hover-state;
+  }
+
+  &:hover {
+    opacity: 1;
+    background: colors.$ucla-blue;
+
+    .hamburger__inner {
+      background-color: colors.$white;
+
+      &::before {
+        background-color: colors.$white;
+      }
+
+      &::after {
+        background-color: colors.$white;
+      }
+    }
+  }
+
+  &:active {
+    background-color: colors.$active-state;
+  }
+
+  &__box {
+    width: 16px;
+    height: 12px;
+    // display: inline-block;
+    position: relative;
+  }
+
+  &__inner {
+    transition-duration: 0.075s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition-property: transform;
+    width: 16px;
+    height: 2px;
+    background: colors.$ucla-blue;
+    border-radius: 0;
+    position: absolute;
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: relative;
+      display: block;
+      width: 16px;
+      height: 2px;
+      background: colors.$ucla-blue;
+      border-radius: 0;
+    }
+
+    &::before {
+      transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+      top: -5px;
+    }
+
+    &::after {
+      transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      bottom: -3px;
+    }
+  }
+
+  &--is-active {
+    .hamburger__inner {
+      transform: rotate(45deg);
+      transition-delay: 0.12s;
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &::before {
+        top: 0;
+        opacity: 0;
+        transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+      }
+
+      &::after {
+        bottom: 2px;
+        transform: rotate(-90deg);
+        transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+    }
+  }
+}

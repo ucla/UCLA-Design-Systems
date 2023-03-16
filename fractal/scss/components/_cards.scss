@@ -1,0 +1,309 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/_mixins/helper";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+// ~Styles for Cards~ //
+// 1) Basic Cards
+// 2) Event Cards
+// 3) Featured Story & Secondary Story
+// 4) Person Cards
+
+//  Basic Cards //  Basic Cards //  Basic Cards
+//  Basic Cards //  Basic Cards //  Basic Cards
+//  Basic Cards //  Basic Cards //  Basic Cards
+
+.basic-card,
+.basic-card-grey,
+.basic-card-gray {
+  display: inline-block;
+  background: colors.$white;
+  margin: 32px 2% 0 0;
+  vertical-align: top;
+
+  @media only screen and (min-width: breakpoints.breakpoint-min(sm)) {
+    max-width: 376px;
+    margin: 32px 2% 0 0;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @media only screen and (min-width: breakpoints.breakpoint-min(sm)) {
+      max-width: 376px;
+      max-height: 250px;
+    }
+  }
+
+  &__title {
+    font-size: variables.$ucla-font-size-large;
+    font-weight: bold;
+    line-height: 1.125;
+  }
+
+  &__info-wrapper {
+    padding: 32px;
+  }
+
+  &__description {
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.5;
+    color: colors.$medium-grey5;
+    max-height: 300px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__buttons {
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 4px;
+    justify-items: start;
+    margin-left: -8px;
+  }
+}
+
+.basic-card-grey > .basic-card__info-wrapper,
+.basic-card-gray > .basic-card__info-wrapper {
+  background: colors.$grey-5;
+}
+
+//  Event Cards //  Event Cards //  Event Cards
+
+.event-card {
+  width: 100%;
+  height: auto;
+  margin: 16px 0 0;
+  position: relative;
+  background: colors.$white;
+
+  @media only screen and (min-width: breakpoints.breakpoint-min(sm)) {
+    max-width: 276px;
+    margin: 40px 2% 0 0;
+  }
+
+  &:focus {
+    outline: 1px dotted colors.$focus-state;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    @media only screen and (min-width: breakpoints.breakpoint-min(sm)) {
+      max-width: 276px;
+      max-height: 184px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:focus {
+      outline: 1px dotted colors.$focus-state;
+    }
+
+    &:focus,
+    &:active {
+      span {
+        color: colors.$white;
+        outline: 1px dotted colors.$focus-state;
+        background-color: colors.$active-state;
+      }
+    }
+
+    &:hover {
+      color: colors.$default-state;
+      background-color: transparent;
+
+      img {
+        opacity: 0.5;
+      }
+
+      &:visited {
+        background-color: colors.$visited-state;
+        color: colors.$visited-state;
+        text-decoration: none;
+      }
+
+      &::before {
+        display: block;
+        content: "";
+        width: 100%;
+        height: 184px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: colors.$hover-state;
+      }
+
+      span {
+        background-color: colors.$hover-state;
+        color: colors.$white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__title {
+    color: colors.$default-state;
+    margin: 24px 24px 0;
+    font-size: variables.$ucla-font-size-medium;
+    font-weight: bold;
+    line-height: 1.125;
+  }
+
+  &-icon {
+    &__time {
+      width: 16px;
+      height: 16px;
+      margin: -1.5px 6px -1.5px 1px;
+      vertical-align: bottom;
+    }
+
+    &__location {
+      width: 16px;
+      height: 16px;
+      margin: -1.5px 6px -1.5px 1px;
+      vertical-align: bottom;
+    }
+
+    &__play {
+      width: 15px;
+      height: 15px;
+      margin: -1.5px 6px 0 1.25px;
+      vertical-align: bottom;
+    }
+  }
+
+  &-info {
+    display: block;
+    padding: 8px 24px 24px;
+    background: colors.$white;
+
+    &__date {
+      position: absolute;
+      display: block;
+      max-width: 100px;
+      height: 44px;
+      padding: 8px 12px;
+      background: colors.$ucla-gold;
+      color: colors.$grey-80;
+      font-weight: bold;
+      top: 0;
+      left: 0;
+
+      .small-block {
+        margin-top: 9px;
+        display: inline-block;
+      }
+    }
+
+    &__day,
+    &__month {
+      display: block;
+      font-size: variables.$ucla-font-size-xx-small;
+      text-transform: uppercase;
+    }
+
+    &__month {
+      padding-top: 4px;
+    }
+
+    &__number {
+      display: inline-block;
+      font-size: variables.$ucla-font-size-xx-large;
+    }
+
+    &__time,
+    &__location,
+    &__play {
+      display: inline-flex;
+      margin-bottom: 8px;
+      font-size: variables.$ucla-font-size-xx-small;
+      font-weight: bold;
+      color: colors.$medium-grey4;
+
+      img {
+        display: inline;
+        margin-bottom: 3px;
+        margin-left: 2px;
+        margin-right: 6px;
+        vertical-align: middle;
+      }
+    }
+
+    &__description {
+      margin-bottom: 8px;
+      font-size: variables.$ucla-font-size-default;
+      line-height: 1.5;
+      color: colors.$medium-grey5;
+      max-height: 300px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &:first-child {
+    margin-top: 0;
+
+    @media only screen and (min-width: breakpoints.breakpoint-min(sm)) {
+      margin-top: 40px;
+    }
+  }
+}
+
+//  Info Cards //  Info Cards //  Info Cards
+
+.info-card {
+  display: inline-block;
+  background: colors.$lightest-grey-2;
+  box-shadow: inset 0 4px 0 colors.$ucla-gold;
+  margin: 32px 2% 0 0;
+  vertical-align: top;
+
+  @media only screen and (min-width: breakpoints.breakpoint-min(sm)) {
+    max-width: 376px;
+    margin: 32px 2% 0 0;
+  }
+
+  &__title {
+    font-size: variables.$ucla-font-size-large;
+    font-weight: bold;
+    line-height: 1.125;
+  }
+
+  &__wrapper {
+    padding: 32px;
+  }
+
+  &__description {
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.5;
+    color: colors.$medium-grey5;
+    max-height: 300px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__ctas {
+    a {
+      display: list-item;
+      list-style: none;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

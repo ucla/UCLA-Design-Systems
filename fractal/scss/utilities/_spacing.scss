@@ -1,0 +1,146 @@
+@use "sass:map";
+@use "_mixins/breakpoints";
+@use "variables";
+
+// Spacing
+// See Bootstrap for more information: https://getbootstrap.com/docs/4.0/utilities/spacing/
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 1rem !default;
+$spacers: () !default;
+
+// To include more variations for the grid,
+// uncomment/add to the spacers list below
+
+$spacers: map.merge(
+  (
+    0: 0,
+    2: ($spacer * 0.125),
+    4: ($spacer * 0.25),
+    8: ($spacer * 0.5),
+    12: ($spacer * 0.75),
+    16: $spacer,
+    24: ($spacer * 1.5),
+    32: ($spacer * 2),
+    64: ($spacer * 4),
+    80: ($spacer * 5),
+  ),
+  $spacers
+);
+
+// Margin and Padding classes for GLOBAL screen size
+// set key value pairs for margin and padding
+@each $prop, $abbrev in (margin: m, padding: p) {
+  // loop through the spacers we've set
+  @each $size, $length in $spacers {
+    // loop through top, right, bottom, left and auto
+    .#{$abbrev}-#{$size} { #{$prop}: $length !important; }
+
+    .#{$abbrev}t-#{$size},
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length !important;
+    }
+
+    .#{$abbrev}r-#{$size},
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-right: $length !important;
+    }
+
+    .#{$abbrev}b-#{$size},
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-bottom: $length !important;
+    }
+
+    .#{$abbrev}l-#{$size},
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-left: $length !important;
+    }
+  }
+}
+
+// Margin and Padding classes for BREAKPOINT screen size
+// Call the breakpoints from _mixin/_breakpoints.scss
+@each $breakpoint in map.keys(variables.$grid-breakpoints) {
+  // Include the breakpoint mixins
+  @include breakpoints.media-breakpoint-up($breakpoint) {
+    // Set the breakpoint variable to $infix
+    $infix: breakpoints.breakpoint-infix($breakpoint, variables.$grid-breakpoints);
+
+    // set key value pairs for margin and padding
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      // loop through the spacers we've set
+      @each $size, $length in $spacers {
+        // loop through top, right, bottom, left and auto
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length !important;
+        }
+
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $length in $spacers {
+      @if $size != 0 {
+        .m#{$infix}-n#{$size} { margin: -$length !important; }
+
+        .mt#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-top: -$length !important;
+        }
+
+        .mr#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-right: -$length !important;
+        }
+
+        .mb#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-bottom: -$length !important;
+        }
+
+        .ml#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-left: -$length !important;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .m#{$infix}-auto { margin: auto !important; }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto !important;
+    }
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: auto !important;
+    }
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: auto !important;
+    }
+  }
+}

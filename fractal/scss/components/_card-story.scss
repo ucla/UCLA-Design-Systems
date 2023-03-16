@@ -1,0 +1,314 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/_mixins/helper";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+.story {
+  margin-bottom: 0;
+  padding: 0 10px;
+
+  @media (min-width: breakpoints.breakpoint-min(xl)) {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  &__featured {
+    float: left;
+
+    @media (min-width: breakpoints.breakpoint-min(lg)) {
+      position: relative;
+      width: 100%;
+    }
+
+    &-card {
+      min-height: 540px;
+
+      @media (min-width: breakpoints.breakpoint-min(xl)) {
+        width: 100%;
+        margin-bottom: 0;
+      }
+    }
+
+    &-content {
+      margin: 0 25px;
+      padding: 32px;
+      position: relative;
+      top: -24px;
+      background-color: colors.$white;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        margin: 0;
+        width: 576px;
+        position: absolute;
+      }
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        transform: translateY(100%);
+      }
+    }
+
+    &-image {
+      width: 100%;
+      height: auto;
+
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        width: 776px;
+        height: 517px;
+        float: right;
+      }
+    }
+
+    &-title {
+      font-size: variables.$ucla-font-size-xx-large;
+      line-height: 1.125;
+      margin-bottom: 16px;
+
+      & > .link {
+        color: colors.$default-state;
+        text-decoration: none;
+      }
+    }
+
+    &-blurb {
+      margin: 0 0 16px;
+      line-height: 1.5;
+    }
+
+    &-source {
+      font-weight: bold;
+      line-height: 1.25;
+
+      & > .link {
+        color: colors.$default-state;
+        text-decoration: none;
+
+        &:hover {
+          background-color: colors.$hover-state;
+          color: colors.$white;
+          text-decoration: none;
+        }
+
+        &:active {
+          background-color: colors.$active-state;
+          color: colors.$white;
+          text-decoration: none;
+        }
+
+        &:focus {
+          background-color: colors.$focus-state;
+          color: colors.$white;
+          text-decoration: none;
+        }
+      }
+    }
+  } // end &__featured
+
+  &-card {
+    width: 100%;
+    min-width: 376px;
+    max-width: 376px;
+
+    &-image {
+      height: auto;
+      max-width: 376px;
+      max-height: 282px;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    &-date {
+      font-size: variables.$ucla-font-size-small;
+      font-weight: bold;
+    }
+
+    &-content {
+      padding: 32px;
+    }
+
+    &-title .story-card-link {
+      line-height: 1.125;
+      margin: 8px 0;
+      text-decoration: none;
+      color: colors.$default-state;
+
+      &:hover {
+        background-color: colors.$hover-state;
+        color: colors.$white;
+      }
+    }
+
+    &-source {
+      font-weight: bold;
+
+      & a {
+        text-decoration: none;
+        color: colors.$default-state;
+      }
+    }
+
+    
+  }
+
+  &__secondary-card {
+    width: 100%;
+    min-width: 272px;
+    max-width: 272px;
+    padding: 1rem 0;
+    border-top: 1px solid colors.$medium-grey3;
+
+    &:last-child {
+      border-bottom: 1px solid colors.$medium-grey3;
+    }
+
+    @media (min-width: breakpoints.breakpoint-min(sm)) {
+      display: flex;
+      min-width: 576px;
+      max-width: 576px;
+      padding: 1.5rem 0;
+      
+    }
+
+    &-image-link {
+      display: inline-block;
+
+      &:hover img {
+        opacity: 0.8;
+      }
+    }
+    &-image {
+      height: auto;
+      max-width: 376px;
+      max-height: 282px;
+      width: 100%;
+      margin-bottom: 0;
+
+      @media (min-width: breakpoints.breakpoint-min(sm)) {
+        max-width: 200px;
+        max-height: 133px;
+      }
+    }
+
+    &-date {
+      font-size: variables.$ucla-font-size-small;
+      font-weight: bold;
+    }
+
+    &-title {
+      font-size: variables.$ucla-font-size-large;
+      line-height: 1.125;
+      margin: 8px 0;
+      outline: none;
+      position: relative;
+    }
+
+    &-content {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 32px;
+
+      @media (min-width: breakpoints.breakpoint-min(sm)) {
+        flex: 1;
+        padding: 0 32px;
+      }
+    }
+
+    &-blurb {
+      font-size: variables.$ucla-font-size-default;
+      line-height: 1.5;
+      margin-top: 0;
+      margin-bottom: 24px;
+    }
+
+    &-source {
+      font-size: variables.$ucla-font-size-default;
+      line-height: 1.25;
+      font-weight: bold;
+      margin: 12px 0 0 0;
+    }
+
+    &-link { // Link styles added below title so they are read last.
+      outline: none;
+      text-decoration: none;
+      height: auto;
+      width: 100%;
+      max-width: 376px;
+      color: colors.$default-state;
+
+      &:hover {
+        background: colors.$hover-state;
+        color: white;
+      }
+      // &::before {
+      //   display: none;
+      //   position: absolute;
+      //   content: "";
+      //   max-width: 376px;
+      //   max-height: 250px;
+      //   width: 100%;
+      //   height: 250px;
+      //   background: colors.$default-state;
+      // }
+
+      span {
+        color: colors.$default-state;
+      }
+
+      &:hover {
+        &::before {
+          display: block;
+        }
+
+        &.source::before {
+          display: none;
+        }
+
+        img {
+          opacity: 0.8;
+        }
+
+        span {
+          color: colors.$white;
+          background: colors.$hover-state;
+        }
+      }
+
+      &:focus {
+        span {
+          outline: 1px dotted colors.$hover-state;
+        }
+      }
+
+      &:active {
+        &::before {
+          display: block;
+          background: colors.$active-state;
+        }
+
+        &.source::before {
+          display: none;
+        }
+
+        img {
+          opacity: 0.8;
+        }
+
+        span {
+          color: colors.$white;
+          background: colors.$active-state;
+        }
+      }
+
+      &:visited {
+        &:focus {
+          outline: none;
+
+          span {
+            outline: 1px dotted colors.$hover-state;
+          }
+        }
+      }
+    }
+  } // end &__secondary
+}

@@ -1,0 +1,19 @@
+// use @imports to bring in style sheets per element.
+// BASE UCLA Fractal.build mandlebrot themeoverides
+// https://fractal.build/guide/customisation/web-themes.html#configuring-themes
+// https://fractal.build/guide/web/default-theme.html
+
+/***************** STOP!!! READ THIS!! *****************/
+// These are fractal or mandlebrot theme styles here only. DO NOT put component related styles here. Those belong in ./src/scss
+
+// Using styles from the component pages since they are identical
+@use "./../../scss/utilities/_colors";
+@use "./../../scss/utilities/_variables";
+@use "./../../scss/utilities/_typography";
+@use "./../../scss/utilities/_mixins/_breakpoints";
+@use "./../../scss/components/_blockquote";
+@use "./../../scss/components/_links";
+@use "./_colors-docs";
+@use "./_docs";
+@use "./_mandlebrot-child";
+@use "./_tabs";

@@ -1,0 +1,124 @@
+@use "../../scss/utilities/colors";
+
+/***************** STOP!!! READ THIS!! *****************/
+// These are mandlebrot theme styles here only. DO NOT put component related styles here. Those belong in ./src/scss
+// https://fractal.build/guide/web/default-theme.html#default-theme-mandelbrot
+
+.Header {
+  background-color: #2774AE;
+}
+
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.Header-button {
+  background: colors.$default-state;
+}
+
+// Hyperlinks
+a {
+  color: #00598C;
+}
+
+// Sidebar hyperlinks
+a.Tree-entityLink {
+  font-weight: bold;
+}
+
+// CSS display code
+.hljs-number, .hljs-attr {
+  color: #1D832F !important;
+}
+
+// HTML and CSS display code comments
+.hljs-comment {
+  color: #636363 !important;
+}
+
+// Sidebar Nav
+.Frame {
+  &-body {
+    margin-right: 0;
+  }
+
+  &-panel--sidebar {
+    background-color: white;
+  }
+}
+
+.Navigation {
+  background-color: white;
+
+  .Tree {
+    a {
+      &:hover {
+        color: colors.$grey-80;
+      }
+    }
+
+    &-title {
+      color: colors.$black;
+      font-size: 26px;
+      letter-spacing: 0.1px;
+      text-transform: capitalize;
+    }
+
+    &-item {
+      border-bottom: 1px solid colors.$medium-grey3;
+      background-color: white;
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+
+      &.is-closed {
+        background-color: white;
+      }
+    }
+  }
+}
+
+// Fix for mobile view where inline styles does not apply on first load
+[dir=ltr] .Frame-body {
+  @media (max-width: 47.49em) {
+      margin-right: -240px;
+  }
+}
+
+// The Information title in the left hand menu
+.Frame-panel--sidebar .Navigation .Navigation-group:nth-of-type(4) .Tree {
+  &-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &-title {
+    font-size: 14px;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+// Fill in Status Dots
+.Status-dot {
+  &[title='Ready'] {
+    background-color: #007339;
+  }
+
+  &[title='In Review'] {
+    background-color: #0077C0;
+  }
+
+  &[title='In Progress'] {
+    background-color: #812990;
+  }
+
+  &[title='Submitted'] {
+    background-color: #E10786;
+  }
+
+  &[title='Deprecated'] {
+    background-color: #D60000;
+  }
+}

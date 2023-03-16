@@ -1,0 +1,112 @@
+// Typography
+$font: "Helvetica", "Arial", sans-serif;
+$font-secondary: "Helvetica", "Arial", sans-serif;
+$font-size-base: 100%;
+$corner-radius: 4px;
+
+// relative units
+// xs: 480px 30em
+// sm: 600px, 37.5em
+// md: 768px, 48em;
+// lg: 1024px, 64em;
+// xl: 1280px 80em;
+
+$grid-breakpoints: (
+  na: 0,
+  xs: 480px,
+  sm: 600px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px
+) !default;
+
+// font sizing at 16px;
+// 14px 0.875rem
+// 10px 0.625rem
+// 9px 0.5625rem
+// 6px 0.375rem
+// h1 36px 2.25rem; line-height: 40.5px;
+// h2 28px 1.75rem; line-height: 32px;
+// h3 24px 1.5rem; line-height: 27px;
+// h4 20px 1.25rem;  line-height: 22.5px;
+// h5 16px 1rem  line-height: 20px;
+// h6 12.8px 0.8rem  line-height: 16px;
+// p 16px 1rem   line-height: 24px;
+// small 12.8px 0.8rem;  line-height: 16px;
+// 12px 0.75rem
+
+
+
+$ucla-font-size-display: 3.375rem; //54px
+$ucla-font-size-xxx-large: 3rem; //48px
+$ucla-font-size-xx-large: 2.25rem; //36px
+$ucla-font-size-x-large: 1.75rem; //28px
+$ucla-font-size-large: 1.5rem; //24px line-height 2rem?
+$ucla-font-size-medium: 1.25rem; //20px
+$ucla-font-size-medium-small: 1.125rem; //18px
+$ucla-font-size-default: 1rem; //16px
+$ucla-font-size-small: 0.875rem; //14px
+$ucla-font-size-x-small: 0.8rem; //12.8px
+$ucla-font-size-xx-small: 0.75rem; //12px line-height 1.125rem?
+$ucla-font-size-xxx-small: 0.625rem; //10px
+$ucla-font-size-xxxx-small: 0.5625rem; //9px
+$ucla-font-size-mini: 0.375rem; //6px
+
+$ucla-font-weight-default: 400;
+$ucla-font-weight-bold: 700;
+$ucla-font-weight-black: 900;
+
+$ucla-line-height-text: 1.5;
+$ucla-line-height-default: 1.2;
+$ucla-line-height-alt: 1.33;
+$ucla-line-height-heading: 1.125;
+
+//$ucla-line-height-none: 1;
+// values used: 1.5, 1.33, 1.25, 1.125, 1.11, 1, 1.286
+
+
+// line-height declarations. 64 line-height declarations scss folder.  
+// line-height / font-size = relative ratio
+// ex 16px / 16px = 1 or 24px / 16px = 1.5
+
+//line-height: 54px
+//line-height: 48px
+//line-height: 40.5px;
+//line-height: 40px
+//line-height: 32px;
+//line-height: 30px
+//line-height: 27px 
+//line-height: 24px
+//line-height: 22.5px 
+//line-height: 20px 
+//line-height: 18px
+//line-height: 16px 
+//line-height: 2rem
+//line-height: 1.5rem
+//line-height: 1.75rem
+//line-height: 1.333rem
+//line-height: 1.25rem
+//line-height: 1.125rem
+//line-height: 0.75rem
+//line-height: 1rem
+//line-height: 1.5
+//line-height: 1.286
+//line-height: 1.25
+//line-height: 1.15
+//line-height: 1.125
+//line-height: 1
+//line-height: 0
+//line-height: 1.15
+//line-height: 1.4
+
+/* Spacing */
+// $ucla-spacing-x-small: 0.25em; //4px;
+// $ucla-spacing-x-small: 0.5em; //8px;
+// $ucla-spacing-small: 0.75em; //12px
+// $ucla-spacing-default: 1em; //16px;
+// $ucla-spacing-medium: 1.5em; //24px
+// $ucla-spacing-large: 1.75em; //28px
+// $ucla-spacing-x-large: 2.25em; //36px
+
+
+// min-width: 768px font sizing increases

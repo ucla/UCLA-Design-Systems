@@ -1,0 +1,124 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+/*************************************
+************************************
+
+Statistic touts are visual callouts used to highlight an important fact, data point, or ranking.
+
+TABLE OF CONTENTS:
+1. The container for multiple stat touts: .stat-set
+2. Individual stat touts
+    a. Number (value text)
+    b. Label (descriptor text)
+    c. Source text
+3. Variations
+    a. Inline
+
+*************************************
+************************************/
+
+
+// .stat-set is the container required for multiple stat touts across
+// This handles responsiveness of more than one stat tout across
+.stat-set {
+  .stat-wrapper:nth-child(n+2) {
+    margin-left: 0;
+
+    @media (min-width: breakpoints.breakpoint-min(md)) {
+      margin-left: 2rem;
+    }
+  }
+  
+  @media (min-width: breakpoints.breakpoint-min(md)) {
+    display: flex;
+  }
+}
+
+// .stat-wrapper is the container for individual stat touts
+.stat-wrapper {
+  .stat-tout {
+    display: block;
+    border-left: 4px solid colors.$ucla-gold;
+    padding: 16px 24px 16px 28px;
+
+    @media (min-width: breakpoints.breakpoint-min(md)) {
+      display: inline-block;
+    }
+
+    // "Value text" appears on the left of a stat tout
+    // e.g. #9, $1 billion, 45%
+    &__number {
+      font-size: variables.$ucla-font-size-display;
+      line-height: 48px;
+      color: colors.$medium-grey5;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+
+      // Target spans wrapping "out of"
+      // For multiple variable stat touts
+      & > span {
+        font-size: variables.$ucla-font-size-medium-small;
+        // vertical-align: middle;
+        // margin: 0 -5px;
+        margin: 0 10px;
+      }
+    }
+
+    // "Descriptor text" appears on the right of a stat tout
+    // This gives context to value text, or stand-alone as a word-only factoid
+    &__label {
+      font-size: variables.$ucla-font-size-medium;
+      line-height: 1.2;
+      font-weight: bold;
+      display: block;
+      max-width: 212px;
+      color: colors.$medium-grey5;
+
+      @media (min-width: breakpoints.breakpoint-min(md)) {
+        max-width: 312px;
+      }
+    }
+
+    // Source text is required for Rankings that have a source
+    // e.g. Forbes (2019), U.S. News & World Report (2018)
+    &__source {
+      display: block;
+      font-size: variables.$ucla-font-size-xx-small;
+      font-weight: bold;
+      font-style: italic;
+      color: colors.$grey-60;
+      padding-top: 8px;
+      line-height: 1.33;
+    }
+
+    /************
+      Variation: inline stat touts
+
+      Note: inline stat touts appear stacked on mobile widths.
+    *************/
+    &--inline {
+      @media (min-width: breakpoints.breakpoint-min(lg)) {
+        display: flex;
+        align-items: center;
+
+        .stat-tout__number {
+          margin-right: 16px;
+          margin-bottom: 8px;
+
+          @media (min-width: breakpoints.breakpoint-min(lg)) {
+            margin-bottom: 0;
+          }
+        }
+
+        .stat-tout__label {
+          display: block;
+          max-width: inherit;
+        }
+      }
+    }
+  }
+}
