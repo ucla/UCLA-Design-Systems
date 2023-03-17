@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "dependencies": {
     "@frctl/fractal": "^1.5.15",
-    "@frctl/mandelbrot": "^1.10.3"
+    "@frctl/mandelbrot": "^1.10.3",
+    "fractal-status-helper": "^1.0.0"
   },
   "scripts": {
     "fractal:start": "fractal start --sync",
