@@ -14,7 +14,7 @@ const fractal = module.exports = require('@frctl/fractal').create();
  * Give your project a title.
  */
 fractal.set('project.title', 'UCLA Design Systems');
-fractal.set('project.version', 'v1.0.0');
+fractal.set('project.version', 'v1.1.0');
 fractal.set('project.author', 'Strategic Communications');
 
 /*
@@ -30,7 +30,7 @@ fractal.docs.set('path', path.join(__dirname, 'docs'));
 /*
  * Tell the Fractal web preview plugin where to look for static assets.
  */
-fractal.web.set('static.path', path.join(__dirname, 'public'));
+fractal.web.set('static.path', path.join(__dirname, 'theme/assets'));
 
 /* Preview template in /src/components/_preview.hbs */
 fractal.components.set('default.preview', '@preview');
@@ -91,18 +91,23 @@ const mandelbrot = require('@frctl/mandelbrot');
 const myCustomisedTheme = mandelbrot({
   skin: 'black',
   // any other theme configuration values here
-  nav: ['search', 'components', 'docs', 'information'],
-  styles: ['default', '/css/ucla-fractal-theme.css'],
-  scripts: ['default', '/js/ucla-fractal-theme.js'],
+  nav: ['search', 'docs', 'components', 'information'],
+  styles: ['default', '/theme-assets/css/ucla-fractal-style.css'],
+  scripts: ['default', '/theme-assets/js/ucla-fractal-script.js'],
   navigation: 'split',
   favicon: '/favicon.ico',
+  // static: {
+  //   mount: 'theme-assets'
+  // }
 });
 
 // specify a directory to hold the theme override templates
-myCustomisedTheme.addLoadPath(__dirname + '/public');
+myCustomisedTheme.addLoadPath(__dirname + '/theme');
+myCustomisedTheme.addStatic(__dirname + '/theme/assets', '/theme-assets');
 
 fractal.web.theme(myCustomisedTheme);
-
+fractal.web.set('static.path', __dirname + '/public');
+//fractal.web.set('static.mount', '/public');
 // https://github.com/jwir3/fractal-status-helper
 const FractalStatusHelper = require('fractal-status-helper')(fractal);
 // fractal.components.set('default.collated', true);

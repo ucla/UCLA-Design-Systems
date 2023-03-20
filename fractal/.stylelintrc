@@ -1,13 +1,18 @@
 {
-  "ignoreFiles": './resources/assets/sass/utilities/**/*.scss',
+  "ignoreFiles": './resources/assets/sass/utilities /**/*.scss',
   "rules": {
-    "at-rule-empty-line-before": [ "always", {
+    "at-rule-empty-line-before": [
+      "always",
+      {
       except: [
-        "blockless-after-same-name-blockless",
-        "first-nested"
-      ],
-      ignore: ["after-comment"],
-    } ],
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+      ignore: [
+          "after-comment"
+        ],
+      }
+    ],
     "at-rule-name-case": "lower",
     "at-rule-name-space-after": "always-single-line",
     "at-rule-semicolon-newline-after": "always",
@@ -21,14 +26,31 @@
     "block-opening-brace-space-after": "always-single-line",
     "block-opening-brace-space-before": "always",
     "color-no-invalid-hex": true,
-    "comment-empty-line-before": [ "always", {
-      except: ["first-nested"],
-      ignore: ["after-comment", "stylelint-commands"]
-    } ],
-    "custom-property-empty-line-before": [ "always", {
-      except: [ "after-custom-property", "first-nested" ],
-      ignore: [ "after-comment", "inside-single-line-block" ],
-    } ],
+    "comment-empty-line-before": [
+      "always",
+      {
+      except: [
+          "first-nested"
+        ],
+      ignore: [
+          "after-comment",
+          "stylelint-commands"
+        ]
+      }
+    ],
+    "custom-property-empty-line-before": [
+      "always",
+      {
+      except: [
+          "after-custom-property",
+          "first-nested"
+        ],
+      ignore: [
+          "after-comment",
+          "inside-single-line-block"
+        ],
+      }
+    ],
     "declaration-bang-space-after": "never",
     "declaration-bang-space-before": "always",
     "declaration-block-semicolon-newline-after": "always-multi-line",
@@ -39,16 +61,23 @@
     "declaration-colon-newline-after": "always-multi-line",
     "declaration-colon-space-after": "always",
     "declaration-colon-space-before": "never",
-    "declaration-empty-line-before": [ "always", {
+    "declaration-empty-line-before": [
+      "always",
+      {
       except: [
-        "after-declaration",
-        "first-nested",
-      ],
+          "after-declaration",
+          "first-nested",
+        ],
       ignore: [
-        "after-comment",
-        "inside-single-line-block",
-      ],
-    } ],
+          "after-comment",
+          "inside-single-line-block",
+        ],
+      }
+    ],
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-standard-scss"
+    ],
     "function-comma-space-after": "always-single-line",
     "function-comma-space-before": "never",
     "function-max-empty-lines": 0,
@@ -70,10 +99,17 @@
     "number-leading-zero": "always",
     "number-no-trailing-zeros": true,
     "property-case": "lower",
-    "rule-empty-line-before": [ "always", {
-      "except": ["first-nested"],
-      "ignore": ["after-comment"]
-    } ],
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ],
     "selector-attribute-brackets-space-inside": "never",
     "selector-attribute-operator-space-after": "never",
     "selector-attribute-operator-space-before": "never",
@@ -88,7 +124,17 @@
     "selector-pseudo-element-colon-notation": "double",
     "selector-type-case": "lower",
     "unit-case": "lower",
-    "unit-allowed-list": ["deg", "dpi", "dppx", "em", "px", "rem", "s", "vh", "%"],
+    "unit-allowed-list": [
+      "deg",
+      "dpi",
+      "dppx",
+      "em",
+      "px",
+      "rem",
+      "s",
+      "vh",
+      "%"
+    ],
     "value-list-comma-space-after": "always",
     "value-list-comma-space-before": "never",
     "value-list-max-empty-lines": 0,

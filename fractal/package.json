@@ -7,11 +7,29 @@
     "fractal-status-helper": "^1.0.0"
   },
   "scripts": {
-    "fractal:start": "fractal start --sync",
-    "fractal:build": "fractal build"
+    "start": "fractal start --sync",
+    "build": "npm-run-all docs-build css js svg css-compile-docs ",
+    "docs-build": "fractal build",
+    "css": "npm-run-all css-compile css-minify-*",
+    "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:public/css/",
+    "css-compile-docs": "sass --style expanded --source-map --no-error-css theme/assets/scss/:theme/assets/css/",
+    "css-minify-main": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output public/css/ --batch --batch-suffix \".min\" \"public/css/*.css\" \"!public/css/*.min.css\" \"!public/css/*rtl*.css\"",
+    "css-lint": "npm-run-all --aggregate-output --continue-on-error --parallel css-lint-*",
+    "css-lint-stylelint": "stylelint \"scss/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
+    "css-lint-vars": "fusv scss/**/",
+    "js": "npm-run-all js-compile js-minify",
+    "js-compile": "esbuild js/ucla-lib-scripts.js --bundle --outdir=public/js --allow-overwrite --target=es2018",
+    "js-minify": "terser public/js/ucla-lib-scripts.js -o public/js/ucla-lib-scripts.min.js -c --source-map \"root='js'\"",
+    "svg": "npm-run-all svg-compile-*",
+    "svg-compile-denotive": "svgo -f ./icons/denotive/ -o ./public/icons/denotive/",
+    "svg-compile-social": "svgo -f ./icons/social/ -o ./public/icons/social/",
+    "svg-compile-weather": "svgo -f ./icons/weather/ -o ./public/icons/weather/"
   },
   "devDependencies": {
+    "clean-css-cli": "^5.6.2",
     "del": "^6.0.0",
+    "esbuild": "^0.17.12",
+    "find-unused-sass-variables": "^4.0.6",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^6.0.0",
@@ -20,7 +38,20 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-stylelint": "^11.0.0",
-    "sass": "^1.49.7",
-    "stylelint": "^13.7.1"
-  }
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.59.3",
+    "sass-true": "^7.0.0",
+    "stylelint": "^15.3.0",
+    "stylelint-config-standard": "^31.0.0",
+    "stylelint-config-standard-scss": "^7.0.1",
+    "svgo": "^3.0.2",
+    "terser": "^5.16.6"
+  },
+  "sass": "scss/ucla-lib.scss",
+  "style": "public/css/ucla-lib.css",
+  "files": [
+    "public/{css,js}/*.{css,js,map}"
+  ]
 }

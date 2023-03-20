@@ -21,7 +21,7 @@ function defaultTask (cb) {
 
 function watchStyles (done) {
   watch('scss/**/*.scss', series(generateCompLibStyles, lintSassWatch));
-  watch('docs/scss/**/*.scss', series(generateDocStyles, docLintSassWatch));
+  watch('theme/assets/scss/**/*.scss', series(generateDocStyles, docLintSassWatch));
   done();
 }
 
@@ -31,7 +31,7 @@ function generateCompLibStyles () {
     .pipe(sass.sync({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(concat('ucla-lib.css'))
     .pipe(sourcemaps.write(''))
-    .pipe(dest('public/css'));
+    .pipe(dest('build/css'));
 }
 
 function compressCompLibStyles () {
@@ -40,7 +40,7 @@ function compressCompLibStyles () {
     .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(concat('ucla-lib.min.css'))
     .pipe(sourcemaps.write(''))
-    .pipe(dest('public/css'));
+    .pipe(dest('build/css'));
 }
 
 function lintSassWatch () {
@@ -55,16 +55,16 @@ function lintSassWatch () {
 // Fractal Docs CSS stylesheet
 
 function generateDocStyles () {
-  return src('docs/scss/**/*.scss')
+  return src('theme/assets/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(concat('ucla-fractal-theme.css'))
     .pipe(sourcemaps.write(''))
-    .pipe(dest('public/css'));
+    .pipe(dest('build/theme-assets/css'));
 }
 
 function docLintSassWatch () {
-  return src('docs/**/*.scss')
+  return src('theme/assets/**/*.scss')
     .pipe(gulpStylelint({
       reporters: [
         {formatter: 'string', console: true}
@@ -82,7 +82,7 @@ function docLintSassWatch () {
 
 function watchJavascript (done) {
   watch('js/**/*.js', series(generateCompLibScripts, lintJavascriptLib));
-  watch('docs/js/**/*.js', series(generateDocScripts, lintJavascriptDoc));
+  watch('theme/assets/js/**/*.js', series(generateDocScripts, lintJavascriptDoc));
   done();
 }
 
@@ -93,7 +93,7 @@ function lintJavascriptLib () {
 }
 
 function lintJavascriptDoc () {
-  return src('docs/js/**/*.js')
+  return src('theme/assets/js/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format());
 }
@@ -117,7 +117,7 @@ function generateCompLibScripts () {
 // Fractal Docs Scripts
 
 function generateDocScripts () {
-  return src(['docs/js/**/**.js'])
+  return src(['theme/assets/js/**/**.js'])
     .pipe(concat('ucla-fractal-theme.js'))
     .pipe(minify({
       ext: {
@@ -125,7 +125,7 @@ function generateDocScripts () {
         min: '.min.js'
       },
     }))
-    .pipe(dest('public/js'));
+    .pipe(dest('build/theme-assets/js'));
 }
 
 
@@ -133,8 +133,8 @@ function generateDocScripts () {
 
 function cleanScriptsStyles () {
   return del([
-    'public/js/*',
-    'public/css/*'
+    'build/theme-assets/js/*',
+    'build/theme-assets/css/*'
   ]);
 }
 
