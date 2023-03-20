@@ -1,2997 +1,4177 @@
-$(document).ready(function (){
-
-  //This is what happens when you click the title on mobile or desktop.
-  $('.accordion__title').click(function (){
-    $(this).next('.accordion__content').toggleClass('show-me');
-    $(this).toggleClass('active');
-
-    if ($('.accordion__title').hasClass('active')) {
-      $(this).attr('aria-expanded', 'true');
-    } else {
-      $('.accordion__title').attr('aria-expanded', 'false');
-    }
-  });
-});
-
-$(document).ready(function () {
-
-  // Trigger Errors - Only select and text input errors are built out so far
-  window.triggerError = function (fieldName, errorMessage) { // eslint-disable-line no-unused-vars
-    // get select element
-    let elParent = $('select[name ="' + fieldName + '"]').parent();
-    let errorSpan = elParent.find('.select__error'); // eslint-disable-line no-unused-vars
-
-    // if the element isn't a select element, try text input
-    if (!elParent.length) {
-      let inputEl = $('input[name="' + fieldName + '"]');
-      errorSpan = elParent.find('.text__error');
-      elParent = inputEl.parent();
-    }
-
-    // add error class to HTML to show appropriate error styling
-    errorSpan.html(errorMessage);
-    elParent = elParent.addClass('hasError');
+(() => {
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __commonJS = (cb, mod) => function __require() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
 
-  // Clear Errors - This should be called to clear any previous error messages
-  window.clearErrors = function (formEl) {
-    // Get class name
-    let elSelector = formEl.className;
-    let errorInputs;
-
-    // Find error elements
-    // If there isn't a class, check for ID instead
-    if (typeof elSelector !== 'undefined') {
-      errorInputs = $('.' + elSelector).find('.hasError');
-    } else {
-      elSelector = formEl.id;
-      errorInputs = $('#' + elSelector).find('hasError');
-    }
-
-    // If previous areas are found, clear them
-    if (errorInputs.length) {
-      for (let i = 0; i < errorInputs.length; i++) {
-        errorInputs[i].classList.remove('hasError');
-      }
-    }
-  };
-
-  function updateSelectionTextColor () {
-    $('.select__option').each(function () {
-      if ($(this).is(':selected') && !$(this).is(':disabled')) {
-        $(this).parent().css('color', '#000000');
-      } else {
-        $(this).parent().css('color', '#000000');
-      }
-    });
-  }
-
-  // Change text color when changed from placeholder
-  $('.select__menu').on('change', function () {
-    updateSelectionTextColor();
-  });
-
-  // Change text color immediately if a non-placeholder is selected
-  updateSelectionTextColor();
-});
-$(document).ready(function () {
-  // GLOBAL Grid JAVASCRIPT
-
-  // Insert white divat top of grey color background making the top 30% of the wrap white, leaving the bottom 70% grey.
-  $('.light-grey.tall-75').prepend('<div class="white-25"></div>');
-  $('.light-grey.tall-65').prepend('<div class="white-35"></div>');
-});
-$(document).ready(function () {
-  // Toggle list functionality for 3rd level
-  const $sublistItem2 = $('.nav-primary__sublist-2');
-  const $toggle2 = $('.nav-primary__toggle-2');
-  const breakpoint = 1024;
-
-  // Hide sub items in small device sizes
-  $sublistItem2.addClass('nav-primary__sublist-2--hidden');
-
-  // Show nav children on click of toggle
-  $toggle2.on('click', function () {
-    if ($(this).siblings('.nav-primary__sublist-2').hasClass('nav-primary__sublist-2--hidden')) {
-      $(this).siblings('.nav-primary__sublist-2').attr('aria-expanded', 'true');
-      $(this).attr('aria-label', 'collapse');
-    } else {
-      $(this).siblings('.nav-primary__sublist-2').attr('aria-expanded', 'false');
-      $(this).attr('aria-label', 'expand');
-    }
-
-    $(this).siblings('.nav-primary__sublist-2').toggleClass('nav-primary__sublist-2--hidden');
-    $(this).toggleClass('is-open');
-  });
-
-  const $sublistItem = $('.nav-primary__sublist');
-  const $toggle = $('.nav-primary__toggle');
-
-  // Hide sub items in small device sizes
-  $sublistItem.addClass('nav-primary__sublist--hidden');
-
-  // Show nav children on click of toggle
-  $toggle.on('click', function () {
-    if ($(this).siblings('.nav-primary__sublist').hasClass('nav-primary__sublist--hidden')) {
-      $(this).siblings('.nav-primary__sublist').attr('aria-expanded', 'true');
-      $(this).attr('aria-label', 'collapse');
-    } else {
-      $(this).siblings('.nav-primary__sublist').attr('aria-expanded', 'false');
-      $(this).attr('aria-label', 'expand');
-    }
-
-    $(this).siblings('.nav-primary__sublist').toggleClass('nav-primary__sublist--hidden');
-    $(this).toggleClass('is-open');
-  });
-
-  // Set toggle button labels to "expand" by default
-  $toggle.attr('aria-label', 'expand');
-  $toggle2.attr('aria-label', 'expand');
-
-  // Evaluate mobile sub nav states on page load
-  evalNav($(window).outerWidth());
-
-  // Run evaluation on page resize
-  $(window).resize(function () {
-    evalNav($(window).outerWidth());
-    mobileNavPosition($(window).outerWidth(), breakpoint);
-  });
-
-  // Hide open mobile sub navs above browser width 1024px
-  function evalNav (windowWidth) {
-    if (windowWidth >= breakpoint) {
-      $sublistItem.addClass('nav-primary__sublist--hidden');
-      $toggle.removeClass('is-open');
-      $('.hamburger').removeClass('hamburger--is-active');
-      $('.nav-primary').removeClass('nav-primary--is-active');
-      enableMenuTab();
-    } else {
-      disableMenuTab();
-    }
-  }
-
-
-
-
-
-  /*-------------------------------------------------------------------------------------
-    SEARCH FUNCTIONALITY
-  -------------------------------------------------------------------------------------*/
-  $('.nav-primary__search-desktop-button').click(function () {
-
-    let secondLevelNav = $('li.has-child > ul');
-
-    desktopSubmenuResize();
-
-    if ($(this).hasClass('nav-primary__search-desktop-button--is-active')) {
-      $('.nav-primary__search-block-form').removeClass('nav-primary__search-block-form--is-active');
-      $(this).removeClass('nav-primary__search-desktop-button--is-active');
-      $('.nav-primary__search-desktop-button > svg').replaceWith('<svg role="img" aria-label="Search Icon" class="nav-primary__search-icon" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Search Icon</title><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="search-nav-icon-primary" transform="translate(-15.000000, -15.000000)"><g id="Nav-Item"><g id="Icon/Search" transform="translate(12.000000, 12.000000)"><polygon class="Path-polygon" points="0 0 24 0 24 24 0 24"></polygon><path d="M15.5,14 L14.71,14 L14.43,13.73 C15.41,12.59 16,11.11 16,9.5 C16,5.91 13.09,3 9.5,3 C5.91,3 3,5.91 3,9.5 C3,13.09 5.91,16 9.5,16 C11.11,16 12.59,15.41 13.73,14.43 L14,14.71 L14,15.5 L19,20.49 L20.49,19 L15.5,14 Z M9.5,14 C7.01,14 5,11.99 5,9.5 C5,7.01 7.01,5 9.5,5 C11.99,5 14,7.01 14,9.5 C14,11.99 11.99,14 9.5,14 Z" id="Shape" fill="#00598C" fill-rule="evenodd"></path></g></g></g></g></svg>');
-
-      // Display other submenus is search menu is not active
-      for (let i = 0; i < secondLevelNav.length; i += 1) {
-        secondLevelNav[i].style.display = '';
-      }
-
-
-    } else {
-      $('.nav-primary__search-block-form').addClass('nav-primary__search-block-form--is-active');
-      $(this).addClass('nav-primary__search-desktop-button--is-active');
-      $('.nav-primary__search-desktop-button > svg').replaceWith('<svg role="img" aria-label="Close" class="close-x" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Icon Close</title><g id="Icon/Close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon id="Shape" fill="#ffffff" points="19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12"></polygon></g></svg>');
-
-      // DO NOT Display other submenus is search menu is not active
-      for (let i = 0; i < secondLevelNav.length; i += 1) {
-        secondLevelNav[i].style.display = 'none';
-      }
-
-    }
-  });
-
-  /* Select the size on load or reset the size of the submenu for dekstop only. Resize the submenu when
-  ================================================================= */
-  function desktopSubmenuResize () {
-    let w = $('.nav-primary').width() - 70,
-      negOffset = (w + 10) * -1;
-
-    //Add the width off the header wrap to the search dropdown
-    $('.nav-primary__search-block-form').css({ // <a class="has-child--link">
-      'width': w,
-      'margin-left': negOffset
-    });
-  }
-
-
-
-
-  /*-------------------------------------------------------------------------------------
-    PRIMARY NAVIGATION TABBING FUNCTIONALITY
-  -------------------------------------------------------------------------------------*/
-
-  //reset the primary navigation
-  resetTabs();
-
-  //get the window width
-  let windowWidth = $(window).outerWidth();
-
-  //set the tabbing functionality
-  if (windowWidth >= breakpoint) {
-    addDesktopTabs();
-  } else {
-    addMobileTabs();
-  }
-
-  //On Resize
-  $(window).resize(function () {
-
-    windowWidth = $(window).outerWidth();
-
-    setTimeout(function () {
-
-      if (windowWidth >= breakpoint) {
-        resetTabs();
-        addDesktopTabs();
-      } else {
-        resetTabs();
-        addMobileTabs();
-      }
-    }, 100);
-  });
-
-  //on mouse out of sublist reset
-  $('#nav-main .nav-primary__sublist').mouseout(function () {
-    $('#nav-main').find('.nav-primary__list .nav-primary__link-2').attr('tabindex', '0');
-    $('#nav-main').find('.nav-primary__sublist-2 .nav-primary__link-2').attr('tabindex', '0');
-    $('#nav-main').find('.nav-primary__list .nav-primary__sublist-2').attr('style', '');
-    $('#nav-main').find('.nav-primary__link-2--has-children').find('.nav-primary__sublist-2').attr('aria-expanded', 'false');
-    $('#nav-main').find('.nav-primary__list .nav-primary__link').attr('tabindex', '0');
-    $('#nav-main').find('.nav-primary__sublist .nav-primary__link').attr('tabindex', '0');
-    $('#nav-main').find('.nav-primary__list .nav-primary__sublist').attr('style', '');
-    $('#nav-main').find('.nav-primary__link--has-children').find('.nav-primary__sublist').attr('aria-expanded', 'false');
-    $toggle.attr('aria-label', 'expand');
-    $toggle2.attr('aria-label', 'expand');
-  });
-
-  //on mouse out of second sublist
-  $('#nav-main .nav-primary__sublist-2').mouseout(function () {
-    $('#nav-main').find('.nav-primary__list .nav-primary__link-2').attr('tabindex', '0');
-    $('#nav-main').find('.nav-primary__sublist-2 .nav-primary__link-2').attr('tabindex', '0');
-    $('#nav-main').find('.nav-primary__list .nav-primary__sublist-2').attr('style', '');
-    $('#nav-main').find('.nav-primary__link-2--has-children').find('.nav-primary__sublist-2').attr('aria-expanded', 'false');
-    $toggle2.attr('aria-label', 'expand');
-  });
-
-  //Set aria labels for the primary navigation
-  $('#nav-main .nav-primary__link--has-children').mouseover(function () {
-
-    windowWidth = $(window).outerWidth();
-
-    //if this is desktop
-    if (windowWidth >= breakpoint) {
-
-      $(this).find('.nav-primary__sublist').attr('aria-expanded', 'true');
-      $(this).find('.nav-primary__sublist').removeClass('nav-primary__sublist--hidden');
-    }
-  });
-
-  //Set aria labels for the the second tier
-  $('#nav-main .nav-primary__link-2--has-children').mouseover(function () {
-
-    windowWidth = $(window).outerWidth();
-
-    //if this is desktop
-    if (windowWidth >= breakpoint) {
-
-      $(this).find('.nav-primary__sublist-2').attr('aria-expanded', 'true');
-      $(this).find('.nav-primary__sublist-2').removeClass('nav-primary__sublist-2--hidden');
-    }
-  });
-
-  $('#nav-main .nav-primary__link--has-children').mouseleave(function () {
-
-    let $this = $(this);
-
-    windowWidth = $(window).outerWidth();
-
-    //if this is desktop
-    if (windowWidth >= breakpoint) {
-      $(this).find('.nav-primary__sublist').attr('aria-expanded', 'false');
-      setTimeout(function () {
-        $this.find('.nav-primary__sublist').addClass('nav-primary__sublist--hidden');
-      }, 50);
-
-      $toggle.removeClass('is-open');
-    }
-  });
-
-  $('#nav-main .nav-primary__link-2--has-children').mouseleave(function () {
-
-    let $this = $(this);
-
-    windowWidth = $(window).outerWidth();
-
-    //if this is desktop
-    if (windowWidth >= breakpoint) {
-
-      $(this).find('.nav-primary__sublist-2').attr('aria-expanded', 'false');
-      setTimeout(function () {
-        $this.find('.nav-primary__sublist-2').addClass('nav-primary__sublist-2--hidden');
-      }, 50);
-
-      $toggle.removeClass('is-open');
-    }
-  });
-
-
-
-
-
-  /* ---------- Reset all the tabbing and styles ---------- */
-  function resetTabs () {
-    $('#nav-main').find('.nav-primary__list .nav-primary__sublist').attr('style', '');
-    $('#nav-main').find('.nav-primary__list .nav-primary__sublist-2').attr('style', '');
-    $(document).unbind('keydown');
-  }
-
-
-  /* =======
-  - Screen readers and keyboards read html from top to bottom. When pressing tab all browser will jump to the next link in the top to bottom order.
-  - All added events change what the browser does by default. Add events only when necessary to fit the design.
-  - When adding an keybinding event, add it in the order that it is found in the html. (i.e. - Skip nav is at the top of the html page so goes first in the order.)
-
-
-  This is the basic keydown function that creates specific events to help guide keyboard users.
-  Find your keydown number - https://keycode.info/
-
-  // If object is selectable and is in focus
-  if ($('.class-name').is(':focus')) {
-
-    // if the tab key is pressed while the object is focused
-    if (evts.keyCode === 9) {
-
-      // Preform an action when the specific key is pressed
-      event.preventDefault(); // May require override of default event
-      $(element).prev('li').children('a').focus();
-    }
-
-  // Repeat again for element further down the html chain.
-  } else if ($('.class-name').is(':focus')){
-
-    // Repeat speceific key event action
-
-  }
-  /* --------------add dekstop tabbing controls------------ */
-  function addDesktopTabs () {
-
-    //keypress focus
-    $(document).keydown(function (e) {
-
-      let keyCode = e.keyCode || e.which;
-
-      //tab key was pressed
-      if (keyCode === 9) {
-
-        setTimeout(function () {
-
-          let $focus = $(':focus') /*, $dropdown*/ ;
-
-          //if this is a top level nav or the focus is not a primary nav item
-          if ($focus.hasClass('nav-primary__search-desktop-button') ||
-              ($focus.parent().parent('.nav-primary__list').length > 0 &&
-              !$focus.hasClass('nav-primary__toggle'))) {
-            $('.nav-primary__list .nav-primary__sublist').attr('style', '');
-            $('#nav-main .nav-primary__link--has-children').find('.nav-primary__sublist').attr('aria-expanded', 'false');
-            $toggle.removeClass('is-open');
-            $toggle.attr('aria-label', 'expand');
-            $sublistItem.addClass('nav-primary__sublist--hidden');
-
-            $('.nav-primary__list .nav-primary__sublist-2').attr('style', '');
-            $('#nav-main .nav-primary__link-2--has-children').find('.nav-primary__sublist-2').attr('aria-expanded', 'false');
-            $toggle2.removeClass('is-open');
-            $toggle2.attr('aria-label', 'expand');
-            $sublistItem2.addClass('nav-primary__sublist-2--hidden');
+  // js/vendor/carousel.js
+  var require_carousel = __commonJS({
+    "js/vendor/carousel.js"() {
+      (function() {
+        "use strict";
+        var __webpack_require__ = {};
+        !function() {
+          __webpack_require__.d = function(exports2, definition) {
+            for (var key in definition) {
+              if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports2, key)) {
+                Object.defineProperty(exports2, key, { enumerable: true, get: definition[key] });
+              }
+            }
+          };
+        }();
+        !function() {
+          __webpack_require__.o = function(obj, prop) {
+            return Object.prototype.hasOwnProperty.call(obj, prop);
+          };
+        }();
+        !function() {
+          __webpack_require__.r = function(exports2) {
+            if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
+              Object.defineProperty(exports2, Symbol.toStringTag, { value: "Module" });
+            }
+            Object.defineProperty(exports2, "__esModule", { value: true });
+          };
+        }();
+        var states_namespaceObject = {};
+        __webpack_require__.r(states_namespaceObject);
+        __webpack_require__.d(states_namespaceObject, {
+          "CREATED": function() {
+            return CREATED;
+          },
+          "DESTROYED": function() {
+            return DESTROYED;
+          },
+          "IDLE": function() {
+            return IDLE;
+          },
+          "MOUNTED": function() {
+            return MOUNTED;
+          },
+          "MOVING": function() {
+            return MOVING;
           }
-
-          //if the is focused on the text of the categories, not the button
-          if ($focus.parent().parent('.nav-primary__sublist-2').length === 0 &&
-              !$focus.hasClass('nav-primary__toggle-2')) {
-            $('.nav-primary__list .nav-primary__sublist-2').attr('style', '');
-            $('#nav-main .nav-primary__link-2--has-children').find('.nav-primary__sublist-2').attr('aria-expanded', 'false');
-            $toggle2.removeClass('is-open');
-            $toggle2.attr('aria-label', 'expand');
-            $sublistItem2.addClass('nav-primary__sublist-2--hidden');
-          }
-
-          //if the tabs are not in the search button
-          if (!$focus.hasClass('nav-primary__search-desktop-button') && !$focus.hasClass('nav-primary__search-field')
-              && !$focus.hasClass('nav-primary__search-submit')) {
-            let secondLevelNav = $('li.has-child > ul');
-            $('.nav-primary__search-desktop-button').removeClass('nav-primary__search-desktop-button--is-active');
-            $('.nav-primary__search-block-form').removeClass('nav-primary__search-block-form--is-active');
-            $(this).removeClass('nav-primary__search-desktop-button--is-active');
-            $('.nav-primary__search-desktop-button > svg').replaceWith('<svg role="img" aria-label="Search Icon" class="nav-primary__search-icon" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Search Icon</title><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="search-nav-icon-primary" transform="translate(-15.000000, -15.000000)"><g id="Nav-Item"><g id="Icon/Search" transform="translate(12.000000, 12.000000)"><polygon class="Path-polygon" points="0 0 24 0 24 24 0 24"></polygon><path d="M15.5,14 L14.71,14 L14.43,13.73 C15.41,12.59 16,11.11 16,9.5 C16,5.91 13.09,3 9.5,3 C5.91,3 3,5.91 3,9.5 C3,13.09 5.91,16 9.5,16 C11.11,16 12.59,15.41 13.73,14.43 L14,14.71 L14,15.5 L19,20.49 L20.49,19 L15.5,14 Z M9.5,14 C7.01,14 5,11.99 5,9.5 C5,7.01 7.01,5 9.5,5 C11.99,5 14,7.01 14,9.5 C14,11.99 11.99,14 9.5,14 Z" id="Shape" fill="#00598C" fill-rule="evenodd"></path></g></g></g></g></svg>');
-
-            // Display other submenus is search menu is not active
-            for (let i = 0; i < secondLevelNav.length; i += 1) {
-              secondLevelNav[i].style.display = '';
+        });
+        ;
+        var core_event = function() {
+          var data = [];
+          var Event = {
+            /**
+             * Subscribe the given event(s).
+             *
+             * @param {string}   events  - An event name. Use space to separate multiple events.
+             *                             Also, namespace is accepted by dot, such as 'resize.{namespace}'.
+             * @param {function} handler - A callback function.
+             * @param {Element}  elm     - Optional. Native event will be listened to when this arg is provided.
+             * @param {Object}   options - Optional. Options for addEventListener.
+             */
+            on: function on(events, handler, elm, options2) {
+              if (elm === void 0) {
+                elm = null;
+              }
+              if (options2 === void 0) {
+                options2 = {};
+              }
+              events.split(" ").forEach(function(event) {
+                if (elm) {
+                  elm.addEventListener(event, handler, options2);
+                }
+                data.push({
+                  event,
+                  handler,
+                  elm,
+                  options: options2
+                });
+              });
+            },
+            /**
+             * Unsubscribe the given event(s).
+             *
+             * @param {string}  events - A event name or names split by space.
+             * @param {Element} elm    - Optional. removeEventListener() will be called when this arg is provided.
+             */
+            off: function off(events, elm) {
+              if (elm === void 0) {
+                elm = null;
+              }
+              events.split(" ").forEach(function(event) {
+                data = data.filter(function(item) {
+                  if (item && item.event === event && item.elm === elm) {
+                    unsubscribe(item);
+                    return false;
+                  }
+                  return true;
+                });
+              });
+            },
+            /**
+             * Emit an event.
+             * This method is only for custom events.
+             *
+             * @param {string}  event - An event name.
+             * @param {*}       args  - Any number of arguments passed to handlers.
+             */
+            emit: function emit(event) {
+              for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                args[_key - 1] = arguments[_key];
+              }
+              data.forEach(function(item) {
+                if (!item.elm && item.event.split(".")[0] === event) {
+                  item.handler.apply(item, args);
+                }
+              });
+            },
+            /**
+             * Clear event data.
+             */
+            destroy: function destroy() {
+              data.forEach(unsubscribe);
+              data = [];
+            }
+          };
+          function unsubscribe(item) {
+            if (item.elm) {
+              item.elm.removeEventListener(item.event, item.handler, item.options);
             }
           }
-        }, 10);
-      }
-
-      //arrow down was pressed
-      if (keyCode === 40) {
-
-        //get the focused element
-        let $focus = $(':focus'),
-          $dropdown;
-
-        //if this is a primary navigation item
-        if ($focus.hasClass('nav-primary__link')) {
-
-          $dropdown = $focus.parent('.nav-primary__item').find('.nav-primary__sublist');
-
-          //has a dropdown
-          if ($dropdown.length > 0) {
-
-            //Show the dropdown
-            $dropdown.show();
-
-            //add a tabindex of 0
-            $dropdown.find('.nav-primary__link').attr('tabindex', '0');
-
-            //set aria expanded to true
-            $focus.parent().find('.nav-primary__sublist').attr('aria-expanded', 'true');
-          }
-        }
-      }
-
-      // right arrow is pressed
-      if (keyCode === 39) {
-
-        // get the focused element
-        let $focus = $(':focus'),
-          $dropdown;
-
-        // check if second tier
-        if ($focus.hasClass('nav-primary__link') && $focus.parent().hasClass('nav-primary__link-2--has-children')) {
-          $dropdown = $focus.parent('.nav-primary__item').find('.nav-primary__sublist-2');
-
-          //has a dropdown
-          if ($dropdown.length > 0) {
-
-            //Show the dropdown
-            $dropdown.show();
-
-            //add a tabindex of 0
-            $dropdown.find('.nav-primary__link').attr('tabindex', '0');
-
-            //set aria expanded to true
-            $focus.parent().find('.nav-primary__sublist-2').attr('aria-expanded', 'true');
-          }
-        }
-      }
-
-      //escape key was pressed
-      if (keyCode === 27) {
-
-        setTimeout(function () {
-
-          let $focus = $(':focus');
-
-          //close the dropdowns
-          $('.nav-primary__list .nav-primary__sublist').attr('style', '');
-          $('#nav-main .nav-primary__link--has-children').find('.nav-primary__sublist').attr('aria-expanded', 'false');
-          $toggle.removeClass('is-open');
-          $toggle.attr('aria-label', 'expand');
-          $('.nav-primary__sublist').addClass('nav-primary__sublist--hidden');
-
-          //if this is a nav item
-          if ($focus.parent().parent('.nav-primary__sublist').length > 0) {
-            $focus.parent().parent().parent('.nav-primary__item').find('a').focus();
-          } else if ($focus.parent().parent('.nav-primary__sublist-2').length > 0) {
-            $focus.parent().parent().parent().parent().parent('.nav-primary__item').find('a').focus();
-          }
-
-          //close the 3rd tier
-          $('.nav-primary__list .nav-primary__sublist-2').attr('style', '');
-          $('#nav-main .nav-primary__link-2--has-children').find('.nav-primary__sublist-2').attr('aria-expanded', 'false');
-          $toggle2.removeClass('is-open');
-          $toggle2.attr('aria-label', 'expand');
-          $('.nav-primary__sublist-2').addClass('nav-primary__sublist-2--hidden');
-
-          //if this is a nav item
-          if ($focus.parent().parent('.nav-primary__sublist-2').length > 0) {
-            $focus.parent().parent().parent('.nav-primary__item').find('a').focus();
-          }
-        }, 20);
-      }
-
-    });
-
-  }
-
-  /* --------------add mobile tabbing controls------------ */
-  function addMobileTabs () {
-    //keypress focus
-    $(document).keydown(function (e) {
-
-      let keyCode = e.keyCode || e.which;
-
-      //tab key was pressed
-      if (keyCode === 9) {
-
-        setTimeout(function () {
-
-          let $focus = $(':focus');
-          let $hamburgerBtn = $('.hamburger');
-          let $primaryNav = $('.nav-primary');
-
-          //if this is a top level primary navigation
-          if ($focus.parent().parent('.nav-primary__list').length > 0) {
-            $toggle.removeClass('is-open');
-            $sublistItem.addClass('nav-primary__sublist--hidden');
-          }
-
-          //if this is not a primary navigation item
-          if (!($focus.hasClass('nav-primary__link') || $focus.hasClass('nav-primary__toggle') || $focus.hasClass('nav-primary__search-field'))) {
-            $hamburgerBtn.removeClass('hamburger--is-active');
-            $primaryNav.removeClass('nav-primary--is-active');
-            disableMenuTab();
-          }
-
-        }, 50);
-      }
-
-      //escape key was pressed
-      if (keyCode === 27) {
-
-        let $hamburgerBtn = $('.hamburger');
-        let $focus = $(':focus');
-
-        if ($hamburgerBtn.hasClass('hamburger--is-active')) {
-
-          //if this is the children level focus
-          if ($focus.parent().parent().hasClass('nav-primary__sublist')) {
-
-            $focus.parent().parent().parent().find('.nav-primary__toggle').trigger('click');
-            $focus.parent().parent().parent().find('.nav-primary__toggle').focus();
-
-          } else {
-
-            //if this is the children level focus
-            $hamburgerBtn.trigger('click');
-            $hamburgerBtn.focus();
-          }
-        }
-      }
-
-    });
-  }
-
-
-
-
-
-  /*-------------------------------------------------------------------------------------
-    HAMBURGER FUNCTIONALITY
-  -------------------------------------------------------------------------------------*/
-  let $hamburgerBtn = $('.hamburger');
-  let $primaryNav = $('.nav-primary');
-  let $header = $('#header');
-
-  $hamburgerBtn.bind('click', function () {
-
-    //if not active add class active
-    if (!$(this).hasClass('hamburger--is-active')) {
-
-      $(this).addClass('hamburger--is-active');
-      $primaryNav.addClass('nav-primary--is-active');
-
-      mobileNavPosition();
-      enableMenuTab();
-
-    } else {
-
-      $(this).removeClass('hamburger--is-active');
-      $primaryNav.removeClass('nav-primary--is-active');
-      disableMenuTab();
-    }
-  });
-
-  //check if the mobile nav needs to be repositioned.
-  function mobileNavPosition (windowWidth, breakpoint) {
-
-    let $primaryNav = $('.nav-primary');
-    let height;
-
-    height = Number($header.height());
-
-    if (windowWidth >= breakpoint) {
-      $('body').removeAttr('style');
-      $primaryNav.removeAttr('style');
-    } else {
-      $('body').css('overflowX', 'hidden');
-      if (height > 105) {
-        $primaryNav.css({ 'top': '71px' });
-      } else {
-        $primaryNav.removeAttr('style');
-      }
-    }
-  }
-
-  //disable tabbing for the mobile menu
-  function disableMenuTab () {
-    $('.nav-primary__link').attr('tabindex', '-1');
-    $('.nav-primary__toggle').attr('tabindex', '-1');
-    $('.nav-primary__link-2').attr('tabindex', '-1');
-    $('.nav-primary__toggle-2').attr('tabindex', '-1');
-    $('.nav-primary__search-field').attr('tabindex', '-1');
-  }
-
-  //enable the tabbing for the mobile menu
-  function enableMenuTab () {
-    $('.nav-primary__link').attr('tabindex', '0');
-    $('.nav-primary__toggle').attr('tabindex', '0');
-    $('.nav-primary__link-2').attr('tabindex', '0');
-    $('.nav-primary__toggle-2').attr('tabindex', '0');
-    $('.nav-primary__search-field').attr('tabindex', '0');
-  }
-
-
-
-
-
-  /*-------------------------------------------------------------------------------------
-    BREADCRUMB FUNCTIONALITY
-  -------------------------------------------------------------------------------------*/
-  $('.breadcrumb').each(function () {
-
-    if ($(this).hasClass('breadcrumb--white')) {
-      $(this).after('<span class="breadcrumb--fade white"></span>');
-    } else {
-      $(this).after('<span class="breadcrumb--fade"></span>');
-    }
-  });
-});
-// stupidtable
-(function (c) {
-  c.fn.stupidtable = function (a) {
-    return this.each(function () {
-      let b = c(this);
-      a = a || {};
-      a = c.extend({}, c.fn.stupidtable.default_sort_fns, a);
-      b.data('sortFns', a);
-      b.stupidtable_build();
-      b.on('click.stupidtable', 'thead th', function () {
-        c(this).stupidsort();
-      });
-      b.find('th[data-sort-onload=yes]').eq(0).stupidsort();
-    });
-  };
-  c.fn.stupidtable.default_settings = {
-    should_redraw: function () {
-      return !0;
-    },
-    will_manually_build_table: !1
-  };
-  c.fn.stupidtable.dir = {
-    ASC: 'asc',
-    DESC: 'desc'
-  };
-  c.fn.stupidtable.default_sort_fns = {
-    'int': function (a,
-      b) {
-      return parseInt(a, 10) - parseInt(b, 10);
-    },
-    'float': function (a, b) {
-      return parseFloat(a) - parseFloat(b);
-    },
-    string: function (a, b) {
-      return a.toString().localeCompare(b.toString());
-    },
-    'string-ins': function (a, b) {
-      a = a.toString().toLocaleLowerCase();
-      b = b.toString().toLocaleLowerCase();
-      return a.localeCompare(b);
-    }
-  };
-  c.fn.stupidtable_settings = function (a) {
-    return this.each(function () {
-      let b = c(this),
-        f = c.extend({}, c.fn.stupidtable.default_settings, a);
-      b.stupidtable.settings = f;
-    });
-  };
-  c.fn.stupidsort = function (a) {
-    let b = c(this),
-      f = b.data('sort') ||
-      null;
-    if (null !== f) {
-      let d = b.closest('table'),
-        e = {
-          $th: b,
-          $table: d,
-          datatype: f
+          return Event;
         };
-      d.stupidtable.settings || (d.stupidtable.settings = c.extend({}, c.fn.stupidtable.default_settings));
-      e.compare_fn = d.data('sortFns')[f];
-      e.th_index = h(e);
-      e.sort_dir = k(a, e);
-      b.data('sort-dir', e.sort_dir);
-      d.trigger('beforetablesort', {
-        column: e.th_index,
-        direction: e.sort_dir,
-        $th: b
-      });
-      d.css('display');
-      setTimeout(function () {
-        d.stupidtable.settings.will_manually_build_table || d.stupidtable_build();
-        /*eslint-disable */
-        var a = l(e),
-          a = m(a, e);
-        if (d.stupidtable.settings.should_redraw(e)) {
-          d.children('tbody').append(a);
-          var a = e.$table,
-            /*eslint-enable */
-            c = e.$th,
-            f = c.data('sort-dir');
-          a.find('th').data('sort-dir', null).removeClass('sorting-desc sorting-asc');
-          c.data('sort-dir', f).addClass('sorting-' + f);
-          d.trigger('aftertablesort', {
-            column: e.th_index,
-            direction: e.sort_dir,
-            $th: b
-          });
-          d.css('display');
-        }
-      }, 10);
-      return b;
-    }
-  };
-  c.fn.updateSortVal = function (a) {
-    let b = c(this);
-    b.is('[data-sort-value]') && b.attr('data-sort-value', a);
-    b.data('sort-value', a);
-    return b;
-  };
-  c.fn.stupidtable_build = function () {
-    return this.each(function () {
-      let a = c(this),
-        b = [];
-      a.children('tbody').children('tr').each(function (a,
-        d) {
-        let e = {
-          $tr: c(d),
-          columns: [],
-          index: a
-        };
-        c(d).children('td').each(function (a, b) {
-          let d = c(b).data('sort-value');
-          'undefined' === typeof d && (d = c(b).text(), c(b).data('sort-value', d));
-          e.columns.push(d);
-        });
-        b.push(e);
-      });
-      a.data('stupidsort_internaltable', b);
-    });
-  };
-  let l = function (a) {
-      /*eslint-disable */
-      var b = a.$table.data('stupidsort_internaltable'),
-        f = a.th_index,
-        d = a.$th.data('sort-multicolumn'),
-        d = d ? d.split(',') : [],
-        /*eslint-enable */
-        e = c.map(d, function (b) {
-          let c = a.$table.find('th'),
-            e = parseInt(b, 10),
-            f;
-          e || 0 === e ? f = c.eq(e) : (f = c.siblings('#' + b), e = c.index(f));
+        ;
+        var state = function(initialState) {
+          var curr = initialState;
           return {
-            index: e,
-            $e: f
-          };
-        });
-      b.sort(function (b, c) {
-        /*eslint-disable */
-        for (var d = e.slice(0), g = a.compare_fn(b.columns[f], c.columns[f]); 0 === g && d.length;) {
-          var g = d[0], // eslint-disable-line no-use-before-define
-            h = g.$e.data('sort'),
-            g = (0, a.$table.data('sortFns')[h])(b.columns[g.index], c.columns[g.index]);
-          d.shift();
-        }
-        /*eslint-enable */
-        return 0 === g ? b.index - c.index : g;
-      });
-      a.sort_dir !== c.fn.stupidtable.dir.ASC && b.reverse();
-      return b;
-    },
-    m = function (a, b) {
-      let f = c.map(a, function (a, c) {
-        return [
-          [a.columns[b.th_index], a.$tr, c]
-        ];
-      });
-      b.column = f;
-      return c.map(a, function (a) {
-        return a.$tr;
-      });
-    },
-    k = function (a, b) {
-      let f, d = b.$th,
-        e = c.fn.stupidtable.dir;
-      a ? f = a : (f = a || d.data('sort-default') || e.ASC, d.data('sort-dir') && (f = d.data('sort-dir') === e.ASC ? e.DESC : e.ASC));
-      return f;
-    },
-    h = function (a) {
-      let b = 0,
-        f = a.$th.index();
-      a.$th.parents('tr').find('th').slice(0, f).each(function () {
-        let a = c(this).attr('colspan') || 1;
-        b += parseInt(a, 10);
-      });
-      return b;
-    };
-})(jQuery);
-
-// sort-tables.js
-$(document).ready(function () {
-
-  const $table = $('#sortTable');
-
-  $table.stupidtable_settings({
-    will_manually_build_table: true
-  });
-
-  $('#sortTable thead th:first-child').trigger('click');
-
-  /***
-	  sort by last name, custom data type for stupidtable
-	  https://github.com/joequery/Stupid-Table-Plugin#creating-your-own-data-types
-	  definition: sorts column by "Lastname Firstname" instead of the default "string"
-	  usage: add data-sort="lastname" to the th tag in the table that contains the names, in the applicable blade template
-	***/
-
-  $table.stupidtable({
-    'lastname': function (a, b) {
-
-      const pattern = '^[w"-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[]]{2,}$';
-      const re = new RegExp(pattern);
-
-      const aName = re.exec(a);
-      const bName = re.exec(b);
-
-      return aName - bName;
-    }
-  });
-
-  $table.animate({
-    opacity: 1,
-  }, 500, function () {});
-
-});
-
-
-
-// responsive-tables.js
-$(document).ready(function () {
-
-  let resizeId;
-
-  setRowHeight($);
-
-  //on window resize
-  $(window).resize(function () {
-
-    clearTimeout(resizeId);
-    resizeId = setTimeout(function () { setRowHeight($); }, 100);
-  });
-});
-
-
-function setRowHeight ($) {
-
-  $('td:first-child, th:first-child').each(function () {
-
-    //reset rows
-    $(this).css('height', '');
-    $(this).parent('tr').css('height', '');
-
-    //grab heights
-    let firstChildHeight = $(this).closest('tr').height(),
-      firstCell = $(this).outerHeight();
-
-    //set height
-    if (firstChildHeight > firstCell) {
-      $(this).css('height', firstChildHeight + 'px');
-    } else {
-      $(this).parent('tr').css('height', firstCell + 'px');
-    }
-  });
-}
-$(document).ready(function () {
-
-  /*
-   *   This content is licensed according to the W3C Software License at
-   *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
-   */
-  (function () {
-    let tablist = document.querySelectorAll('[role="tablist"]')[0];
-    let tabs;
-    let panels;
-    let delay = determineDelay();
-
-    // Exit the script if tablist is not defined (on any page where exists no tablist)
-    if (!tablist) {
-      return;
-    }
-
-    // Set overflow styles
-    setOverflowStyles(tablist);
-
-    generateArrays();
-
-    function generateArrays () {
-      tabs = document.querySelectorAll('[role="tab"]');
-      panels = document.querySelectorAll('[role="tabpanel"]');
-    };
-
-    // For easy reference
-    let keys = {
-      end: 35,
-      home: 36,
-      left: 37,
-      up: 38,
-      right: 39,
-      down: 40,
-      delete: 46
-    };
-
-    // Add or subtract depending on key pressed
-    let direction = {
-      37: -1,
-      38: -1,
-      39: 1,
-      40: 1
-    };
-
-    // Bind listeners
-    for (i = 0; i < tabs.length; ++i) {
-      addListeners(i);
-    };
-
-    // Check if tabs overflow max-width of container
-    function isTabListOverflow (tablist) {
-      let buttonWidth = 0;
-      let buttons = tablist.querySelectorAll('[role="tab"]');
-
-      for (let idx = 0; idx < buttons.length; idx++) {
-        buttonWidth += buttons[idx].offsetWidth;
-      }
-      return buttonWidth > tablist.offsetWidth;
-    }
-
-    function setOverflowStyles (tablist) {
-      if (isTabListOverflow(tablist)) {
-        // tablist.style['overflow'] = 'scroll';
-
-        for (let i = 0; i < tablist.children.length; i++) {
-          tablist.children[i].style['width'] = '25%';
-          tablist.children[i].style['white-space'] = 'normal';
-          tablist.children[i].style['vertical-align'] = 'bottom';
-        }
-      }
-    }
-
-    function addListeners (index) {
-      tabs[index].addEventListener('click', clickEventListener);
-      tabs[index].addEventListener('keydown', keydownEventListener);
-      tabs[index].addEventListener('keyup', keyupEventListener);
-
-      // Build an array with all tabs (<button>s) in it
-      tabs[index].index = index;
-    };
-
-    // When a tab is clicked, activateTab is fired to activate it
-    function clickEventListener (event) {
-      event.preventDefault();
-      let tab = event.target;
-      tab.blur();
-      activateTab(tab, false);
-    };
-
-    // Handle keydown on tabs
-    function keydownEventListener (event) {
-      let key = event.keyCode;
-
-      switch (key) {
-        case keys.end:
-          event.preventDefault();
-          // Activate last tab
-          activateTab(tabs[tabs.length - 1]);
-          break;
-        case keys.home:
-          event.preventDefault();
-          // Activate first tab
-          activateTab(tabs[0]);
-          break;
-
-          // Up and down are in keydown
-          // because we need to prevent page scroll >:)
-        case keys.up:
-        case keys.down:
-          determineOrientation(event);
-          break;
-      };
-    };
-
-    // Handle keyup on tabs
-    function keyupEventListener (event) {
-      let key = event.keyCode;
-
-      switch (key) {
-        case keys.left:
-        case keys.right:
-          determineOrientation(event);
-          break;
-        case keys.delete:
-          determineDeletable(event);
-          break;
-      };
-    };
-
-    // When a tablist's aria-orientation is set to vertical,
-    // only up and down arrow should function.
-    // In all other cases only left and right arrow function.
-    function determineOrientation (event) {
-      let key = event.keyCode;
-      let vertical = tablist.getAttribute('aria-orientation') === 'vertical';
-      let proceed = false;
-
-      if (vertical) {
-        if (key === keys.up || key === keys.down) {
-          event.preventDefault();
-          proceed = true;
-        };
-      } else {
-        if (key === keys.left || key === keys.right) {
-          proceed = true;
-        };
-      };
-
-      if (proceed) {
-        switchTabOnArrowPress(event);
-      };
-    };
-
-    // Either focus the next, previous, first, or last tab
-    // depending on key pressed
-    function switchTabOnArrowPress (event) {
-      let pressed = event.keyCode;
-
-      for (x = 0; x < tabs.length; x++) {
-        tabs[x].addEventListener('focus', focusEventHandler);
-      };
-
-      if (direction[pressed]) {
-        let target = event.target;
-        if (target.index !== undefined) {
-          if (tabs[target.index + direction[pressed]]) {
-            tabs[target.index + direction[pressed]].focus();
-          } else if (pressed === keys.left || pressed === keys.up) {
-            focusLastTab();
-          } else if (pressed === keys.right || pressed === keys.down) {
-            focusFirstTab();
+            /**
+             * Change state.
+             *
+             * @param {string|number} state - A new state.
+             */
+            set: function set(state2) {
+              curr = state2;
+            },
+            /**
+             * Verify if the current state is given one or not.
+             *
+             * @param {string|number} state - A state name to be verified.
+             *
+             * @return {boolean} - True if the current state is the given one.
+             */
+            is: function is(state2) {
+              return state2 === curr;
+            }
           };
         };
-      };
-    };
-
-    // Activates any given tab panel
-    function activateTab (tab, setFocus) {
-      // setFocus = setFocus || true;
-      // Deactivate all other tabs
-      deactivateTabs();
-
-      // Remove tabindex attribute
-      tab.removeAttribute('tabindex');
-
-      // Set the tab as selected
-      tab.setAttribute('aria-selected', 'true');
-
-      let controls = tab.getAttribute('aria-controls');
-
-      // Remove hidden attribute from tab panel to make it visible
-      document.getElementById(controls).removeAttribute('hidden');
-
-      // Set focus when required
-      if (setFocus) {
-        tab.focus();
-      };
-    };
-
-    // Deactivate all tabs and tab panels
-    function deactivateTabs () {
-      for (t = 0; t < tabs.length; t++) {
-        tabs[t].setAttribute('tabindex', '-1');
-        tabs[t].setAttribute('aria-selected', 'false');
-        tabs[t].removeEventListener('focus', focusEventHandler);
-      };
-
-      for (p = 0; p < panels.length; p++) {
-        panels[p].setAttribute('hidden', 'hidden');
-      };
-    };
-
-    // Focus first tab
-    function focusFirstTab () {
-      tabs[0].focus();
-    };
-
-    // Focus last tab
-    function focusLastTab () {
-      tabs[tabs.length - 1].focus();
-    };
-
-    // Detect if a tab is deletable
-    function determineDeletable (event) {
-      target = event.target;
-
-      if (target.getAttribute('data-deletable') !== null) {
-        // Delete target tab
-        deleteTab(event, target);
-
-        // Update arrays related to tabs widget
-        generateArrays();
-
-        // Activate the closest tab to the one that was just deleted
-        if (target.index - 1 < 0) {
-          activateTab(tabs[0]);
-        } else {
-          activateTab(tabs[target.index - 1]);
-        };
-      };
-    };
-
-    // Deletes a tab and its panel
-    function deleteTab (event) {
-      let target = event.target;
-      let panel = document.getElementById(target.getAttribute('aria-controls'));
-
-      target.parentElement.removeChild(target);
-      panel.parentElement.removeChild(panel);
-    };
-
-    // Determine whether there should be a delay
-    // when user navigates with the arrow keys
-    function determineDelay () {
-
-      let hasDelay = $(this).attr('data-delay');
-      let delay = 0;
-
-      if (typeof hasDelay !== 'undefined' && hasDelay !== false) {
-        let delayValue = tablist.getAttribute('data-delay');
-        if (delayValue) {
-          delay = delayValue;
-        } else {
-          // If no value is specified, default to 300ms
-          delay = 300;
-        };
-      };
-
-      return delay;
-
-
-
-    };
-
-    //
-    function focusEventHandler (event) {
-      let target = event.target;
-
-      setTimeout(checkTabFocus, delay, target);
-    };
-
-    // Only activate tab on focus if it still has focus after the delay
-    function checkTabFocus (target) {
-      focused = document.activeElement;
-
-      if (target === focused) {
-        activateTab(target, false);
-      };
-    };
-
-  }());
-});
-function _inheritsLoose(t, n) {
-  (t.prototype = Object.create(n.prototype)), _setPrototypeOf((t.prototype.constructor = t), n);
-}
-
-function _setPrototypeOf(t, n) {
-  return (_setPrototypeOf =
-    Object.setPrototypeOf ||
-    function(t, n) {
-      return (t.__proto__ = n), t;
-    })(t, n);
-}
-
-function _defineProperties(t, n) {
-  for (var e = 0; e < n.length; e++) {
-    var i = n[e];
-    (i.enumerable = i.enumerable || !1), (i.configurable = !0), "value" in i && (i.writable = !0), Object.defineProperty(t, i.key, i);
-  }
-}
-
-function _createClass(t, n, e) {
-  return n && _defineProperties(t.prototype, n), e && _defineProperties(t, e), t;
-}
-
-function _extends() {
-  return (_extends =
-    Object.assign ||
-    function(t) {
-      for (var n = 1; n < arguments.length; n++) {
-        var e,
-          i = arguments[n];
-        for (e in i) Object.prototype.hasOwnProperty.call(i, e) && (t[e] = i[e]);
-      }
-      return t;
-    }).apply(this, arguments);
-}
-/*!
- * Splide.js
- * Version  : 2.4.24
- * License  : MIT
- * Copyright: 2020 Naotoshi Fujita
- */
-!(function(t, n) {
-  "object" == typeof exports && "undefined" != typeof module ? (module.exports = n()) : "function" == typeof define && define.amd ? define(n) : ((t = "undefined" != typeof globalThis ? globalThis : t || self).Splide = n());
-})(this, function() {
-  "use strict";
-  var b = Object.keys;
-
-  function v(e, i) {
-    b(e).some(function(t, n) {
-      return i(e[t], t, n);
-    });
-  }
-
-  function p(n) {
-    return b(n).map(function(t) {
-      return n[t];
-    });
-  }
-
-  function i(t) {
-    return "object" == typeof t;
-  }
-
-  function s(t, n) {
-    var e = _extends({}, t);
-    return (
-      v(n, function(t, n) {
-        i(t) ? (i(e[n]) || (e[n] = {}), (e[n] = s(e[n], t))) : (e[n] = t);
-      }),
-      e
-    );
-  }
-
-  function o(t) {
-    return Array.isArray(t) ? t : [t];
-  }
-
-  function y(t, n, e) {
-    return Math.min(Math.max(t, e < n ? e : n), e < n ? n : e);
-  }
-
-  function h(t, n) {
-    var e = 0;
-    return t.replace(/%s/g, function() {
-      return o(n)[e++];
-    });
-  }
-
-  function w(t) {
-    var n = typeof t;
-    return "number" == n && 0 < t ? parseFloat(t) + "px" : "string" == n ? t : "";
-  }
-
-  function g(t) {
-    return t < 10 ? "0" + t : t;
-  }
-
-  function x(t, n) {
-    var e;
-    return "string" == typeof n && (S((e = l("div", {})), { position: "absolute", width: n }), E(t, e), (n = e.clientWidth), _(e)), +n || 0;
-  }
-
-  function u(t, n) {
-    return t ? t.querySelector(n.split(" ")[0]) : null;
-  }
-
-  function m(t, n) {
-    return c(t, n)[0];
-  }
-
-  function c(t, n) {
-    return t ?
-      p(t.children).filter(function(t) {
-        return z(t, n.split(" ")[0]) || t.tagName === n;
-      }) : [];
-  }
-
-  function l(t, n) {
-    var e = document.createElement(t);
-    return (
-      v(n, function(t, n) {
-        return I(e, n, t);
-      }),
-      e
-    );
-  }
-
-  function f(t) {
-    var n = l("div", {});
-    return (n.innerHTML = t), n.firstChild;
-  }
-
-  function _(t) {
-    o(t).forEach(function(t) {
-      var n;
-      !t || ((n = t.parentElement) && n.removeChild(t));
-    });
-  }
-
-  function E(t, n) {
-    t && t.appendChild(n);
-  }
-
-  function k(t, n) {
-    var e;
-    t && n && (e = n.parentElement) && e.insertBefore(t, n);
-  }
-
-  function S(e, t) {
-    e &&
-      v(t, function(t, n) {
-        null !== t && (e.style[n] = t);
-      });
-  }
-
-  function e(n, t, e) {
-    n &&
-      o(t).forEach(function(t) {
-        t && n.classList[e ? "remove" : "add"](t);
-      });
-  }
-
-  function P(t, n) {
-    e(t, n, !1);
-  }
-
-  function C(t, n) {
-    e(t, n, !0);
-  }
-
-  function z(t, n) {
-    return !!t && t.classList.contains(n);
-  }
-
-  function I(t, n, e) {
-    t && t.setAttribute(n, e);
-  }
-
-  function M(t, n) {
-    return t ? t.getAttribute(n) : "";
-  }
-
-  function O(t, n) {
-    o(n).forEach(function(n) {
-      o(t).forEach(function(t) {
-        return t && t.removeAttribute(n);
-      });
-    });
-  }
-
-  function T(t) {
-    return t.getBoundingClientRect();
-  }
-
-  function a(u, c) {
-    var d, f;
-    return {
-      mount: function() {
-        (d = c.Elements.list),
-        u.on(
-          "transitionend",
-          function(t) {
-            t.target === d && f && f();
-          },
-          d
-        );
-      },
-      start: function(t, n, e, i, o) {
-        var r = u.options,
-          s = c.Controller.edgeIndex,
-          a = r.speed;
-        (f = o), u.is(A) && ((0 === e && s <= n) || (s <= e && 0 === n)) && (a = r.rewindSpeed || a), S(d, { transition: "transform " + a + "ms " + r.easing, transform: "translate(" + i.x + "px," + i.y + "px)" });
-      },
-    };
-  }
-
-  function d(e, s) {
-    function a(t) {
-      var n = e.options;
-      S(s.Elements.slides[t], { transition: "opacity " + n.speed + "ms " + n.easing });
-    }
-    return {
-      mount: function() {
-        a(e.index);
-      },
-      start: function(t, n, e, i, o) {
-        var r = s.Elements.track;
-        S(r, { height: w(r.clientHeight) }),
-          a(n),
-          setTimeout(function() {
-            o(), S(r, { height: "" });
+        ;
+        function _extends() {
+          _extends = Object.assign || function(target2) {
+            for (var i2 = 1; i2 < arguments.length; i2++) {
+              var source = arguments[i2];
+              for (var key in source) {
+                if (Object.prototype.hasOwnProperty.call(source, key)) {
+                  target2[key] = source[key];
+                }
+              }
+            }
+            return target2;
+          };
+          return _extends.apply(this, arguments);
+        }
+        var keys = Object.keys;
+        function each(obj, callback) {
+          keys(obj).some(function(key, index) {
+            return callback(obj[key], key, index);
           });
-      },
-    };
-  }
-  var A = "slide",
-    L = "loop",
-    W = "fade";
-
-  function H(t) {
-    console.error("[SPLIDE] " + t);
-  }
-
-  function q(t, n) {
-    if (!t) throw new Error(n);
-  }
-  var t = "splide",
-    j = { active: "is-active", visible: "is-visible", loading: "is-loading" },
-    D = {
-      type: "slide",
-      rewind: !1,
-      speed: 400,
-      rewindSpeed: 0,
-      waitForTransition: !0,
-      width: 0,
-      height: 0,
-      fixedWidth: 0,
-      fixedHeight: 0,
-      heightRatio: 0,
-      autoWidth: !1,
-      autoHeight: !1,
-      perPage: 1,
-      perMove: 0,
-      clones: 0,
-      start: 0,
-      focus: !1,
-      gap: 0,
-      padding: 0,
-      arrows: !0,
-      arrowPath: "",
-      pagination: !0,
-      autoplay: !1,
-      interval: 5e3,
-      pauseOnHover: !0,
-      pauseOnFocus: !0,
-      resetProgress: !0,
-      lazyLoad: !1,
-      preloadPages: 1,
-      easing: "cubic-bezier(.42,.65,.27,.99)",
-      keyboard: "global",
-      drag: !0,
-      dragAngleThreshold: 30,
-      swipeDistanceThreshold: 150,
-      flickVelocityThreshold: 0.6,
-      flickPower: 600,
-      flickMaxPages: 1,
-      direction: "ltr",
-      cover: !1,
-      accessibility: !0,
-      slideFocus: !0,
-      isNavigation: !1,
-      trimSpace: !0,
-      updateOnMove: !1,
-      throttle: 100,
-      destroy: !1,
-      breakpoints: !1,
-      classes: {
-        root: t,
-        slider: t + "__slider",
-        track: t + "__track",
-        list: t + "__list",
-        slide: t + "__slide",
-        container: t + "__slide__container",
-        arrows: t + "__arrows",
-        arrow: t + "__arrow",
-        prev: t + "__arrow--prev",
-        next: t + "__arrow--next",
-        pagination: t + "__pagination",
-        page: t + "__pagination__page",
-        clone: t + "__slide--clone",
-        progress: t + "__progress",
-        bar: t + "__progress__bar",
-        autoplay: t + "__autoplay",
-        play: t + "__play",
-        pause: t + "__pause",
-        spinner: t + "__spinner",
-        sr: t + "__sr",
-      },
-      i18n: { prev: "Previous slide", next: "Next slide", first: "Go to first slide", last: "Go to last slide", slideX: "Go to slide %s", pageX: "Go to page %s", play: "Start autoplay", pause: "Pause autoplay" },
-    },
-    N = Object.freeze({ __proto__: null, CREATED: 1, MOUNTED: 2, IDLE: 3, MOVING: 4, DESTROYED: 5 }),
-    t = (function() {
-      function t(t, n, e) {
-        function i(t) {
-          t.elm && t.elm.removeEventListener(t.event, t.handler, t.options);
         }
-        var o, r;
-        void 0 === n && (n = {}),
-          void 0 === e && (e = {}),
-          (this.root = t instanceof Element ? t : document.querySelector(t)),
-          q(this.root, "An invalid element/selector was given."),
-          (this.Components = null),
-          (this.Event =
-            ((o = []), {
-              on: function(t, n, e, i) {
-                void 0 === e && (e = null),
-                  void 0 === i && (i = {}),
-                  t.split(" ").forEach(function(t) {
-                    e && e.addEventListener(t, n, i), o.push({ event: t, handler: n, elm: e, options: i });
-                  });
-              },
-              off: function(t, e) {
-                void 0 === e && (e = null),
-                  t.split(" ").forEach(function(n) {
-                    o = o.filter(function(t) {
-                      return !t || t.event !== n || t.elm !== e || (i(t), !1);
-                    });
-                  });
-              },
-              emit: function(n) {
-                for (var t = arguments.length, e = new Array(1 < t ? t - 1 : 0), i = 1; i < t; i++) e[i - 1] = arguments[i];
-                o.forEach(function(t) {
-                  t.elm || t.event.split(".")[0] !== n || t.handler.apply(t, e);
-                });
-              },
-              destroy: function() {
-                o.forEach(i), (o = []);
-              },
-            })),
-          (this.State =
-            ((r = 1), {
-              set: function(t) {
-                r = t;
-              },
-              is: function(t) {
-                return t === r;
-              },
-            })),
-          (this.STATES = N),
-          (this._o = s(D, n)),
-          (this._i = 0),
-          (this._c = e),
-          (this._e = {}),
-          (this._t = null);
-      }
-      var n = t.prototype;
-      return (
-        (n.mount = function(t, n) {
-          var e,
-            i,
-            o = this;
-          void 0 === t && (t = this._e),
-            void 0 === n && (n = this._t),
-            this.State.set(1),
-            (this._e = t),
-            (this._t = n),
-            (this.Components =
-              ((t = s((e = this)._c, t)),
-                (n = n),
-                (i = {}),
-                v(t, function(t, n) {
-                  i[n] = t(e, i, n.toLowerCase());
-                }),
-                (n = n || (e.is(W) ? d : a)),
-                (i.Transition = n(e, i)),
-                i));
-          try {
-            v(this.Components, function(t, n) {
-              var e = t.required;
-              void 0 === e || e ? t.mount && t.mount() : delete o.Components[n];
-            });
-          } catch (t) {
-            return void H(t.message);
+        function values(obj) {
+          return keys(obj).map(function(key) {
+            return obj[key];
+          });
+        }
+        function isObject(subject) {
+          return typeof subject === "object";
+        }
+        function merge(_ref, from) {
+          var to = _extends({}, _ref);
+          each(from, function(value, key) {
+            if (isObject(value)) {
+              if (!isObject(to[key])) {
+                to[key] = {};
+              }
+              to[key] = merge(to[key], value);
+            } else {
+              to[key] = value;
+            }
+          });
+          return to;
+        }
+        function object_assign(to, from) {
+          keys(from).forEach(function(key) {
+            if (!to[key]) {
+              Object.defineProperty(to, key, Object.getOwnPropertyDescriptor(from, key));
+            }
+          });
+          return to;
+        }
+        ;
+        function toArray(value) {
+          return Array.isArray(value) ? value : [value];
+        }
+        function between(value, m1, m2) {
+          return Math.min(Math.max(value, m1 > m2 ? m2 : m1), m1 > m2 ? m1 : m2);
+        }
+        function sprintf(format, replacements) {
+          var i2 = 0;
+          return format.replace(/%s/g, function() {
+            return toArray(replacements)[i2++];
+          });
+        }
+        function unit(value) {
+          var type = typeof value;
+          if (type === "number" && value > 0) {
+            return parseFloat(value) + "px";
           }
-          var r = this.State;
-          return (
-            r.set(2),
-            v(this.Components, function(t) {
-              t.mounted && t.mounted();
-            }),
-            this.emit("mounted"),
-            r.set(3),
-            this.emit("ready"),
-            S(this.root, { visibility: "visible" }),
-            this.on("move drag", function() {
-              return r.set(4);
-            }).on("moved dragged", function() {
-              return r.set(3);
-            }),
-            this
-          );
-        }),
-        (n.sync = function(t) {
-          return (this.sibling = t), this;
-        }),
-        (n.on = function(t, n, e, i) {
-          return this.Event.on(t, n, (e = void 0 === e ? null : e), (i = void 0 === i ? {} : i)), this;
-        }),
-        (n.off = function(t, n) {
-          return this.Event.off(t, (n = void 0 === n ? null : n)), this;
-        }),
-        (n.emit = function(t) {
-          for (var n, e = arguments.length, i = new Array(1 < e ? e - 1 : 0), o = 1; o < e; o++) i[o - 1] = arguments[o];
-          return (n = this.Event).emit.apply(n, [t].concat(i)), this;
-        }),
-        (n.go = function(t, n) {
-          return void 0 === n && (n = this.options.waitForTransition), (this.State.is(3) || (this.State.is(4) && !n)) && this.Components.Controller.go(t, !1), this;
-        }),
-        (n.is = function(t) {
-          return t === this._o.type;
-        }),
-        (n.add = function(t, n) {
-          return this.Components.Elements.add(t, (n = void 0 === n ? -1 : n), this.refresh.bind(this)), this;
-        }),
-        (n.remove = function(t) {
-          return this.Components.Elements.remove(t), this.refresh(), this;
-        }),
-        (n.refresh = function() {
-          return this.emit("refresh:before").emit("refresh").emit("resize"), this;
-        }),
-        (n.destroy = function(n) {
-          var t = this;
-          if ((void 0 === n && (n = !0), !this.State.is(1)))
-            return (
-              p(this.Components)
-              .reverse()
-              .forEach(function(t) {
-                t.destroy && t.destroy(n);
-              }),
-              this.emit("destroy", n),
-              this.Event.destroy(),
-              this.State.set(5),
-              this
-            );
-          this.on("ready", function() {
-            return t.destroy(n);
+          return type === "string" ? value : "";
+        }
+        function pad(number) {
+          return number < 10 ? "0" + number : number;
+        }
+        function toPixel(root, value) {
+          if (typeof value === "string") {
+            var div = create("div", {});
+            applyStyle(div, {
+              position: "absolute",
+              width: value
+            });
+            append(root, div);
+            value = div.clientWidth;
+            dom_remove(div);
+          }
+          return +value || 0;
+        }
+        ;
+        function find(elm, selector) {
+          return elm ? elm.querySelector(selector.split(" ")[0]) : null;
+        }
+        function child(parent, tagOrClassName) {
+          return children(parent, tagOrClassName)[0];
+        }
+        function children(parent, tagOrClassName) {
+          if (parent) {
+            return values(parent.children).filter(function(child2) {
+              return hasClass(child2, tagOrClassName.split(" ")[0]) || child2.tagName === tagOrClassName;
+            });
+          }
+          return [];
+        }
+        function create(tag, attrs) {
+          var elm = document.createElement(tag);
+          each(attrs, function(value, key) {
+            return setAttribute(elm, key, value);
           });
-        }),
-        _createClass(t, [{
+          return elm;
+        }
+        function domify(html) {
+          var div = create("div", {});
+          div.innerHTML = html;
+          return div.firstChild;
+        }
+        function dom_remove(elms) {
+          toArray(elms).forEach(function(elm) {
+            if (elm) {
+              var parent = elm.parentElement;
+              parent && parent.removeChild(elm);
+            }
+          });
+        }
+        function append(parent, child2) {
+          if (parent) {
+            parent.appendChild(child2);
+          }
+        }
+        function before(elm, ref) {
+          if (elm && ref) {
+            var parent = ref.parentElement;
+            parent && parent.insertBefore(elm, ref);
+          }
+        }
+        function applyStyle(elm, styles) {
+          if (elm) {
+            each(styles, function(value, prop) {
+              if (value !== null) {
+                elm.style[prop] = value;
+              }
+            });
+          }
+        }
+        function addOrRemoveClasses(elm, classes, remove) {
+          if (elm) {
+            toArray(classes).forEach(function(name) {
+              if (name) {
+                elm.classList[remove ? "remove" : "add"](name);
+              }
+            });
+          }
+        }
+        function addClass(elm, classes) {
+          addOrRemoveClasses(elm, classes, false);
+        }
+        function removeClass(elm, classes) {
+          addOrRemoveClasses(elm, classes, true);
+        }
+        function hasClass(elm, className) {
+          return !!elm && elm.classList.contains(className);
+        }
+        function setAttribute(elm, name, value) {
+          if (elm) {
+            elm.setAttribute(name, value);
+          }
+        }
+        function getAttribute(elm, name) {
+          return elm ? elm.getAttribute(name) : "";
+        }
+        function removeAttribute(elms, names) {
+          toArray(names).forEach(function(name) {
+            toArray(elms).forEach(function(elm) {
+              return elm && elm.removeAttribute(name);
+            });
+          });
+        }
+        function getRect(elm) {
+          return elm.getBoundingClientRect();
+        }
+        function loaded(elm, callback) {
+          var images = elm.querySelectorAll("img");
+          var length = images.length;
+          if (length) {
+            var count = 0;
+            each(images, function(img) {
+              img.onload = img.onerror = function() {
+                if (++count === length) {
+                  callback();
+                }
+              };
+            });
+          } else {
+            callback();
+          }
+        }
+        ;
+        var SLIDE = "slide";
+        var LOOP = "loop";
+        var FADE = "fade";
+        ;
+        var slide = function(Splide2, Components) {
+          var list;
+          var endCallback;
+          return {
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              list = Components.Elements.list;
+              Splide2.on("transitionend", function(e) {
+                if (e.target === list && endCallback) {
+                  endCallback();
+                }
+              }, list);
+            },
+            /**
+             * Start transition.
+             *
+             * @param {number}   destIndex - Destination slide index that might be clone's.
+             * @param {number}   newIndex  - New index.
+             * @param {number}   prevIndex - Previous index.
+             * @param {Object}   coord     - Destination coordinates.
+             * @param {function} done      - Callback function must be invoked when transition is completed.
+             */
+            start: function start(destIndex, newIndex, prevIndex, coord, done) {
+              var options2 = Splide2.options;
+              var edgeIndex = Components.Controller.edgeIndex;
+              var speed = options2.speed;
+              endCallback = done;
+              if (Splide2.is(SLIDE)) {
+                if (prevIndex === 0 && newIndex >= edgeIndex || prevIndex >= edgeIndex && newIndex === 0) {
+                  speed = options2.rewindSpeed || speed;
+                }
+              }
+              applyStyle(list, {
+                transition: "transform " + speed + "ms " + options2.easing,
+                transform: "translate(" + coord.x + "px," + coord.y + "px)"
+              });
+            }
+          };
+        };
+        ;
+        var fade = function(Splide2, Components) {
+          var Fade = {
+            /**
+             * Called when the component is mounted.
+             * Apply transition style to the first slide.
+             */
+            mount: function mount() {
+              apply(Splide2.index);
+            },
+            /**
+             * Start transition.
+             *
+             * @param {number}    destIndex - Destination slide index that might be clone's.
+             * @param {number}    newIndex  - New index.
+             * @param {number}    prevIndex - Previous index.
+             * @param {Object}    coord     - Destination coordinates.
+             * @param {function}  done      - Callback function must be invoked when transition is completed.
+             */
+            start: function start(destIndex, newIndex, prevIndex, coord, done) {
+              var track2 = Components.Elements.track;
+              applyStyle(track2, {
+                height: unit(track2.clientHeight)
+              });
+              apply(newIndex);
+              setTimeout(function() {
+                done();
+                applyStyle(track2, {
+                  height: ""
+                });
+              });
+            }
+          };
+          function apply(index) {
+            var options2 = Splide2.options;
+            applyStyle(Components.Elements.slides[index], {
+              transition: "opacity " + options2.speed + "ms " + options2.easing
+            });
+          }
+          return Fade;
+        };
+        ;
+        ;
+        function compose(Splide2, Components, Transition) {
+          var components = {};
+          each(Components, function(Component, name) {
+            components[name] = Component(Splide2, components, name.toLowerCase());
+          });
+          if (!Transition) {
+            Transition = Splide2.is(FADE) ? fade : slide;
+          }
+          components.Transition = Transition(Splide2, components);
+          return components;
+        }
+        ;
+        var MESSAGE_PREFIX = "[SPLIDE]";
+        function error(message) {
+          console.error(MESSAGE_PREFIX + " " + message);
+        }
+        function exist(subject, message) {
+          if (!subject) {
+            throw new Error(message);
+          }
+        }
+        ;
+        var ROOT = "splide";
+        var ELEMENT_CLASSES = {
+          root: ROOT,
+          slider: ROOT + "__slider",
+          track: ROOT + "__track",
+          list: ROOT + "__list",
+          slide: ROOT + "__slide",
+          container: ROOT + "__slide__container",
+          arrows: ROOT + "__arrows",
+          arrow: ROOT + "__arrow",
+          prev: ROOT + "__arrow--prev",
+          next: ROOT + "__arrow--next",
+          pagination: ROOT + "__pagination",
+          page: ROOT + "__pagination__page",
+          clone: ROOT + "__slide--clone",
+          progress: ROOT + "__progress",
+          bar: ROOT + "__progress__bar",
+          autoplay: ROOT + "__autoplay",
+          play: ROOT + "__play",
+          pause: ROOT + "__pause",
+          spinner: ROOT + "__spinner",
+          sr: ROOT + "__sr"
+        };
+        var STATUS_CLASSES = {
+          active: "is-active",
+          visible: "is-visible",
+          loading: "is-loading"
+        };
+        ;
+        var I18N = {
+          prev: "Previous slide",
+          next: "Next slide",
+          first: "Go to first slide",
+          last: "Go to last slide",
+          slideX: "Go to slide %s",
+          pageX: "Go to page %s",
+          play: "Start autoplay",
+          pause: "Pause autoplay"
+        };
+        ;
+        var DEFAULTS = {
+          /**
+           * Determine a slider type.
+           * - 'slide': Regular slider.
+           * - 'loop' : Carousel slider.
+           * - 'fade' : Change slides with fade transition. perPage, drag options are ignored.
+           *
+           * @type {string}
+           */
+          type: "slide",
+          /**
+           * Whether to rewind a slider before the first slide or after the last one.
+           * In "loop" mode, this option is ignored.
+           *
+           * @type {boolean}
+           */
+          rewind: false,
+          /**
+           * Transition speed in milliseconds.
+           *
+           * @type {number}
+           */
+          speed: 400,
+          /**
+           * Transition speed on rewind in milliseconds.
+           *
+           * @type {number}
+           */
+          rewindSpeed: 0,
+          /**
+           * Whether to prevent any actions while a slider is transitioning.
+           * If false, navigation, drag and swipe work while the slider is running.
+           * Even so, it will be forced to wait for transition in some cases in the loop mode to shift a slider.
+           *
+           * @type {boolean}
+           */
+          waitForTransition: true,
+          /**
+           * Define slider max width.
+           *
+           * @type {number}
+           */
+          width: 0,
+          /**
+           * Define slider height.
+           *
+           * @type {number}
+           */
+          height: 0,
+          /**
+           * Fix width of slides. CSS format is allowed such as 10em, 80% or 80vw.
+           * perPage number will be ignored when this option is falsy.
+           *
+           * @type {number|string}
+           */
+          fixedWidth: 0,
+          /**
+           * Fix height of slides. CSS format is allowed such as 10em, 80vh but % unit is not accepted.
+           * heightRatio option will be ignored when this option is falsy.
+           *
+           * @type {number|string}
+           */
+          fixedHeight: 0,
+          /**
+           * Determine height of slides by ratio to a slider width.
+           * This will be ignored when the fixedHeight is provided.
+           *
+           * @type {number}
+           */
+          heightRatio: 0,
+          /**
+           * If true, slide width will be determined by the element width itself.
+           * - perPage/perMove should be 1.
+           *
+           * @type {boolean}
+           */
+          autoWidth: false,
+          /**
+           * If true, slide height will be determined by the element width itself.
+           * - perPage/perMove should be 1.
+           *
+           * @type {boolean}
+           */
+          autoHeight: false,
+          /**
+           * Determine how many slides should be displayed per page.
+           *
+           * @type {number}
+           */
+          perPage: 1,
+          /**
+           * Determine how many slides should be moved when a slider goes to next or perv.
+           *
+           * @type {number}
+           */
+          perMove: 0,
+          /**
+           * Determine manually how many clones should be generated on the left and right side.
+           * The total number of clones will be twice of this number.
+           *
+           * @type {number}
+           */
+          clones: 0,
+          /**
+           * Start index.
+           *
+           * @type {number}
+           */
+          start: 0,
+          /**
+           * Determine which slide should be focused if there are multiple slides in a page.
+           * A string "center" is acceptable for centering slides.
+           *
+           * @type {boolean|number|string}
+           */
+          focus: false,
+          /**
+           * Gap between slides. CSS format is allowed such as 1em.
+           *
+           * @type {number|string}
+           */
+          gap: 0,
+          /**
+           * Set padding-left/right in horizontal mode or padding-top/bottom in vertical one.
+           * Give a single value to set a same size for both sides or
+           * do an object for different sizes.
+           * Also, CSS format is allowed such as 1em.
+           *
+           * @example
+           * - 10: Number
+           * - '1em': CSS format.
+           * - { left: 0, right: 20 }: Object for different sizes in horizontal mode.
+           * - { top: 0, bottom: 20 }: Object for different sizes in vertical mode.
+           *
+           * @type {number|string|Object}
+           */
+          padding: 0,
+          /**
+           * Whether to append arrows.
+           *
+           * @type {boolean}
+           */
+          arrows: true,
+          /**
+           * Change the arrow SVG path like 'm7.61 0.807-2.12...'.
+           *
+           * @type {string}
+           */
+          arrowPath: "",
+          /**
+           * Whether to append pagination(indicator dots) or not.
+           *
+           * @type {boolean}
+           */
+          pagination: true,
+          /**
+           * Activate autoplay.
+           *
+           * @type {boolean}
+           */
+          autoplay: false,
+          /**
+           * Autoplay interval in milliseconds.
+           *
+           * @type {number}
+           */
+          interval: 5e3,
+          /**
+           * Whether to stop autoplay when a slider is hovered.
+           *
+           * @type {boolean}
+           */
+          pauseOnHover: true,
+          /**
+           * Whether to stop autoplay when a slider elements are focused.
+           * True is recommended for accessibility.
+           *
+           * @type {boolean}
+           */
+          pauseOnFocus: true,
+          /**
+           * Whether to reset progress of the autoplay timer when resumed.
+           *
+           * @type {boolean}
+           */
+          resetProgress: true,
+          /**
+           * Loading images lazily.
+           * Image src must be provided by a data-splide-lazy attribute.
+           *
+           * - false: Do nothing.
+           * - 'nearby': Only images around an active slide will be loaded.
+           * - 'sequential': All images will be sequentially loaded.
+           *
+           * @type {boolean|string}
+           */
+          lazyLoad: false,
+          /**
+           * This option works only when a lazyLoad option is "nearby".
+           * Determine how many pages(not slides) around an active slide should be loaded beforehand.
+           *
+           * @type {number}
+           */
+          preloadPages: 1,
+          /**
+           * Easing for CSS transition. For example, linear, ease or cubic-bezier().
+           *
+           * @type {string}
+           */
+          easing: "cubic-bezier(.42,.65,.27,.99)",
+          /**
+           * Whether to enable keyboard shortcuts
+           * - true or 'global': Listen to keydown event of the document.
+           * - 'focused': Listen to the keydown event of the slider root element. tabindex="0" will be added to the element.
+           * - false: Disable keyboard shortcuts.
+           *
+           * @type {boolean|string}
+           */
+          keyboard: "global",
+          /**
+           * Whether to allow mouse drag and touch swipe.
+           *
+           * @type {boolean}
+           */
+          drag: true,
+          /**
+           * The angle threshold for drag.
+           * The slider starts moving only when the drag angle is less than this threshold.
+           *
+           * @type {number}
+           */
+          dragAngleThreshold: 30,
+          /**
+           * Distance threshold for determining if the action is "flick" or "swipe".
+           * When a drag distance is over this value, the action will be treated as "swipe", not "flick".
+           *
+           * @type {number}
+           */
+          swipeDistanceThreshold: 150,
+          /**
+           * Velocity threshold for determining if the action is "flick" or "swipe".
+           * Around 0.5 is recommended.
+           *
+           * @type {number}
+           */
+          flickVelocityThreshold: 0.6,
+          /**
+           * Determine power of flick. The larger number this is, the farther a slider runs by flick.
+           * Around 500 is recommended.
+           *
+           * @type {number}
+           */
+          flickPower: 600,
+          /**
+           * Limit a number of pages to move by flick.
+           *
+           * @type {number}
+           */
+          flickMaxPages: 1,
+          /**
+           * Slider direction.
+           * - 'ltr': Left to right.
+           * - 'rtl': Right to left.
+           * - 'ttb': Top to bottom.
+           *
+           * @type {string}
+           */
+          direction: "ltr",
+          /**
+           * Set img src to background-image of its parent element.
+           * Images with various sizes can be displayed as same dimension without cropping work.
+           * fixedHeight or heightRatio is required.
+           *
+           * @type {boolean}
+           */
+          cover: false,
+          /**
+           * Whether to enable accessibility(aria and screen reader texts) or not.
+           *
+           * @type {boolean}
+           */
+          accessibility: true,
+          /**
+           * Whether to add tabindex="0" to visible slides or not.
+           *
+           * @type {boolean}
+           */
+          slideFocus: true,
+          /**
+           * Determine if a slider is navigation for another.
+           * Use "sync" API to synchronize two sliders.
+           *
+           * @type {boolean}
+           */
+          isNavigation: false,
+          /**
+           * Whether to trim spaces before the fist slide or after the last one when "focus" is not 0.
+           *
+           * @type {boolean}
+           */
+          trimSpace: true,
+          /**
+           * The "is-active" class is added after transition as default.
+           * If true, it will be added before move.
+           *
+           * @type {boolean}
+           */
+          updateOnMove: false,
+          /**
+           * Throttle duration in milliseconds for the resize event.
+           *
+           * @type {number}
+           */
+          throttle: 100,
+          /**
+           * Whether to destroy a slider or not.
+           *
+           * @type {boolean}
+           */
+          destroy: false,
+          /**
+           * Options for specific breakpoints.
+           *
+           * @example
+           * {
+           *   1000: {
+           *     perPage: 3,
+           *     gap: 20
+           *   },
+           *   600: {
+           *     perPage: 1,
+           *     gap: 5,
+           *   }
+           * }
+           *
+           * @type {boolean|Object}
+           */
+          breakpoints: false,
+          /**
+           * Collection of class names.
+           *
+           * @see ./classes.js
+           *
+           * @type {Object}
+           */
+          classes: ELEMENT_CLASSES,
+          /**
+           * Collection of i18n texts.
+           *
+           * @see ./i18n.js
+           *
+           * @type {Object}
+           */
+          i18n: I18N
+        };
+        ;
+        var CREATED = 1;
+        var MOUNTED = 2;
+        var IDLE = 3;
+        var MOVING = 4;
+        var DESTROYED = 5;
+        ;
+        function _defineProperties(target2, props) {
+          for (var i2 = 0; i2 < props.length; i2++) {
+            var descriptor = props[i2];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ("value" in descriptor)
+              descriptor.writable = true;
+            Object.defineProperty(target2, descriptor.key, descriptor);
+          }
+        }
+        function _createClass(Constructor, protoProps, staticProps) {
+          if (protoProps)
+            _defineProperties(Constructor.prototype, protoProps);
+          if (staticProps)
+            _defineProperties(Constructor, staticProps);
+          return Constructor;
+        }
+        var Splide = /* @__PURE__ */ function() {
+          function Splide2(root, options2, Components) {
+            if (options2 === void 0) {
+              options2 = {};
+            }
+            if (Components === void 0) {
+              Components = {};
+            }
+            this.root = root instanceof Element ? root : document.querySelector(root);
+            exist(this.root, "An invalid element/selector was given.");
+            this.Components = null;
+            this.Event = core_event();
+            this.State = state(CREATED);
+            this.STATES = states_namespaceObject;
+            this._o = merge(DEFAULTS, options2);
+            this._i = 0;
+            this._c = Components;
+            this._e = {};
+            this._t = null;
+          }
+          var _proto = Splide2.prototype;
+          _proto.mount = function mount(Extensions, Transition) {
+            var _this = this;
+            if (Extensions === void 0) {
+              Extensions = this._e;
+            }
+            if (Transition === void 0) {
+              Transition = this._t;
+            }
+            this.State.set(CREATED);
+            this._e = Extensions;
+            this._t = Transition;
+            this.Components = compose(this, merge(this._c, Extensions), Transition);
+            try {
+              each(this.Components, function(component, key) {
+                var required = component.required;
+                if (required === void 0 || required) {
+                  component.mount && component.mount();
+                } else {
+                  delete _this.Components[key];
+                }
+              });
+            } catch (e) {
+              error(e.message);
+              return;
+            }
+            var State = this.State;
+            State.set(MOUNTED);
+            each(this.Components, function(component) {
+              component.mounted && component.mounted();
+            });
+            this.emit("mounted");
+            State.set(IDLE);
+            this.emit("ready");
+            applyStyle(this.root, {
+              visibility: "visible"
+            });
+            this.on("move drag", function() {
+              return State.set(MOVING);
+            }).on("moved dragged", function() {
+              return State.set(IDLE);
+            });
+            return this;
+          };
+          _proto.sync = function sync2(splide) {
+            this.sibling = splide;
+            return this;
+          };
+          _proto.on = function on(events, handler, elm, options2) {
+            if (elm === void 0) {
+              elm = null;
+            }
+            if (options2 === void 0) {
+              options2 = {};
+            }
+            this.Event.on(events, handler, elm, options2);
+            return this;
+          };
+          _proto.off = function off(events, elm) {
+            if (elm === void 0) {
+              elm = null;
+            }
+            this.Event.off(events, elm);
+            return this;
+          };
+          _proto.emit = function emit(event) {
+            var _this$Event;
+            for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+              args[_key - 1] = arguments[_key];
+            }
+            (_this$Event = this.Event).emit.apply(_this$Event, [event].concat(args));
+            return this;
+          };
+          _proto.go = function go(control, wait) {
+            if (wait === void 0) {
+              wait = this.options.waitForTransition;
+            }
+            if (this.State.is(IDLE) || this.State.is(MOVING) && !wait) {
+              this.Components.Controller.go(control, false);
+            }
+            return this;
+          };
+          _proto.is = function is(type) {
+            return type === this._o.type;
+          };
+          _proto.add = function add(slide2, index) {
+            if (index === void 0) {
+              index = -1;
+            }
+            this.Components.Elements.add(slide2, index, this.refresh.bind(this));
+            return this;
+          };
+          _proto.remove = function remove(index) {
+            this.Components.Elements.remove(index);
+            this.refresh();
+            return this;
+          };
+          _proto.refresh = function refresh() {
+            this.emit("refresh:before").emit("refresh").emit("resize");
+            return this;
+          };
+          _proto.destroy = function destroy(completely) {
+            var _this2 = this;
+            if (completely === void 0) {
+              completely = true;
+            }
+            if (this.State.is(CREATED)) {
+              this.on("ready", function() {
+                return _this2.destroy(completely);
+              });
+              return;
+            }
+            values(this.Components).reverse().forEach(function(component) {
+              component.destroy && component.destroy(completely);
+            });
+            this.emit("destroy", completely);
+            this.Event.destroy();
+            this.State.set(DESTROYED);
+            return this;
+          };
+          _createClass(Splide2, [{
             key: "index",
-            get: function() {
+            get: function get() {
               return this._i;
             },
-            set: function(t) {
-              this._i = parseInt(t);
-            },
-          },
-          {
+            set: function set(index) {
+              this._i = parseInt(index);
+            }
+            /**
+             * Return length of slides.
+             * This is an alias of Elements.length.
+             *
+             * @return {number} - A number of slides.
+             */
+          }, {
             key: "length",
-            get: function() {
+            get: function get() {
               return this.Components.Elements.length;
-            },
-          },
-          {
+            }
+            /**
+             * Return options.
+             *
+             * @return {Object} - Options object.
+             */
+          }, {
             key: "options",
-            get: function() {
+            get: function get() {
               return this._o;
             },
-            set: function(t) {
-              var n = this.State.is(1);
-              n || this.emit("update"), (this._o = s(this._o, t)), n || this.emit("updated", this._o);
-            },
-          },
-          {
-            key: "classes",
-            get: function() {
-              return this._o.classes;
-            },
-          },
-          {
-            key: "i18n",
-            get: function() {
-              return this._o.i18n;
-            },
-          },
-        ]),
-        t
-      );
-    })(),
-    R = "rtl",
-    B = "ttb",
-    F = "update.slide",
-    G = Math.floor,
-    X = Math.abs;
-
-  function V(t, n) {
-    var e;
-    return function() {
-      e =
-        e ||
-        setTimeout(function() {
-          t(), (e = null);
-        }, n);
-    };
-  }
-
-  function n(n, e, i) {
-    function o(t) {
-      c || (r || ((r = t), a && a < 1 && (r -= a * e)), (a = (s = t - r) / e), e <= s && ((r = 0), (a = 1), n()), i && i(a), u(o));
-    }
-    var r,
-      s,
-      a,
-      u = window.requestAnimationFrame,
-      c = !0;
-    return {
-      pause: function() {
-        (c = !0), (r = 0);
-      },
-      play: function(t) {
-        (r = 0), t && (a = 0), c && ((c = !1), u(o));
-      },
-    };
-  }
-  var U = Math.abs,
-    Y = 1,
-    J = 2,
-    K = 3,
-    Q = "move.page",
-    Z = "updated.page refresh.page",
-    $ = "data-splide-lazy",
-    tt = "data-splide-lazy-srcset",
-    nt = "aria-current",
-    et = "aria-controls",
-    it = "aria-label",
-    ot = "aria-hidden",
-    rt = "tabindex",
-    r = { ltr: { ArrowLeft: "<", ArrowRight: ">", Left: "<", Right: ">" }, rtl: { ArrowLeft: ">", ArrowRight: "<", Left: ">", Right: "<" }, ttb: { ArrowUp: "<", ArrowDown: ">", Up: "<", Down: ">" } },
-    st = "move.sync",
-    at = "mouseup touchend",
-    ut = [" ", "Enter", "Spacebar"],
-    ct = {
-      Options: function(t) {
-        var n = M(t.root, "data-splide");
-        if (n)
-          try {
-            t.options = JSON.parse(n);
-          } catch (t) {
-            H(t.message);
-          }
-        return {
-          mount: function() {
-            t.State.is(1) && (t.index = t.options.start);
-          },
-        };
-      },
-      Breakpoints: function(i) {
-        var o,
-          r,
-          s = i.options.breakpoints,
-          n = V(t, 50),
-          a = [];
-
-        function t() {
-          var t,
-            n,
-            e = (n = a.filter(function(t) {
-              return t.mql.matches;
-            })[0]) ?
-            n.point :
-            -1;
-          e !== r && ((r = e), (t = i.State), (e = (n = s[e] || o).destroy) ? ((i.options = o), i.destroy("completely" === e)) : (t.is(5) && i.mount(), (i.options = n)));
-        }
-        return {
-          required: s && matchMedia,
-          mount: function() {
-            (a = Object.keys(s)
-              .sort(function(t, n) {
-                return +t - +n;
-              })
-              .map(function(t) {
-                return { point: t, mql: matchMedia("(max-width:" + t + "px)") };
-              })),
-            this.destroy(!0),
-              addEventListener("resize", n),
-              (o = i.options),
-              t();
-          },
-          destroy: function(t) {
-            t && removeEventListener("resize", n);
-          },
-        };
-      },
-      Controller: function(r, e) {
-        var s, i, a;
-
-        function o() {
-          return !1 !== s.focus;
-        }
-        return (a = {
-          mount: function() {
-            (s = r.options),
-            (i = r.is(L)),
-            r
-              .on("move", function(t) {
-                r.index = t;
-              })
-              .on("updated refresh", function(t) {
-                (s = t || s), (r.index = y(r.index, 0, a.edgeIndex));
-              });
-          },
-          go: function(t, n) {
-            t = this.trim(this.parse(t));
-            e.Track.go(t, this.rewind(t), n);
-          },
-          parse: function(t) {
-            var n = r.index,
-              e = String(t).match(/([+\-<>]+)(\d+)?/),
-              i = e ? e[1] : "",
-              o = e ? parseInt(e[2]) : 0;
-            switch (i) {
-              case "+":
-                n += o || 1;
-                break;
-              case "-":
-                n -= o || 1;
-                break;
-              case ">":
-              case "<":
-                n = (function(t, n, e) {
-                  if (-1 < t) return a.toIndex(t);
-                  (t = s.perMove), (e = e ? -1 : 1);
-                  if (t) return n + t * e;
-                  return a.toIndex(a.toPage(n) + e);
-                })(o, n, "<" === i);
-                break;
-              default:
-                n = parseInt(t);
+            set: function set(options2) {
+              var created = this.State.is(CREATED);
+              if (!created) {
+                this.emit("update");
+              }
+              this._o = merge(this._o, options2);
+              if (!created) {
+                this.emit("updated", this._o);
+              }
             }
-            return n;
-          },
-          toIndex: function(t) {
-            if (o()) return t;
-            var n = r.length,
-              e = s.perPage,
-              t = t * e;
-            return (t = n - e <= (t -= (this.pageLength * e - n) * G(t / n)) && t < n ? n - e : t);
-          },
-          toPage: function(t) {
-            if (o()) return t;
-            var n = r.length,
-              e = s.perPage;
-            return G(n - e <= t && t < n ? (n - 1) / e : t / e);
-          },
-          trim: function(t) {
-            return (t = !i ? (s.rewind ? this.rewind(t) : y(t, 0, this.edgeIndex)) : t);
-          },
-          rewind: function(t) {
-            var n = this.edgeIndex;
-            if (i) {
-              for (; n < t;) t -= n + 1;
-              for (; t < 0;) t += n + 1;
-            } else n < t ? (t = 0) : t < 0 && (t = n);
-            return t;
-          },
-          isRtl: function() {
-            return s.direction === R;
-          },
-          get pageLength() {
-            var t = r.length;
-            return o() ? t : Math.ceil(t / s.perPage);
-          },
-          get edgeIndex() {
-            var t = r.length;
-            return t ? (o() || s.isNavigation || i ? t - 1 : t - s.perPage) : 0;
-          },
-          get prevIndex() {
-            var t = r.index - 1;
-            return -1 < (t = i || s.rewind ? this.rewind(t) : t) ? t : -1;
-          },
-          get nextIndex() {
-            var t = r.index + 1;
-            return (i || s.rewind) && (t = this.rewind(t)), (r.index < t && t <= this.edgeIndex) || 0 === t ? t : -1;
-          },
-        });
-      },
-      Elements: function(l, i) {
-        var t,
-          n,
-          o = l.root,
-          r = l.classes,
-          h = [];
-
-        function s() {
-          var t = r.root,
-            n = l.options;
-          return [t + "--" + n.type, t + "--" + n.direction, n.drag ? t + "--draggable" : "", n.isNavigation ? t + "--nav" : "", j.active];
-        }
-
-        function a(t) {
-          return m(o, t) || m(n.slider, t);
-        }
-        return (
-          o.id || ((window.splide = window.splide || {}), (t = window.splide.uid || 0), (window.splide.uid = ++t), (o.id = "splide" + g(t))),
-          (n = {
-            mount: function() {
-              var t = this;
-              this.init(),
-                l
-                .on("refresh", function() {
-                  t.destroy(), t.init();
-                })
-                .on("updated", function() {
-                  C(o, s()), P(o, s());
-                });
-            },
-            destroy: function() {
-              h.forEach(function(t) {
-                  t.destroy();
-                }),
-                (h = []),
-                C(o, s());
-            },
-            init: function() {
-              var e = this;
-              !(function() {
-                (n.slider = m(o, r.slider)), (n.track = u(o, "." + r.track)), (n.list = m(n.track, r.list)), q(n.track && n.list, "Track or list was not found."), (n.slides = c(n.list, r.slide));
-                var t = a(r.arrows);
-                n.arrows = { prev: u(t, "." + r.prev), next: u(t, "." + r.next) };
-                t = a(r.autoplay);
-                (n.bar = u(a(r.progress), "." + r.bar)), (n.play = u(t, "." + r.play)), (n.pause = u(t, "." + r.pause)), (n.track.id = n.track.id || o.id + "-track"), (n.list.id = n.list.id || o.id + "-list");
-              })(),
-              P(o, s()),
-                this.slides.forEach(function(t, n) {
-                  e.register(t, n, -1);
-                });
-            },
-            register: function(t, n, e) {
-              var o,
-                i,
-                r,
-                s,
-                a,
-                u,
-                c,
-                t =
-                ((i = n),
-                  (r = e),
-                  (s = t),
-                  (u = (o = l).options.updateOnMove),
-                  (c = "ready.slide updated.slide resized.slide moved.slide" + (u ? " move.slide" : "")),
-                  (a = {
-                    slide: s,
-                    index: i,
-                    realIndex: r,
-                    container: m(s, o.classes.container),
-                    isClone: -1 < r,
-                    mount: function() {
-                      var t = this;
-                      this.isClone || (s.id = o.root.id + "-slide" + g(i + 1)),
-                        o
-                        .on(c, function() {
-                          return t.update();
-                        })
-                        .on(F, f)
-                        .on(
-                          "click",
-                          function() {
-                            return o.emit("click", t);
-                          },
-                          s
-                        ),
-                        u &&
-                        o.on("move.slide", function(t) {
-                          t === r && d(!0, !1);
-                        }),
-                        S(s, { display: "" }),
-                        (this.styles = M(s, "style") || "");
-                    },
-                    destroy: function() {
-                      o.off(c).off(F).off("click", s), C(s, p(j)), f(), O(this.container, "style");
-                    },
-                    update: function() {
-                      d(this.isActive(), !1), d(this.isVisible(), !0);
-                    },
-                    isActive: function() {
-                      return o.index === i;
-                    },
-                    isVisible: function() {
-                      var t = this.isActive();
-                      if (o.is(W) || t) return t;
-                      var n = Math.ceil,
-                        e = T(o.Components.Elements.track),
-                        t = T(s);
-                      return o.options.direction === B ? e.top <= t.top && t.bottom <= n(e.bottom) : e.left <= t.left && t.right <= n(e.right);
-                    },
-                    isWithin: function(t, n) {
-                      t = Math.abs(t - i);
-                      return (t = !o.is(A) && !this.isClone ? Math.min(t, o.length - t) : t) < n;
-                    },
-                  }));
-
-              function d(t, n) {
-                var e = n ? "visible" : "active",
-                  i = j[e];
-                t ? (P(s, i), o.emit(e, a)) : z(s, i) && (C(s, i), o.emit(n ? "hidden" : "inactive", a));
+            /**
+             * Return the class list.
+             * This is an alias of Splide.options.classList.
+             *
+             * @return {Object} - An object containing all class list.
+             */
+          }, {
+            key: "classes",
+            get: function get() {
+              return this._o.classes;
+            }
+            /**
+             * Return the i18n strings.
+             * This is an alias of Splide.options.i18n.
+             *
+             * @return {Object} - An object containing all i18n strings.
+             */
+          }, {
+            key: "i18n",
+            get: function get() {
+              return this._o.i18n;
+            }
+          }]);
+          return Splide2;
+        }();
+        ;
+        var options = function(Splide2) {
+          var options2 = getAttribute(Splide2.root, "data-splide");
+          if (options2) {
+            try {
+              Splide2.options = JSON.parse(options2);
+            } catch (e) {
+              error(e.message);
+            }
+          }
+          return {
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              if (Splide2.State.is(CREATED)) {
+                Splide2.index = Splide2.options.start;
               }
-
-              function f() {
-                I(s, "style", a.styles);
+            }
+          };
+        };
+        ;
+        var LTR = "ltr";
+        var RTL = "rtl";
+        var TTB = "ttb";
+        ;
+        var STYLE_RESTORE_EVENTS = "update.slide";
+        var elements_slide = function(Splide2, index, realIndex, slide2) {
+          var updateOnMove = Splide2.options.updateOnMove;
+          var STATUS_UPDATE_EVENTS = "ready.slide updated.slide resized.slide moved.slide" + (updateOnMove ? " move.slide" : "");
+          var Slide = {
+            /**
+             * Slide element.
+             *
+             * @type {Element}
+             */
+            slide: slide2,
+            /**
+             * Slide index.
+             *
+             * @type {number}
+             */
+            index,
+            /**
+             * Real index for clones.
+             *
+             * @type {number}
+             */
+            realIndex,
+            /**
+             * Container element if available.
+             *
+             * @type {Element|undefined}
+             */
+            container: child(slide2, Splide2.classes.container),
+            /**
+             * Whether this is a cloned slide or not.
+             *
+             * @type {boolean}
+             */
+            isClone: realIndex > -1,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              var _this = this;
+              if (!this.isClone) {
+                slide2.id = Splide2.root.id + "-slide" + pad(index + 1);
               }
-              t.mount(), h.push(t);
+              Splide2.on(STATUS_UPDATE_EVENTS, function() {
+                return _this.update();
+              }).on(STYLE_RESTORE_EVENTS, restoreStyles).on("click", function() {
+                return Splide2.emit("click", _this);
+              }, slide2);
+              if (updateOnMove) {
+                Splide2.on("move.slide", function(newIndex) {
+                  if (newIndex === realIndex) {
+                    _update(true, false);
+                  }
+                });
+              }
+              applyStyle(slide2, {
+                display: ""
+              });
+              this.styles = getAttribute(slide2, "style") || "";
             },
-            getSlide: function(n) {
-              return h.filter(function(t) {
-                return t.index === n;
+            /**
+             * Destroy.
+             */
+            destroy: function destroy() {
+              Splide2.off(STATUS_UPDATE_EVENTS).off(STYLE_RESTORE_EVENTS).off("click", slide2);
+              removeClass(slide2, values(STATUS_CLASSES));
+              restoreStyles();
+              removeAttribute(this.container, "style");
+            },
+            /**
+             * Update active and visible status.
+             */
+            update: function update() {
+              _update(this.isActive(), false);
+              _update(this.isVisible(), true);
+            },
+            /**
+             * Check whether this slide is active or not.
+             *
+             * @return {boolean} - True if the slide is active or false if not.
+             */
+            isActive: function isActive() {
+              return Splide2.index === index;
+            },
+            /**
+             * Check whether this slide is visible in the viewport or not.
+             *
+             * @return {boolean} - True if the slide is visible or false if not.
+             */
+            isVisible: function isVisible() {
+              var active = this.isActive();
+              if (Splide2.is(FADE) || active) {
+                return active;
+              }
+              var ceil = Math.ceil;
+              var trackRect = getRect(Splide2.Components.Elements.track);
+              var slideRect = getRect(slide2);
+              if (Splide2.options.direction === TTB) {
+                return trackRect.top <= slideRect.top && slideRect.bottom <= ceil(trackRect.bottom);
+              }
+              return trackRect.left <= slideRect.left && slideRect.right <= ceil(trackRect.right);
+            },
+            /**
+             * Calculate how far this slide is from another slide and
+             * return true if the distance is within the given number.
+             *
+             * @param {number} from   - Index of a target slide.
+             * @param {number} within - True if the slide is within this number.
+             *
+             * @return {boolean} - True if the slide is within the number or false otherwise.
+             */
+            isWithin: function isWithin(from, within) {
+              var diff = Math.abs(from - index);
+              if (!Splide2.is(SLIDE) && !this.isClone) {
+                diff = Math.min(diff, Splide2.length - diff);
+              }
+              return diff < within;
+            }
+          };
+          function _update(active, forVisibility) {
+            var type = forVisibility ? "visible" : "active";
+            var className = STATUS_CLASSES[type];
+            if (active) {
+              addClass(slide2, className);
+              Splide2.emit("" + type, Slide);
+            } else {
+              if (hasClass(slide2, className)) {
+                removeClass(slide2, className);
+                Splide2.emit(forVisibility ? "hidden" : "inactive", Slide);
+              }
+            }
+          }
+          function restoreStyles() {
+            setAttribute(slide2, "style", Slide.styles);
+          }
+          return Slide;
+        };
+        ;
+        var UID_NAME = "uid";
+        var components_elements = function(Splide2, Components) {
+          var root = Splide2.root;
+          var classes = Splide2.classes;
+          var Slides = [];
+          if (!root.id) {
+            window.splide = window.splide || {};
+            var uid = window.splide[UID_NAME] || 0;
+            window.splide[UID_NAME] = ++uid;
+            root.id = "splide" + pad(uid);
+          }
+          var Elements = {
+            /**
+             * Called when the component is mounted.
+             * Collect main elements and store them as member properties.
+             */
+            mount: function mount() {
+              var _this = this;
+              this.init();
+              Splide2.on("refresh", function() {
+                _this.destroy();
+                _this.init();
+              }).on("updated", function() {
+                removeClass(root, getClasses());
+                addClass(root, getClasses());
+              });
+            },
+            /**
+             * Destroy.
+             */
+            destroy: function destroy() {
+              Slides.forEach(function(Slide) {
+                Slide.destroy();
+              });
+              Slides = [];
+              removeClass(root, getClasses());
+            },
+            /**
+             * Initialization.
+             */
+            init: function init() {
+              var _this2 = this;
+              collect();
+              addClass(root, getClasses());
+              this.slides.forEach(function(slide2, index) {
+                _this2.register(slide2, index, -1);
+              });
+            },
+            /**
+             * Register a slide to create a Slide object and handle its behavior.
+             *
+             * @param {Element} slide     - A slide element.
+             * @param {number}  index     - A unique index. This can be negative.
+             * @param {number}  realIndex - A real index for clones. Set -1 for real slides.
+             */
+            register: function register(slide2, index, realIndex) {
+              var SlideObject = elements_slide(Splide2, index, realIndex, slide2);
+              SlideObject.mount();
+              Slides.push(SlideObject);
+            },
+            /**
+             * Return the Slide object designated by the index.
+             * Note that "find" is not supported by IE.
+             *
+             * @return {Object|undefined} - A Slide object if available. Undefined if not.
+             */
+            getSlide: function getSlide(index) {
+              return Slides.filter(function(Slide) {
+                return Slide.index === index;
               })[0];
             },
-            getSlides: function(t) {
-              return t ?
-                h :
-                h.filter(function(t) {
-                  return !t.isClone;
-                });
-            },
-            getSlidesByPage: function(t) {
-              var n = i.Controller.toIndex(t),
-                t = l.options,
-                e = !1 !== t.focus ? 1 : t.perPage;
-              return h.filter(function(t) {
-                t = t.index;
-                return n <= t && t < n + e;
+            /**
+             * Return all Slide objects.
+             *
+             * @param {boolean} includeClones - Whether to include cloned slides or not.
+             *
+             * @return {Object[]} - Slide objects.
+             */
+            getSlides: function getSlides(includeClones) {
+              return includeClones ? Slides : Slides.filter(function(Slide) {
+                return !Slide.isClone;
               });
             },
-            add: function(t, n, e) {
-              var i, o, r, s;
-              (t = "string" == typeof t ? f(t) : t) instanceof Element &&
-                ((i = this.slides[n]),
-                  S(t, { display: "none" }),
-                  i ? (k(t, i), this.slides.splice(n, 0, t)) : (E(this.list, t), this.slides.push(t)),
-                  (o = function() {
-                    e && e(t);
-                  }),
-                  (s = (n = (n = t).querySelectorAll("img")).length) ?
-                  ((r = 0),
-                    v(n, function(t) {
-                      t.onload = t.onerror = function() {
-                        ++r === s && o();
-                      };
-                    })) :
-                  o());
+            /**
+             * Return Slide objects belonging to the given page.
+             *
+             * @param {number} page - A page number.
+             *
+             * @return {Object[]} - An array containing Slide objects.
+             */
+            getSlidesByPage: function getSlidesByPage(page) {
+              var idx = Components.Controller.toIndex(page);
+              var options2 = Splide2.options;
+              var max = options2.focus !== false ? 1 : options2.perPage;
+              return Slides.filter(function(_ref) {
+                var index = _ref.index;
+                return idx <= index && index < idx + max;
+              });
             },
-            remove: function(t) {
-              _(this.slides.splice(t, 1)[0]);
+            /**
+             * Insert a slide to a slider.
+             * Need to refresh Splide after adding a slide.
+             *
+             * @param {Node|string} slide    - A slide element to be added.
+             * @param {number}      index    - A slide will be added at the position.
+             * @param {Function}    callback - Called right after the slide is added to the DOM tree.
+             */
+            add: function add(slide2, index, callback) {
+              if (typeof slide2 === "string") {
+                slide2 = domify(slide2);
+              }
+              if (slide2 instanceof Element) {
+                var ref = this.slides[index];
+                applyStyle(slide2, {
+                  display: "none"
+                });
+                if (ref) {
+                  before(slide2, ref);
+                  this.slides.splice(index, 0, slide2);
+                } else {
+                  append(this.list, slide2);
+                  this.slides.push(slide2);
+                }
+                loaded(slide2, function() {
+                  callback && callback(slide2);
+                });
+              }
             },
-            each: function(t) {
-              h.forEach(t);
+            /**
+             * Remove a slide from a slider.
+             * Need to refresh Splide after removing a slide.
+             *
+             * @param index - Slide index.
+             */
+            remove: function remove(index) {
+              dom_remove(this.slides.splice(index, 1)[0]);
             },
+            /**
+             * Trigger the provided callback for each Slide object.
+             *
+             * @param {Function} callback - A callback function. The first argument will be the Slide object.
+             */
+            each: function each2(callback) {
+              Slides.forEach(callback);
+            },
+            /**
+             * Return slides length without clones.
+             *
+             * @return {number} - Slide length.
+             */
             get length() {
               return this.slides.length;
             },
+            /**
+             * Return "SlideObjects" length including clones.
+             *
+             * @return {number} - Slide length including clones.
+             */
             get total() {
-              return h.length;
+              return Slides.length;
+            }
+          };
+          function collect() {
+            Elements.slider = child(root, classes.slider);
+            Elements.track = find(root, "." + classes.track);
+            Elements.list = child(Elements.track, classes.list);
+            exist(Elements.track && Elements.list, "Track or list was not found.");
+            Elements.slides = children(Elements.list, classes.slide);
+            var arrows2 = findParts(classes.arrows);
+            Elements.arrows = {
+              prev: find(arrows2, "." + classes.prev),
+              next: find(arrows2, "." + classes.next)
+            };
+            var autoplay2 = findParts(classes.autoplay);
+            Elements.bar = find(findParts(classes.progress), "." + classes.bar);
+            Elements.play = find(autoplay2, "." + classes.play);
+            Elements.pause = find(autoplay2, "." + classes.pause);
+            Elements.track.id = Elements.track.id || root.id + "-track";
+            Elements.list.id = Elements.list.id || root.id + "-list";
+          }
+          function getClasses() {
+            var rootClass = classes.root;
+            var options2 = Splide2.options;
+            return [rootClass + "--" + options2.type, rootClass + "--" + options2.direction, options2.drag ? rootClass + "--draggable" : "", options2.isNavigation ? rootClass + "--nav" : "", STATUS_CLASSES.active];
+          }
+          function findParts(className) {
+            return child(root, className) || child(Elements.slider, className);
+          }
+          return Elements;
+        };
+        ;
+        var floor = Math.floor;
+        var controller = function(Splide2, Components) {
+          var options2;
+          var isLoop;
+          var Controller = {
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              options2 = Splide2.options;
+              isLoop = Splide2.is(LOOP);
+              bind();
             },
-          })
-        );
-      },
-      Track: function(r, s) {
-        var e,
-          n,
-          o,
-          a,
-          i = r.options.direction === B,
-          u = r.is(W),
-          c = r.options.direction === R,
-          d = !1,
-          f = c ? 1 : -1;
-
-        function l(t, n, e, i) {
-          S(o, { transition: "" }), (d = !1), u || a.jump(n), i || r.emit("moved", n, e, t);
-        }
-
-        function h(t) {
-          return a.trim(a.toPosition(t));
-        }
-        return (a = {
-          sign: f,
-          mount: function() {
-            (n = s.Elements), (e = s.Layout), (o = n.list);
-          },
-          mounted: function() {
-            var t = this;
-            u ||
-              (this.jump(0),
-                r.on("mounted resize updated", function() {
-                  t.jump(r.index);
-                }));
-          },
-          go: function(t, n, e) {
-            var i = h(t),
-              o = r.index;
-            (r.State.is(4) && d) ||
-            ((d = t !== n),
-              e || r.emit("move", n, o, t),
-              1 <= Math.abs(i - this.position) || u ?
-              s.Transition.start(t, n, o, this.toCoord(i), function() {
-                l(t, n, o, e);
-              }) :
-              t !== o && "move" === r.options.trimSpace ?
-              s.Controller.go(t + t - o, e) :
-              l(t, n, o, e));
-          },
-          jump: function(t) {
-            this.translate(h(t));
-          },
-          translate: function(t) {
-            S(o, { transform: "translate" + (i ? "Y" : "X") + "(" + t + "px)" });
-          },
-          cancel: function() {
-            r.is(L) ? this.shift() : this.translate(this.position), S(o, { transition: "" });
-          },
-          shift: function() {
-            var t = X(this.position),
-              n = X(this.toPosition(0)),
-              e = X(this.toPosition(r.length)),
-              i = e - n;
-            t < n ? (t += i) : e < t && (t -= i), this.translate(f * t);
-          },
-          trim: function(t) {
-            return !r.options.trimSpace || r.is(L) ? t : y(t, f * (e.totalSize() - e.size - e.gap), 0);
-          },
-          toIndex: function(e) {
-            var i = this,
-              o = 0,
-              r = 1 / 0;
-            return (
-              n.getSlides(!0).forEach(function(t) {
-                var n = t.index,
-                  t = X(i.toPosition(n) - e);
-                t < r && ((r = t), (o = n));
-              }),
-              o
-            );
-          },
-          toCoord: function(t) {
-            return { x: i ? 0 : t, y: i ? t : 0 };
-          },
-          toPosition: function(t) {
-            var n = e.totalSize(t) - e.slideSize(t) - e.gap;
-            return f * (n + this.offset(t));
-          },
-          offset: function(t) {
-            var n = r.options.focus,
-              t = e.slideSize(t);
-            return "center" === n ? -(e.size - t) / 2 : -(parseInt(n) || 0) * (t + e.gap);
-          },
-          get position() {
-            var t = i ? "top" : c ? "right" : "left";
-            return T(o)[t] - (T(n.track)[t] - e.padding[t] * f);
-          },
-        });
-      },
-      Clones: function(o, t) {
-        var n,
-          s = [],
-          e = 0,
-          a = t.Elements;
-
-        function i() {
-          n.destroy(),
-            (function(e) {
-              var i = a.length,
-                o = a.register;
-              if (i) {
-                for (var r = a.slides; r.length < e;) r = r.concat(r);
-                r.slice(0, e).forEach(function(t, n) {
-                    t = u(t);
-                    E(a.list, t), s.push(t), o(t, n + i, n % i);
-                  }),
-                  r.slice(-e).forEach(function(t, n) {
-                    t = u(t);
-                    k(t, r[0]), s.push(t), o(t, n - e, (i + n - (e % i)) % i);
-                  });
+            /**
+             * Make track run by the given control.
+             * - "+{i}" : Increment the slide index by i.
+             * - "-{i}" : Decrement the slide index by i.
+             * - "{i}"  : Go to the slide whose index is i.
+             * - ">"    : Go to next page.
+             * - "<"    : Go to prev page.
+             * - ">{i}" : Go to page i.
+             *
+             * @param {string|number} control  - A control pattern.
+             * @param {boolean}       silently - Go to the destination without event emission.
+             */
+            go: function go(control, silently) {
+              var destIndex = this.trim(this.parse(control));
+              Components.Track.go(destIndex, this.rewind(destIndex), silently);
+            },
+            /**
+             * Parse the given control and return the destination index for the track.
+             *
+             * @param {string} control - A control target pattern.
+             *
+             * @return {number} - A parsed target.
+             */
+            parse: function parse(control) {
+              var index = Splide2.index;
+              var matches = String(control).match(/([+\-<>]+)(\d+)?/);
+              var indicator = matches ? matches[1] : "";
+              var number = matches ? parseInt(matches[2]) : 0;
+              switch (indicator) {
+                case "+":
+                  index += number || 1;
+                  break;
+                case "-":
+                  index -= number || 1;
+                  break;
+                case ">":
+                case "<":
+                  index = parsePage(number, index, indicator === "<");
+                  break;
+                default:
+                  index = parseInt(control);
               }
-            })((e = r()));
-        }
-
-        function r() {
-          var t = o.options;
-          if (t.clones) return t.clones;
-          var n = t.autoWidth || t.autoHeight ? a.length : t.perPage,
-            e = t.direction === B ? "Height" : "Width",
-            i = x(o.root, t["fixed" + e]);
-          return (n = i ? Math.ceil(a.track["client" + e] / i) : n) * (t.drag ? t.flickMaxPages + 1 : 1);
-        }
-
-        function u(t) {
-          t = t.cloneNode(!0);
-          return P(t, o.classes.clone), O(t, "id"), t;
-        }
-        return (n = {
-          mount: function() {
-            var t = this;
-            o.is(L) &&
-              (i(),
-                o
-                .on("refresh:before", function() {
-                  t.destroy();
-                })
-                .on("refresh", i)
-                .on("resize", function() {
-                  e !== r() && (t.destroy(), o.refresh());
-                }));
-          },
-          destroy: function() {
-            _(s), (s = []);
-          },
-          get clones() {
-            return s;
-          },
-          get length() {
-            return s.length;
-          },
-        });
-      },
-      Layout: function(t, n) {
-        var i,
-          e,
-          o,
-          r,
-          s,
-          a,
-          u,
-          c,
-          d,
-          f,
-          l,
-          h,
-          p,
-          g = n.Elements,
-          m = t.options.direction === B;
-
-        function v() {
-          i.init(),
-            S(t.root, { maxWidth: w(t.options.width) }),
-            g.each(function(t) {
-              t.slide.style[i.margin] = w(i.gap);
-            }),
-            y();
-        }
-
-        function y() {
-          var n = t.options;
-          i.resize(), S(g.track, { height: w(i.height) });
-          var e = n.autoHeight ? null : w(i.slideHeight());
-          g.each(function(t) {
-              S(t.container, { height: e }), S(t.slide, { width: n.autoWidth ? null : w(i.slideWidth(t.index)), height: t.container ? null : e });
-            }),
-            t.emit("resized");
-        }
-        return (i =
-          ((e = {
-              mount: function() {
-                t
-                  .on(
-                    "resize load",
-                    V(function() {
-                      t.emit("resize");
-                    }, t.options.throttle),
-                    window
-                  )
-                  .on("resize", y)
-                  .on("updated refresh", v),
-                  v(),
-                  (this.totalSize = m ? this.totalHeight : this.totalWidth),
-                  (this.slideSize = m ? this.slideHeight : this.slideWidth);
-              },
-              destroy: function() {
-                O([g.list, g.track], "style");
-              },
-              get size() {
-                return m ? this.height : this.width;
-              },
-            }),
-            (o = m ?
-              ((d = t),
-                (h = n.Elements),
-                (p = d.root), {
-                  margin: "marginBottom",
-                  init: function() {
-                    this.resize();
-                  },
-                  resize: function() {
-                    (l = d.options), (f = h.track), (this.gap = x(p, l.gap));
-                    var t = l.padding,
-                      n = x(p, t.top || t),
-                      t = x(p, t.bottom || t);
-                    (this.padding = { top: n, bottom: t }), S(f, { paddingTop: w(n), paddingBottom: w(t) });
-                  },
-                  totalHeight: function(t) {
-                    void 0 === t && (t = d.length - 1);
-                    t = h.getSlide(t);
-                    return t ? T(t.slide).bottom - T(h.list).top + this.gap : 0;
-                  },
-                  slideWidth: function() {
-                    return x(p, l.fixedWidth || this.width);
-                  },
-                  slideHeight: function(t) {
-                    if (l.autoHeight) {
-                      var n = h.getSlide(t);
-                      return n ? n.slide.offsetHeight : 0;
-                    }
-                    n = l.fixedHeight || (this.height + this.gap) / l.perPage - this.gap;
-                    return x(p, n);
-                  },
-                  get width() {
-                    return f.clientWidth;
-                  },
-                  get height() {
-                    var t = l.height || this.width * l.heightRatio;
-                    return q(t, '"height" or "heightRatio" is missing.'), x(p, t) - this.padding.top - this.padding.bottom;
-                  },
-                }) :
-              ((r = t),
-                (a = n.Elements),
-                (u = r.root), {
-                  margin: "margin" + ((c = r.options).direction === R ? "Left" : "Right"),
-                  height: 0,
-                  init: function() {
-                    this.resize();
-                  },
-                  resize: function() {
-                    (c = r.options), (s = a.track), (this.gap = x(u, c.gap));
-                    var t = c.padding,
-                      n = x(u, t.left || t),
-                      t = x(u, t.right || t);
-                    (this.padding = { left: n, right: t }), S(s, { paddingLeft: w(n), paddingRight: w(t) });
-                  },
-                  totalWidth: function(t) {
-                    void 0 === t && (t = r.length - 1);
-                    var n = a.getSlide(t),
-                      e = 0;
-                    return n && ((t = T(n.slide)), (n = T(a.list)), (e = c.direction === R ? n.right - t.left : t.right - n.left), (e += this.gap)), e;
-                  },
-                  slideWidth: function(t) {
-                    if (c.autoWidth) {
-                      var n = a.getSlide(t);
-                      return n ? n.slide.offsetWidth : 0;
-                    }
-                    n = c.fixedWidth || (this.width + this.gap) / c.perPage - this.gap;
-                    return x(u, n);
-                  },
-                  slideHeight: function() {
-                    var t = c.height || c.fixedHeight || this.width * c.heightRatio;
-                    return x(u, t);
-                  },
-                  get width() {
-                    return s.clientWidth - this.padding.left - this.padding.right;
-                  },
-                })),
-            b(o).forEach(function(t) {
-              e[t] || Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(o, t));
-            }),
-            e));
-      },
-      Drag: function(a, u) {
-        var e,
-          i,
-          o,
-          r,
-          n,
-          c = u.Track,
-          d = u.Controller,
-          s = a.options.direction === B,
-          f = s ? "y" : "x";
-
-        function l(t) {
-          n.disabled || r || h(t);
-        }
-
-        function h(t) {
-          (e = c.toCoord(c.position)), (i = m(t, {})), (o = i);
-        }
-
-        function p(t) {
-          var n;
-          i &&
-            ((o = m(t, i)),
-              r ?
-              (t.cancelable && t.preventDefault(),
-                a.is(W) ||
-                ((n = e[f] + o.offset[f]),
-                  c.translate(
-                    (function(t) {
-                      {
-                        var n, e, i;
-                        a.is(A) &&
-                          ((n = c.sign),
-                            (e = n * c.trim(c.toPosition(0))),
-                            (i = n * c.trim(c.toPosition(d.edgeIndex))),
-                            (t *= n) < e ? (t = e - 7 * Math.log(e - t)) : i < t && (t = i + 7 * Math.log(t - i)),
-                            (t *= n));
-                      }
-                      return t;
-                    })(n)
-                  ))) :
-              (function(t) {
-                t = t.offset;
-                if (a.State.is(4) && a.options.waitForTransition) return !1;
-                t = (180 * Math.atan(U(t.y) / U(t.x))) / Math.PI;
-                s && (t = 90 - t);
-                return t < a.options.dragAngleThreshold;
-              })(o) && (a.emit("drag", i), (r = !0), c.cancel(), h(t)));
-        }
-
-        function g() {
-          (i = null),
-          r &&
-            (a.emit("dragged", o),
-              (function(t) {
-                var n = t.velocity[f],
-                  e = U(n); {
-                  var i, o, r, s;
-                  0 < e &&
-                    ((i = a.options),
-                      (o = a.index),
-                      (r = n < 0 ? -1 : 1),
-                      (s = o),
-                      a.is(W) ||
-                      ((n = c.position), e > i.flickVelocityThreshold && U(t.offset[f]) < i.swipeDistanceThreshold && (n += r * Math.min(e * i.flickPower, u.Layout.size * (i.flickMaxPages || 1))), (s = c.toIndex(n))),
-                      s === o && 0.1 < e && (s = o + r * c.sign),
-                      a.is(A) && (s = y(s, 0, d.edgeIndex)),
-                      d.go(s, i.isNavigation));
+              return index;
+            },
+            /**
+             * Compute index from the given page number.
+             *
+             * @param {number} page - Page number.
+             *
+             * @return {number} - A computed page number.
+             */
+            toIndex: function toIndex(page) {
+              if (hasFocus()) {
+                return page;
+              }
+              var length = Splide2.length;
+              var perPage = options2.perPage;
+              var index = page * perPage;
+              index = index - (this.pageLength * perPage - length) * floor(index / length);
+              if (length - perPage <= index && index < length) {
+                index = length - perPage;
+              }
+              return index;
+            },
+            /**
+             * Compute page number from the given slide index.
+             *
+             * @param {number} index - Slide index.
+             *
+             * @return {number} - A computed page number.
+             */
+            toPage: function toPage(index) {
+              if (hasFocus()) {
+                return index;
+              }
+              var length = Splide2.length;
+              var perPage = options2.perPage;
+              if (length - perPage <= index && index < length) {
+                return floor((length - 1) / perPage);
+              }
+              return floor(index / perPage);
+            },
+            /**
+             * Trim the given index according to the current mode.
+             * Index being returned could be less than 0 or greater than the length in Loop mode.
+             *
+             * @param {number} index - An index being trimmed.
+             *
+             * @return {number} - A trimmed index.
+             */
+            trim: function trim(index) {
+              if (!isLoop) {
+                index = options2.rewind ? this.rewind(index) : between(index, 0, this.edgeIndex);
+              }
+              return index;
+            },
+            /**
+             * Rewind the given index if it's out of range.
+             *
+             * @param {number} index - An index.
+             *
+             * @return {number} - A rewound index.
+             */
+            rewind: function rewind(index) {
+              var edge = this.edgeIndex;
+              if (isLoop) {
+                while (index > edge) {
+                  index -= edge + 1;
                 }
-              })(o),
-              (r = !1));
-        }
-
-        function m(t, n) {
-          var e = t.timeStamp,
-            i = t.touches,
-            o = i ? i[0] : t,
-            r = o.clientX,
-            i = o.clientY,
-            t = n.to || {},
-            o = t.x,
-            t = t.y,
-            t = { x: r - (void 0 === o ? r : o), y: i - (void 0 === t ? i : t) },
-            n = e - (n.time || 0);
-          return { to: { x: r, y: i }, offset: t, time: e, velocity: { x: t.x / n, y: t.y / n } };
-        }
-        return (n = {
-          disabled: !1,
-          mount: function() {
-            var t = this,
-              n = u.Elements,
-              e = n.track;
-            a.on("touchstart mousedown", l, e)
-              .on("touchmove mousemove", p, e, { passive: !1 })
-              .on("touchend touchcancel mouseleave mouseup dragend", g, e)
-              .on("mounted refresh", function() {
-                v(n.list.querySelectorAll("img, a"), function(t) {
-                  a.off("dragstart", t).on(
-                    "dragstart",
-                    function(t) {
-                      t.preventDefault();
-                    },
-                    t, { passive: !1 }
-                  );
-                });
-              })
-              .on("mounted updated", function() {
-                t.disabled = !a.options.drag;
-              });
-          },
-        });
-      },
-      Click: function(t, n) {
-        var e = !1;
-
-        function i(t) {
-          e && (t.preventDefault(), t.stopPropagation(), t.stopImmediatePropagation());
-        }
-        return {
-          required: t.options.drag,
-          mount: function() {
-            t.on("click", i, n.Elements.track, { capture: !0 })
-              .on("drag", function() {
-                e = !0;
-              })
-              .on("dragged", function() {
-                setTimeout(function() {
-                  e = !1;
-                });
-              });
-          },
+                while (index < 0) {
+                  index += edge + 1;
+                }
+              } else {
+                if (index > edge) {
+                  index = 0;
+                } else if (index < 0) {
+                  index = edge;
+                }
+              }
+              return index;
+            },
+            /**
+             * Check if the direction is "rtl" or not.
+             *
+             * @return {boolean} - True if "rtl" or false if not.
+             */
+            isRtl: function isRtl() {
+              return options2.direction === RTL;
+            },
+            /**
+             * Return the page length.
+             *
+             * @return {number} - Max page number.
+             */
+            get pageLength() {
+              var length = Splide2.length;
+              return hasFocus() ? length : Math.ceil(length / options2.perPage);
+            },
+            /**
+             * Return the edge index.
+             *
+             * @return {number} - Edge index.
+             */
+            get edgeIndex() {
+              var length = Splide2.length;
+              if (!length) {
+                return 0;
+              }
+              if (hasFocus() || options2.isNavigation || isLoop) {
+                return length - 1;
+              }
+              return length - options2.perPage;
+            },
+            /**
+             * Return the index of the previous slide.
+             *
+             * @return {number} - The index of the previous slide if available. -1 otherwise.
+             */
+            get prevIndex() {
+              var prev = Splide2.index - 1;
+              if (isLoop || options2.rewind) {
+                prev = this.rewind(prev);
+              }
+              return prev > -1 ? prev : -1;
+            },
+            /**
+             * Return the index of the next slide.
+             *
+             * @return {number} - The index of the next slide if available. -1 otherwise.
+             */
+            get nextIndex() {
+              var next = Splide2.index + 1;
+              if (isLoop || options2.rewind) {
+                next = this.rewind(next);
+              }
+              return Splide2.index < next && next <= this.edgeIndex || next === 0 ? next : -1;
+            }
+          };
+          function bind() {
+            Splide2.on("move", function(newIndex) {
+              Splide2.index = newIndex;
+            }).on("updated refresh", function(newOptions) {
+              options2 = newOptions || options2;
+              Splide2.index = between(Splide2.index, 0, Controller.edgeIndex);
+            });
+          }
+          function hasFocus() {
+            return options2.focus !== false;
+          }
+          function parsePage(number, index, prev) {
+            if (number > -1) {
+              return Controller.toIndex(number);
+            }
+            var perMove = options2.perMove;
+            var sign = prev ? -1 : 1;
+            if (perMove) {
+              return index + perMove * sign;
+            }
+            return Controller.toIndex(Controller.toPage(index) + sign);
+          }
+          return Controller;
         };
-      },
-      Autoplay: function(o, t, e) {
-        var i,
-          r,
-          s = [],
-          a = t.Elements;
-
-        function u(t, n, e, i) {
-          t.forEach(function(t) {
-            o.on(
-              n,
-              function() {
-                r[i ? "play" : "pause"](e);
-              },
-              t
-            );
-          });
-        }
-        return (r = {
-          required: o.options.autoplay,
-          mount: function() {
-            var t = o.options;
-            a.slides.length > t.perPage &&
-              ((i = n(
-                  function() {
-                    o.go(">");
-                  },
-                  t.interval,
-                  function(t) {
-                    o.emit(e + ":playing", t), a.bar && S(a.bar, { width: 100 * t + "%" });
+        ;
+        var abs = Math.abs;
+        var track = function(Splide2, Components) {
+          var Layout;
+          var Elements;
+          var list;
+          var isVertical = Splide2.options.direction === TTB;
+          var isFade = Splide2.is(FADE);
+          var isRTL = Splide2.options.direction === RTL;
+          var isLoopPending = false;
+          var sign = isRTL ? 1 : -1;
+          var Track = {
+            /**
+             * Make public the sign defined locally.
+             *
+             * @type {number}
+             */
+            sign,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              Elements = Components.Elements;
+              Layout = Components.Layout;
+              list = Elements.list;
+            },
+            /**
+             * Called after the component is mounted.
+             * The resize event must be registered after the Layout's one is done.
+             */
+            mounted: function mounted() {
+              var _this = this;
+              if (!isFade) {
+                this.jump(0);
+                Splide2.on("mounted resize updated", function() {
+                  _this.jump(Splide2.index);
+                });
+              }
+            },
+            /**
+             * Go to the given destination index.
+             * After arriving there, the track is jump to the new index without animation, mainly for loop mode.
+             *
+             * @param {number}  destIndex - A destination index.
+             *                              This can be negative or greater than slides length for reaching clones.
+             * @param {number}  newIndex  - An actual new index. They are always same in Slide and Rewind mode.
+             * @param {boolean} silently  - If true, suppress emitting events.
+             */
+            go: function go(destIndex, newIndex, silently) {
+              var newPosition = getTrimmedPosition(destIndex);
+              var prevIndex = Splide2.index;
+              if (Splide2.State.is(MOVING) && isLoopPending) {
+                return;
+              }
+              isLoopPending = destIndex !== newIndex;
+              if (!silently) {
+                Splide2.emit("move", newIndex, prevIndex, destIndex);
+              }
+              if (Math.abs(newPosition - this.position) >= 1 || isFade) {
+                Components.Transition.start(destIndex, newIndex, prevIndex, this.toCoord(newPosition), function() {
+                  onTransitionEnd(destIndex, newIndex, prevIndex, silently);
+                });
+              } else {
+                if (destIndex !== prevIndex && Splide2.options.trimSpace === "move") {
+                  Components.Controller.go(destIndex + destIndex - prevIndex, silently);
+                } else {
+                  onTransitionEnd(destIndex, newIndex, prevIndex, silently);
+                }
+              }
+            },
+            /**
+             * Move the track to the specified index.
+             *
+             * @param {number} index - A destination index where the track jumps.
+             */
+            jump: function jump(index) {
+              this.translate(getTrimmedPosition(index));
+            },
+            /**
+             * Set the list position by CSS translate property.
+             *
+             * @param {number} position - A new position value.
+             */
+            translate: function translate(position) {
+              applyStyle(list, {
+                transform: "translate" + (isVertical ? "Y" : "X") + "(" + position + "px)"
+              });
+            },
+            /**
+             * Cancel the transition and set the list position.
+             * Also, loop the slider if necessary.
+             */
+            cancel: function cancel() {
+              if (Splide2.is(LOOP)) {
+                this.shift();
+              } else {
+                this.translate(this.position);
+              }
+              applyStyle(list, {
+                transition: ""
+              });
+            },
+            /**
+             * Shift the slider if it exceeds borders on the edge.
+             */
+            shift: function shift() {
+              var position = abs(this.position);
+              var left = abs(this.toPosition(0));
+              var right = abs(this.toPosition(Splide2.length));
+              var innerSize = right - left;
+              if (position < left) {
+                position += innerSize;
+              } else if (position > right) {
+                position -= innerSize;
+              }
+              this.translate(sign * position);
+            },
+            /**
+             * Trim redundant spaces on the left or right edge if necessary.
+             *
+             * @param {number} position - Position value to be trimmed.
+             *
+             * @return {number} - Trimmed position.
+             */
+            trim: function trim(position) {
+              if (!Splide2.options.trimSpace || Splide2.is(LOOP)) {
+                return position;
+              }
+              var edge = sign * (Layout.totalSize() - Layout.size - Layout.gap);
+              return between(position, edge, 0);
+            },
+            /**
+             * Calculate the closest slide index from the given position.
+             *
+             * @param {number} position - A position converted to an slide index.
+             *
+             * @return {number} - The closest slide index.
+             */
+            toIndex: function toIndex(position) {
+              var _this2 = this;
+              var index = 0;
+              var minDistance = Infinity;
+              Elements.getSlides(true).forEach(function(Slide) {
+                var slideIndex = Slide.index;
+                var distance = abs(_this2.toPosition(slideIndex) - position);
+                if (distance < minDistance) {
+                  minDistance = distance;
+                  index = slideIndex;
+                }
+              });
+              return index;
+            },
+            /**
+             * Return coordinates object by the given position.
+             *
+             * @param {number} position - A position value.
+             *
+             * @return {Object} - A coordinates object.
+             */
+            toCoord: function toCoord(position) {
+              return {
+                x: isVertical ? 0 : position,
+                y: isVertical ? position : 0
+              };
+            },
+            /**
+             * Calculate the track position by a slide index.
+             *
+             * @param {number} index - Slide index.
+             *
+             * @return {Object} - Calculated position.
+             */
+            toPosition: function toPosition(index) {
+              var position = Layout.totalSize(index) - Layout.slideSize(index) - Layout.gap;
+              return sign * (position + this.offset(index));
+            },
+            /**
+             * Return the current offset value, considering direction.
+             *
+             * @return {number} - Offset amount.
+             */
+            offset: function offset(index) {
+              var focus = Splide2.options.focus;
+              var slideSize = Layout.slideSize(index);
+              if (focus === "center") {
+                return -(Layout.size - slideSize) / 2;
+              }
+              return -(parseInt(focus) || 0) * (slideSize + Layout.gap);
+            },
+            /**
+             * Return the current position.
+             * This returns the correct position even while transitioning by CSS.
+             *
+             * @return {number} - Current position.
+             */
+            get position() {
+              var prop = isVertical ? "top" : isRTL ? "right" : "left";
+              return getRect(list)[prop] - (getRect(Elements.track)[prop] - Layout.padding[prop] * sign);
+            }
+          };
+          function onTransitionEnd(destIndex, newIndex, prevIndex, silently) {
+            applyStyle(list, {
+              transition: ""
+            });
+            isLoopPending = false;
+            if (!isFade) {
+              Track.jump(newIndex);
+            }
+            if (!silently) {
+              Splide2.emit("moved", newIndex, prevIndex, destIndex);
+            }
+          }
+          function getTrimmedPosition(index) {
+            return Track.trim(Track.toPosition(index));
+          }
+          return Track;
+        };
+        ;
+        var clones = function(Splide2, Components) {
+          var clones2 = [];
+          var cloneCount = 0;
+          var Elements = Components.Elements;
+          var Clones = {
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              var _this = this;
+              if (Splide2.is(LOOP)) {
+                init();
+                Splide2.on("refresh:before", function() {
+                  _this.destroy();
+                }).on("refresh", init).on("resize", function() {
+                  if (cloneCount !== getCloneCount()) {
+                    _this.destroy();
+                    Splide2.refresh();
                   }
-                )),
-                (function() {
-                  var t = o.options,
-                    n = o.sibling,
-                    n = [o.root, n ? n.root : null];
-                  t.pauseOnHover && (u(n, "mouseleave", Y, !0), u(n, "mouseenter", Y, !1));
-                  t.pauseOnFocus && (u(n, "focusout", J, !0), u(n, "focusin", J, !1));
-                  a.play &&
-                    o.on(
-                      "click",
-                      function() {
-                        r.play(J), r.play(K);
-                      },
-                      a.play
-                    );
-                  a.pause && u([a.pause], "click", K, !1);
-                  o.on("move refresh", function() {
-                    r.play();
-                  }).on("destroy", function() {
-                    r.pause();
-                  });
-                })(),
-                this.play());
-          },
-          play: function(n) {
-            void 0 === n && (n = 0),
-              (s = s.filter(function(t) {
-                return t !== n;
-              })).length || (o.emit(e + ":play"), i.play(o.options.resetProgress));
-          },
-          pause: function(t) {
-            void 0 === t && (t = 0), i.pause(), -1 === s.indexOf(t) && s.push(t), 1 === s.length && o.emit(e + ":pause");
-          },
-        });
-      },
-      Cover: function(t, e) {
-        function n(n) {
-          e.Elements.each(function(t) {
-            t = m(t.slide, "IMG") || m(t.container, "IMG");
-            t && t.src && i(t, n);
-          });
-        }
-
-        function i(t, n) {
-          S(t.parentElement, { background: n ? "" : 'center/cover no-repeat url("' + t.src + '")' }), S(t, { display: n ? "" : "none" });
-        }
-        return {
-          required: t.options.cover,
-          mount: function() {
-            t.on("lazyload:loaded", function(t) {
-                i(t, !1);
-              }),
-              t.on("mounted updated refresh", function() {
-                return n(!1);
-              });
-          },
-          destroy: function() {
-            n(!0);
-          },
-        };
-      },
-      Arrows: function(i, o, r) {
-        var s,
-          a,
-          t,
-          e = i.classes,
-          u = i.root,
-          c = o.Elements;
-
-        function n() {
-          var t = o.Controller,
-            n = t.prevIndex,
-            e = t.nextIndex,
-            t = i.length > i.options.perPage || i.is(L);
-          (s.disabled = n < 0 || !t), (a.disabled = e < 0 || !t), i.emit(r + ":updated", s, a, n, e);
-        }
-
-        function d(t) {
-          return f(
-            '<button class="' +
-            e.arrow +
-            " " +
-            (t ? e.prev : e.next) +
-            '" type="button"><svg xmlns="http://www.w3.org/2000/svg"\tviewBox="0 0 40 40"\twidth="40"\theight="40"><path d="' +
-            (i.options.arrowPath || "m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z") +
-            '" />'
-          );
-        }
-        return {
-          required: i.options.arrows,
-          mount: function() {
-            (s = c.arrows.prev),
-            (a = c.arrows.next),
-            (s && a) ||
-            !i.options.arrows ||
-              ((s = d(!0)),
-                (a = d(!1)),
-                (t = !0),
-                (function() {
-                  var t = l("div", { class: e.arrows });
-                  E(t, s), E(t, a);
-                  var n = c.slider,
-                    n = "slider" === i.options.arrows && n ? n : u;
-                  k(t, n.firstElementChild);
-                })()),
-              s &&
-              a &&
-              i
-              .on(
-                "click",
-                function() {
-                  i.go("<");
-                },
-                s
-              )
-              .on(
-                "click",
-                function() {
-                  i.go(">");
-                },
-                a
-              )
-              .on("mounted move updated refresh", n),
-              (this.arrows = { prev: s, next: a });
-          },
-          mounted: function() {
-            i.emit(r + ":mounted", s, a);
-          },
-          destroy: function() {
-            O([s, a], "disabled"), t && _(s.parentElement);
-          },
-        };
-      },
-      Pagination: function(s, n, i) {
-        var a,
-          u = {},
-          c = n.Elements;
-
-        function d(t, n) {
-          var e = a.getItem(n),
-            n = a.getItem(t),
-            t = j.active;
-          e && C(e.button, t), n && P(n.button, t), s.emit(i + ":updated", u, e, n);
-        }
-        return (a = {
-          mount: function() {
-            var n,
-              o,
-              r,
-              t,
-              e = s.options.pagination;
-            e &&
-              ((n = s.options),
-                (o = s.classes),
-                (r = l("ul", { class: o.pagination })),
-                (t = c
-                  .getSlides(!1)
-                  .filter(function(t) {
-                    return !1 !== n.focus || t.index % n.perPage == 0;
-                  })
-                  .map(function(t, n) {
-                    var e = l("li", {}),
-                      i = l("button", { class: o.page, type: "button" });
-                    return (
-                      E(e, i),
-                      E(r, e),
-                      s.on(
-                        "click",
-                        function() {
-                          s.go(">" + n);
-                        },
-                        i
-                      ), { li: e, button: i, page: n, Slides: c.getSlidesByPage(n) }
-                    );
-                  })),
-                (u = { list: r, items: t }),
-                (t = c.slider),
-                E("slider" === e && t ? t : s.root, u.list),
-                s.on(Q, d)),
-              s.off(Z).on(Z, function() {
-                a.destroy(), s.options.pagination && (a.mount(), a.mounted());
-              });
-          },
-          mounted: function() {
-            var t;
-            s.options.pagination && ((t = s.index), s.emit(i + ":mounted", u, this.getItem(t)), d(t, -1));
-          },
-          destroy: function() {
-            _(u.list),
-              u.items &&
-              u.items.forEach(function(t) {
-                s.off("click", t.button);
-              }),
-              s.off(Q),
-              (u = {});
-          },
-          getItem: function(t) {
-            return u.items[n.Controller.toPage(t)];
-          },
-          get data() {
-            return u;
-          },
-        });
-      },
-      LazyLoad: function(o, t, r) {
-        var n,
-          e,
-          i = o.options,
-          s = "sequential" === i.lazyLoad;
-
-        function a() {
-          (e = []), (n = 0);
-        }
-
-        function u(n) {
-          (n = isNaN(n) ? o.index : n),
-          (e = e.filter(function(t) {
-            return !t.Slide.isWithin(n, i.perPage * (i.preloadPages + 1)) || (c(t.img, t.Slide), !1);
-          }))[0] || o.off("moved." + r);
-        }
-
-        function c(t, n) {
-          P(n.slide, j.loading);
-          var e = l("span", { class: o.classes.spinner });
-          E(t.parentElement, e),
-            (t.onload = function() {
-              f(t, e, n, !1);
-            }),
-            (t.onerror = function() {
-              f(t, e, n, !0);
-            }),
-            I(t, "srcset", M(t, tt) || ""),
-            I(t, "src", M(t, $) || "");
-        }
-
-        function d() {
-          var t;
-          n < e.length && c((t = e[n]).img, t.Slide), n++;
-        }
-
-        function f(t, n, e, i) {
-          C(e.slide, j.loading), i || (_(n), S(t, { display: "" }), o.emit(r + ":loaded", t).emit("resize")), s && d();
-        }
-        return {
-          required: i.lazyLoad,
-          mount: function() {
-            o.on("mounted refresh", function() {
-                a(),
-                  t.Elements.each(function(n) {
-                    v(n.slide.querySelectorAll("[" + $ + "], [" + tt + "]"), function(t) {
-                      t.src || t.srcset || (e.push({ img: t, Slide: n }), S(t, { display: "none" }));
-                    });
-                  }),
-                  s && d();
-              }),
-              s || o.on("mounted refresh moved." + r, u);
-          },
-          destroy: a,
-        };
-      },
-      Keyboard: function(i) {
-        var o;
-        return {
-          mount: function() {
-            i.on("mounted updated", function() {
-              var t = i.options,
-                n = i.root,
-                e = r[t.direction],
-                t = t.keyboard;
-              o && (i.off("keydown", o), O(n, rt)),
-                t &&
-                ("focused" === t ? I((o = n), rt, 0) : (o = document),
-                  i.on(
-                    "keydown",
-                    function(t) {
-                      e[t.key] && i.go(e[t.key]);
-                    },
-                    o
-                  ));
-            });
-          },
-        };
-      },
-      Sync: function(i) {
-        var o = i.sibling,
-          t = o && o.options.isNavigation;
-
-        function r() {
-          i.on(st, function(t, n, e) {
-            o.off(st).go(o.is(L) ? e : t, !1), s();
-          });
-        }
-
-        function s() {
-          o.on(st, function(t, n, e) {
-            i.off(st).go(i.is(L) ? e : t, !1), r();
-          });
-        }
-
-        function n() {
-          o.Components.Elements.each(function(t) {
-            var n = t.slide,
-              e = t.index;
-            i.off(at, n).on(
-                at,
-                function(t) {
-                  (t.button && 0 !== t.button) || a(e);
-                },
-                n
-              ),
-              i.off("keyup", n).on(
-                "keyup",
-                function(t) {
-                  -1 < ut.indexOf(t.key) && (t.preventDefault(), a(e));
-                },
-                n, { passive: !1 }
-              );
-          });
-        }
-
-        function a(t) {
-          i.State.is(3) && o.go(t);
-        }
-        return {
-          required: !!o,
-          mount: function() {
-            r(),
-              s(),
-              t &&
-              (n(),
-                i.on("refresh", function() {
-                  setTimeout(function() {
-                    n(), o.emit("navigation:updated", i);
-                  });
-                }));
-          },
-          mounted: function() {
-            t && o.emit("navigation:mounted", i);
-          },
-        };
-      },
-      A11y: function(r, n) {
-        var s = r.i18n,
-          o = n.Elements,
-          e = [ot, rt, et, it, nt, "role"];
-
-        function i(t, n) {
-          I(t, ot, !n), r.options.slideFocus && I(t, rt, n ? 0 : -1);
-        }
-
-        function t(t, n) {
-          var e = o.track.id;
-          I(t, et, e), I(n, et, e);
-        }
-
-        function a(t, n, e, i) {
-          var o = r.index,
-            e = -1 < e && o < e ? s.last : s.prev,
-            o = -1 < i && i < o ? s.first : s.next;
-          I(t, it, e), I(n, it, o);
-        }
-
-        function u(t, n) {
-          n && I(n.button, nt, !0),
-            t.items.forEach(function(t) {
-              var n = r.options,
-                e = h(!1 === n.focus && 1 < n.perPage ? s.pageX : s.slideX, t.page + 1),
-                n = t.button,
-                t = t.Slides.map(function(t) {
-                  return t.slide.id;
                 });
-              I(n, et, t.join(" ")), I(n, it, e);
+              }
+            },
+            /**
+             * Destroy.
+             */
+            destroy: function destroy() {
+              dom_remove(clones2);
+              clones2 = [];
+            },
+            /**
+             * Return all clones.
+             *
+             * @return {Element[]} - Cloned elements.
+             */
+            get clones() {
+              return clones2;
+            },
+            /**
+             * Return clone length.
+             *
+             * @return {number} - A length of clones.
+             */
+            get length() {
+              return clones2.length;
+            }
+          };
+          function init() {
+            Clones.destroy();
+            cloneCount = getCloneCount();
+            generateClones(cloneCount);
+          }
+          function generateClones(count) {
+            var length = Elements.length, register = Elements.register;
+            if (length) {
+              var slides = Elements.slides;
+              while (slides.length < count) {
+                slides = slides.concat(slides);
+              }
+              slides.slice(0, count).forEach(function(elm, index) {
+                var clone = cloneDeeply(elm);
+                append(Elements.list, clone);
+                clones2.push(clone);
+                register(clone, index + length, index % length);
+              });
+              slides.slice(-count).forEach(function(elm, index) {
+                var clone = cloneDeeply(elm);
+                before(clone, slides[0]);
+                clones2.push(clone);
+                register(clone, index - count, (length + index - count % length) % length);
+              });
+            }
+          }
+          function getCloneCount() {
+            var options2 = Splide2.options;
+            if (options2.clones) {
+              return options2.clones;
+            }
+            var baseCount = options2.autoWidth || options2.autoHeight ? Elements.length : options2.perPage;
+            var dimension = options2.direction === TTB ? "Height" : "Width";
+            var fixedSize = toPixel(Splide2.root, options2["fixed" + dimension]);
+            if (fixedSize) {
+              baseCount = Math.ceil(Elements.track["client" + dimension] / fixedSize);
+            }
+            return baseCount * (options2.drag ? options2.flickMaxPages + 1 : 1);
+          }
+          function cloneDeeply(elm) {
+            var clone = elm.cloneNode(true);
+            addClass(clone, Splide2.classes.clone);
+            removeAttribute(clone, "id");
+            return clone;
+          }
+          return Clones;
+        };
+        ;
+        var horizontal = function(Splide2, Components) {
+          var Elements = Components.Elements;
+          var root = Splide2.root;
+          var track2;
+          var options2 = Splide2.options;
+          return {
+            /**
+             * Margin property name.
+             *
+             * @type {string}
+             */
+            margin: "margin" + (options2.direction === RTL ? "Left" : "Right"),
+            /**
+             * Always 0 because the height will be determined by inner contents.
+             *
+             * @type {number}
+             */
+            height: 0,
+            /**
+             * Initialization.
+             */
+            init: function init() {
+              this.resize();
+            },
+            /**
+             * Resize gap and padding.
+             * This must be called on init.
+             */
+            resize: function resize() {
+              options2 = Splide2.options;
+              track2 = Elements.track;
+              this.gap = toPixel(root, options2.gap);
+              var padding = options2.padding;
+              var left = toPixel(root, padding.left || padding);
+              var right = toPixel(root, padding.right || padding);
+              this.padding = {
+                left,
+                right
+              };
+              applyStyle(track2, {
+                paddingLeft: unit(left),
+                paddingRight: unit(right)
+              });
+            },
+            /**
+             * Return total width from the left of the list to the right of the slide specified by the provided index.
+             *
+             * @param {number} index - Optional. A slide index. If undefined, total width of the slider will be returned.
+             *
+             * @return {number} - Total width to the right side of the specified slide, or 0 for an invalid index.
+             */
+            totalWidth: function totalWidth(index) {
+              if (index === void 0) {
+                index = Splide2.length - 1;
+              }
+              var Slide = Elements.getSlide(index);
+              var width = 0;
+              if (Slide) {
+                var slideRect = getRect(Slide.slide);
+                var listRect = getRect(Elements.list);
+                if (options2.direction === RTL) {
+                  width = listRect.right - slideRect.left;
+                } else {
+                  width = slideRect.right - listRect.left;
+                }
+                width += this.gap;
+              }
+              return width;
+            },
+            /**
+             * Return the slide width in px.
+             *
+             * @param {number} index - Slide index.
+             *
+             * @return {number} - The slide width.
+             */
+            slideWidth: function slideWidth(index) {
+              if (options2.autoWidth) {
+                var Slide = Elements.getSlide(index);
+                return Slide ? Slide.slide.offsetWidth : 0;
+              }
+              var width = options2.fixedWidth || (this.width + this.gap) / options2.perPage - this.gap;
+              return toPixel(root, width);
+            },
+            /**
+             * Return the slide height in px.
+             *
+             * @return {number} - The slide height.
+             */
+            slideHeight: function slideHeight() {
+              var height = options2.height || options2.fixedHeight || this.width * options2.heightRatio;
+              return toPixel(root, height);
+            },
+            /**
+             * Return slider width without padding.
+             *
+             * @return {number} - Current slider width.
+             */
+            get width() {
+              return track2.clientWidth - this.padding.left - this.padding.right;
+            }
+          };
+        };
+        ;
+        var vertical = function(Splide2, Components) {
+          var Elements = Components.Elements;
+          var root = Splide2.root;
+          var track2;
+          var options2;
+          return {
+            /**
+             * Margin property name.
+             *
+             * @type {string}
+             */
+            margin: "marginBottom",
+            /**
+             * Initialization.
+             */
+            init: function init() {
+              this.resize();
+            },
+            /**
+             * Resize gap and padding.
+             * This must be called on init.
+             */
+            resize: function resize() {
+              options2 = Splide2.options;
+              track2 = Elements.track;
+              this.gap = toPixel(root, options2.gap);
+              var padding = options2.padding;
+              var top = toPixel(root, padding.top || padding);
+              var bottom = toPixel(root, padding.bottom || padding);
+              this.padding = {
+                top,
+                bottom
+              };
+              applyStyle(track2, {
+                paddingTop: unit(top),
+                paddingBottom: unit(bottom)
+              });
+            },
+            /**
+             * Return total height from the top of the list to the bottom of the slide specified by the provided index.
+             *
+             * @param {number} index - Optional. A slide index. If undefined, total height of the slider will be returned.
+             *
+             * @return {number} - Total height to the bottom of the specified slide, or 0 for an invalid index.
+             */
+            totalHeight: function totalHeight(index) {
+              if (index === void 0) {
+                index = Splide2.length - 1;
+              }
+              var Slide = Elements.getSlide(index);
+              if (Slide) {
+                return getRect(Slide.slide).bottom - getRect(Elements.list).top + this.gap;
+              }
+              return 0;
+            },
+            /**
+             * Return the slide width in px.
+             *
+             * @return {number} - The slide width.
+             */
+            slideWidth: function slideWidth() {
+              return toPixel(root, options2.fixedWidth || this.width);
+            },
+            /**
+             * Return the slide height in px.
+             *
+             * @param {number} index - Slide index.
+             *
+             * @return {number} - The slide height.
+             */
+            slideHeight: function slideHeight(index) {
+              if (options2.autoHeight) {
+                var Slide = Elements.getSlide(index);
+                return Slide ? Slide.slide.offsetHeight : 0;
+              }
+              var height = options2.fixedHeight || (this.height + this.gap) / options2.perPage - this.gap;
+              return toPixel(root, height);
+            },
+            /**
+             * Return slider width without padding.
+             *
+             * @return {number} - Current slider width.
+             */
+            get width() {
+              return track2.clientWidth;
+            },
+            /**
+             * Return slide height without padding.
+             *
+             * @return {number} - Slider height.
+             */
+            get height() {
+              var height = options2.height || this.width * options2.heightRatio;
+              exist(height, '"height" or "heightRatio" is missing.');
+              return toPixel(root, height) - this.padding.top - this.padding.bottom;
+            }
+          };
+        };
+        ;
+        function throttle(func, wait) {
+          var timeout;
+          return function() {
+            if (!timeout) {
+              timeout = setTimeout(function() {
+                func();
+                timeout = null;
+              }, wait);
+            }
+          };
+        }
+        function createInterval(callback, interval, progress) {
+          var _window = window, requestAnimationFrame = _window.requestAnimationFrame;
+          var start, elapse, rate, _pause = true;
+          var step = function step2(timestamp) {
+            if (!_pause) {
+              if (!start) {
+                start = timestamp;
+                if (rate && rate < 1) {
+                  start -= rate * interval;
+                }
+              }
+              elapse = timestamp - start;
+              rate = elapse / interval;
+              if (elapse >= interval) {
+                start = 0;
+                rate = 1;
+                callback();
+              }
+              if (progress) {
+                progress(rate);
+              }
+              requestAnimationFrame(step2);
+            }
+          };
+          return {
+            pause: function pause() {
+              _pause = true;
+              start = 0;
+            },
+            play: function play(reset) {
+              start = 0;
+              if (reset) {
+                rate = 0;
+              }
+              if (_pause) {
+                _pause = false;
+                requestAnimationFrame(step);
+              }
+            }
+          };
+        }
+        ;
+        var layout = function(Splide2, Components) {
+          var Elements = Components.Elements;
+          var isVertical = Splide2.options.direction === TTB;
+          var Layout = object_assign({
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              bind();
+              init();
+              this.totalSize = isVertical ? this.totalHeight : this.totalWidth;
+              this.slideSize = isVertical ? this.slideHeight : this.slideWidth;
+            },
+            /**
+             * Destroy the component.
+             */
+            destroy: function destroy() {
+              removeAttribute([Elements.list, Elements.track], "style");
+            },
+            /**
+             * Return the slider height on the vertical mode or width on the horizontal mode.
+             *
+             * @return {number}
+             */
+            get size() {
+              return isVertical ? this.height : this.width;
+            }
+          }, isVertical ? vertical(Splide2, Components) : horizontal(Splide2, Components));
+          function init() {
+            Layout.init();
+            applyStyle(Splide2.root, {
+              maxWidth: unit(Splide2.options.width)
             });
+            Elements.each(function(Slide) {
+              Slide.slide.style[Layout.margin] = unit(Layout.gap);
+            });
+            resize();
+          }
+          function bind() {
+            Splide2.on("resize load", throttle(function() {
+              Splide2.emit("resize");
+            }, Splide2.options.throttle), window).on("resize", resize).on("updated refresh", init);
+          }
+          function resize() {
+            var options2 = Splide2.options;
+            Layout.resize();
+            applyStyle(Elements.track, {
+              height: unit(Layout.height)
+            });
+            var slideHeight = options2.autoHeight ? null : unit(Layout.slideHeight());
+            Elements.each(function(Slide) {
+              applyStyle(Slide.container, {
+                height: slideHeight
+              });
+              applyStyle(Slide.slide, {
+                width: options2.autoWidth ? null : unit(Layout.slideWidth(Slide.index)),
+                height: Slide.container ? null : slideHeight
+              });
+            });
+            Splide2.emit("resized");
+          }
+          return Layout;
+        };
+        ;
+        var drag_abs = Math.abs;
+        var MIN_VELOCITY = 0.1;
+        var FRICTION_REDUCER = 7;
+        var drag = function(Splide2, Components) {
+          var Track = Components.Track;
+          var Controller = Components.Controller;
+          var startCoord;
+          var startInfo;
+          var currentInfo;
+          var isDragging;
+          var isVertical = Splide2.options.direction === TTB;
+          var axis = isVertical ? "y" : "x";
+          var Drag = {
+            /**
+             * Whether dragging is disabled or not.
+             *
+             * @type {boolean}
+             */
+            disabled: false,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              var _this = this;
+              var Elements = Components.Elements;
+              var track2 = Elements.track;
+              Splide2.on("touchstart mousedown", start, track2).on("touchmove mousemove", move, track2, {
+                passive: false
+              }).on("touchend touchcancel mouseleave mouseup dragend", end, track2).on("mounted refresh", function() {
+                each(Elements.list.querySelectorAll("img, a"), function(elm) {
+                  Splide2.off("dragstart", elm).on("dragstart", function(e) {
+                    e.preventDefault();
+                  }, elm, {
+                    passive: false
+                  });
+                });
+              }).on("mounted updated", function() {
+                _this.disabled = !Splide2.options.drag;
+              });
+            }
+          };
+          function start(e) {
+            if (!Drag.disabled && !isDragging) {
+              init(e);
+            }
+          }
+          function init(e) {
+            startCoord = Track.toCoord(Track.position);
+            startInfo = analyze(e, {});
+            currentInfo = startInfo;
+          }
+          function move(e) {
+            if (startInfo) {
+              currentInfo = analyze(e, startInfo);
+              if (isDragging) {
+                if (e.cancelable) {
+                  e.preventDefault();
+                }
+                if (!Splide2.is(FADE)) {
+                  var position = startCoord[axis] + currentInfo.offset[axis];
+                  Track.translate(resist(position));
+                }
+              } else {
+                if (shouldMove(currentInfo)) {
+                  Splide2.emit("drag", startInfo);
+                  isDragging = true;
+                  Track.cancel();
+                  init(e);
+                }
+              }
+            }
+          }
+          function shouldMove(_ref) {
+            var offset = _ref.offset;
+            if (Splide2.State.is(MOVING) && Splide2.options.waitForTransition) {
+              return false;
+            }
+            var angle = Math.atan(drag_abs(offset.y) / drag_abs(offset.x)) * 180 / Math.PI;
+            if (isVertical) {
+              angle = 90 - angle;
+            }
+            return angle < Splide2.options.dragAngleThreshold;
+          }
+          function resist(position) {
+            if (Splide2.is(SLIDE)) {
+              var sign = Track.sign;
+              var _start = sign * Track.trim(Track.toPosition(0));
+              var _end = sign * Track.trim(Track.toPosition(Controller.edgeIndex));
+              position *= sign;
+              if (position < _start) {
+                position = _start - FRICTION_REDUCER * Math.log(_start - position);
+              } else if (position > _end) {
+                position = _end + FRICTION_REDUCER * Math.log(position - _end);
+              }
+              position *= sign;
+            }
+            return position;
+          }
+          function end() {
+            startInfo = null;
+            if (isDragging) {
+              Splide2.emit("dragged", currentInfo);
+              go(currentInfo);
+              isDragging = false;
+            }
+          }
+          function go(info) {
+            var velocity = info.velocity[axis];
+            var absV = drag_abs(velocity);
+            if (absV > 0) {
+              var options2 = Splide2.options;
+              var index = Splide2.index;
+              var sign = velocity < 0 ? -1 : 1;
+              var destIndex = index;
+              if (!Splide2.is(FADE)) {
+                var destination = Track.position;
+                if (absV > options2.flickVelocityThreshold && drag_abs(info.offset[axis]) < options2.swipeDistanceThreshold) {
+                  destination += sign * Math.min(absV * options2.flickPower, Components.Layout.size * (options2.flickMaxPages || 1));
+                }
+                destIndex = Track.toIndex(destination);
+              }
+              if (destIndex === index && absV > MIN_VELOCITY) {
+                destIndex = index + sign * Track.sign;
+              }
+              if (Splide2.is(SLIDE)) {
+                destIndex = between(destIndex, 0, Controller.edgeIndex);
+              }
+              Controller.go(destIndex, options2.isNavigation);
+            }
+          }
+          function analyze(e, startInfo2) {
+            var timeStamp = e.timeStamp, touches = e.touches;
+            var _ref2 = touches ? touches[0] : e, clientX = _ref2.clientX, clientY = _ref2.clientY;
+            var _ref3 = startInfo2.to || {}, _ref3$x = _ref3.x, fromX = _ref3$x === void 0 ? clientX : _ref3$x, _ref3$y = _ref3.y, fromY = _ref3$y === void 0 ? clientY : _ref3$y;
+            var startTime = startInfo2.time || 0;
+            var offset = {
+              x: clientX - fromX,
+              y: clientY - fromY
+            };
+            var duration = timeStamp - startTime;
+            var velocity = {
+              x: offset.x / duration,
+              y: offset.y / duration
+            };
+            return {
+              to: {
+                x: clientX,
+                y: clientY
+              },
+              offset,
+              time: timeStamp,
+              velocity
+            };
+          }
+          return Drag;
+        };
+        ;
+        var click = function(Splide2, Components) {
+          var disabled = false;
+          var Click = {
+            /**
+             * Mount only when the drag is activated and the slide type is not "fade".
+             *
+             * @type {boolean}
+             */
+            required: Splide2.options.drag,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              Splide2.on("click", onClick, Components.Elements.track, {
+                capture: true
+              }).on("drag", function() {
+                disabled = true;
+              }).on("dragged", function() {
+                setTimeout(function() {
+                  disabled = false;
+                });
+              });
+            }
+          };
+          function onClick(e) {
+            if (disabled) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+            }
+          }
+          return Click;
+        };
+        ;
+        var PAUSE_FLAGS = {
+          HOVER: 1,
+          FOCUS: 2,
+          MANUAL: 3
+        };
+        var autoplay = function(Splide2, Components, name) {
+          var flags = [];
+          var interval;
+          var Elements = Components.Elements;
+          var Autoplay = {
+            /**
+             * Required only when the autoplay option is true.
+             *
+             * @type {boolean}
+             */
+            required: Splide2.options.autoplay,
+            /**
+             * Called when the component is mounted.
+             * Note that autoplay starts only if there are slides over perPage number.
+             */
+            mount: function mount() {
+              var options2 = Splide2.options;
+              if (Elements.slides.length > options2.perPage) {
+                interval = createInterval(function() {
+                  Splide2.go(">");
+                }, options2.interval, function(rate) {
+                  Splide2.emit(name + ":playing", rate);
+                  if (Elements.bar) {
+                    applyStyle(Elements.bar, {
+                      width: rate * 100 + "%"
+                    });
+                  }
+                });
+                bind();
+                this.play();
+              }
+            },
+            /**
+             * Start autoplay.
+             *
+             * @param {number} flag - A pause flag to be removed.
+             */
+            play: function play(flag) {
+              if (flag === void 0) {
+                flag = 0;
+              }
+              flags = flags.filter(function(f) {
+                return f !== flag;
+              });
+              if (!flags.length) {
+                Splide2.emit(name + ":play");
+                interval.play(Splide2.options.resetProgress);
+              }
+            },
+            /**
+             * Pause autoplay.
+             * Note that Array.includes is not supported by IE.
+             *
+             * @param {number} flag - A pause flag to be added.
+             */
+            pause: function pause(flag) {
+              if (flag === void 0) {
+                flag = 0;
+              }
+              interval.pause();
+              if (flags.indexOf(flag) === -1) {
+                flags.push(flag);
+              }
+              if (flags.length === 1) {
+                Splide2.emit(name + ":pause");
+              }
+            }
+          };
+          function bind() {
+            var options2 = Splide2.options;
+            var sibling = Splide2.sibling;
+            var elms = [Splide2.root, sibling ? sibling.root : null];
+            if (options2.pauseOnHover) {
+              switchOn(elms, "mouseleave", PAUSE_FLAGS.HOVER, true);
+              switchOn(elms, "mouseenter", PAUSE_FLAGS.HOVER, false);
+            }
+            if (options2.pauseOnFocus) {
+              switchOn(elms, "focusout", PAUSE_FLAGS.FOCUS, true);
+              switchOn(elms, "focusin", PAUSE_FLAGS.FOCUS, false);
+            }
+            if (Elements.play) {
+              Splide2.on("click", function() {
+                Autoplay.play(PAUSE_FLAGS.FOCUS);
+                Autoplay.play(PAUSE_FLAGS.MANUAL);
+              }, Elements.play);
+            }
+            if (Elements.pause) {
+              switchOn([Elements.pause], "click", PAUSE_FLAGS.MANUAL, false);
+            }
+            Splide2.on("move refresh", function() {
+              Autoplay.play();
+            }).on("destroy", function() {
+              Autoplay.pause();
+            });
+          }
+          function switchOn(elms, event, flag, play) {
+            elms.forEach(function(elm) {
+              Splide2.on(event, function() {
+                Autoplay[play ? "play" : "pause"](flag);
+              }, elm);
+            });
+          }
+          return Autoplay;
+        };
+        ;
+        var cover = function(Splide2, Components) {
+          var options2 = Splide2.options;
+          var Cover = {
+            /**
+             * Required only when "cover" option is true.
+             *
+             * @type {boolean}
+             */
+            required: options2.cover,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              Splide2.on("lazyload:loaded", function(img) {
+                cover2(img, false);
+              });
+              Splide2.on("mounted updated refresh", function() {
+                return apply(false);
+              });
+            },
+            /**
+             * Destroy.
+             */
+            destroy: function destroy() {
+              apply(true);
+            }
+          };
+          function apply(uncover) {
+            Components.Elements.each(function(Slide) {
+              var img = child(Slide.slide, "IMG") || child(Slide.container, "IMG");
+              if (img && img.src) {
+                cover2(img, uncover);
+              }
+            });
+          }
+          function cover2(img, uncover) {
+            applyStyle(img.parentElement, {
+              background: uncover ? "" : 'center/cover no-repeat url("' + img.src + '")'
+            });
+            applyStyle(img, {
+              display: uncover ? "" : "none"
+            });
+          }
+          return Cover;
+        };
+        ;
+        var XML_NAME_SPACE = "http://www.w3.org/2000/svg";
+        var PATH = "m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z";
+        var SIZE = 40;
+        ;
+        var arrows = function(Splide2, Components, name) {
+          var prev;
+          var next;
+          var classes = Splide2.classes;
+          var root = Splide2.root;
+          var created;
+          var Elements = Components.Elements;
+          var Arrows = {
+            /**
+             * Required when the arrows option is true.
+             *
+             * @type {boolean}
+             */
+            required: Splide2.options.arrows,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              prev = Elements.arrows.prev;
+              next = Elements.arrows.next;
+              if ((!prev || !next) && Splide2.options.arrows) {
+                prev = createArrow(true);
+                next = createArrow(false);
+                created = true;
+                appendArrows();
+              }
+              if (prev && next) {
+                bind();
+              }
+              this.arrows = {
+                prev,
+                next
+              };
+            },
+            /**
+             * Called after all components are mounted.
+             */
+            mounted: function mounted() {
+              Splide2.emit(name + ":mounted", prev, next);
+            },
+            /**
+             * Destroy.
+             */
+            destroy: function destroy() {
+              removeAttribute([prev, next], "disabled");
+              if (created) {
+                dom_remove(prev.parentElement);
+              }
+            }
+          };
+          function bind() {
+            Splide2.on("click", function() {
+              Splide2.go("<");
+            }, prev).on("click", function() {
+              Splide2.go(">");
+            }, next).on("mounted move updated refresh", updateDisabled);
+          }
+          function updateDisabled() {
+            var _Components$Controlle = Components.Controller, prevIndex = _Components$Controlle.prevIndex, nextIndex = _Components$Controlle.nextIndex;
+            var isEnough = Splide2.length > Splide2.options.perPage || Splide2.is(LOOP);
+            prev.disabled = prevIndex < 0 || !isEnough;
+            next.disabled = nextIndex < 0 || !isEnough;
+            Splide2.emit(name + ":updated", prev, next, prevIndex, nextIndex);
+          }
+          function appendArrows() {
+            var wrapper = create("div", {
+              "class": classes.arrows
+            });
+            append(wrapper, prev);
+            append(wrapper, next);
+            var slider = Elements.slider;
+            var parent = Splide2.options.arrows === "slider" && slider ? slider : root;
+            before(wrapper, parent.firstElementChild);
+          }
+          function createArrow(prev2) {
+            var arrow = '<button class="' + classes.arrow + " " + (prev2 ? classes.prev : classes.next) + '" type="button">' + ('<svg xmlns="' + XML_NAME_SPACE + '"	viewBox="0 0 ' + SIZE + " " + SIZE + '"	width="' + SIZE + '"	height="' + SIZE + '">') + ('<path d="' + (Splide2.options.arrowPath || PATH) + '" />');
+            return domify(arrow);
+          }
+          return Arrows;
+        };
+        ;
+        var ATTRIBUTES_UPDATE_EVENT = "move.page";
+        var UPDATE_EVENT = "updated.page refresh.page";
+        var pagination = function(Splide2, Components, name) {
+          var data = {};
+          var Elements = Components.Elements;
+          var Pagination = {
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              var pagination2 = Splide2.options.pagination;
+              if (pagination2) {
+                data = createPagination();
+                var slider = Elements.slider;
+                var parent = pagination2 === "slider" && slider ? slider : Splide2.root;
+                append(parent, data.list);
+                Splide2.on(ATTRIBUTES_UPDATE_EVENT, updateAttributes);
+              }
+              Splide2.off(UPDATE_EVENT).on(UPDATE_EVENT, function() {
+                Pagination.destroy();
+                if (Splide2.options.pagination) {
+                  Pagination.mount();
+                  Pagination.mounted();
+                }
+              });
+            },
+            /**
+             * Called after all components are mounted.
+             */
+            mounted: function mounted() {
+              if (Splide2.options.pagination) {
+                var index = Splide2.index;
+                Splide2.emit(name + ":mounted", data, this.getItem(index));
+                updateAttributes(index, -1);
+              }
+            },
+            /**
+             * Destroy the pagination.
+             * Be aware that node.remove() is not supported by IE.
+             */
+            destroy: function destroy() {
+              dom_remove(data.list);
+              if (data.items) {
+                data.items.forEach(function(item) {
+                  Splide2.off("click", item.button);
+                });
+              }
+              Splide2.off(ATTRIBUTES_UPDATE_EVENT);
+              data = {};
+            },
+            /**
+             * Return an item by index.
+             *
+             * @param {number} index - A slide index.
+             *
+             * @return {Object|undefined} - An item object on success or undefined on failure.
+             */
+            getItem: function getItem(index) {
+              return data.items[Components.Controller.toPage(index)];
+            },
+            /**
+             * Return object containing pagination data.
+             *
+             * @return {Object} - Pagination data including list and items.
+             */
+            get data() {
+              return data;
+            }
+          };
+          function updateAttributes(index, prevIndex) {
+            var prev = Pagination.getItem(prevIndex);
+            var curr = Pagination.getItem(index);
+            var active = STATUS_CLASSES.active;
+            if (prev) {
+              removeClass(prev.button, active);
+            }
+            if (curr) {
+              addClass(curr.button, active);
+            }
+            Splide2.emit(name + ":updated", data, prev, curr);
+          }
+          function createPagination() {
+            var options2 = Splide2.options;
+            var classes = Splide2.classes;
+            var list = create("ul", {
+              "class": classes.pagination
+            });
+            var items = Elements.getSlides(false).filter(function(Slide) {
+              return options2.focus !== false || Slide.index % options2.perPage === 0;
+            }).map(function(Slide, page) {
+              var li = create("li", {});
+              var button = create("button", {
+                "class": classes.page,
+                type: "button"
+              });
+              append(li, button);
+              append(list, li);
+              Splide2.on("click", function() {
+                Splide2.go(">" + page);
+              }, button);
+              return {
+                li,
+                button,
+                page,
+                Slides: Elements.getSlidesByPage(page)
+              };
+            });
+            return {
+              list,
+              items
+            };
+          }
+          return Pagination;
+        };
+        ;
+        var SRC_DATA_NAME = "data-splide-lazy";
+        var SRCSET_DATA_NAME = "data-splide-lazy-srcset";
+        var lazyload = function(Splide2, Components, name) {
+          var nextIndex;
+          var images;
+          var options2 = Splide2.options;
+          var isSequential = options2.lazyLoad === "sequential";
+          var Lazyload = {
+            /**
+             * Mount only when the lazyload option is provided.
+             *
+             * @type {boolean}
+             */
+            required: options2.lazyLoad,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              Splide2.on("mounted refresh", function() {
+                init();
+                Components.Elements.each(function(Slide) {
+                  each(Slide.slide.querySelectorAll("[" + SRC_DATA_NAME + "], [" + SRCSET_DATA_NAME + "]"), function(img) {
+                    if (!img.src && !img.srcset) {
+                      images.push({
+                        img,
+                        Slide
+                      });
+                      applyStyle(img, {
+                        display: "none"
+                      });
+                    }
+                  });
+                });
+                if (isSequential) {
+                  loadNext();
+                }
+              });
+              if (!isSequential) {
+                Splide2.on("mounted refresh moved." + name, check);
+              }
+            },
+            /**
+             * Destroy.
+             */
+            destroy: init
+          };
+          function init() {
+            images = [];
+            nextIndex = 0;
+          }
+          function check(index) {
+            index = isNaN(index) ? Splide2.index : index;
+            images = images.filter(function(image) {
+              if (image.Slide.isWithin(index, options2.perPage * (options2.preloadPages + 1))) {
+                load(image.img, image.Slide);
+                return false;
+              }
+              return true;
+            });
+            if (!images[0]) {
+              Splide2.off("moved." + name);
+            }
+          }
+          function load(img, Slide) {
+            addClass(Slide.slide, STATUS_CLASSES.loading);
+            var spinner = create("span", {
+              "class": Splide2.classes.spinner
+            });
+            append(img.parentElement, spinner);
+            img.onload = function() {
+              loaded2(img, spinner, Slide, false);
+            };
+            img.onerror = function() {
+              loaded2(img, spinner, Slide, true);
+            };
+            setAttribute(img, "srcset", getAttribute(img, SRCSET_DATA_NAME) || "");
+            setAttribute(img, "src", getAttribute(img, SRC_DATA_NAME) || "");
+          }
+          function loadNext() {
+            if (nextIndex < images.length) {
+              var image = images[nextIndex];
+              load(image.img, image.Slide);
+            }
+            nextIndex++;
+          }
+          function loaded2(img, spinner, Slide, error2) {
+            removeClass(Slide.slide, STATUS_CLASSES.loading);
+            if (!error2) {
+              dom_remove(spinner);
+              applyStyle(img, {
+                display: ""
+              });
+              Splide2.emit(name + ":loaded", img).emit("resize");
+            }
+            if (isSequential) {
+              loadNext();
+            }
+          }
+          return Lazyload;
+        };
+        ;
+        var ARIA_CURRENRT = "aria-current";
+        var ARIA_CONTROLS = "aria-controls";
+        var ARIA_LABEL = "aria-label";
+        var ARIA_LABELLEDBY = "aria-labelledby";
+        var ARIA_HIDDEN = "aria-hidden";
+        var TAB_INDEX = "tabindex";
+        ;
+        var KEY_MAP = {
+          ltr: {
+            ArrowLeft: "<",
+            ArrowRight: ">",
+            // For IE.
+            Left: "<",
+            Right: ">"
+          },
+          rtl: {
+            ArrowLeft: ">",
+            ArrowRight: "<",
+            // For IE.
+            Left: ">",
+            Right: "<"
+          },
+          ttb: {
+            ArrowUp: "<",
+            ArrowDown: ">",
+            // For IE.
+            Up: "<",
+            Down: ">"
+          }
+        };
+        var keyboard = function(Splide2) {
+          var target2;
+          return {
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              Splide2.on("mounted updated", function() {
+                var options2 = Splide2.options;
+                var root = Splide2.root;
+                var map = KEY_MAP[options2.direction];
+                var keyboard2 = options2.keyboard;
+                if (target2) {
+                  Splide2.off("keydown", target2);
+                  removeAttribute(root, TAB_INDEX);
+                }
+                if (keyboard2) {
+                  if (keyboard2 === "focused") {
+                    target2 = root;
+                    setAttribute(root, TAB_INDEX, 0);
+                  } else {
+                    target2 = document;
+                  }
+                  Splide2.on("keydown", function(e) {
+                    if (map[e.key]) {
+                      Splide2.go(map[e.key]);
+                    }
+                  }, target2);
+                }
+              });
+            }
+          };
+        };
+        ;
+        var a11y = function(Splide2, Components) {
+          var i18n = Splide2.i18n;
+          var Elements = Components.Elements;
+          var allAttributes = [ARIA_HIDDEN, TAB_INDEX, ARIA_CONTROLS, ARIA_LABEL, ARIA_CURRENRT, "role"];
+          var A11y = {
+            /**
+             * Required only when the accessibility option is true.
+             *
+             * @type {boolean}
+             */
+            required: Splide2.options.accessibility,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              Splide2.on("visible", function(Slide) {
+                updateSlide(Slide.slide, true);
+              }).on("hidden", function(Slide) {
+                updateSlide(Slide.slide, false);
+              }).on("arrows:mounted", initArrows).on("arrows:updated", updateArrows).on("pagination:mounted", initPagination).on("pagination:updated", updatePagination).on("refresh", function() {
+                removeAttribute(Components.Clones.clones, allAttributes);
+              });
+              if (Splide2.options.isNavigation) {
+                Splide2.on("navigation:mounted navigation:updated", initNavigation).on("active", function(Slide) {
+                  updateNavigation(Slide, true);
+                }).on("inactive", function(Slide) {
+                  updateNavigation(Slide, false);
+                });
+              }
+              initAutoplay();
+            },
+            /**
+             * Destroy.
+             */
+            destroy: function destroy() {
+              var Arrows = Components.Arrows;
+              var arrows2 = Arrows ? Arrows.arrows : {};
+              removeAttribute(Elements.slides.concat([arrows2.prev, arrows2.next, Elements.play, Elements.pause]), allAttributes);
+            }
+          };
+          function updateSlide(slide2, visible) {
+            setAttribute(slide2, ARIA_HIDDEN, !visible);
+            if (Splide2.options.slideFocus) {
+              setAttribute(slide2, TAB_INDEX, visible ? 0 : -1);
+            }
+          }
+          function initArrows(prev, next) {
+            var controls = Elements.track.id;
+            setAttribute(prev, ARIA_CONTROLS, controls);
+            setAttribute(next, ARIA_CONTROLS, controls);
+          }
+          function updateArrows(prev, next, prevIndex, nextIndex) {
+            var index = Splide2.index;
+            var prevLabel = prevIndex > -1 && index < prevIndex ? i18n.last : i18n.prev;
+            var nextLabel = nextIndex > -1 && index > nextIndex ? i18n.first : i18n.next;
+            setAttribute(prev, ARIA_LABEL, prevLabel);
+            setAttribute(next, ARIA_LABEL, nextLabel);
+          }
+          function initPagination(data, activeItem) {
+            if (activeItem) {
+              setAttribute(activeItem.button, ARIA_CURRENRT, true);
+            }
+            data.items.forEach(function(item) {
+              var options2 = Splide2.options;
+              var text = options2.focus === false && options2.perPage > 1 ? i18n.pageX : i18n.slideX;
+              var label = sprintf(text, item.page + 1);
+              var button = item.button;
+              var controls = item.Slides.map(function(Slide) {
+                return Slide.slide.id;
+              });
+              setAttribute(button, ARIA_CONTROLS, controls.join(" "));
+              setAttribute(button, ARIA_LABEL, label);
+            });
+          }
+          function updatePagination(data, prev, curr) {
+            if (prev) {
+              removeAttribute(prev.button, ARIA_CURRENRT);
+            }
+            if (curr) {
+              setAttribute(curr.button, ARIA_CURRENRT, true);
+            }
+          }
+          function initAutoplay() {
+            ["play", "pause"].forEach(function(name) {
+              var elm = Elements[name];
+              if (elm) {
+                if (!isButton(elm)) {
+                  setAttribute(elm, "role", "button");
+                }
+                setAttribute(elm, ARIA_CONTROLS, Elements.track.id);
+                setAttribute(elm, ARIA_LABEL, i18n[name]);
+              }
+            });
+          }
+          function initNavigation(main) {
+            Elements.each(function(Slide) {
+              var slide2 = Slide.slide;
+              var realIndex = Slide.realIndex;
+              if (!isButton(slide2)) {
+                setAttribute(slide2, "role", "button");
+              }
+              var slideIndex = realIndex > -1 ? realIndex : Slide.index;
+              var label = sprintf(i18n.slideX, slideIndex + 1);
+              var mainSlide = main.Components.Elements.getSlide(slideIndex);
+              setAttribute(slide2, ARIA_LABEL, label);
+              if (mainSlide) {
+                setAttribute(slide2, ARIA_CONTROLS, mainSlide.slide.id);
+              }
+            });
+          }
+          function updateNavigation(_ref, active) {
+            var slide2 = _ref.slide;
+            if (active) {
+              setAttribute(slide2, ARIA_CURRENRT, true);
+            } else {
+              removeAttribute(slide2, ARIA_CURRENRT);
+            }
+          }
+          function isButton(elm) {
+            return elm.tagName === "BUTTON";
+          }
+          return A11y;
+        };
+        ;
+        var SYNC_EVENT = "move.sync";
+        var CLICK_EVENTS = "mouseup touchend";
+        var TRIGGER_KEYS = [" ", "Enter", "Spacebar"];
+        var sync = function(Splide2) {
+          var sibling = Splide2.sibling;
+          var isNavigation = sibling && sibling.options.isNavigation;
+          var Sync = {
+            /**
+             * Required only when the sub slider is available.
+             *
+             * @type {boolean}
+             */
+            required: !!sibling,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              syncMain();
+              syncSibling();
+              if (isNavigation) {
+                bind();
+                Splide2.on("refresh", function() {
+                  setTimeout(function() {
+                    bind();
+                    sibling.emit("navigation:updated", Splide2);
+                  });
+                });
+              }
+            },
+            /**
+             * Called after all components are mounted.
+             */
+            mounted: function mounted() {
+              if (isNavigation) {
+                sibling.emit("navigation:mounted", Splide2);
+              }
+            }
+          };
+          function syncMain() {
+            Splide2.on(SYNC_EVENT, function(newIndex, prevIndex, destIndex) {
+              sibling.off(SYNC_EVENT).go(sibling.is(LOOP) ? destIndex : newIndex, false);
+              syncSibling();
+            });
+          }
+          function syncSibling() {
+            sibling.on(SYNC_EVENT, function(newIndex, prevIndex, destIndex) {
+              Splide2.off(SYNC_EVENT).go(Splide2.is(LOOP) ? destIndex : newIndex, false);
+              syncMain();
+            });
+          }
+          function bind() {
+            sibling.Components.Elements.each(function(_ref) {
+              var slide2 = _ref.slide, index = _ref.index;
+              Splide2.off(CLICK_EVENTS, slide2).on(CLICK_EVENTS, function(e) {
+                if (!e.button || e.button === 0) {
+                  moveSibling(index);
+                }
+              }, slide2);
+              Splide2.off("keyup", slide2).on("keyup", function(e) {
+                if (TRIGGER_KEYS.indexOf(e.key) > -1) {
+                  e.preventDefault();
+                  moveSibling(index);
+                }
+              }, slide2, {
+                passive: false
+              });
+            });
+          }
+          function moveSibling(index) {
+            if (Splide2.State.is(IDLE)) {
+              sibling.go(index);
+            }
+          }
+          return Sync;
+        };
+        ;
+        var THROTTLE = 50;
+        var breakpoints = function(Splide2) {
+          var breakpoints2 = Splide2.options.breakpoints;
+          var throttledCheck = throttle(check, THROTTLE);
+          var initialOptions;
+          var map = [];
+          var prevPoint;
+          var Breakpoints = {
+            /**
+             * Required only when the breakpoints definition is provided and browser supports matchMedia.
+             *
+             * @type {boolean}
+             */
+            required: breakpoints2 && matchMedia,
+            /**
+             * Called when the component is mounted.
+             */
+            mount: function mount() {
+              map = Object.keys(breakpoints2).sort(function(n, m) {
+                return +n - +m;
+              }).map(function(point) {
+                return {
+                  point,
+                  mql: matchMedia("(max-width:" + point + "px)")
+                };
+              });
+              this.destroy(true);
+              addEventListener("resize", throttledCheck);
+              initialOptions = Splide2.options;
+              check();
+            },
+            /**
+             * Destroy.
+             *
+             * @param {boolean} completely - Whether to destroy Splide completely.
+             */
+            destroy: function destroy(completely) {
+              if (completely) {
+                removeEventListener("resize", throttledCheck);
+              }
+            }
+          };
+          function check() {
+            var point = getPoint();
+            if (point !== prevPoint) {
+              prevPoint = point;
+              var State = Splide2.State;
+              var options2 = breakpoints2[point] || initialOptions;
+              var destroy = options2.destroy;
+              if (destroy) {
+                Splide2.options = initialOptions;
+                Splide2.destroy(destroy === "completely");
+              } else {
+                if (State.is(DESTROYED)) {
+                  Splide2.mount();
+                }
+                Splide2.options = options2;
+              }
+            }
+          }
+          function getPoint() {
+            var item = map.filter(function(item2) {
+              return item2.mql.matches;
+            })[0];
+            return item ? item.point : -1;
+          }
+          return Breakpoints;
+        };
+        ;
+        var COMPLETE = {
+          Options: options,
+          Breakpoints: breakpoints,
+          Controller: controller,
+          Elements: components_elements,
+          Track: track,
+          Clones: clones,
+          Layout: layout,
+          Drag: drag,
+          Click: click,
+          Autoplay: autoplay,
+          Cover: cover,
+          Arrows: arrows,
+          Pagination: pagination,
+          LazyLoad: lazyload,
+          Keyboard: keyboard,
+          Sync: sync,
+          A11y: a11y
+        };
+        var LIGHT = {
+          Options: options,
+          Controller: controller,
+          Elements: components_elements,
+          Track: track,
+          Clones: clones,
+          Layout: layout,
+          Drag: drag,
+          Click: click,
+          Arrows: arrows,
+          Pagination: pagination,
+          A11y: a11y
+        };
+        ;
+        function _inheritsLoose(subClass, superClass) {
+          subClass.prototype = Object.create(superClass.prototype);
+          subClass.prototype.constructor = subClass;
+          subClass.__proto__ = superClass;
         }
+        var complete_Splide = /* @__PURE__ */ function(_Core) {
+          _inheritsLoose(Splide2, _Core);
+          function Splide2(root, options2) {
+            return _Core.call(this, root, options2, COMPLETE) || this;
+          }
+          return Splide2;
+        }(Splide);
+        window.Splide = complete_Splide;
+      })();
+    }
+  });
 
-        function c(t, n, e) {
-          n && O(n.button, nt), e && I(e.button, nt, !0);
-        }
+  // js/accordion.js
+  var require_accordion = __commonJS({
+    "js/accordion.js"() {
+      $(document).ready(function() {
+        $(".accordion__title").click(function() {
+          $(this).next(".accordion__content").toggleClass("show-me");
+          $(this).toggleClass("active");
+          if ($(".accordion__title").hasClass("active")) {
+            $(this).attr("aria-expanded", "true");
+          } else {
+            $(".accordion__title").attr("aria-expanded", "false");
+          }
+        });
+      });
+    }
+  });
 
-        function d(i) {
-          o.each(function(t) {
-            var n = t.slide,
-              e = t.realIndex;
-            l(n) || I(n, "role", "button");
-            (e = -1 < e ? e : t.index), (t = h(s.slideX, e + 1)), (e = i.Components.Elements.getSlide(e));
-            I(n, it, t), e && I(n, et, e.slide.id);
+  // js/form.js
+  var require_form = __commonJS({
+    "js/form.js"() {
+      $(document).ready(function() {
+        window.triggerError = function(fieldName, errorMessage) {
+          let elParent = $('select[name ="' + fieldName + '"]').parent();
+          let errorSpan = elParent.find(".select__error");
+          if (!elParent.length) {
+            let inputEl = $('input[name="' + fieldName + '"]');
+            errorSpan = elParent.find(".text__error");
+            elParent = inputEl.parent();
+          }
+          errorSpan.html(errorMessage);
+          elParent = elParent.addClass("hasError");
+        };
+        window.clearErrors = function(formEl) {
+          let elSelector = formEl.className;
+          let errorInputs;
+          if (typeof elSelector !== "undefined") {
+            errorInputs = $("." + elSelector).find(".hasError");
+          } else {
+            elSelector = formEl.id;
+            errorInputs = $("#" + elSelector).find("hasError");
+          }
+          if (errorInputs.length) {
+            for (let i2 = 0; i2 < errorInputs.length; i2++) {
+              errorInputs[i2].classList.remove("hasError");
+            }
+          }
+        };
+        function updateSelectionTextColor() {
+          $(".select__option").each(function() {
+            if ($(this).is(":selected") && !$(this).is(":disabled")) {
+              $(this).parent().css("color", "#000000");
+            } else {
+              $(this).parent().css("color", "#000000");
+            }
           });
         }
-
-        function f(t, n) {
-          t = t.slide;
-          n ? I(t, nt, !0) : O(t, nt);
-        }
-
-        function l(t) {
-          return "BUTTON" === t.tagName;
-        }
-        return {
-          required: r.options.accessibility,
-          mount: function() {
-            r
-              .on("visible", function(t) {
-                i(t.slide, !0);
-              })
-              .on("hidden", function(t) {
-                i(t.slide, !1);
-              })
-              .on("arrows:mounted", t)
-              .on("arrows:updated", a)
-              .on("pagination:mounted", u)
-              .on("pagination:updated", c)
-              .on("refresh", function() {
-                O(n.Clones.clones, e);
-              }),
-              r.options.isNavigation &&
-              r
-              .on("navigation:mounted navigation:updated", d)
-              .on("active", function(t) {
-                f(t, !0);
-              })
-              .on("inactive", function(t) {
-                f(t, !1);
-              }),
-              ["play", "pause"].forEach(function(t) {
-                var n = o[t];
-                n && (l(n) || I(n, "role", "button"), I(n, et, o.track.id), I(n, it, s[t]));
-              });
-          },
-          destroy: function() {
-            var t = n.Arrows,
-              t = t ? t.arrows : {};
-            O(o.slides.concat([t.prev, t.next, o.play, o.pause]), e);
-          },
-        };
-      },
-    };
-  return (function(e) {
-    function t(t, n) {
-      return e.call(this, t, n, ct) || this;
+        $(".select__menu").on("change", function() {
+          updateSelectionTextColor();
+        });
+        updateSelectionTextColor();
+      });
     }
-    return _inheritsLoose(t, e), t;
-  })(t);
-});
-//# sourceMappingURL=ucla-lib-scripts.js.map
+  });
+
+  // js/grid.js
+  var require_grid = __commonJS({
+    "js/grid.js"() {
+      $(document).ready(function() {
+        $(".light-grey.tall-75").prepend('<div class="white-25"></div>');
+        $(".light-grey.tall-65").prepend('<div class="white-35"></div>');
+      });
+    }
+  });
+
+  // js/primary-nav.js
+  var require_primary_nav = __commonJS({
+    "js/primary-nav.js"() {
+      $(document).ready(function() {
+        const $sublistItem2 = $(".nav-primary__sublist-2");
+        const $toggle2 = $(".nav-primary__toggle-2");
+        const breakpoint = 1024;
+        $sublistItem2.addClass("nav-primary__sublist-2--hidden");
+        $toggle2.on("click", function() {
+          if ($(this).siblings(".nav-primary__sublist-2").hasClass("nav-primary__sublist-2--hidden")) {
+            $(this).siblings(".nav-primary__sublist-2").attr("aria-expanded", "true");
+            $(this).attr("aria-label", "collapse");
+          } else {
+            $(this).siblings(".nav-primary__sublist-2").attr("aria-expanded", "false");
+            $(this).attr("aria-label", "expand");
+          }
+          $(this).siblings(".nav-primary__sublist-2").toggleClass("nav-primary__sublist-2--hidden");
+          $(this).toggleClass("is-open");
+        });
+        const $sublistItem = $(".nav-primary__sublist");
+        const $toggle = $(".nav-primary__toggle");
+        $sublistItem.addClass("nav-primary__sublist--hidden");
+        $toggle.on("click", function() {
+          if ($(this).siblings(".nav-primary__sublist").hasClass("nav-primary__sublist--hidden")) {
+            $(this).siblings(".nav-primary__sublist").attr("aria-expanded", "true");
+            $(this).attr("aria-label", "collapse");
+          } else {
+            $(this).siblings(".nav-primary__sublist").attr("aria-expanded", "false");
+            $(this).attr("aria-label", "expand");
+          }
+          $(this).siblings(".nav-primary__sublist").toggleClass("nav-primary__sublist--hidden");
+          $(this).toggleClass("is-open");
+        });
+        $toggle.attr("aria-label", "expand");
+        $toggle2.attr("aria-label", "expand");
+        evalNav($(window).outerWidth());
+        $(window).resize(function() {
+          evalNav($(window).outerWidth());
+          mobileNavPosition($(window).outerWidth(), breakpoint);
+        });
+        function evalNav(windowWidth2) {
+          if (windowWidth2 >= breakpoint) {
+            $sublistItem.addClass("nav-primary__sublist--hidden");
+            $toggle.removeClass("is-open");
+            $(".hamburger").removeClass("hamburger--is-active");
+            $(".nav-primary").removeClass("nav-primary--is-active");
+            enableMenuTab();
+          } else {
+            disableMenuTab();
+          }
+        }
+        $(".nav-primary__search-desktop-button").click(function() {
+          let secondLevelNav = $("li.has-child > ul");
+          desktopSubmenuResize();
+          if ($(this).hasClass("nav-primary__search-desktop-button--is-active")) {
+            $(".nav-primary__search-block-form").removeClass("nav-primary__search-block-form--is-active");
+            $(this).removeClass("nav-primary__search-desktop-button--is-active");
+            $(".nav-primary__search-desktop-button > svg").replaceWith('<svg role="img" aria-label="Search Icon" class="nav-primary__search-icon" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Search Icon</title><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="search-nav-icon-primary" transform="translate(-15.000000, -15.000000)"><g id="Nav-Item"><g id="Icon/Search" transform="translate(12.000000, 12.000000)"><polygon class="Path-polygon" points="0 0 24 0 24 24 0 24"></polygon><path d="M15.5,14 L14.71,14 L14.43,13.73 C15.41,12.59 16,11.11 16,9.5 C16,5.91 13.09,3 9.5,3 C5.91,3 3,5.91 3,9.5 C3,13.09 5.91,16 9.5,16 C11.11,16 12.59,15.41 13.73,14.43 L14,14.71 L14,15.5 L19,20.49 L20.49,19 L15.5,14 Z M9.5,14 C7.01,14 5,11.99 5,9.5 C5,7.01 7.01,5 9.5,5 C11.99,5 14,7.01 14,9.5 C14,11.99 11.99,14 9.5,14 Z" id="Shape" fill="#00598C" fill-rule="evenodd"></path></g></g></g></g></svg>');
+            for (let i2 = 0; i2 < secondLevelNav.length; i2 += 1) {
+              secondLevelNav[i2].style.display = "";
+            }
+          } else {
+            $(".nav-primary__search-block-form").addClass("nav-primary__search-block-form--is-active");
+            $(this).addClass("nav-primary__search-desktop-button--is-active");
+            $(".nav-primary__search-desktop-button > svg").replaceWith('<svg role="img" aria-label="Close" class="close-x" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Icon Close</title><g id="Icon/Close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon id="Shape" fill="#ffffff" points="19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12"></polygon></g></svg>');
+            for (let i2 = 0; i2 < secondLevelNav.length; i2 += 1) {
+              secondLevelNav[i2].style.display = "none";
+            }
+          }
+        });
+        function desktopSubmenuResize() {
+          let w = $(".nav-primary").width() - 70, negOffset = (w + 10) * -1;
+          $(".nav-primary__search-block-form").css({
+            // <a class="has-child--link">
+            "width": w,
+            "margin-left": negOffset
+          });
+        }
+        resetTabs();
+        let windowWidth = $(window).outerWidth();
+        if (windowWidth >= breakpoint) {
+          addDesktopTabs();
+        } else {
+          addMobileTabs();
+        }
+        $(window).resize(function() {
+          windowWidth = $(window).outerWidth();
+          setTimeout(function() {
+            if (windowWidth >= breakpoint) {
+              resetTabs();
+              addDesktopTabs();
+            } else {
+              resetTabs();
+              addMobileTabs();
+            }
+          }, 100);
+        });
+        $("#nav-main .nav-primary__sublist").mouseout(function() {
+          $("#nav-main").find(".nav-primary__list .nav-primary__link-2").attr("tabindex", "0");
+          $("#nav-main").find(".nav-primary__sublist-2 .nav-primary__link-2").attr("tabindex", "0");
+          $("#nav-main").find(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
+          $("#nav-main").find(".nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
+          $("#nav-main").find(".nav-primary__list .nav-primary__link").attr("tabindex", "0");
+          $("#nav-main").find(".nav-primary__sublist .nav-primary__link").attr("tabindex", "0");
+          $("#nav-main").find(".nav-primary__list .nav-primary__sublist").attr("style", "");
+          $("#nav-main").find(".nav-primary__link--has-children").find(".nav-primary__sublist").attr("aria-expanded", "false");
+          $toggle.attr("aria-label", "expand");
+          $toggle2.attr("aria-label", "expand");
+        });
+        $("#nav-main .nav-primary__sublist-2").mouseout(function() {
+          $("#nav-main").find(".nav-primary__list .nav-primary__link-2").attr("tabindex", "0");
+          $("#nav-main").find(".nav-primary__sublist-2 .nav-primary__link-2").attr("tabindex", "0");
+          $("#nav-main").find(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
+          $("#nav-main").find(".nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
+          $toggle2.attr("aria-label", "expand");
+        });
+        $("#nav-main .nav-primary__link--has-children").mouseover(function() {
+          windowWidth = $(window).outerWidth();
+          if (windowWidth >= breakpoint) {
+            $(this).find(".nav-primary__sublist").attr("aria-expanded", "true");
+            $(this).find(".nav-primary__sublist").removeClass("nav-primary__sublist--hidden");
+          }
+        });
+        $("#nav-main .nav-primary__link-2--has-children").mouseover(function() {
+          windowWidth = $(window).outerWidth();
+          if (windowWidth >= breakpoint) {
+            $(this).find(".nav-primary__sublist-2").attr("aria-expanded", "true");
+            $(this).find(".nav-primary__sublist-2").removeClass("nav-primary__sublist-2--hidden");
+          }
+        });
+        $("#nav-main .nav-primary__link--has-children").mouseleave(function() {
+          let $this = $(this);
+          windowWidth = $(window).outerWidth();
+          if (windowWidth >= breakpoint) {
+            $(this).find(".nav-primary__sublist").attr("aria-expanded", "false");
+            setTimeout(function() {
+              $this.find(".nav-primary__sublist").addClass("nav-primary__sublist--hidden");
+            }, 50);
+            $toggle.removeClass("is-open");
+          }
+        });
+        $("#nav-main .nav-primary__link-2--has-children").mouseleave(function() {
+          let $this = $(this);
+          windowWidth = $(window).outerWidth();
+          if (windowWidth >= breakpoint) {
+            $(this).find(".nav-primary__sublist-2").attr("aria-expanded", "false");
+            setTimeout(function() {
+              $this.find(".nav-primary__sublist-2").addClass("nav-primary__sublist-2--hidden");
+            }, 50);
+            $toggle.removeClass("is-open");
+          }
+        });
+        function resetTabs() {
+          $("#nav-main").find(".nav-primary__list .nav-primary__sublist").attr("style", "");
+          $("#nav-main").find(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
+          $(document).unbind("keydown");
+        }
+        function addDesktopTabs() {
+          $(document).keydown(function(e) {
+            let keyCode = e.keyCode || e.which;
+            if (keyCode === 9) {
+              setTimeout(function() {
+                let $focus = $(":focus");
+                if ($focus.hasClass("nav-primary__search-desktop-button") || $focus.parent().parent(".nav-primary__list").length > 0 && !$focus.hasClass("nav-primary__toggle")) {
+                  $(".nav-primary__list .nav-primary__sublist").attr("style", "");
+                  $("#nav-main .nav-primary__link--has-children").find(".nav-primary__sublist").attr("aria-expanded", "false");
+                  $toggle.removeClass("is-open");
+                  $toggle.attr("aria-label", "expand");
+                  $sublistItem.addClass("nav-primary__sublist--hidden");
+                  $(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
+                  $("#nav-main .nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
+                  $toggle2.removeClass("is-open");
+                  $toggle2.attr("aria-label", "expand");
+                  $sublistItem2.addClass("nav-primary__sublist-2--hidden");
+                }
+                if ($focus.parent().parent(".nav-primary__sublist-2").length === 0 && !$focus.hasClass("nav-primary__toggle-2")) {
+                  $(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
+                  $("#nav-main .nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
+                  $toggle2.removeClass("is-open");
+                  $toggle2.attr("aria-label", "expand");
+                  $sublistItem2.addClass("nav-primary__sublist-2--hidden");
+                }
+                if (!$focus.hasClass("nav-primary__search-desktop-button") && !$focus.hasClass("nav-primary__search-field") && !$focus.hasClass("nav-primary__search-submit")) {
+                  let secondLevelNav = $("li.has-child > ul");
+                  $(".nav-primary__search-desktop-button").removeClass("nav-primary__search-desktop-button--is-active");
+                  $(".nav-primary__search-block-form").removeClass("nav-primary__search-block-form--is-active");
+                  $(this).removeClass("nav-primary__search-desktop-button--is-active");
+                  $(".nav-primary__search-desktop-button > svg").replaceWith('<svg role="img" aria-label="Search Icon" class="nav-primary__search-icon" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Search Icon</title><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="search-nav-icon-primary" transform="translate(-15.000000, -15.000000)"><g id="Nav-Item"><g id="Icon/Search" transform="translate(12.000000, 12.000000)"><polygon class="Path-polygon" points="0 0 24 0 24 24 0 24"></polygon><path d="M15.5,14 L14.71,14 L14.43,13.73 C15.41,12.59 16,11.11 16,9.5 C16,5.91 13.09,3 9.5,3 C5.91,3 3,5.91 3,9.5 C3,13.09 5.91,16 9.5,16 C11.11,16 12.59,15.41 13.73,14.43 L14,14.71 L14,15.5 L19,20.49 L20.49,19 L15.5,14 Z M9.5,14 C7.01,14 5,11.99 5,9.5 C5,7.01 7.01,5 9.5,5 C11.99,5 14,7.01 14,9.5 C14,11.99 11.99,14 9.5,14 Z" id="Shape" fill="#00598C" fill-rule="evenodd"></path></g></g></g></g></svg>');
+                  for (let i2 = 0; i2 < secondLevelNav.length; i2 += 1) {
+                    secondLevelNav[i2].style.display = "";
+                  }
+                }
+              }, 10);
+            }
+            if (keyCode === 40) {
+              let $focus = $(":focus"), $dropdown;
+              if ($focus.hasClass("nav-primary__link")) {
+                $dropdown = $focus.parent(".nav-primary__item").find(".nav-primary__sublist");
+                if ($dropdown.length > 0) {
+                  $dropdown.show();
+                  $dropdown.find(".nav-primary__link").attr("tabindex", "0");
+                  $focus.parent().find(".nav-primary__sublist").attr("aria-expanded", "true");
+                }
+              }
+            }
+            if (keyCode === 39) {
+              let $focus = $(":focus"), $dropdown;
+              if ($focus.hasClass("nav-primary__link") && $focus.parent().hasClass("nav-primary__link-2--has-children")) {
+                $dropdown = $focus.parent(".nav-primary__item").find(".nav-primary__sublist-2");
+                if ($dropdown.length > 0) {
+                  $dropdown.show();
+                  $dropdown.find(".nav-primary__link").attr("tabindex", "0");
+                  $focus.parent().find(".nav-primary__sublist-2").attr("aria-expanded", "true");
+                }
+              }
+            }
+            if (keyCode === 27) {
+              setTimeout(function() {
+                let $focus = $(":focus");
+                $(".nav-primary__list .nav-primary__sublist").attr("style", "");
+                $("#nav-main .nav-primary__link--has-children").find(".nav-primary__sublist").attr("aria-expanded", "false");
+                $toggle.removeClass("is-open");
+                $toggle.attr("aria-label", "expand");
+                $(".nav-primary__sublist").addClass("nav-primary__sublist--hidden");
+                if ($focus.parent().parent(".nav-primary__sublist").length > 0) {
+                  $focus.parent().parent().parent(".nav-primary__item").find("a").focus();
+                } else if ($focus.parent().parent(".nav-primary__sublist-2").length > 0) {
+                  $focus.parent().parent().parent().parent().parent(".nav-primary__item").find("a").focus();
+                }
+                $(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
+                $("#nav-main .nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
+                $toggle2.removeClass("is-open");
+                $toggle2.attr("aria-label", "expand");
+                $(".nav-primary__sublist-2").addClass("nav-primary__sublist-2--hidden");
+                if ($focus.parent().parent(".nav-primary__sublist-2").length > 0) {
+                  $focus.parent().parent().parent(".nav-primary__item").find("a").focus();
+                }
+              }, 20);
+            }
+          });
+        }
+        function addMobileTabs() {
+          $(document).keydown(function(e) {
+            let keyCode = e.keyCode || e.which;
+            if (keyCode === 9) {
+              setTimeout(function() {
+                let $focus = $(":focus");
+                let $hamburgerBtn2 = $(".hamburger");
+                let $primaryNav2 = $(".nav-primary");
+                if ($focus.parent().parent(".nav-primary__list").length > 0) {
+                  $toggle.removeClass("is-open");
+                  $sublistItem.addClass("nav-primary__sublist--hidden");
+                }
+                if (!($focus.hasClass("nav-primary__link") || $focus.hasClass("nav-primary__toggle") || $focus.hasClass("nav-primary__search-field"))) {
+                  $hamburgerBtn2.removeClass("hamburger--is-active");
+                  $primaryNav2.removeClass("nav-primary--is-active");
+                  disableMenuTab();
+                }
+              }, 50);
+            }
+            if (keyCode === 27) {
+              let $hamburgerBtn2 = $(".hamburger");
+              let $focus = $(":focus");
+              if ($hamburgerBtn2.hasClass("hamburger--is-active")) {
+                if ($focus.parent().parent().hasClass("nav-primary__sublist")) {
+                  $focus.parent().parent().parent().find(".nav-primary__toggle").trigger("click");
+                  $focus.parent().parent().parent().find(".nav-primary__toggle").focus();
+                } else {
+                  $hamburgerBtn2.trigger("click");
+                  $hamburgerBtn2.focus();
+                }
+              }
+            }
+          });
+        }
+        let $hamburgerBtn = $(".hamburger");
+        let $primaryNav = $(".nav-primary");
+        let $header = $("#header");
+        $hamburgerBtn.bind("click", function() {
+          if (!$(this).hasClass("hamburger--is-active")) {
+            $(this).addClass("hamburger--is-active");
+            $primaryNav.addClass("nav-primary--is-active");
+            mobileNavPosition();
+            enableMenuTab();
+          } else {
+            $(this).removeClass("hamburger--is-active");
+            $primaryNav.removeClass("nav-primary--is-active");
+            disableMenuTab();
+          }
+        });
+        function mobileNavPosition(windowWidth2, breakpoint2) {
+          let $primaryNav2 = $(".nav-primary");
+          let height;
+          height = Number($header.height());
+          if (windowWidth2 >= breakpoint2) {
+            $("body").removeAttr("style");
+            $primaryNav2.removeAttr("style");
+          } else {
+            $("body").css("overflowX", "hidden");
+            if (height > 105) {
+              $primaryNav2.css({ "top": "71px" });
+            } else {
+              $primaryNav2.removeAttr("style");
+            }
+          }
+        }
+        function disableMenuTab() {
+          $(".nav-primary__link").attr("tabindex", "-1");
+          $(".nav-primary__toggle").attr("tabindex", "-1");
+          $(".nav-primary__link-2").attr("tabindex", "-1");
+          $(".nav-primary__toggle-2").attr("tabindex", "-1");
+          $(".nav-primary__search-field").attr("tabindex", "-1");
+        }
+        function enableMenuTab() {
+          $(".nav-primary__link").attr("tabindex", "0");
+          $(".nav-primary__toggle").attr("tabindex", "0");
+          $(".nav-primary__link-2").attr("tabindex", "0");
+          $(".nav-primary__toggle-2").attr("tabindex", "0");
+          $(".nav-primary__search-field").attr("tabindex", "0");
+        }
+        $(".breadcrumb").each(function() {
+          if ($(this).hasClass("breadcrumb--white")) {
+            $(this).after('<span class="breadcrumb--fade white"></span>');
+          } else {
+            $(this).after('<span class="breadcrumb--fade"></span>');
+          }
+        });
+      });
+    }
+  });
+
+  // js/table.js
+  var require_table = __commonJS({
+    "js/table.js"() {
+      (function(c) {
+        c.fn.stupidtable = function(a) {
+          return this.each(function() {
+            let b = c(this);
+            a = a || {};
+            a = c.extend({}, c.fn.stupidtable.default_sort_fns, a);
+            b.data("sortFns", a);
+            b.stupidtable_build();
+            b.on("click.stupidtable", "thead th", function() {
+              c(this).stupidsort();
+            });
+            b.find("th[data-sort-onload=yes]").eq(0).stupidsort();
+          });
+        };
+        c.fn.stupidtable.default_settings = {
+          should_redraw: function() {
+            return true;
+          },
+          will_manually_build_table: false
+        };
+        c.fn.stupidtable.dir = {
+          ASC: "asc",
+          DESC: "desc"
+        };
+        c.fn.stupidtable.default_sort_fns = {
+          "int": function(a, b) {
+            return parseInt(a, 10) - parseInt(b, 10);
+          },
+          "float": function(a, b) {
+            return parseFloat(a) - parseFloat(b);
+          },
+          string: function(a, b) {
+            return a.toString().localeCompare(b.toString());
+          },
+          "string-ins": function(a, b) {
+            a = a.toString().toLocaleLowerCase();
+            b = b.toString().toLocaleLowerCase();
+            return a.localeCompare(b);
+          }
+        };
+        c.fn.stupidtable_settings = function(a) {
+          return this.each(function() {
+            let b = c(this), f = c.extend({}, c.fn.stupidtable.default_settings, a);
+            b.stupidtable.settings = f;
+          });
+        };
+        c.fn.stupidsort = function(a) {
+          let b = c(this), f = b.data("sort") || null;
+          if (null !== f) {
+            let d = b.closest("table"), e = {
+              $th: b,
+              $table: d,
+              datatype: f
+            };
+            d.stupidtable.settings || (d.stupidtable.settings = c.extend({}, c.fn.stupidtable.default_settings));
+            e.compare_fn = d.data("sortFns")[f];
+            e.th_index = h(e);
+            e.sort_dir = k(a, e);
+            b.data("sort-dir", e.sort_dir);
+            d.trigger("beforetablesort", {
+              column: e.th_index,
+              direction: e.sort_dir,
+              $th: b
+            });
+            d.css("display");
+            setTimeout(function() {
+              d.stupidtable.settings.will_manually_build_table || d.stupidtable_build();
+              var a2 = l(e), a2 = m(a2, e);
+              if (d.stupidtable.settings.should_redraw(e)) {
+                d.children("tbody").append(a2);
+                var a2 = e.$table, c2 = e.$th, f2 = c2.data("sort-dir");
+                a2.find("th").data("sort-dir", null).removeClass("sorting-desc sorting-asc");
+                c2.data("sort-dir", f2).addClass("sorting-" + f2);
+                d.trigger("aftertablesort", {
+                  column: e.th_index,
+                  direction: e.sort_dir,
+                  $th: b
+                });
+                d.css("display");
+              }
+            }, 10);
+            return b;
+          }
+        };
+        c.fn.updateSortVal = function(a) {
+          let b = c(this);
+          b.is("[data-sort-value]") && b.attr("data-sort-value", a);
+          b.data("sort-value", a);
+          return b;
+        };
+        c.fn.stupidtable_build = function() {
+          return this.each(function() {
+            let a = c(this), b = [];
+            a.children("tbody").children("tr").each(function(a2, d) {
+              let e = {
+                $tr: c(d),
+                columns: [],
+                index: a2
+              };
+              c(d).children("td").each(function(a3, b2) {
+                let d2 = c(b2).data("sort-value");
+                "undefined" === typeof d2 && (d2 = c(b2).text(), c(b2).data("sort-value", d2));
+                e.columns.push(d2);
+              });
+              b.push(e);
+            });
+            a.data("stupidsort_internaltable", b);
+          });
+        };
+        let l = function(a) {
+          var b = a.$table.data("stupidsort_internaltable"), f = a.th_index, d = a.$th.data("sort-multicolumn"), d = d ? d.split(",") : [], e = c.map(d, function(b2) {
+            let c2 = a.$table.find("th"), e2 = parseInt(b2, 10), f2;
+            e2 || 0 === e2 ? f2 = c2.eq(e2) : (f2 = c2.siblings("#" + b2), e2 = c2.index(f2));
+            return {
+              index: e2,
+              $e: f2
+            };
+          });
+          b.sort(function(b2, c2) {
+            for (var d2 = e.slice(0), g = a.compare_fn(b2.columns[f], c2.columns[f]); 0 === g && d2.length; ) {
+              var g = d2[0], h2 = g.$e.data("sort"), g = (0, a.$table.data("sortFns")[h2])(b2.columns[g.index], c2.columns[g.index]);
+              d2.shift();
+            }
+            return 0 === g ? b2.index - c2.index : g;
+          });
+          a.sort_dir !== c.fn.stupidtable.dir.ASC && b.reverse();
+          return b;
+        }, m = function(a, b) {
+          let f = c.map(a, function(a2, c2) {
+            return [
+              [a2.columns[b.th_index], a2.$tr, c2]
+            ];
+          });
+          b.column = f;
+          return c.map(a, function(a2) {
+            return a2.$tr;
+          });
+        }, k = function(a, b) {
+          let f, d = b.$th, e = c.fn.stupidtable.dir;
+          a ? f = a : (f = a || d.data("sort-default") || e.ASC, d.data("sort-dir") && (f = d.data("sort-dir") === e.ASC ? e.DESC : e.ASC));
+          return f;
+        }, h = function(a) {
+          let b = 0, f = a.$th.index();
+          a.$th.parents("tr").find("th").slice(0, f).each(function() {
+            let a2 = c(this).attr("colspan") || 1;
+            b += parseInt(a2, 10);
+          });
+          return b;
+        };
+      })(jQuery);
+      $(document).ready(function() {
+        const $table = $("#sortTable");
+        $table.stupidtable_settings({
+          will_manually_build_table: true
+        });
+        $("#sortTable thead th:first-child").trigger("click");
+        $table.stupidtable({
+          "lastname": function(a, b) {
+            const pattern = '^[w"-,.][^0-9_!\xA1?\xF7?\xBF/\\+=@#$%\u02C6&*(){}|~<>;:[]]{2,}$';
+            const re = new RegExp(pattern);
+            const aName = re.exec(a);
+            const bName = re.exec(b);
+            return aName - bName;
+          }
+        });
+        $table.animate({
+          opacity: 1
+        }, 500, function() {
+        });
+      });
+      $(document).ready(function() {
+        let resizeId;
+        setRowHeight($);
+        $(window).resize(function() {
+          clearTimeout(resizeId);
+          resizeId = setTimeout(function() {
+            setRowHeight($);
+          }, 100);
+        });
+      });
+      function setRowHeight($2) {
+        $2("td:first-child, th:first-child").each(function() {
+          $2(this).css("height", "");
+          $2(this).parent("tr").css("height", "");
+          let firstChildHeight = $2(this).closest("tr").height(), firstCell = $2(this).outerHeight();
+          if (firstChildHeight > firstCell) {
+            $2(this).css("height", firstChildHeight + "px");
+          } else {
+            $2(this).parent("tr").css("height", firstCell + "px");
+          }
+        });
+      }
+    }
+  });
+
+  // js/tabs.js
+  var require_tabs = __commonJS({
+    "js/tabs.js"() {
+      $(document).ready(function() {
+        (function() {
+          let tablist = document.querySelectorAll('[role="tablist"]')[0];
+          let tabs;
+          let panels;
+          let delay = determineDelay();
+          if (!tablist) {
+            return;
+          }
+          setOverflowStyles(tablist);
+          generateArrays();
+          function generateArrays() {
+            tabs = document.querySelectorAll('[role="tab"]');
+            panels = document.querySelectorAll('[role="tabpanel"]');
+          }
+          ;
+          let keys = {
+            end: 35,
+            home: 36,
+            left: 37,
+            up: 38,
+            right: 39,
+            down: 40,
+            delete: 46
+          };
+          let direction = {
+            37: -1,
+            38: -1,
+            39: 1,
+            40: 1
+          };
+          for (i = 0; i < tabs.length; ++i) {
+            addListeners(i);
+          }
+          ;
+          function isTabListOverflow(tablist2) {
+            let buttonWidth = 0;
+            let buttons = tablist2.querySelectorAll('[role="tab"]');
+            for (let idx = 0; idx < buttons.length; idx++) {
+              buttonWidth += buttons[idx].offsetWidth;
+            }
+            return buttonWidth > tablist2.offsetWidth;
+          }
+          function setOverflowStyles(tablist2) {
+            if (isTabListOverflow(tablist2)) {
+              for (let i2 = 0; i2 < tablist2.children.length; i2++) {
+                tablist2.children[i2].style["width"] = "25%";
+                tablist2.children[i2].style["white-space"] = "normal";
+                tablist2.children[i2].style["vertical-align"] = "bottom";
+              }
+            }
+          }
+          function addListeners(index) {
+            tabs[index].addEventListener("click", clickEventListener);
+            tabs[index].addEventListener("keydown", keydownEventListener);
+            tabs[index].addEventListener("keyup", keyupEventListener);
+            tabs[index].index = index;
+          }
+          ;
+          function clickEventListener(event) {
+            event.preventDefault();
+            let tab = event.target;
+            tab.blur();
+            activateTab(tab, false);
+          }
+          ;
+          function keydownEventListener(event) {
+            let key = event.keyCode;
+            switch (key) {
+              case keys.end:
+                event.preventDefault();
+                activateTab(tabs[tabs.length - 1]);
+                break;
+              case keys.home:
+                event.preventDefault();
+                activateTab(tabs[0]);
+                break;
+              case keys.up:
+              case keys.down:
+                determineOrientation(event);
+                break;
+            }
+            ;
+          }
+          ;
+          function keyupEventListener(event) {
+            let key = event.keyCode;
+            switch (key) {
+              case keys.left:
+              case keys.right:
+                determineOrientation(event);
+                break;
+              case keys.delete:
+                determineDeletable(event);
+                break;
+            }
+            ;
+          }
+          ;
+          function determineOrientation(event) {
+            let key = event.keyCode;
+            let vertical = tablist.getAttribute("aria-orientation") === "vertical";
+            let proceed = false;
+            if (vertical) {
+              if (key === keys.up || key === keys.down) {
+                event.preventDefault();
+                proceed = true;
+              }
+              ;
+            } else {
+              if (key === keys.left || key === keys.right) {
+                proceed = true;
+              }
+              ;
+            }
+            ;
+            if (proceed) {
+              switchTabOnArrowPress(event);
+            }
+            ;
+          }
+          ;
+          function switchTabOnArrowPress(event) {
+            let pressed = event.keyCode;
+            for (x = 0; x < tabs.length; x++) {
+              tabs[x].addEventListener("focus", focusEventHandler);
+            }
+            ;
+            if (direction[pressed]) {
+              let target2 = event.target;
+              if (target2.index !== void 0) {
+                if (tabs[target2.index + direction[pressed]]) {
+                  tabs[target2.index + direction[pressed]].focus();
+                } else if (pressed === keys.left || pressed === keys.up) {
+                  focusLastTab();
+                } else if (pressed === keys.right || pressed === keys.down) {
+                  focusFirstTab();
+                }
+                ;
+              }
+              ;
+            }
+            ;
+          }
+          ;
+          function activateTab(tab, setFocus) {
+            deactivateTabs();
+            tab.removeAttribute("tabindex");
+            tab.setAttribute("aria-selected", "true");
+            let controls = tab.getAttribute("aria-controls");
+            document.getElementById(controls).removeAttribute("hidden");
+            if (setFocus) {
+              tab.focus();
+            }
+            ;
+          }
+          ;
+          function deactivateTabs() {
+            for (t = 0; t < tabs.length; t++) {
+              tabs[t].setAttribute("tabindex", "-1");
+              tabs[t].setAttribute("aria-selected", "false");
+              tabs[t].removeEventListener("focus", focusEventHandler);
+            }
+            ;
+            for (p = 0; p < panels.length; p++) {
+              panels[p].setAttribute("hidden", "hidden");
+            }
+            ;
+          }
+          ;
+          function focusFirstTab() {
+            tabs[0].focus();
+          }
+          ;
+          function focusLastTab() {
+            tabs[tabs.length - 1].focus();
+          }
+          ;
+          function determineDeletable(event) {
+            target = event.target;
+            if (target.getAttribute("data-deletable") !== null) {
+              deleteTab(event, target);
+              generateArrays();
+              if (target.index - 1 < 0) {
+                activateTab(tabs[0]);
+              } else {
+                activateTab(tabs[target.index - 1]);
+              }
+              ;
+            }
+            ;
+          }
+          ;
+          function deleteTab(event) {
+            let target2 = event.target;
+            let panel = document.getElementById(target2.getAttribute("aria-controls"));
+            target2.parentElement.removeChild(target2);
+            panel.parentElement.removeChild(panel);
+          }
+          ;
+          function determineDelay() {
+            let hasDelay = $(this).attr("data-delay");
+            let delay2 = 0;
+            if (typeof hasDelay !== "undefined" && hasDelay !== false) {
+              let delayValue = tablist.getAttribute("data-delay");
+              if (delayValue) {
+                delay2 = delayValue;
+              } else {
+                delay2 = 300;
+              }
+              ;
+            }
+            ;
+            return delay2;
+          }
+          ;
+          function focusEventHandler(event) {
+            let target2 = event.target;
+            setTimeout(checkTabFocus, delay, target2);
+          }
+          ;
+          function checkTabFocus(target2) {
+            focused = document.activeElement;
+            if (target2 === focused) {
+              activateTab(target2, false);
+            }
+            ;
+          }
+          ;
+        })();
+      });
+    }
+  });
+
+  // js/ucla-lib-scripts.js
+  require_carousel();
+  require_accordion();
+  require_form();
+  require_grid();
+  require_primary_nav();
+  require_table();
+  require_tabs();
+})();
+/*!
+ * Splide.js
+ * Version  : 2.4.20
+ * License  : MIT
+ * Copyright: 2020 Naotoshi Fujita
+ */
