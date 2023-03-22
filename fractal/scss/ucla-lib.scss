@@ -4,17 +4,18 @@
 // These are UCLA Web Component styles only. 
 // DO NOT ADD Fractal or Mandlebrot theme stylesheets here. Those belong in ./src/docs/scss
 
-
+@use "./utilities/mixins.scss";
 @use "./utilities/_colors";
 @use "./utilities/_mixins/_helper";
 @use "./utilities/_helper.scss" as helper2;
-@use "./utilities/_reset";
-@use "./utilities/_normalize";
+@use "./utilities/reset";
 @use "./utilities/_variables";
 @use "./utilities/_mixins/_breakpoints";
 @use "./utilities/_mixins/_gradients";
 @use "./utilities/_spacing";
-@use "./utilities/_grid";
+@use "./layout/container.scss";
+@use "./layout/grid.scss";
+// @use "./utilities/_grid";
 @use "./utilities/_typography";
 @use "./utilities/_backgrounds";
 

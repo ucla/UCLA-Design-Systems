@@ -1,8 +1,30 @@
-// Typography
-$font: "Helvetica", "Arial", sans-serif;
-$font-secondary: "Helvetica", "Arial", sans-serif;
-$font-size-base: 100%;
-$corner-radius: 4px;
+/* Typography */
+$font: "Helvetica", "Roboto", "Arial", sans-serif;
+
+/* Heading */
+/* 81px */
+$text-xxl: 5.063rem;
+/* 54px */
+$text-xl: 3.375rem;
+/* 36px */
+$text-lg: 2.25rem;
+/* 24px */
+$text-md: 1.5rem;
+/* 16px */
+$text-base: 1rem;
+/* 14px */
+$text-sm: 0.875rem;
+
+
+/* Viewports */
+/* 768px */
+$tablet: 48rem;
+/* 960px */
+$desktop: 60rem;
+/* 1224px */
+$desktop-lg: 76.5rem;
+
+
 
 // relative units
 // xs: 480px 30em
@@ -61,7 +83,7 @@ $ucla-line-height-default: 1.2;
 $ucla-line-height-alt: 1.33;
 $ucla-line-height-heading: 1.125;
 
-//$ucla-line-height-none: 1;
+$ucla-line-height-none: 1;
 // values used: 1.5, 1.33, 1.25, 1.125, 1.11, 1, 1.286
 
 
@@ -100,13 +122,18 @@ $ucla-line-height-heading: 1.125;
 //line-height: 1.4
 
 /* Spacing */
-// $ucla-spacing-x-small: 0.25em; //4px;
-// $ucla-spacing-x-small: 0.5em; //8px;
-// $ucla-spacing-small: 0.75em; //12px
-// $ucla-spacing-default: 1em; //16px;
-// $ucla-spacing-medium: 1.5em; //24px
-// $ucla-spacing-large: 1.75em; //28px
-// $ucla-spacing-x-large: 2.25em; //36px
+$ucla-spacing-x-small: 0.25em; //4px;
+$ucla-spacing-x-small: 0.5em; //8px;
+$ucla-spacing-small: 0.75em; //12px
+$ucla-spacing-default: 1em; //16px;
+$ucla-spacing-medium: 1.5em; //24px
+$ucla-spacing-large: 1.75em; //28px
+$ucla-spacing-x-large: 2.25em; //36px
 
 
 // min-width: 768px font sizing increases
+$corner-radius: 4px;
+
+html {
+  font-size: 16px;
+}

@@ -71,13 +71,13 @@
       d.css('display');
       setTimeout(function () {
         d.stupidtable.settings.will_manually_build_table || d.stupidtable_build();
-        /*eslint-disable */
+        
         var a = l(e),
           a = m(a, e);
         if (d.stupidtable.settings.should_redraw(e)) {
           d.children('tbody').append(a);
           var a = e.$table,
-            /*eslint-enable */
+            
             c = e.$th,
             f = c.data('sort-dir');
           a.find('th').data('sort-dir', null).removeClass('sorting-desc sorting-asc');
@@ -121,12 +121,12 @@
     });
   };
   let l = function (a) {
-      /*eslint-disable */
+      
       var b = a.$table.data('stupidsort_internaltable'),
         f = a.th_index,
         d = a.$th.data('sort-multicolumn'),
         d = d ? d.split(',') : [],
-        /*eslint-enable */
+        
         e = c.map(d, function (b) {
           let c = a.$table.find('th'),
             e = parseInt(b, 10),
@@ -138,14 +138,14 @@
           };
         });
       b.sort(function (b, c) {
-        /*eslint-disable */
+        
         for (var d = e.slice(0), g = a.compare_fn(b.columns[f], c.columns[f]); 0 === g && d.length;) {
-          var g = d[0], // eslint-disable-line no-use-before-define
+          var g = d[0], 
             h = g.$e.data('sort'),
             g = (0, a.$table.data('sortFns')[h])(b.columns[g.index], c.columns[g.index]);
           d.shift();
         }
-        /*eslint-enable */
+        
         return 0 === g ? b.index - c.index : g;
       });
       a.sort_dir !== c.fn.stupidtable.dir.ASC && b.reverse();

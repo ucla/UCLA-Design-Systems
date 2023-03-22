@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
   // Trigger Errors - Only select and text input errors are built out so far
-  window.triggerError = function (fieldName, errorMessage) { // eslint-disable-line no-unused-vars
+  window.triggerError = function (fieldName, errorMessage) { 
     // get select element
     let elParent = $('select[name ="' + fieldName + '"]').parent();
-    let errorSpan = elParent.find('.select__error'); // eslint-disable-line no-unused-vars
+    let errorSpan = elParent.find('.select__error'); 
 
     // if the element isn't a select element, try text input
     if (!elParent.length) {

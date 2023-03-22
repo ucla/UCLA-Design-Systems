@@ -1,5 +1,21 @@
 @charset "UTF-8";
+/* Typography */
+/* Heading */
+/* 81px */
+/* 54px */
+/* 36px */
+/* 24px */
+/* 16px */
+/* 14px */
+/* Viewports */
+/* 768px */
+/* 960px */
+/* 1224px */
 /* Spacing */
+html {
+  font-size: 16px;
+}
+
 /* this is all from Bootstrap */
 /*
  * Helper utilities
@@ -7,7 +23,7 @@
  */
 body {
   color: #333;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
 }
@@ -488,7 +504,7 @@ code {
 .Prose h1, .Prose h2, .Prose h3, .Prose h4, .Prose h5, .Prose h6 {
   color: #333;
   font-weight: bold;
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
 }
 .Prose h1 {
   font-size: 3.375rem;
