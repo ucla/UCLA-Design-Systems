@@ -41,3 +41,20 @@ $column-gap: 0.75rem;
         display: flex;
     }
 }
+
+/* Start CSS Grid */
+
+.ucla-grid {
+    display: grid;
+    gap: $column-gap*2;
+
+    @for $i from 1 through 12 {
+        &.cols-#{$i} {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+        }
+
+        &> .ucla-grid_span-#{$i} {
+            grid-column: auto/span $i;
+        }
+    }
+}

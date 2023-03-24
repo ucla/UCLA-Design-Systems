@@ -7,10 +7,11 @@
     "fractal-status-helper": "^1.0.0"
   },
   "scripts": {
-    "start": "fractal start --sync",
+    "start": "fractal start --sync --watch",
     "build": "npm-run-all docs-build css js svg",
     "docs-build": "fractal build",
     "css": "npm-run-all css-compile css-compile-docs css-minify-*",
+    "start-with-lint": "npm-run-all css-lint start",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:public/css/",
     "css-compile-docs": "sass --style expanded --source-map --no-error-css theme/assets/scss/:theme/assets/css/",
     "css-minify-main": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output public/css/ --batch --batch-suffix \".min\" \"public/css/*.css\" \"!public/css/*.min.css\" \"!public/css/*rtl*.css\"",
