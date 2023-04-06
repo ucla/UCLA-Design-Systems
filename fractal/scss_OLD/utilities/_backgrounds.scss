@@ -23,22 +23,16 @@
 
 .has-background {
   &-grey-20 {
-    background-color: colors.$medium-grey3;
+    background-color: colors.$grey-20;
   }
-  // $-lightest-grey-2 {
-  //   background-color: colors.$lightest-grey-2
-  // }
   &-light-grey-08 {
-    background-color: colors.$lightest-grey-2;
+    background-color: colors.$grey-08;
   }
   &-light-grey {
-    background-color: colors.$light-grey;
+    background-color: colors.$grey-10;
   }
   &-grey-05 {
-    background-color: colors.$grey-5;
-  }
-  &-grey-03 {
-    background-color: colors.$grey-03;
+    background-color: colors.$grey-05;
   }
   &-ucla-blue {
     background-color: colors.$ucla-blue;

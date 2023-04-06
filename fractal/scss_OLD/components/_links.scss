@@ -44,30 +44,30 @@
     }
 
     &:focus {
-      color: colors.$medium-grey5;
-      background-color: colors.$focus-state-dark;
+      color: colors.$grey-80;
+      background-color: colors.$focus-state-light;
       outline: 0;
     }
 
     &:hover {
-      color: colors.$medium-grey5;
-      background: colors.$hover-state-dark;
+      color: colors.$grey-80;
+      background: colors.$hover-state-light;
     }
 
     &:active {
-      color: colors.$medium-grey5;
-      background: colors.$active-state-dark;
+      color: colors.$grey-80;
+      background: colors.$active-state-light;
     }
   }
 
   // Related Links
   .related-links {
-    border-bottom: 1px solid colors.$emergency-bg-light;
+    border-bottom: 1px solid colors.$grey-10;
     padding-inline-start: 0;
 
     li {
       position: relative;
-      border-top: 1px solid colors.$emergency-bg-light;
+      border-top: 1px solid colors.$grey-10;
       margin: 0;
 
       // remove comp library's default bullet styling

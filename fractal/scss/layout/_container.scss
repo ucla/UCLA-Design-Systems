@@ -1,8 +1,9 @@
-@import "../utilities/variables";
-@import "../utilities/mixins.scss";
+@use "../utilities/variables";
+@use "../utilities/mixins.scss";
 
-$column-gap: 0.75rem;
-$container-offset: (4*$column-gap);
+$column-gap: 0.75rem !default;
+$container-max-width: 73.5rem !default;
+$container-margin: (4 * $column-gap);
 
 .container {
     flex-grow: 1;
@@ -19,23 +20,7 @@ $container-offset: (4*$column-gap);
         width: 100%;
     }
 
-    @include for-size(tablet-up) {
-        max-width: $desktop-lg - $container-offset;
+    @include mixins.for-size(tablet-up) {
+        max-width: $container-max-width + $container-margin;
     }
-    // @include desktop-up {
-    //     max-width: $desktop - $container-offset;
-    // }
-    // @include desktop-lg-up {
-    //     max-width: $desktop-lg - $container-offset;
-    // }
 }
-
-// DEPRECATE
-// .ucla.campus {
-//     max-width: 1176px;
-//     margin: 0 auto;
-// }
-// .container > .ucla.campus {
-//     max-width: none;
-//     margin: unset;
-// }

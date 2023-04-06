@@ -156,7 +156,7 @@ ins {
 
 /* change colours to suit your needs */
 mark {
-  background-color: #fff0a5;
+  background-color: #ffd100;
   color: #000;
 }
 
@@ -255,7 +255,7 @@ figure.blockquote > figcaption::before {
 }
 .ucla a:focus {
   color: white;
-  background-color: #0079bf;
+  background-color: #00568c;
   outline: 0;
 }
 .ucla a:not(.page):visited {
@@ -393,8 +393,8 @@ figure.blockquote > figcaption::before {
   background-image: url("/icons/denotive/external-link--white.svg");
 }
 .ucla .resource-link:focus {
-  border-color: #0079bf;
-  outline: 1px solid #0079bf;
+  border-color: #00568c;
+  outline: 1px solid #00568c;
   outline-offset: 1px;
 }
 .ucla .resource-link:active {
@@ -426,7 +426,7 @@ figure.blockquote > figcaption::before {
   text-decoration: none;
 }
 .ucla .tag-link:focus {
-  outline: 1px solid #0079bf;
+  outline: 1px solid #00568c;
   outline-offset: 1px;
 }
 
@@ -483,7 +483,7 @@ code {
   width: 10px;
 }
 .Prose pre::-webkit-scrollbar-track {
-  background-color: #e7e7e8;
+  background-color: #e5e5e5;
 }
 .Prose pre::-webkit-scrollbar-thumb {
   border-radius: 5px;
@@ -498,10 +498,20 @@ code {
 .Prose table {
   margin: 0;
 }
-.Prose h1, .Prose h2, .Prose h3, .Prose h4, .Prose h5, .Prose h6 {
+.Prose h1,
+.Prose h2,
+.Prose h3,
+.Prose h4,
+.Prose h5,
+.Prose h6 {
   font-family: "Helvetica", "Arial", sans-serif;
 }
-.Prose h1, .Prose h2, .Prose h3, .Prose h4, .Prose h5, .Prose h6 {
+.Prose h1,
+.Prose h2,
+.Prose h3,
+.Prose h4,
+.Prose h5,
+.Prose h6 {
   color: #333;
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
@@ -573,13 +583,13 @@ code {
   background: #0079bf;
 }
 .create-button:focus {
-  outline: 1px dotted #0079bf;
+  outline: 1px dotted #00568c;
   outline-offset: 1px;
 }
 
 /***************** STOP!!! READ THIS!! *****************/
 .Header {
-  background-color: #2774AE;
+  background-color: #2774ae;
 }
 
 body {
@@ -591,15 +601,16 @@ body {
 }
 
 a {
-  color: #00598C;
+  color: #00598c;
 }
 
 a.Tree-entityLink {
   font-weight: bold;
 }
 
-.hljs-number, .hljs-attr {
-  color: #1D832F !important;
+.hljs-number,
+.hljs-attr {
+  color: #1d832f !important;
 }
 
 .hljs-comment {
@@ -656,16 +667,16 @@ a.Tree-entityLink {
   background-color: #007339;
 }
 .Status-dot[title="In Review"] {
-  background-color: #0077C0;
+  background-color: #0077c0;
 }
 .Status-dot[title="In Progress"] {
   background-color: #812990;
 }
 .Status-dot[title=Submitted] {
-  background-color: #E10786;
+  background-color: #e10786;
 }
 .Status-dot[title=Deprecated] {
-  background-color: #D60000;
+  background-color: #d60000;
 }
 
 /*************************************
@@ -716,8 +727,8 @@ a.Tree-entityLink {
   border-bottom: 4px solid #0079bf;
 }
 .tabs .tablinks:focus {
-  color: #0079bf;
-  outline: 1px dotted #0079bf;
+  color: #00568c;
+  outline: 1px dotted #00568c;
   outline-offset: -2px;
 }
 .tabs .tablinks:active {
@@ -729,7 +740,7 @@ a.Tree-entityLink {
   z-index: 2;
 }
 .tabs .tabcontent:focus {
-  outline: 1px dotted #0079bf;
+  outline: 1px dotted #00568c;
   outline-offset: -2px;
 }
 .tabs .tabcontent h2 {
@@ -752,8 +763,8 @@ a.Tree-entityLink {
 }
 .tabs .tabcontent p a:focus {
   color: #fff;
-  background-color: #0079bf;
-  outline: 1px dotted #0079bf;
+  background-color: #00568c;
+  outline: 1px dotted #00568c;
   outline-offset: 2px;
 }
 .tabs .tabcontent p a:active {

@@ -156,10 +156,10 @@
     min-width: 272px;
     max-width: 272px;
     padding: 1rem 0;
-    border-top: 1px solid colors.$medium-grey3;
+    border-top: 1px solid colors.$grey-20;
 
     &:last-child {
-      border-bottom: 1px solid colors.$medium-grey3;
+      border-bottom: 1px solid colors.$grey-20;
     }
 
     @media (min-width: breakpoints.breakpoint-min(sm)) {

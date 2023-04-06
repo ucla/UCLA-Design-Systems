@@ -52,7 +52,7 @@ TABLE OF CONTENTS:
     &__number {
       font-size: variables.$ucla-font-size-display;
       line-height: 48px;
-      color: colors.$medium-grey5;
+      color: colors.$grey-80;
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -76,7 +76,7 @@ TABLE OF CONTENTS:
       font-weight: bold;
       display: block;
       max-width: 212px;
-      color: colors.$medium-grey5;
+      color: colors.$grey-80;
 
       @media (min-width: breakpoints.breakpoint-min(md)) {
         max-width: 312px;
