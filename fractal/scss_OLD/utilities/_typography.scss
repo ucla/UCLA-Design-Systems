@@ -1,7 +1,7 @@
-@use "_mixins/breakpoints";
-@use "_mixins/helper";
-@use "colors";
-@use "variables";
+@use "./_mixins/breakpoints";
+@use "./_mixins/helper";
+@use "./variables";
+@use "./colors";
 
 body {
   color: colors.$grey-80;
@@ -16,8 +16,6 @@ h3,
 h4,
 h5,
 h6 {
-  //color: colors.$grey-80; // declared on body
-  //font-family: variables.$font;
   font-weight: bold;
   line-height: 1.125;
   margin-bottom: 1rem;
@@ -122,7 +120,7 @@ ins {
 
 /* change colours to suit your needs */
 mark {
-  background-color: colors.$lightest-gold;
+  background-color: colors.$default-state-light;
   color: colors.$black;
 }
 

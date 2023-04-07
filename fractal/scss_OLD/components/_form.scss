@@ -22,7 +22,7 @@
     display: block;
     font-size: variables.$ucla-font-size-default;
     line-height: 1.5;
-    color: colors.$medium-grey5;
+    color: colors.$grey-80;
     margin-top: 8px;
     margin-bottom: 8px;
   }
@@ -30,14 +30,14 @@
   &__input {
     box-sizing: border-box;
     appearance: none;
-    background: colors.$lightest-grey-2;
+    background: colors.$grey-08;
     background-size: 24px;
     font-size: variables.$ucla-font-size-default;
     line-height: 1.5;
     padding: 8px 24px 8px 16px;
     border: 1px solid #808080;
     border-radius: 2px;
-    color: colors.$medium-grey4;
+    color: colors.$grey-60;
 
     &:focus {
       outline: 3px solid colors.$ucla-blue;
@@ -52,7 +52,7 @@
 
   &__help {
     display: block;
-    color: colors.$medium-grey4;
+    color: colors.$grey-60;
     margin-top: 8px;
   }
 
@@ -85,7 +85,7 @@
     display: block;
     font-size: variables.$ucla-font-size-default;
     line-height: 1.5;
-    color: colors.$medium-grey5;
+    color: colors.$grey-80;
     margin-top: 8px;
     margin-bottom: 8px;
   }
@@ -97,14 +97,14 @@
   &__menu {
     appearance: none;
     -webkit-appearance: none;
-    background: colors.$lightest-grey-2 url("../icons/denotive/down--blue.svg") no-repeat 98.5% 50%;
+    background: colors.$grey-08 url("../icons/denotive/down--blue.svg") no-repeat 98.5% 50%;
     background-size: 24px;
     font-size: variables.$ucla-font-size-default;
     line-height: 1.5;
     padding: 8px 24px 8px 16px;
     border: 1px solid #808080;
     border-radius: 2px;
-    color: colors.$medium-grey4;
+    color: colors.$grey-60;
 
     &::-ms-expand {
       display: none; /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
@@ -122,7 +122,7 @@
 
   &__help {
     display: block;
-    color: colors.$medium-grey4;
+    color: colors.$grey-60;
     margin-top: 8px;
   }
 
@@ -247,7 +247,7 @@
     font-size: variables.$ucla-font-size-medium;
     font-weight: bold;
     line-height: 1.125;
-    color: colors.$medium-grey5;
+    color: colors.$grey-80;
     padding: 0 4px;
   }
 }

@@ -93,23 +93,23 @@
     }
 
     &:hover {
-      background: colors.$hover-state-dark;
+      background: colors.$hover-state-light;
       color: black;
     }
 
     &:focus {
-      background: colors.$focus-state-dark;
+      background: colors.$focus-state-light;
       outline: 1px solid colors.$white;
       outline-offset: 2px;
     }
 
     &:active {
-      background: colors.$active-state-dark;
+      background: colors.$active-state-light;
       outline: none;
     }
 
     &:disabled {
-      background: colors.$disabled-state-dark;
+      background: colors.$disabled-state-light;
     }
 
     &.icon--play::before {
@@ -228,13 +228,13 @@
       }
 
       &:hover {
-        background: colors.$hover-state-dark;
-        border-color: colors.$hover-state-dark;
+        background: colors.$hover-state-light;
+        border-color: colors.$hover-state-light;
         color: colors.$black;
       }
 
       &:focus {
-        background: colors.$focus-state-dark;
+        background: colors.$focus-state-light;
         border-color: transparent;
         outline: 1px solid colors.$white;
         outline-offset: 2px;
@@ -242,15 +242,15 @@
       }
 
       &:active {
-        background: colors.$active-state-dark;
+        background: colors.$active-state-light;
         color: colors.$black;
-        border: 2px solid colors.$active-state-dark;
+        border: 2px solid colors.$active-state-light;
       }
 
       &:disabled {
-        color: colors.$disabled-state-dark;
+        color: colors.$disabled-state-light;
         background: transparent;
-        border-color: colors.$disabled-state-dark;
+        border-color: colors.$disabled-state-light;
       }
     }
   }
@@ -515,11 +515,11 @@
     }
 
     & .page--current {
-      color: colors.$lightest-grey;
+      color: colors.$grey-40;
 
       &:visited {
-        color: colors.$lightest-grey;
-        border-color: colors.$lightest-grey;
+        color: colors.$grey-40;
+        border-color: colors.$grey-40;
       }
 
       &:hover {

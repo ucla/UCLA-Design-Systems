@@ -3394,333 +3394,69 @@
     }
   });
 
-  // js/primary-nav.js
-  var require_primary_nav = __commonJS({
-    "js/primary-nav.js"() {
-      $(document).ready(function() {
-        const $sublistItem2 = $(".nav-primary__sublist-2");
-        const $toggle2 = $(".nav-primary__toggle-2");
-        const breakpoint = 1024;
-        $sublistItem2.addClass("nav-primary__sublist-2--hidden");
-        $toggle2.on("click", function() {
-          if ($(this).siblings(".nav-primary__sublist-2").hasClass("nav-primary__sublist-2--hidden")) {
-            $(this).siblings(".nav-primary__sublist-2").attr("aria-expanded", "true");
-            $(this).attr("aria-label", "collapse");
-          } else {
-            $(this).siblings(".nav-primary__sublist-2").attr("aria-expanded", "false");
-            $(this).attr("aria-label", "expand");
-          }
-          $(this).siblings(".nav-primary__sublist-2").toggleClass("nav-primary__sublist-2--hidden");
-          $(this).toggleClass("is-open");
+  // js/navigation.js
+  var require_navigation = __commonJS({
+    "js/navigation.js"() {
+      "use strict";
+      document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.getElementById("primary-ham");
+        const header = document.getElementById("header-wrap");
+        const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
+        const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
+        const searchButton = document.getElementById("search-button");
+        const primaryNavSearch = document.getElementById("primary-nav-search");
+        hamburger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          header.classList.toggle("is-open");
         });
-        const $sublistItem = $(".nav-primary__sublist");
-        const $toggle = $(".nav-primary__toggle");
-        $sublistItem.addClass("nav-primary__sublist--hidden");
-        $toggle.on("click", function() {
-          if ($(this).siblings(".nav-primary__sublist").hasClass("nav-primary__sublist--hidden")) {
-            $(this).siblings(".nav-primary__sublist").attr("aria-expanded", "true");
-            $(this).attr("aria-label", "collapse");
-          } else {
-            $(this).siblings(".nav-primary__sublist").attr("aria-expanded", "false");
-            $(this).attr("aria-label", "expand");
-          }
-          $(this).siblings(".nav-primary__sublist").toggleClass("nav-primary__sublist--hidden");
-          $(this).toggleClass("is-open");
+        searchButton.addEventListener("click", (e) => {
+          e.stopPropagation();
+          primaryNavSearch.classList.toggle("is-open");
         });
-        $toggle.attr("aria-label", "expand");
-        $toggle2.attr("aria-label", "expand");
-        evalNav($(window).outerWidth());
-        $(window).resize(function() {
-          evalNav($(window).outerWidth());
-          mobileNavPosition($(window).outerWidth(), breakpoint);
-        });
-        function evalNav(windowWidth2) {
-          if (windowWidth2 >= breakpoint) {
-            $sublistItem.addClass("nav-primary__sublist--hidden");
-            $toggle.removeClass("is-open");
-            $(".hamburger").removeClass("hamburger--is-active");
-            $(".nav-primary").removeClass("nav-primary--is-active");
-            enableMenuTab();
-          } else {
-            disableMenuTab();
+        primaryNavSearch.addEventListener("focusout", (e) => {
+          e.stopPropagation();
+          if (primaryNavSearch.contains(e.relatedTarget)) {
+            return;
           }
-        }
-        $(".nav-primary__search-desktop-button").click(function() {
-          let secondLevelNav = $("li.has-child > ul");
-          desktopSubmenuResize();
-          if ($(this).hasClass("nav-primary__search-desktop-button--is-active")) {
-            $(".nav-primary__search-block-form").removeClass("nav-primary__search-block-form--is-active");
-            $(this).removeClass("nav-primary__search-desktop-button--is-active");
-            $(".nav-primary__search-desktop-button > svg").replaceWith('<svg role="img" aria-label="Search Icon" class="nav-primary__search-icon" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Search Icon</title><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="search-nav-icon-primary" transform="translate(-15.000000, -15.000000)"><g id="Nav-Item"><g id="Icon/Search" transform="translate(12.000000, 12.000000)"><polygon class="Path-polygon" points="0 0 24 0 24 24 0 24"></polygon><path d="M15.5,14 L14.71,14 L14.43,13.73 C15.41,12.59 16,11.11 16,9.5 C16,5.91 13.09,3 9.5,3 C5.91,3 3,5.91 3,9.5 C3,13.09 5.91,16 9.5,16 C11.11,16 12.59,15.41 13.73,14.43 L14,14.71 L14,15.5 L19,20.49 L20.49,19 L15.5,14 Z M9.5,14 C7.01,14 5,11.99 5,9.5 C5,7.01 7.01,5 9.5,5 C11.99,5 14,7.01 14,9.5 C14,11.99 11.99,14 9.5,14 Z" id="Shape" fill="#00598C" fill-rule="evenodd"></path></g></g></g></g></svg>');
-            for (let i2 = 0; i2 < secondLevelNav.length; i2 += 1) {
-              secondLevelNav[i2].style.display = "";
-            }
-          } else {
-            $(".nav-primary__search-block-form").addClass("nav-primary__search-block-form--is-active");
-            $(this).addClass("nav-primary__search-desktop-button--is-active");
-            $(".nav-primary__search-desktop-button > svg").replaceWith('<svg role="img" aria-label="Close" class="close-x" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Icon Close</title><g id="Icon/Close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon id="Shape" fill="#ffffff" points="19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12"></polygon></g></svg>');
-            for (let i2 = 0; i2 < secondLevelNav.length; i2 += 1) {
-              secondLevelNav[i2].style.display = "none";
-            }
+          primaryNavSearch.classList.remove("is-open");
+        });
+        document.addEventListener("click", (e) => {
+          if (!document.getElementById("nav-main").contains(e.target)) {
+            header.classList.remove("is-open");
           }
         });
-        function desktopSubmenuResize() {
-          let w = $(".nav-primary").width() - 70, negOffset = (w + 10) * -1;
-          $(".nav-primary__search-block-form").css({
-            // <a class="has-child--link">
-            "width": w,
-            "margin-left": negOffset
+        if ($navPrimaryHasChildren.length > 0) {
+          $navPrimaryHasChildren.forEach(($el) => {
+            $el.addEventListener("keydown", (e) => {
+              e.stopPropagation();
+              if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
+                $el.classList.add("is-open");
+              }
+            });
+            $el.querySelector(".nav-primary__sublist").addEventListener(
+              "focusout",
+              (e) => {
+                e.stopPropagation();
+                if ($el.contains(e.relatedTarget)) {
+                  return;
+                }
+                $el.classList.remove("is-open");
+              }
+            );
           });
         }
-        resetTabs();
-        let windowWidth = $(window).outerWidth();
-        if (windowWidth >= breakpoint) {
-          addDesktopTabs();
-        } else {
-          addMobileTabs();
-        }
-        $(window).resize(function() {
-          windowWidth = $(window).outerWidth();
-          setTimeout(function() {
-            if (windowWidth >= breakpoint) {
-              resetTabs();
-              addDesktopTabs();
-            } else {
-              resetTabs();
-              addMobileTabs();
-            }
-          }, 100);
-        });
-        $("#nav-main .nav-primary__sublist").mouseout(function() {
-          $("#nav-main").find(".nav-primary__list .nav-primary__link-2").attr("tabindex", "0");
-          $("#nav-main").find(".nav-primary__sublist-2 .nav-primary__link-2").attr("tabindex", "0");
-          $("#nav-main").find(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
-          $("#nav-main").find(".nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
-          $("#nav-main").find(".nav-primary__list .nav-primary__link").attr("tabindex", "0");
-          $("#nav-main").find(".nav-primary__sublist .nav-primary__link").attr("tabindex", "0");
-          $("#nav-main").find(".nav-primary__list .nav-primary__sublist").attr("style", "");
-          $("#nav-main").find(".nav-primary__link--has-children").find(".nav-primary__sublist").attr("aria-expanded", "false");
-          $toggle.attr("aria-label", "expand");
-          $toggle2.attr("aria-label", "expand");
-        });
-        $("#nav-main .nav-primary__sublist-2").mouseout(function() {
-          $("#nav-main").find(".nav-primary__list .nav-primary__link-2").attr("tabindex", "0");
-          $("#nav-main").find(".nav-primary__sublist-2 .nav-primary__link-2").attr("tabindex", "0");
-          $("#nav-main").find(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
-          $("#nav-main").find(".nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
-          $toggle2.attr("aria-label", "expand");
-        });
-        $("#nav-main .nav-primary__link--has-children").mouseover(function() {
-          windowWidth = $(window).outerWidth();
-          if (windowWidth >= breakpoint) {
-            $(this).find(".nav-primary__sublist").attr("aria-expanded", "true");
-            $(this).find(".nav-primary__sublist").removeClass("nav-primary__sublist--hidden");
-          }
-        });
-        $("#nav-main .nav-primary__link-2--has-children").mouseover(function() {
-          windowWidth = $(window).outerWidth();
-          if (windowWidth >= breakpoint) {
-            $(this).find(".nav-primary__sublist-2").attr("aria-expanded", "true");
-            $(this).find(".nav-primary__sublist-2").removeClass("nav-primary__sublist-2--hidden");
-          }
-        });
-        $("#nav-main .nav-primary__link--has-children").mouseleave(function() {
-          let $this = $(this);
-          windowWidth = $(window).outerWidth();
-          if (windowWidth >= breakpoint) {
-            $(this).find(".nav-primary__sublist").attr("aria-expanded", "false");
-            setTimeout(function() {
-              $this.find(".nav-primary__sublist").addClass("nav-primary__sublist--hidden");
-            }, 50);
-            $toggle.removeClass("is-open");
-          }
-        });
-        $("#nav-main .nav-primary__link-2--has-children").mouseleave(function() {
-          let $this = $(this);
-          windowWidth = $(window).outerWidth();
-          if (windowWidth >= breakpoint) {
-            $(this).find(".nav-primary__sublist-2").attr("aria-expanded", "false");
-            setTimeout(function() {
-              $this.find(".nav-primary__sublist-2").addClass("nav-primary__sublist-2--hidden");
-            }, 50);
-            $toggle.removeClass("is-open");
-          }
-        });
-        function resetTabs() {
-          $("#nav-main").find(".nav-primary__list .nav-primary__sublist").attr("style", "");
-          $("#nav-main").find(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
-          $(document).unbind("keydown");
-        }
-        function addDesktopTabs() {
-          $(document).keydown(function(e) {
-            let keyCode = e.keyCode || e.which;
-            if (keyCode === 9) {
-              setTimeout(function() {
-                let $focus = $(":focus");
-                if ($focus.hasClass("nav-primary__search-desktop-button") || $focus.parent().parent(".nav-primary__list").length > 0 && !$focus.hasClass("nav-primary__toggle")) {
-                  $(".nav-primary__list .nav-primary__sublist").attr("style", "");
-                  $("#nav-main .nav-primary__link--has-children").find(".nav-primary__sublist").attr("aria-expanded", "false");
-                  $toggle.removeClass("is-open");
-                  $toggle.attr("aria-label", "expand");
-                  $sublistItem.addClass("nav-primary__sublist--hidden");
-                  $(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
-                  $("#nav-main .nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
-                  $toggle2.removeClass("is-open");
-                  $toggle2.attr("aria-label", "expand");
-                  $sublistItem2.addClass("nav-primary__sublist-2--hidden");
-                }
-                if ($focus.parent().parent(".nav-primary__sublist-2").length === 0 && !$focus.hasClass("nav-primary__toggle-2")) {
-                  $(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
-                  $("#nav-main .nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
-                  $toggle2.removeClass("is-open");
-                  $toggle2.attr("aria-label", "expand");
-                  $sublistItem2.addClass("nav-primary__sublist-2--hidden");
-                }
-                if (!$focus.hasClass("nav-primary__search-desktop-button") && !$focus.hasClass("nav-primary__search-field") && !$focus.hasClass("nav-primary__search-submit")) {
-                  let secondLevelNav = $("li.has-child > ul");
-                  $(".nav-primary__search-desktop-button").removeClass("nav-primary__search-desktop-button--is-active");
-                  $(".nav-primary__search-block-form").removeClass("nav-primary__search-block-form--is-active");
-                  $(this).removeClass("nav-primary__search-desktop-button--is-active");
-                  $(".nav-primary__search-desktop-button > svg").replaceWith('<svg role="img" aria-label="Search Icon" class="nav-primary__search-icon" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Search Icon</title><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="search-nav-icon-primary" transform="translate(-15.000000, -15.000000)"><g id="Nav-Item"><g id="Icon/Search" transform="translate(12.000000, 12.000000)"><polygon class="Path-polygon" points="0 0 24 0 24 24 0 24"></polygon><path d="M15.5,14 L14.71,14 L14.43,13.73 C15.41,12.59 16,11.11 16,9.5 C16,5.91 13.09,3 9.5,3 C5.91,3 3,5.91 3,9.5 C3,13.09 5.91,16 9.5,16 C11.11,16 12.59,15.41 13.73,14.43 L14,14.71 L14,15.5 L19,20.49 L20.49,19 L15.5,14 Z M9.5,14 C7.01,14 5,11.99 5,9.5 C5,7.01 7.01,5 9.5,5 C11.99,5 14,7.01 14,9.5 C14,11.99 11.99,14 9.5,14 Z" id="Shape" fill="#00598C" fill-rule="evenodd"></path></g></g></g></g></svg>');
-                  for (let i2 = 0; i2 < secondLevelNav.length; i2 += 1) {
-                    secondLevelNav[i2].style.display = "";
-                  }
-                }
-              }, 10);
-            }
-            if (keyCode === 40) {
-              let $focus = $(":focus"), $dropdown;
-              if ($focus.hasClass("nav-primary__link")) {
-                $dropdown = $focus.parent(".nav-primary__item").find(".nav-primary__sublist");
-                if ($dropdown.length > 0) {
-                  $dropdown.show();
-                  $dropdown.find(".nav-primary__link").attr("tabindex", "0");
-                  $focus.parent().find(".nav-primary__sublist").attr("aria-expanded", "true");
-                }
-              }
-            }
-            if (keyCode === 39) {
-              let $focus = $(":focus"), $dropdown;
-              if ($focus.hasClass("nav-primary__link") && $focus.parent().hasClass("nav-primary__link-2--has-children")) {
-                $dropdown = $focus.parent(".nav-primary__item").find(".nav-primary__sublist-2");
-                if ($dropdown.length > 0) {
-                  $dropdown.show();
-                  $dropdown.find(".nav-primary__link").attr("tabindex", "0");
-                  $focus.parent().find(".nav-primary__sublist-2").attr("aria-expanded", "true");
-                }
-              }
-            }
-            if (keyCode === 27) {
-              setTimeout(function() {
-                let $focus = $(":focus");
-                $(".nav-primary__list .nav-primary__sublist").attr("style", "");
-                $("#nav-main .nav-primary__link--has-children").find(".nav-primary__sublist").attr("aria-expanded", "false");
-                $toggle.removeClass("is-open");
-                $toggle.attr("aria-label", "expand");
-                $(".nav-primary__sublist").addClass("nav-primary__sublist--hidden");
-                if ($focus.parent().parent(".nav-primary__sublist").length > 0) {
-                  $focus.parent().parent().parent(".nav-primary__item").find("a").focus();
-                } else if ($focus.parent().parent(".nav-primary__sublist-2").length > 0) {
-                  $focus.parent().parent().parent().parent().parent(".nav-primary__item").find("a").focus();
-                }
-                $(".nav-primary__list .nav-primary__sublist-2").attr("style", "");
-                $("#nav-main .nav-primary__link-2--has-children").find(".nav-primary__sublist-2").attr("aria-expanded", "false");
-                $toggle2.removeClass("is-open");
-                $toggle2.attr("aria-label", "expand");
-                $(".nav-primary__sublist-2").addClass("nav-primary__sublist-2--hidden");
-                if ($focus.parent().parent(".nav-primary__sublist-2").length > 0) {
-                  $focus.parent().parent().parent(".nav-primary__item").find("a").focus();
-                }
-              }, 20);
-            }
+        if ($subNavPrimaryToggles.length > 0) {
+          $subNavPrimaryToggles.forEach(($el) => {
+            $el.addEventListener("click", (e) => {
+              e.stopPropagation();
+              $el.closest("li").classList.toggle("is-open");
+            });
           });
         }
-        function addMobileTabs() {
-          $(document).keydown(function(e) {
-            let keyCode = e.keyCode || e.which;
-            if (keyCode === 9) {
-              setTimeout(function() {
-                let $focus = $(":focus");
-                let $hamburgerBtn2 = $(".hamburger");
-                let $primaryNav2 = $(".nav-primary");
-                if ($focus.parent().parent(".nav-primary__list").length > 0) {
-                  $toggle.removeClass("is-open");
-                  $sublistItem.addClass("nav-primary__sublist--hidden");
-                }
-                if (!($focus.hasClass("nav-primary__link") || $focus.hasClass("nav-primary__toggle") || $focus.hasClass("nav-primary__search-field"))) {
-                  $hamburgerBtn2.removeClass("hamburger--is-active");
-                  $primaryNav2.removeClass("nav-primary--is-active");
-                  disableMenuTab();
-                }
-              }, 50);
-            }
-            if (keyCode === 27) {
-              let $hamburgerBtn2 = $(".hamburger");
-              let $focus = $(":focus");
-              if ($hamburgerBtn2.hasClass("hamburger--is-active")) {
-                if ($focus.parent().parent().hasClass("nav-primary__sublist")) {
-                  $focus.parent().parent().parent().find(".nav-primary__toggle").trigger("click");
-                  $focus.parent().parent().parent().find(".nav-primary__toggle").focus();
-                } else {
-                  $hamburgerBtn2.trigger("click");
-                  $hamburgerBtn2.focus();
-                }
-              }
-            }
-          });
+        function getAll(selector) {
+          let parent = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : document;
+          return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
         }
-        let $hamburgerBtn = $(".hamburger");
-        let $primaryNav = $(".nav-primary");
-        let $header = $("#header");
-        $hamburgerBtn.bind("click", function() {
-          if (!$(this).hasClass("hamburger--is-active")) {
-            $(this).addClass("hamburger--is-active");
-            $primaryNav.addClass("nav-primary--is-active");
-            mobileNavPosition();
-            enableMenuTab();
-          } else {
-            $(this).removeClass("hamburger--is-active");
-            $primaryNav.removeClass("nav-primary--is-active");
-            disableMenuTab();
-          }
-        });
-        function mobileNavPosition(windowWidth2, breakpoint2) {
-          let $primaryNav2 = $(".nav-primary");
-          let height;
-          height = Number($header.height());
-          if (windowWidth2 >= breakpoint2) {
-            $("body").removeAttr("style");
-            $primaryNav2.removeAttr("style");
-          } else {
-            $("body").css("overflowX", "hidden");
-            if (height > 105) {
-              $primaryNav2.css({ "top": "71px" });
-            } else {
-              $primaryNav2.removeAttr("style");
-            }
-          }
-        }
-        function disableMenuTab() {
-          $(".nav-primary__link").attr("tabindex", "-1");
-          $(".nav-primary__toggle").attr("tabindex", "-1");
-          $(".nav-primary__link-2").attr("tabindex", "-1");
-          $(".nav-primary__toggle-2").attr("tabindex", "-1");
-          $(".nav-primary__search-field").attr("tabindex", "-1");
-        }
-        function enableMenuTab() {
-          $(".nav-primary__link").attr("tabindex", "0");
-          $(".nav-primary__toggle").attr("tabindex", "0");
-          $(".nav-primary__link-2").attr("tabindex", "0");
-          $(".nav-primary__toggle-2").attr("tabindex", "0");
-          $(".nav-primary__search-field").attr("tabindex", "0");
-        }
-        $(".breadcrumb").each(function() {
-          if ($(this).hasClass("breadcrumb--white")) {
-            $(this).after('<span class="breadcrumb--fade white"></span>');
-          } else {
-            $(this).after('<span class="breadcrumb--fade"></span>');
-          }
-        });
       });
     }
   });
@@ -4165,7 +3901,7 @@
   require_accordion();
   require_form();
   require_grid();
-  require_primary_nav();
+  require_navigation();
   require_table();
   require_tabs();
 })();

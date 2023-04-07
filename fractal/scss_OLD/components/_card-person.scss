@@ -24,7 +24,7 @@
   }
 
   &-grey > &__info-wrapper {
-    background: colors.$grey-5;
+    background: colors.$grey-05;
   }
 
   &__image {
@@ -43,7 +43,7 @@
   }
 
   &__department {
-    color: colors.$medium-grey4;
+    color: colors.$grey-60;
     font-size: variables.$ucla-font-size-medium-small;
     line-height: 1.125;
     margin-bottom: 12px;
@@ -53,7 +53,7 @@
     margin-bottom: 8px;
     font-size: variables.$ucla-font-size-default;
     line-height: 1.5;
-    color: colors.$medium-grey5;
+    color: colors.$grey-80;
     max-height: 300px;
 
     &:last-child {

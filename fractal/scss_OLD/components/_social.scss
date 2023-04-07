@@ -43,7 +43,7 @@
     background: colors.$ucla-blue;
 
     a:hover {
-      background: colors.$hover-state-dark;
+      background: colors.$hover-state-light;
     }
 
     a:focus {
@@ -51,7 +51,7 @@
     }
 
     a:active {
-      background: colors.$active-state-dark;
+      background: colors.$active-state-light;
     }
   }
 

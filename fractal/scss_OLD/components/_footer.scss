@@ -77,17 +77,17 @@
             text-decoration: none;
 
             &:hover {
-              background: colors.$hover-state-dark;
+              background: colors.$hover-state-light;
               color: colors.$black;
             }
 
             &:focus {
-              outline: 1px solid colors.$hover-state-dark;
+              outline: 1px solid colors.$hover-state-light;
               outline-offset: 2px;
             }
 
             &:active {
-              background: colors.$active-state-dark;
+              background: colors.$active-state-light;
             }
 
             &[target=_blank] {
@@ -142,7 +142,7 @@
         text-decoration: none;
 
         &:hover {
-          background: colors.$hover-state-dark;
+          background: colors.$hover-state-light;
           color: colors.$black;
         }
 
@@ -151,7 +151,7 @@
         }
 
         &:active {
-          background: colors.$active-state-dark;
+          background: colors.$active-state-light;
         }
       }
 
@@ -255,12 +255,12 @@
         }
 
         &:hover {
-          background-color: colors.$hover-state-dark;
+          background-color: colors.$hover-state-light;
           // background-size: 21.33px;
         }
 
         &:active {
-          background-color: colors.$active-state-dark;
+          background-color: colors.$active-state-light;
         }
       }
     }
@@ -466,7 +466,7 @@
       margin-top: 6px;
 
       &::placeholder {
-        color: colors.$medium-grey4;
+        color: colors.$grey-60;
       }
 
       &:focus {
@@ -518,11 +518,11 @@
       // }
 
       &:active {
-        background-color: colors.$button-active;
+        background-color: colors.$active-state-light;
       }
 
       &:focus {
-        background-color: colors.$button-hover;
+        background-color: colors.$hover-state-light;
         outline: 1px dotted colors.$white;
         outline-offset: 1px;
       }
@@ -635,7 +635,7 @@
     text-decoration: underline;
 
     &:hover {
-      background: colors.$hover-state-dark;
+      background: colors.$hover-state-light;
       color: colors.$black;
     }
 
@@ -644,7 +644,7 @@
     }
 
     &:active {
-      background: colors.$active-state-dark;
+      background: colors.$active-state-light;
     }
   }
 }

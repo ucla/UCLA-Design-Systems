@@ -1,0 +1,26 @@
+@use "../utilities/variables";
+@use "../utilities/mixins.scss";
+
+$column-gap: 0.75rem !default;
+$container-max-width: 73.5rem !default;
+$container-margin: (4 * $column-gap);
+
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    &.fluid {
+        max-width: none;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        width: 100%;
+    }
+
+    @include mixins.for-size(tablet-up) {
+        max-width: $container-max-width + $container-margin;
+    }
+}

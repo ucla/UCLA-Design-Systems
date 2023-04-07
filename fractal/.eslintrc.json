@@ -1,10 +1,7 @@
 {
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
+        "sourceType": "script"
     },
     "rules": {
 				"comma-spacing": ["error", { "before": false, "after": true }],

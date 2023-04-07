@@ -1,33 +1,33 @@
-@use "../../../scss/utilities/variables";
+@use "../../../scss_OLD/utilities/variables";
 
 .documentation-colors {
-  &__description {
-    margin-bottom: 16px;
-  }
-
-  &__list {
-    padding-left: 0 !important;
-  }
-
-  &__color {
-    display: inline-block;
-    vertical-align: top;
-    width: 100%;
-    margin-bottom: 24px !important;
-
-    @media (min-width: 768px) {
-      width: 20%;
-      margin-right: 12px;
+    &__description {
+        margin-bottom: 16px;
     }
 
-    &-swatch {
-      height: 128px;
-      border-radius: variables.$corner-radius;
-      transition: box-shadow 0.2s cubic-bezier(0.2, 0.91, 0.85, 0.96) 0s;
+    &__list {
+        padding-left: 0 !important;
     }
 
-    &-name {
-      font-weight: bold;
+    &__color {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        margin-bottom: 24px !important;
+
+        @media (min-width: 768px) {
+            width: 20%;
+            margin-right: 12px;
+        }
+
+        &-swatch {
+            height: 128px;
+            border-radius: variables.$corner-radius;
+            transition: box-shadow 0.2s cubic-bezier(0.2, 0.91, 0.85, 0.96) 0s;
+        }
+
+        &-name {
+            font-weight: bold;
+        }
     }
-  }
 }
