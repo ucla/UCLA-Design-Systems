@@ -1,55 +1,60 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-    // let isOpen = null;
-    // const toggleVisibilityClass = (e) => e.classList.toggle("is-open");
-
-    // const handleDropdownMenu = (e) => {
-    //     console.log("isOpen", isOpen);
-    //     const clickedItem = e.closest("li");
-    //     toggleVisibilityClass(clickedItem);
-    //     if (!isOpen) {
-    //         isOpen = clickedItem;
-    //     } else if (isOpen == clickedItem) {
-    //         isOpen = null;
-    //     } else {
-    //         toggleVisibilityClass(isOpen);
-    //         isOpen = clickedItem;
-    //     }
-    // };
-
-    // const handleClick = (e) => {
-    //     console.log("target", e.target);
-    //     if (
-    //         e.target.className.includes("nav-primary__toggle") ||
-    //         e.target.className.includes("nav-primary__search-desktop-button")
-    //     ) {
-    //         handleDropdownMenu(e.target);
-    //     } else if (
-    //         e.target.classList.contains("nav-primary__search-field") ||
-    //         e.target.classList.contains("nav-primary__search-block-form") ||
-    //         e.target.classList.contains("nav-primary__search-submit")
-    //     ) {
-    //         return null;
-    //     } else if (isOpen) {
-    //         toggleVisibilityClass(isOpen);
-    //         isOpen = null;
-    //     }
-    // };
-    // document.addEventListener("click", handleClick);
-
+    /**
+     * Declare Variables
+     */
     const hamburger = document.getElementById("primary-ham");
     const header = document.getElementById("header-wrap");
+    const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
     const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
+    const searchButton = document.getElementById("search-button");
+
+    /**
+     * Event Listeners
+     */
     hamburger.addEventListener("click", (e) => {
         e.stopPropagation();
         header.classList.toggle("is-open");
     });
-    document.addEventListener("click", () => {
-        if (header.classList.contains("is-open")) {
+    searchButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        document
+            .getElementById("primary-nav-search")
+            .classList.toggle("is-open");
+    });
+    document.addEventListener("click", (e) => {
+        if (!document.getElementById("nav-main").contains(e.target)) {
             header.classList.remove("is-open");
         }
     });
+
+    // Checks for Navigation items with children
+    if ($navPrimaryHasChildren.length > 0) {
+        $navPrimaryHasChildren.forEach(($el) => {
+            // Down Arrow triggers dropdown
+            $el.addEventListener("keydown", (e) => {
+                e.stopPropagation();
+                if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
+                    $el.classList.add("is-open");
+                }
+            });
+
+            // Hide dropdown when tab out
+            $el.querySelector(".nav-primary__sublist").addEventListener(
+                "focusout",
+                (e) => {
+                    e.stopPropagation();
+                    if ($el.contains(e.relatedTarget)) {
+                        return;
+                    }
+                    $el.classList.remove("is-open");
+                }
+            );
+        });
+    }
+
+    // Down arrow click triggers dropdown
     if ($subNavPrimaryToggles.length > 0) {
         $subNavPrimaryToggles.forEach(($el) => {
             $el.addEventListener("click", (e) => {
@@ -58,6 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    // Get all selectors
     function getAll(selector) {
         let parent =
             arguments.length > 1 && arguments[1] !== undefined

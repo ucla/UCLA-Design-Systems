@@ -3401,16 +3401,42 @@
       document.addEventListener("DOMContentLoaded", function() {
         const hamburger = document.getElementById("primary-ham");
         const header = document.getElementById("header-wrap");
+        const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
         const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
+        const searchButton = document.getElementById("search-button");
         hamburger.addEventListener("click", (e) => {
           e.stopPropagation();
           header.classList.toggle("is-open");
         });
-        document.addEventListener("click", () => {
-          if (header.classList.contains("is-open")) {
+        searchButton.addEventListener("click", (e) => {
+          e.stopPropagation();
+          document.getElementById("primary-nav-search").classList.toggle("is-open");
+        });
+        document.addEventListener("click", (e) => {
+          if (!document.getElementById("nav-main").contains(e.target)) {
             header.classList.remove("is-open");
           }
         });
+        if ($navPrimaryHasChildren.length > 0) {
+          $navPrimaryHasChildren.forEach(($el) => {
+            $el.addEventListener("keydown", (e) => {
+              e.stopPropagation();
+              if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
+                $el.classList.add("is-open");
+              }
+            });
+            $el.querySelector(".nav-primary__sublist").addEventListener(
+              "focusout",
+              (e) => {
+                e.stopPropagation();
+                if ($el.contains(e.relatedTarget)) {
+                  return;
+                }
+                $el.classList.remove("is-open");
+              }
+            );
+          });
+        }
         if ($subNavPrimaryToggles.length > 0) {
           $subNavPrimaryToggles.forEach(($el) => {
             $el.addEventListener("click", (e) => {
