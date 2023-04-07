@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
     const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
     const searchButton = document.getElementById("search-button");
+    const primaryNavSearch = document.getElementById("primary-nav-search");
 
     /**
      * Event Listeners
@@ -19,9 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     searchButton.addEventListener("click", (e) => {
         e.stopPropagation();
-        document
-            .getElementById("primary-nav-search")
-            .classList.toggle("is-open");
+        primaryNavSearch.classList.toggle("is-open");
+    });
+    primaryNavSearch.addEventListener("focusout", (e) => {
+        e.stopPropagation();
+        if (primaryNavSearch.contains(e.relatedTarget)) {
+            return;
+        }
+        primaryNavSearch.classList.remove("is-open");
     });
     document.addEventListener("click", (e) => {
         if (!document.getElementById("nav-main").contains(e.target)) {
