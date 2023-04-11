@@ -1,8 +1,7 @@
-require('./vendor/carousel.js');
-require('./accordion.js');
-require('./form.js');
-require('./grid.js');
-// require('./primary-nav.js');
-require('./navigation');
-require('./table.js');
-require('./tabs.js');
+require("./vendor/carousel.js");
+require("./navigation");
+require("./accordion.js");
+require("./form.js");
+require("./grid.js");
+require("./table.js");
+require("./tabs.js");

@@ -382,6 +382,7 @@ body {
         @include mixins.for-size(desktop-up) {
             padding: 0.5rem 0.75rem;
             border-radius: 2px;
+            line-height: 1;
         }
 
         &--active {

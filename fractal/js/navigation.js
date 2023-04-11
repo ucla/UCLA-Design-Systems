@@ -14,26 +14,34 @@ document.addEventListener("DOMContentLoaded", function () {
     /**
      * Event Listeners
      */
-    hamburger.addEventListener("click", (e) => {
-        e.stopPropagation();
-        header.classList.toggle("is-open");
-    });
-    searchButton.addEventListener("click", (e) => {
-        e.stopPropagation();
-        primaryNavSearch.classList.toggle("is-open");
-    });
-    primaryNavSearch.addEventListener("focusout", (e) => {
-        e.stopPropagation();
-        if (primaryNavSearch.contains(e.relatedTarget)) {
-            return;
-        }
-        primaryNavSearch.classList.remove("is-open");
-    });
-    document.addEventListener("click", (e) => {
-        if (!document.getElementById("nav-main").contains(e.target)) {
-            header.classList.remove("is-open");
-        }
-    });
+    if (hamburger) {
+        hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            header.classList.toggle("is-open");
+        });
+    }
+    if (searchButton) {
+        searchButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            primaryNavSearch.classList.toggle("is-open");
+        });
+    }
+    if (primaryNavSearch) {
+        primaryNavSearch.addEventListener("focusout", (e) => {
+            e.stopPropagation();
+            if (primaryNavSearch.contains(e.relatedTarget)) {
+                return;
+            }
+            primaryNavSearch.classList.remove("is-open");
+        });
+    }
+    if (document.getElementById("nav-main")) {
+        document.addEventListener("click", (e) => {
+            if (!document.getElementById("nav-main").contains(e.target)) {
+                header.classList.remove("is-open");
+            }
+        });
+    }
 
     // Checks for Navigation items with children
     if ($navPrimaryHasChildren.length > 0) {
