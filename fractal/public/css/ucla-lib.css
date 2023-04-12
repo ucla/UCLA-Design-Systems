@@ -698,4 +698,57 @@ body {
   display: unset;
 }
 
+.alert {
+  /* Default Alerts Styling */
+  padding: 16px;
+  border-width: 4px;
+  border-style: solid;
+  line-height: 1.5;
+  /* Specific Alert Styles */
+}
+.alert img {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+.alert figcaption {
+  display: flex;
+}
+.alert--primary {
+  border-color: #8bb8e8;
+}
+.alert--secondary {
+  border-color: #979797;
+}
+.alert--success {
+  border-color: #007339;
+}
+.alert--error {
+  border-color: #d60000;
+}
+.alert--warning {
+  border-color: #f57f17;
+}
+
+.accordion {
+  display: block;
+  margin: 0 auto;
+  width: 98%;
+}
+.accordion__title {
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  width: 100%;
+  text-align: left;
+  color: #00598c;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  background: rgba(0, 0, 0, 0);
+  margin-top: 1px;
+  padding: 20px 64px 20px 16px;
+}
+
 /*# sourceMappingURL=ucla-lib.css.map */
