@@ -116,16 +116,9 @@ meter {
 
 html {
   font-size: 100%;
-}
-
-body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif;
-  font-size: 16px;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
 }
 
 .visuallyhidden {
@@ -154,6 +147,187 @@ textarea:not([disabled]):focus {
 iframe:focus {
   outline: 2px solid #00568c;
   outline-offset: -2px;
+}
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  color: #333;
+  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 16px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+p.lead {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+a {
+  color: #00598c;
+  text-decoration: underline;
+}
+a:visited {
+  color: #5223b0;
+}
+a:hover {
+  color: #fff;
+  background-color: #0079bf;
+  display: inline-block;
+}
+a:focus {
+  outline: 1px solid #00568c;
+}
+a:active {
+  color: #003b5c;
+}
+
+small {
+  font-size: 0.875rem;
+  line-height: 1.714;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+ins {
+  background-color: #daebfe;
+  display: inline-block;
+}
+
+mark {
+  background: #ffe500;
+  display: inline-block;
+}
+
+code {
+  font-family: "Courier", monospace;
+  background-color: rgba(83, 83, 99, 0.075);
+}
+
+.blockquote {
+  padding-left: 1.75rem;
+  border-left: 8px solid #2774ae;
+}
+.blockquote > figcaption {
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+  color: #666;
+  position: relative;
+}
+.blockquote > figcaption::before {
+  content: "—";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.text-lg {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.71;
+}
+
+.text-editorial {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #666;
+}
+
+.title-text__xl {
+  font-size: 5.063rem;
+  line-height: 1.19;
+}
+
+.title-text__lg,
+.headline-text__xl {
+  font-size: 3.375rem;
+  line-height: 1.25;
+}
+
+.title-text__md,
+.headline-text__lg {
+  font-size: 2.25rem;
+  line-height: 1.22;
+}
+
+.title-text__sm,
+.headline-text__md {
+  font-size: 1.5rem;
+  line-height: 1.33;
+}
+
+.headline-text {
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.headline-text__sm {
+  font-size: 0.875rem;
+  line-height: 1.71;
+}
+
+.headline-text__xl,
+.headline-text__lg,
+.headline-text__md,
+.headline-text,
+.headline-text__sm {
+  font-weight: bold;
+}
+
+.ucla-prose {
+  line-height: 1.5;
+}
+.ucla-prose h1 {
+  font-size: 3.375rem;
+  line-height: 1.25;
+}
+.ucla-prose h2 {
+  font-size: 3.375rem;
+  line-height: 1.25;
+}
+.ucla-prose h3 {
+  font-size: 2.25rem;
+  line-height: 1.22;
+}
+.ucla-prose h4 {
+  font-size: 1.5rem;
+  line-height: 1.33;
+}
+.ucla-prose h5 {
+  font-size: 1rem;
+  line-height: 1.25;
+}
+.ucla-prose h6 {
+  font-size: 0.875rem;
+  line-height: 1.71;
+}
+.ucla-prose h1,
+.ucla-prose h2,
+.ucla-prose h3,
+.ucla-prose h4,
+.ucla-prose h5,
+.ucla-prose h6 {
+  font-weight: bold;
 }
 
 .container {
@@ -903,6 +1077,9 @@ body {
     font-size: 1.5rem;
   }
 }
+.accordion__heading:active {
+  color: #fff;
+}
 
 .accordion__heading-button {
   padding: 0.625rem 2.75rem 0.625rem 0.5rem;
@@ -918,10 +1095,15 @@ body {
     padding: 1.125rem 3.25rem 1.125rem 1rem;
   }
 }
-.accordion__heading-button:hover {
-  background-color: #0079bf;
+.accordion__heading-button:hover, .accordion__heading-button:active {
   color: #fff;
   background-image: url("/icons/denotive/down--white.svg");
+}
+.accordion__heading-button:hover {
+  background-color: #0079bf;
+}
+.accordion__heading-button:active {
+  background-color: #003b5c;
 }
 .is-open .accordion__heading-button {
   background-image: url("/icons/denotive/up-arrow--blue.svg");
@@ -936,6 +1118,37 @@ body {
 }
 .is-open .accordion__content {
   display: block;
+}
+
+.ucla-c-tabslist {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.ucla-c-tablink {
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00598c;
+  padding: 0.75rem 1.5rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+}
+.ucla-c-tablink.is-active {
+  border-bottom: 4px solid #ffd100;
+  color: #333;
+}
+.ucla-c-tablink:hover {
+  border-bottom: 4px solid #0079bf;
+}
+.ucla-c-tablink:active {
+  border-bottom: 4px solid #003b5c;
+}
+
+.ucla-c-tabpanels {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /*# sourceMappingURL=ucla-lib.css.map */

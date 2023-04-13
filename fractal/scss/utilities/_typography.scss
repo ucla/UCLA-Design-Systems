@@ -1,0 +1,191 @@
+@use "./variables";
+@use "./colors";
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    color: colors.$grey-80;
+    font-family: variables.$font;
+    font-size: 16px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+
+    &.lead {
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+}
+
+a {
+    color: colors.$default-state;
+    text-decoration: underline;
+
+    &:visited {
+        color: colors.$visited-state;
+    }
+
+    &:hover {
+        color: colors.$white;
+        background-color: colors.$hover-state;
+        display: inline-block;
+    }
+    &:focus {
+        outline: 1px solid colors.$focus-state;
+    }
+    &:active {
+        color: colors.$active-state;
+    }
+}
+
+small {
+    font-size: 0.875rem;
+    line-height: 1.714;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+ins {
+    background-color: colors.$lightest-blue;
+    display: inline-block;
+}
+
+mark {
+    background: colors.$focus-state-light;
+    display: inline-block;
+}
+
+code {
+    font-family: "Courier", monospace;
+    background-color: rgba(83, 83, 99, 0.075);
+}
+
+.blockquote {
+    padding-left: 1.75rem;
+    border-left: 8px solid colors.$ucla-blue;
+
+    & > figcaption {
+        margin-top: 1rem;
+        padding-left: 1.1rem;
+        color: colors.$grey-60;
+        position: relative;
+
+        &::before {
+            content: "\2014";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+.text-lg {
+    font-size: variables.$text-md;
+    line-height: 1.5;
+}
+
+.text-sm {
+    font-size: variables.$text-sm;
+    line-height: 1.71;
+}
+
+.text-editorial {
+    font-size: variables.$text-sm;
+    font-weight: bold;
+    color: colors.$grey-60;
+}
+
+// Title & Headline
+.title-text__xl {
+    font-size: variables.$text-xxl;
+    line-height: 1.19;
+}
+
+.title-text__lg,
+.headline-text__xl {
+    font-size: variables.$text-xl;
+    line-height: 1.25;
+}
+
+.title-text__md,
+.headline-text__lg {
+    font-size: variables.$text-lg;
+    line-height: 1.22;
+}
+
+.title-text__sm,
+.headline-text__md {
+    font-size: variables.$text-md;
+    line-height: 1.33;
+}
+
+.headline-text {
+    font-size: variables.$text-base;
+    line-height: 1.25;
+}
+
+.headline-text__sm {
+    font-size: variables.$text-sm;
+    line-height: 1.71;
+}
+
+.headline-text__xl,
+.headline-text__lg,
+.headline-text__md,
+.headline-text,
+.headline-text__sm {
+    font-weight: bold;
+}
+
+.ucla-prose {
+    line-height: 1.5;
+
+    h1 {
+        font-size: variables.$text-xl;
+        line-height: 1.25;
+    }
+    h2 {
+        font-size: variables.$text-xl;
+        line-height: 1.25;
+    }
+    h3 {
+        font-size: variables.$text-lg;
+        line-height: 1.22;
+    }
+    h4 {
+        font-size: variables.$text-md;
+        line-height: 1.33;
+    }
+    h5 {
+        font-size: variables.$text-base;
+        line-height: 1.25;
+    }
+    h6 {
+        font-size: variables.$text-sm;
+        line-height: 1.71;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: bold;
+    }
+}
