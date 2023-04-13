@@ -1,0 +1,18 @@
+name: Deploy Development
+
+on:
+  push:
+    branches:
+      dev-deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
