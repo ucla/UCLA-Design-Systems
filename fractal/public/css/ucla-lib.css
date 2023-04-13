@@ -751,4 +751,43 @@ body {
   padding: 20px 64px 20px 16px;
 }
 
+.ribbon {
+  max-width: 776px;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.ribbon h2 {
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  background-color: #2774ae;
+  color: #fff;
+  line-height: 1.6;
+  display: inline;
+  text-transform: uppercase;
+  box-shadow: 10px 0 0 #2774ae;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.ribbon--highlight h3 {
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  background-color: #ffd100;
+  color: #333;
+  line-height: 2;
+  padding: 8px 12px 8px 12px;
+  box-shadow: 14px 0 0 #ffd100;
+  display: inline;
+  text-transform: none;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 /*# sourceMappingURL=ucla-lib.css.map */
