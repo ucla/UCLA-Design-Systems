@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 14
       - run: cd fractal
+      - run: ls -al
       - name: Install dependencies
         run: npm install
       - name: Fractal Build
