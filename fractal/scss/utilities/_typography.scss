@@ -33,7 +33,6 @@ a {
     &:hover {
         color: colors.$white;
         background-color: colors.$hover-state;
-        display: inline-block;
     }
     &:focus {
         outline: 1px solid colors.$focus-state;
@@ -62,12 +61,10 @@ del {
 
 ins {
     background-color: colors.$lightest-blue;
-    display: inline-block;
 }
 
 mark {
     background: colors.$focus-state-light;
-    display: inline-block;
 }
 
 code {
