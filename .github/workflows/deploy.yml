@@ -14,9 +14,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: cd fractal
-      - run: ls -al
       - name: Install dependencies
         run: npm install
+        working-directory: fractal
       - name: Fractal Build
         run: npm run build
+        working-directory: fractal
