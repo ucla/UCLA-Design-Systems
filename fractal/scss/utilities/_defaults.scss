@@ -3,11 +3,21 @@
 
 html {
     font-size: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
 }
 
 body {
     font-family: variables.$font;
     font-size: 16px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .visuallyhidden {

@@ -3320,19 +3320,112 @@
     }
   });
 
+  // js/navigation.js
+  var require_navigation = __commonJS({
+    "js/navigation.js"() {
+      "use strict";
+      document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.getElementById("primary-ham");
+        const header = document.getElementById("header-wrap");
+        const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
+        const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
+        const searchButton = document.getElementById("search-button");
+        const primaryNavSearch = document.getElementById("primary-nav-search");
+        if (hamburger) {
+          hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            header.classList.toggle("is-open");
+          });
+        }
+        if (searchButton) {
+          searchButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            primaryNavSearch.classList.toggle("is-open");
+          });
+        }
+        if (primaryNavSearch) {
+          primaryNavSearch.addEventListener("focusout", (e) => {
+            e.stopPropagation();
+            if (primaryNavSearch.contains(e.relatedTarget)) {
+              return;
+            }
+            primaryNavSearch.classList.remove("is-open");
+          });
+        }
+        if (document.getElementById("nav-main")) {
+          document.addEventListener("click", (e) => {
+            if (!document.getElementById("nav-main").contains(e.target)) {
+              header.classList.remove("is-open");
+            }
+          });
+        }
+        if ($navPrimaryHasChildren.length > 0) {
+          $navPrimaryHasChildren.forEach(($el) => {
+            $el.addEventListener("keydown", (e) => {
+              e.stopPropagation();
+              if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
+                $el.classList.add("is-open");
+              }
+            });
+            $el.querySelector(".nav-primary__sublist").addEventListener(
+              "focusout",
+              (e) => {
+                e.stopPropagation();
+                if ($el.contains(e.relatedTarget)) {
+                  return;
+                }
+                $el.classList.remove("is-open");
+              }
+            );
+          });
+        }
+        if ($subNavPrimaryToggles.length > 0) {
+          $subNavPrimaryToggles.forEach(($el) => {
+            $el.addEventListener("click", (e) => {
+              e.stopPropagation();
+              $el.closest("li").classList.toggle("is-open");
+            });
+          });
+        }
+        function getAll(selector) {
+          let parent = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : document;
+          return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
+        }
+      });
+    }
+  });
+
   // js/accordion.js
   var require_accordion = __commonJS({
     "js/accordion.js"() {
-      $(document).ready(function() {
-        $(".accordion__title").click(function() {
-          $(this).next(".accordion__content").toggleClass("show-me");
-          $(this).toggleClass("active");
-          if ($(".accordion__title").hasClass("active")) {
-            $(this).attr("aria-expanded", "true");
-          } else {
-            $(".accordion__title").attr("aria-expanded", "false");
+      "use strict";
+      document.addEventListener("DOMContentLoaded", function() {
+        const accordion = document.querySelectorAll(".accordion");
+        for (let i2 = 0; i2 < accordion.length; i2++) {
+          const $accordionButtons = accordion[i2].querySelectorAll(
+            ".accordion__heading-button"
+          );
+          const $accordionItems = accordion[i2].querySelectorAll(".accordion-item");
+          if ($accordionButtons.length > 0) {
+            $accordionButtons.forEach(($el) => {
+              $el.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (e.currentTarget.closest(".accordion-item").classList.contains("is-open")) {
+                  e.currentTarget.closest(".accordion-item").classList.toggle("is-open");
+                  return;
+                }
+                if (!accordion[i2].classList.contains("is-multiselect")) {
+                  $accordionItems.forEach((item) => {
+                    if (item.classList.contains("is-open")) {
+                      item.classList.remove("is-open");
+                    }
+                  });
+                }
+                $el.closest(".accordion-item").classList.toggle("is-open");
+              });
+            });
           }
-        });
+        }
       });
     }
   });
@@ -3390,73 +3483,6 @@
       $(document).ready(function() {
         $(".light-grey.tall-75").prepend('<div class="white-25"></div>');
         $(".light-grey.tall-65").prepend('<div class="white-35"></div>');
-      });
-    }
-  });
-
-  // js/navigation.js
-  var require_navigation = __commonJS({
-    "js/navigation.js"() {
-      "use strict";
-      document.addEventListener("DOMContentLoaded", function() {
-        const hamburger = document.getElementById("primary-ham");
-        const header = document.getElementById("header-wrap");
-        const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
-        const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
-        const searchButton = document.getElementById("search-button");
-        const primaryNavSearch = document.getElementById("primary-nav-search");
-        hamburger.addEventListener("click", (e) => {
-          e.stopPropagation();
-          header.classList.toggle("is-open");
-        });
-        searchButton.addEventListener("click", (e) => {
-          e.stopPropagation();
-          primaryNavSearch.classList.toggle("is-open");
-        });
-        primaryNavSearch.addEventListener("focusout", (e) => {
-          e.stopPropagation();
-          if (primaryNavSearch.contains(e.relatedTarget)) {
-            return;
-          }
-          primaryNavSearch.classList.remove("is-open");
-        });
-        document.addEventListener("click", (e) => {
-          if (!document.getElementById("nav-main").contains(e.target)) {
-            header.classList.remove("is-open");
-          }
-        });
-        if ($navPrimaryHasChildren.length > 0) {
-          $navPrimaryHasChildren.forEach(($el) => {
-            $el.addEventListener("keydown", (e) => {
-              e.stopPropagation();
-              if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
-                $el.classList.add("is-open");
-              }
-            });
-            $el.querySelector(".nav-primary__sublist").addEventListener(
-              "focusout",
-              (e) => {
-                e.stopPropagation();
-                if ($el.contains(e.relatedTarget)) {
-                  return;
-                }
-                $el.classList.remove("is-open");
-              }
-            );
-          });
-        }
-        if ($subNavPrimaryToggles.length > 0) {
-          $subNavPrimaryToggles.forEach(($el) => {
-            $el.addEventListener("click", (e) => {
-              e.stopPropagation();
-              $el.closest("li").classList.toggle("is-open");
-            });
-          });
-        }
-        function getAll(selector) {
-          let parent = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : document;
-          return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
-        }
       });
     }
   });
@@ -3898,10 +3924,10 @@
 
   // js/ucla-lib-scripts.js
   require_carousel();
+  require_navigation();
   require_accordion();
   require_form();
   require_grid();
-  require_navigation();
   require_table();
   require_tabs();
 })();
