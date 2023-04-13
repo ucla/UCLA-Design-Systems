@@ -22,6 +22,10 @@
     @include mixins.for-size(desktop-up) {
         font-size: 1.5rem;
     }
+
+    &:active {
+        color: colors.$white;
+    }
 }
 
 .accordion__heading-button {
@@ -37,10 +41,17 @@
         padding: 1.125rem 3.25rem 1.125rem 1rem;
     }
 
-    &:hover {
-        background-color: colors.$hover-state;
+    &:hover,
+    &:active {
         color: colors.$white;
         background-image: url("/icons/denotive/down--white.svg");
+    }
+
+    &:hover {
+        background-color: colors.$hover-state;
+    }
+    &:active {
+        background-color: colors.$active-state;
     }
     .is-open & {
         background-image: url("/icons/denotive/up-arrow--blue.svg");
