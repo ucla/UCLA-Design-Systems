@@ -1,0 +1,72 @@
+@use "../utilities/colors";
+@use "../utilities/mixins";
+
+.accordion {
+    width: 100%;
+}
+
+.accordion-item {
+    border-top: 1px solid colors.$grey-20;
+
+    &:last-child {
+        border-bottom: 1px solid colors.$grey-20;
+    }
+}
+
+.accordion__heading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: colors.$default-state;
+    display: block;
+
+    @include mixins.for-size(desktop-up) {
+        font-size: 1.5rem;
+    }
+
+    &:active {
+        color: colors.$white;
+    }
+}
+
+.accordion__heading-button {
+    padding: 0.625rem 2.75rem 0.625rem 0.5rem;
+    width: 100%;
+    cursor: pointer;
+    background-image: url("/icons/denotive/down--blue.svg");
+    background-repeat: no-repeat;
+    background-position: right 1.25rem center;
+    background-size: 1.5rem;
+
+    @include mixins.for-size(desktop-up) {
+        padding: 1.125rem 3.25rem 1.125rem 1rem;
+    }
+
+    &:hover,
+    &:active {
+        color: colors.$white;
+        background-image: url("/icons/denotive/down--white.svg");
+    }
+
+    &:hover {
+        background-color: colors.$hover-state;
+    }
+    &:active {
+        background-color: colors.$active-state;
+    }
+    .is-open & {
+        background-image: url("/icons/denotive/up-arrow--blue.svg");
+
+        &:hover {
+            background-image: url("/icons/denotive/up-arrow--white.svg");
+        }
+    }
+}
+
+.accordion__content {
+    padding: 1.125rem 1rem;
+    display: none;
+
+    .is-open & {
+        display: block;
+    }
+}

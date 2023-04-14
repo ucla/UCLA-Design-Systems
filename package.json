@@ -1,0 +1,26 @@
+{
+  "name": "ucla-design-systems",
+  "version": "1.0.0",
+  "description": "Official UCLA Design Systems",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"This is a test\"",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucla/UCLA-Design-Systems.git"
+  },
+  "author": "UCLA Strategic Communications",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucla/UCLA-Design-Systems/issues"
+  },
+  "homepage": "https://github.com/ucla/UCLA-Design-Systems#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^16.3.0",
+    "@commitlint/config-conventional": "^16.2.4",
+    "husky": "^7.0.4",
+    "semantic-release": "^20.1.1"
+  }
+}

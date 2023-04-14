@@ -1,0 +1,15 @@
+<div class="documentation-colors">
+  <p class="documentation-colors__description">These colors are used for backgrounds and graphic elements.</p>
+  <div>
+    <ul class="documentation-colors__list">
+      {{#each layout}}
+      <li class="documentation-colors__color">
+        <div class="documentation-colors__color-swatch" style="background-color: {{ hex }}"></div>
+        <p class="documentation-colors__color-name">{{ name }}</p>
+        <code>{{ variable }}</code>
+        <p>{{ hex }}</p>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,253 @@
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+.text,
+.radio,
+.select,
+.checkbox {
+  margin-bottom: 8px;
+}
+
+// Text Input Styling
+
+.text {
+  &__label,
+  &__input,
+  &__help,
+  &__error {
+    display: block;
+  }
+
+  &__label {
+    display: block;
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.5;
+    color: colors.$grey-80;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    appearance: none;
+    background: colors.$grey-08;
+    background-size: 24px;
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.5;
+    padding: 8px 24px 8px 16px;
+    border: 1px solid #808080;
+    border-radius: 2px;
+    color: colors.$grey-60;
+
+    &:focus {
+      outline: 3px solid colors.$ucla-blue;
+      outline-offset: 1px;
+    }
+  }
+
+  &.full-width > .text__input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__help {
+    display: block;
+    color: colors.$grey-60;
+    margin-top: 8px;
+  }
+
+  &__error {
+    display: none;
+  }
+
+  &.hasError {
+    & > .text__input {
+      border: 1px solid red;
+      
+      &:focus {
+        outline: 3px solid colors.$error-red;
+        outline-offset: 1px;
+      }
+    }
+
+    & > .text__error {
+      display: block;
+      color: colors.$error-red;
+      margin-top: 8px;
+    }
+  }
+}
+
+// Select Menu Styling
+
+.select {
+  &__label {
+    display: block;
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.5;
+    color: colors.$grey-80;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  &.full-width > .select__menu {
+    width: 100%;
+  }
+
+  &__menu {
+    appearance: none;
+    -webkit-appearance: none;
+    background: colors.$grey-08 url("../icons/denotive/down--blue.svg") no-repeat 98.5% 50%;
+    background-size: 24px;
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.5;
+    padding: 8px 24px 8px 16px;
+    border: 1px solid #808080;
+    border-radius: 2px;
+    color: colors.$grey-60;
+
+    &::-ms-expand {
+      display: none; /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
+    }
+
+    &:focus {
+      outline: 3px solid colors.$ucla-blue;
+      outline-offset: 1px;
+    }
+
+    &:active {
+      color: #000;
+    }
+  }
+
+  &__help {
+    display: block;
+    color: colors.$grey-60;
+    margin-top: 8px;
+  }
+
+  &__error {
+    display: none;
+  }
+
+  &.hasError {
+    & > .select__menu {
+      border: 1px solid red;
+      background: #ebebeb url("../icons/denotive/form-error.svg") no-repeat 96.5% 50%;
+      background-size: 24px 24px;
+
+      &:focus {
+        outline: 3px solid colors.$error-red;
+        outline-offset: 1px;
+      }
+    }
+
+    & > .select__error {
+      display: block;
+      color: colors.$error-red;
+      margin-top: 8px;
+    }
+  }
+}
+
+// Checkbox Styling
+
+.checkbox {
+  &__input {
+    appearance: none;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0 0 0 / 0.05%), inset 0 -15px 10px -12px rgba(0 0 0 / 0.05%);
+    padding: 9px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 8px; // should be 16px but subtracted 4 from default label/input spacing
+
+    &:hover {
+      background: colors.$hover-state;
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: 1px solid colors.$focus-state;
+      outline-offset: 1px;
+    }
+
+    &:checked {
+      background-color: colors.$active-state;
+      border: 1px solid #adb8c0;
+      box-shadow: 0 1px 2px rgba(0 0 0 / 0.05%), inset 0 -15px 10px -12px rgba(0 0 0 / 0.05%), inset 15px 10px -12px rgba(255 255 255 / 0.1%);
+      padding: 0 4px;
+    }
+
+    &:active,
+    &:checked:active {
+      outline-offset: -1px;
+    }
+
+    &:checked::after {
+      // background-image: url("/icons/denotive/form-success.svg");
+      // background-size: 10px 10px;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      content: "";
+    }
+  }
+}
+
+// Radio Styling
+
+.radio {
+  &__input {
+    appearance: none;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    border: 1px solid #808080;
+    background-clip: content-box;
+    margin-right: 8px; // should be 16px but subtracted 5 from default label/input spacing
+
+    &:hover {
+      background: colors.$hover-state;
+      border-color: colors.$hover-state;
+      cursor: pointer;
+    }
+
+    &:checked {
+      background: colors.$active-state;
+      border-color: colors.$active-state;
+    }
+
+    &:checked::after {
+      // background-image: url("/icons/denotive/form-success.svg");
+      // background-size: 25px 25px;
+      // background-repeat: none;
+      // background-position: 50%;
+      display: inline-block;
+      content: "";
+      width: 22px;
+      height: 22px;
+    }
+
+    &:focus {
+      outline: 1px solid colors.$focus-state;
+      outline-offset: 1px;
+    }
+  }
+}
+
+// Fieldset and Legend Styling
+
+.fieldset {
+  border: 1px solid #808080;
+  padding: 32px;
+
+  &__legend {
+    font-size: variables.$ucla-font-size-medium;
+    font-weight: bold;
+    line-height: 1.125;
+    color: colors.$grey-80;
+    padding: 0 4px;
+  }
+}

@@ -1,0 +1,35 @@
+{
+	"title": "forms",
+  "status": "ready",
+  "collated": true,
+  "variants": [
+    {
+      "name": "default",
+      "label": "Text"
+    },
+    {
+      "name": "fieldset-legend",
+      "context": {
+        "ordrer": 2
+      }
+    },
+    {
+      "name": "select-menu",
+      "context": {
+        "ordrer": 3
+      }
+    },
+    {
+      "name": "radio",
+      "context": {
+        "ordrer": 4
+      }
+    },
+    {
+      "name": "checkbox",
+      "context": {
+        "ordrer": 5
+      }
+    }
+  ]
+}

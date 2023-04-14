@@ -1,0 +1,158 @@
+@use "../../../scss_OLD/utilities/_mixins/breakpoints";
+@use "../../../scss_OLD/utilities/colors";
+@use "../../../scss_OLD/utilities/variables";
+
+/***************** STOP!!! READ THIS!! *****************/
+// These are Fractal documentation specific styles here only. DO NOT put component related styles here. Those belong in ./src/scss
+// https://fractal.build/guide/web/default-theme.html#default-theme-mandelbrot
+
+.Document-title {
+    font-size: variables.$ucla-font-size-xxx-large;
+    line-height: 1.125;
+}
+
+code {
+    background: rgba(83, 83, 99, 0.075);
+    padding: 2px 3px;
+    border-radius: 2px;
+}
+
+.Prose {
+    max-width: 44em;
+
+    pre {
+        width: 100%;
+        background: rgba(83, 83, 99, 0.075);
+        padding: 20px;
+        border-radius: 10px;
+        overflow-y: scroll;
+
+        // style scroll bars for long blocks of code
+        &::-webkit-scrollbar {
+            width: 10px;
+
+            &-track {
+                background-color: colors.$grey-10;
+            }
+
+            &-thumb {
+                border-radius: 5px;
+                background-color: colors.$ucla-blue;
+            }
+        }
+
+        code {
+            background: rgba(83, 83, 99, 0);
+
+            &.active {
+                background: #3399ff;
+            }
+        }
+    }
+
+    table {
+        margin: 0;
+    }
+
+    // Override "black" theme header sizing with our own
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Helvetica", "Arial", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: colors.$grey-80;
+        font-weight: bold;
+        font-family: variables.$font;
+    }
+
+    h1 {
+        font-size: variables.$ucla-font-size-display;
+        line-height: 1.125;
+
+        @media (min-width: breakpoints.breakpoint-min(md)) {
+            font-size: variables.$ucla-font-size-xxx-large;
+        }
+    }
+
+    h2 {
+        font-size: variables.$ucla-font-size-x-large;
+        line-height: 1.125;
+
+        @media (min-width: breakpoints.breakpoint-min(md)) {
+            font-size: variables.$ucla-font-size-display;
+        }
+    }
+
+    h3 {
+        font-size: variables.$ucla-font-size-large;
+        line-height: 1.125;
+    }
+
+    h4 {
+        font-size: variables.$ucla-font-size-medium;
+        line-height: 1.125;
+    }
+
+    h5 {
+        font-size: variables.$ucla-font-size-default;
+        line-height: 1.125;
+    }
+
+    h6 {
+        font-size: variables.$ucla-font-size-small;
+        line-height: 1.125;
+    }
+}
+
+.Status {
+    &-label {
+        text-transform: none;
+    }
+}
+
+.create-button {
+    background-color: #006298;
+    border-radius: 6px;
+    color: colors.$white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1;
+    text-decoration: none;
+    padding: 12px 16px;
+    text-decoration: none;
+    vertical-align: middle;
+    margin-bottom: 1rem;
+
+    &.small {
+        font-size: variables.$ucla-font-size-x-small;
+        padding: 8px 10px;
+
+        img {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    &:hover {
+        color: colors.$white;
+        background: colors.$hover-state;
+    }
+
+    &:focus {
+        outline: 1px dotted colors.$focus-state;
+        outline-offset: 1px;
+    }
+}

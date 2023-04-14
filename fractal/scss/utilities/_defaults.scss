@@ -1,0 +1,49 @@
+@use "./variables";
+@use "./colors";
+
+html {
+    font-size: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
+}
+
+body {
+    font-family: variables.$font;
+    font-size: 16px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.visuallyhidden {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+    position: absolute;
+}
+
+button:not([disabled]):focus,
+input:not([disabled]):focus,
+select:not([disabled]):focus,
+textarea:not([disabled]):focus {
+    outline: 2px solid colors.$focus-state;
+    outline-offset: -2px;
+}
+
+[contentEditable="true"]:focus,
+[href]:focus,
+[tabindex]:focus,
+iframe:focus {
+    outline: 2px solid colors.$focus-state;
+    outline-offset: -2px;
+}
