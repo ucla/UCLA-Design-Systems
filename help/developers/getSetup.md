@@ -1,1 +1,1 @@
-getSetup.md
+This is the setup guide
