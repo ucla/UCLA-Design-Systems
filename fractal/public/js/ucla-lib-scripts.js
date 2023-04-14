@@ -161,16 +161,16 @@
         };
         ;
         function _extends() {
-          _extends = Object.assign || function(target2) {
-            for (var i2 = 1; i2 < arguments.length; i2++) {
-              var source = arguments[i2];
+          _extends = Object.assign || function(target) {
+            for (var i = 1; i < arguments.length; i++) {
+              var source = arguments[i];
               for (var key in source) {
                 if (Object.prototype.hasOwnProperty.call(source, key)) {
-                  target2[key] = source[key];
+                  target[key] = source[key];
                 }
               }
             }
-            return target2;
+            return target;
           };
           return _extends.apply(this, arguments);
         }
@@ -218,9 +218,9 @@
           return Math.min(Math.max(value, m1 > m2 ? m2 : m1), m1 > m2 ? m1 : m2);
         }
         function sprintf(format, replacements) {
-          var i2 = 0;
+          var i = 0;
           return format.replace(/%s/g, function() {
-            return toArray(replacements)[i2++];
+            return toArray(replacements)[i++];
           });
         }
         function unit(value) {
@@ -866,14 +866,14 @@
         var MOVING = 4;
         var DESTROYED = 5;
         ;
-        function _defineProperties(target2, props) {
-          for (var i2 = 0; i2 < props.length; i2++) {
-            var descriptor = props[i2];
+        function _defineProperties(target, props) {
+          for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];
             descriptor.enumerable = descriptor.enumerable || false;
             descriptor.configurable = true;
             if ("value" in descriptor)
               descriptor.writable = true;
-            Object.defineProperty(target2, descriptor.key, descriptor);
+            Object.defineProperty(target, descriptor.key, descriptor);
           }
         }
         function _createClass(Constructor, protoProps, staticProps) {
@@ -2968,7 +2968,7 @@
           }
         };
         var keyboard = function(Splide2) {
-          var target2;
+          var target;
           return {
             /**
              * Called when the component is mounted.
@@ -2979,22 +2979,22 @@
                 var root = Splide2.root;
                 var map = KEY_MAP[options2.direction];
                 var keyboard2 = options2.keyboard;
-                if (target2) {
-                  Splide2.off("keydown", target2);
+                if (target) {
+                  Splide2.off("keydown", target);
                   removeAttribute(root, TAB_INDEX);
                 }
                 if (keyboard2) {
                   if (keyboard2 === "focused") {
-                    target2 = root;
+                    target = root;
                     setAttribute(root, TAB_INDEX, 0);
                   } else {
-                    target2 = document;
+                    target = document;
                   }
                   Splide2.on("keydown", function(e) {
                     if (map[e.key]) {
                       Splide2.go(map[e.key]);
                     }
-                  }, target2);
+                  }, target);
                 }
               });
             }
@@ -3320,19 +3320,112 @@
     }
   });
 
+  // js/navigation.js
+  var require_navigation = __commonJS({
+    "js/navigation.js"() {
+      "use strict";
+      document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.getElementById("primary-ham");
+        const header = document.getElementById("header-wrap");
+        const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
+        const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
+        const searchButton = document.getElementById("search-button");
+        const primaryNavSearch = document.getElementById("primary-nav-search");
+        if (hamburger) {
+          hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            header.classList.toggle("is-open");
+          });
+        }
+        if (searchButton) {
+          searchButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            primaryNavSearch.classList.toggle("is-open");
+          });
+        }
+        if (primaryNavSearch) {
+          primaryNavSearch.addEventListener("focusout", (e) => {
+            e.stopPropagation();
+            if (primaryNavSearch.contains(e.relatedTarget)) {
+              return;
+            }
+            primaryNavSearch.classList.remove("is-open");
+          });
+        }
+        if (document.getElementById("nav-main")) {
+          document.addEventListener("click", (e) => {
+            if (!document.getElementById("nav-main").contains(e.target)) {
+              header.classList.remove("is-open");
+            }
+          });
+        }
+        if ($navPrimaryHasChildren.length > 0) {
+          $navPrimaryHasChildren.forEach(($el) => {
+            $el.addEventListener("keydown", (e) => {
+              e.stopPropagation();
+              if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
+                $el.classList.add("is-open");
+              }
+            });
+            $el.querySelector(".nav-primary__sublist").addEventListener(
+              "focusout",
+              (e) => {
+                e.stopPropagation();
+                if ($el.contains(e.relatedTarget)) {
+                  return;
+                }
+                $el.classList.remove("is-open");
+              }
+            );
+          });
+        }
+        if ($subNavPrimaryToggles.length > 0) {
+          $subNavPrimaryToggles.forEach(($el) => {
+            $el.addEventListener("click", (e) => {
+              e.stopPropagation();
+              $el.closest("li").classList.toggle("is-open");
+            });
+          });
+        }
+        function getAll(selector) {
+          let parent = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : document;
+          return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
+        }
+      });
+    }
+  });
+
   // js/accordion.js
   var require_accordion = __commonJS({
     "js/accordion.js"() {
-      $(document).ready(function() {
-        $(".accordion__title").click(function() {
-          $(this).next(".accordion__content").toggleClass("show-me");
-          $(this).toggleClass("active");
-          if ($(".accordion__title").hasClass("active")) {
-            $(this).attr("aria-expanded", "true");
-          } else {
-            $(".accordion__title").attr("aria-expanded", "false");
+      "use strict";
+      document.addEventListener("DOMContentLoaded", function() {
+        const accordion = document.querySelectorAll(".accordion");
+        for (let i = 0; i < accordion.length; i++) {
+          const $accordionButtons = accordion[i].querySelectorAll(
+            ".accordion__heading-button"
+          );
+          const $accordionItems = accordion[i].querySelectorAll(".accordion-item");
+          if ($accordionButtons.length > 0) {
+            $accordionButtons.forEach(($el) => {
+              $el.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (e.currentTarget.closest(".accordion-item").classList.contains("is-open")) {
+                  e.currentTarget.closest(".accordion-item").classList.toggle("is-open");
+                  return;
+                }
+                if (!accordion[i].classList.contains("is-multiselect")) {
+                  $accordionItems.forEach((item) => {
+                    if (item.classList.contains("is-open")) {
+                      item.classList.remove("is-open");
+                    }
+                  });
+                }
+                $el.closest(".accordion-item").classList.toggle("is-open");
+              });
+            });
           }
-        });
+        }
       });
     }
   });
@@ -3362,8 +3455,8 @@
             errorInputs = $("#" + elSelector).find("hasError");
           }
           if (errorInputs.length) {
-            for (let i2 = 0; i2 < errorInputs.length; i2++) {
-              errorInputs[i2].classList.remove("hasError");
+            for (let i = 0; i < errorInputs.length; i++) {
+              errorInputs[i].classList.remove("hasError");
             }
           }
         };
@@ -3390,39 +3483,6 @@
       $(document).ready(function() {
         $(".light-grey.tall-75").prepend('<div class="white-25"></div>');
         $(".light-grey.tall-65").prepend('<div class="white-35"></div>');
-      });
-    }
-  });
-
-  // js/navigation.js
-  var require_navigation = __commonJS({
-    "js/navigation.js"() {
-      "use strict";
-      document.addEventListener("DOMContentLoaded", function() {
-        const hamburger = document.getElementById("primary-ham");
-        const header = document.getElementById("header-wrap");
-        const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
-        hamburger.addEventListener("click", (e) => {
-          e.stopPropagation();
-          header.classList.toggle("is-open");
-        });
-        document.addEventListener("click", () => {
-          if (header.classList.contains("is-open")) {
-            header.classList.remove("is-open");
-          }
-        });
-        if ($subNavPrimaryToggles.length > 0) {
-          $subNavPrimaryToggles.forEach(($el) => {
-            $el.addEventListener("click", (e) => {
-              e.stopPropagation();
-              $el.closest("li").classList.toggle("is-open");
-            });
-          });
-        }
-        function getAll(selector) {
-          let parent = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : document;
-          return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
-        }
       });
     }
   });
@@ -3628,246 +3688,42 @@
   // js/tabs.js
   var require_tabs = __commonJS({
     "js/tabs.js"() {
-      $(document).ready(function() {
-        (function() {
-          let tablist = document.querySelectorAll('[role="tablist"]')[0];
-          let tabs;
-          let panels;
-          let delay = determineDelay();
-          if (!tablist) {
-            return;
-          }
-          setOverflowStyles(tablist);
-          generateArrays();
-          function generateArrays() {
-            tabs = document.querySelectorAll('[role="tab"]');
-            panels = document.querySelectorAll('[role="tabpanel"]');
-          }
-          ;
-          let keys = {
-            end: 35,
-            home: 36,
-            left: 37,
-            up: 38,
-            right: 39,
-            down: 40,
-            delete: 46
+      "use strict";
+      document.addEventListener("DOMContentLoaded", function() {
+        const tabs = document.querySelector(".ucla-c-tabs");
+        if (tabs) {
+          const tabButtons = tabs.querySelectorAll(".ucla-c-tablink");
+          const tabPanels = document.querySelectorAll(".ucla-c-tabpanel");
+          let handleTabClick = (e) => {
+            tabButtons.forEach((button) => {
+              button.classList.remove("is-active");
+            });
+            tabPanels.forEach((panel) => {
+              panel.hidden = true;
+            });
+            tabButtons.forEach((tab) => {
+              tab.setAttribute("aria-selected", false);
+            });
+            e.currentTarget.setAttribute("aria-selected", true);
+            e.currentTarget.classList.add("is-active");
+            const { id } = e.currentTarget;
+            const tabPanel = tabs.querySelector(`#${id}-tab`);
+            tabPanel.hidden = false;
           };
-          let direction = {
-            37: -1,
-            38: -1,
-            39: 1,
-            40: 1
-          };
-          for (i = 0; i < tabs.length; ++i) {
-            addListeners(i);
-          }
-          ;
-          function isTabListOverflow(tablist2) {
-            let buttonWidth = 0;
-            let buttons = tablist2.querySelectorAll('[role="tab"]');
-            for (let idx = 0; idx < buttons.length; idx++) {
-              buttonWidth += buttons[idx].offsetWidth;
-            }
-            return buttonWidth > tablist2.offsetWidth;
-          }
-          function setOverflowStyles(tablist2) {
-            if (isTabListOverflow(tablist2)) {
-              for (let i2 = 0; i2 < tablist2.children.length; i2++) {
-                tablist2.children[i2].style["width"] = "25%";
-                tablist2.children[i2].style["white-space"] = "normal";
-                tablist2.children[i2].style["vertical-align"] = "bottom";
-              }
-            }
-          }
-          function addListeners(index) {
-            tabs[index].addEventListener("click", clickEventListener);
-            tabs[index].addEventListener("keydown", keydownEventListener);
-            tabs[index].addEventListener("keyup", keyupEventListener);
-            tabs[index].index = index;
-          }
-          ;
-          function clickEventListener(event) {
-            event.preventDefault();
-            let tab = event.target;
-            tab.blur();
-            activateTab(tab, false);
-          }
-          ;
-          function keydownEventListener(event) {
-            let key = event.keyCode;
-            switch (key) {
-              case keys.end:
-                event.preventDefault();
-                activateTab(tabs[tabs.length - 1]);
-                break;
-              case keys.home:
-                event.preventDefault();
-                activateTab(tabs[0]);
-                break;
-              case keys.up:
-              case keys.down:
-                determineOrientation(event);
-                break;
-            }
-            ;
-          }
-          ;
-          function keyupEventListener(event) {
-            let key = event.keyCode;
-            switch (key) {
-              case keys.left:
-              case keys.right:
-                determineOrientation(event);
-                break;
-              case keys.delete:
-                determineDeletable(event);
-                break;
-            }
-            ;
-          }
-          ;
-          function determineOrientation(event) {
-            let key = event.keyCode;
-            let vertical = tablist.getAttribute("aria-orientation") === "vertical";
-            let proceed = false;
-            if (vertical) {
-              if (key === keys.up || key === keys.down) {
-                event.preventDefault();
-                proceed = true;
-              }
-              ;
-            } else {
-              if (key === keys.left || key === keys.right) {
-                proceed = true;
-              }
-              ;
-            }
-            ;
-            if (proceed) {
-              switchTabOnArrowPress(event);
-            }
-            ;
-          }
-          ;
-          function switchTabOnArrowPress(event) {
-            let pressed = event.keyCode;
-            for (x = 0; x < tabs.length; x++) {
-              tabs[x].addEventListener("focus", focusEventHandler);
-            }
-            ;
-            if (direction[pressed]) {
-              let target2 = event.target;
-              if (target2.index !== void 0) {
-                if (tabs[target2.index + direction[pressed]]) {
-                  tabs[target2.index + direction[pressed]].focus();
-                } else if (pressed === keys.left || pressed === keys.up) {
-                  focusLastTab();
-                } else if (pressed === keys.right || pressed === keys.down) {
-                  focusFirstTab();
-                }
-                ;
-              }
-              ;
-            }
-            ;
-          }
-          ;
-          function activateTab(tab, setFocus) {
-            deactivateTabs();
-            tab.removeAttribute("tabindex");
-            tab.setAttribute("aria-selected", "true");
-            let controls = tab.getAttribute("aria-controls");
-            document.getElementById(controls).removeAttribute("hidden");
-            if (setFocus) {
-              tab.focus();
-            }
-            ;
-          }
-          ;
-          function deactivateTabs() {
-            for (t = 0; t < tabs.length; t++) {
-              tabs[t].setAttribute("tabindex", "-1");
-              tabs[t].setAttribute("aria-selected", "false");
-              tabs[t].removeEventListener("focus", focusEventHandler);
-            }
-            ;
-            for (p = 0; p < panels.length; p++) {
-              panels[p].setAttribute("hidden", "hidden");
-            }
-            ;
-          }
-          ;
-          function focusFirstTab() {
-            tabs[0].focus();
-          }
-          ;
-          function focusLastTab() {
-            tabs[tabs.length - 1].focus();
-          }
-          ;
-          function determineDeletable(event) {
-            target = event.target;
-            if (target.getAttribute("data-deletable") !== null) {
-              deleteTab(event, target);
-              generateArrays();
-              if (target.index - 1 < 0) {
-                activateTab(tabs[0]);
-              } else {
-                activateTab(tabs[target.index - 1]);
-              }
-              ;
-            }
-            ;
-          }
-          ;
-          function deleteTab(event) {
-            let target2 = event.target;
-            let panel = document.getElementById(target2.getAttribute("aria-controls"));
-            target2.parentElement.removeChild(target2);
-            panel.parentElement.removeChild(panel);
-          }
-          ;
-          function determineDelay() {
-            let hasDelay = $(this).attr("data-delay");
-            let delay2 = 0;
-            if (typeof hasDelay !== "undefined" && hasDelay !== false) {
-              let delayValue = tablist.getAttribute("data-delay");
-              if (delayValue) {
-                delay2 = delayValue;
-              } else {
-                delay2 = 300;
-              }
-              ;
-            }
-            ;
-            return delay2;
-          }
-          ;
-          function focusEventHandler(event) {
-            let target2 = event.target;
-            setTimeout(checkTabFocus, delay, target2);
-          }
-          ;
-          function checkTabFocus(target2) {
-            focused = document.activeElement;
-            if (target2 === focused) {
-              activateTab(target2, false);
-            }
-            ;
-          }
-          ;
-        })();
+          tabButtons.forEach(
+            (button) => button.addEventListener("click", handleTabClick)
+          );
+        }
       });
     }
   });
 
   // js/ucla-lib-scripts.js
   require_carousel();
+  require_navigation();
   require_accordion();
   require_form();
   require_grid();
-  require_navigation();
   require_table();
   require_tabs();
 })();

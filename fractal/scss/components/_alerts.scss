@@ -7,9 +7,9 @@
   border-width: 4px;
   border-style: solid;
   line-height: 1.5;
+  display: flex;
 
   img {
-    float: left;
     width: 24px;
     height: 24px;
     margin-right: 8px;
@@ -17,6 +17,7 @@
 
   figcaption {
     display: flex;
+    flex-grow: 1;
   }
 
   /* Specific Alert Styles */
