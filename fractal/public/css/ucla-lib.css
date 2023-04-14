@@ -116,10 +116,15 @@ meter {
 
 html {
   font-size: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
 }
 
 body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif;
+  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 16px;
 }
 
@@ -903,6 +908,9 @@ body {
     font-size: 1.5rem;
   }
 }
+.accordion__heading:active {
+  color: #fff;
+}
 
 .accordion__heading-button {
   padding: 0.625rem 2.75rem 0.625rem 0.5rem;
@@ -918,10 +926,15 @@ body {
     padding: 1.125rem 3.25rem 1.125rem 1rem;
   }
 }
-.accordion__heading-button:hover {
-  background-color: #0079bf;
+.accordion__heading-button:hover, .accordion__heading-button:active {
   color: #fff;
   background-image: url("/icons/denotive/down--white.svg");
+}
+.accordion__heading-button:hover {
+  background-color: #0079bf;
+}
+.accordion__heading-button:active {
+  background-color: #003b5c;
 }
 .is-open .accordion__heading-button {
   background-image: url("/icons/denotive/up-arrow--blue.svg");
