@@ -18,10 +18,7 @@ p {
 
     &.lead {
         font-size: 1.5rem;
-<<<<<<< HEAD
-=======
         line-height: 1;
->>>>>>> 53d3bbc (fix conflicts)
     }
 }
 
@@ -36,10 +33,6 @@ a {
     &:hover {
         color: colors.$white;
         background-color: colors.$hover-state;
-<<<<<<< HEAD
-=======
-        display: inline-block;
->>>>>>> 53d3bbc (fix conflicts)
     }
     &:focus {
         outline: 1px solid colors.$focus-state;
@@ -51,10 +44,7 @@ a {
 
 small {
     font-size: 0.875rem;
-<<<<<<< HEAD
-=======
     line-height: 1.714;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 strong {
@@ -71,18 +61,10 @@ del {
 
 ins {
     background-color: colors.$lightest-blue;
-<<<<<<< HEAD
-=======
-    display: inline-block;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 mark {
     background: colors.$focus-state-light;
-<<<<<<< HEAD
-=======
-    display: inline-block;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 code {
@@ -128,53 +110,35 @@ code {
 // Title & Headline
 .title-text__xl {
     font-size: variables.$text-xxl;
-<<<<<<< HEAD
-=======
     line-height: 1.19;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 .title-text__lg,
 .headline-text__xl {
     font-size: variables.$text-xl;
-<<<<<<< HEAD
-=======
     line-height: 1.25;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 .title-text__md,
 .headline-text__lg {
     font-size: variables.$text-lg;
-<<<<<<< HEAD
-=======
     line-height: 1.22;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 .title-text__sm,
 .headline-text__md {
     font-size: variables.$text-md;
-<<<<<<< HEAD
-=======
     line-height: 1.33;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 .headline-text {
     font-size: variables.$text-base;
-<<<<<<< HEAD
-=======
     line-height: 1.25;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 .headline-text__sm {
     font-size: variables.$text-sm;
-<<<<<<< HEAD
-=======
     line-height: 1.71;
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 .headline-text__xl,
@@ -183,10 +147,6 @@ code {
 .headline-text,
 .headline-text__sm {
     font-weight: bold;
-<<<<<<< HEAD
-    line-height: 1.2;
-=======
->>>>>>> 53d3bbc (fix conflicts)
 }
 
 .ucla-prose {
