@@ -166,7 +166,6 @@ p {
 }
 p.lead {
   font-size: 1.5rem;
-  line-height: 1;
 }
 
 a {
@@ -189,7 +188,6 @@ a:active {
 
 small {
   font-size: 0.875rem;
-  line-height: 1.714;
 }
 
 strong {
@@ -252,35 +250,29 @@ code {
 
 .title-text__xl {
   font-size: 5.063rem;
-  line-height: 1.19;
 }
 
 .title-text__lg,
 .headline-text__xl {
   font-size: 3.375rem;
-  line-height: 1.25;
 }
 
 .title-text__md,
 .headline-text__lg {
   font-size: 2.25rem;
-  line-height: 1.22;
 }
 
 .title-text__sm,
 .headline-text__md {
   font-size: 1.5rem;
-  line-height: 1.33;
 }
 
 .headline-text {
   font-size: 1rem;
-  line-height: 1.25;
 }
 
 .headline-text__sm {
   font-size: 0.875rem;
-  line-height: 1.71;
 }
 
 .headline-text__xl,
@@ -289,6 +281,7 @@ code {
 .headline-text,
 .headline-text__sm {
   font-weight: bold;
+  line-height: 1.2;
 }
 
 .ucla-prose {
@@ -1234,6 +1227,186 @@ body {
 .ucla-c-tabpanels {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.ucla-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.625rem 0.875rem;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+}
+.ucla-btn--primary.ucla-btn {
+  background-color: #00598c;
+  color: #fff;
+  border: 2px solid transparent;
+}
+.ucla-btn--primary.ucla-btn:hover {
+  background-color: #0079bf;
+}
+.ucla-btn--primary.ucla-btn:focus {
+  outline-offset: 1px;
+  outline: 1px solid #00568c;
+}
+.ucla-btn--primary.ucla-btn:active {
+  background-color: #003b5c;
+}
+.ucla-btn--primary.ucla-btn:disabled {
+  background-color: #999;
+}
+.ucla-btn--primary-light.ucla-btn {
+  background-color: #ffd100;
+  border: 2px solid transparent;
+}
+.ucla-btn--primary-light.ucla-btn:hover {
+  background-color: #ffe500;
+}
+.ucla-btn--primary-light.ucla-btn:focus {
+  outline-offset: 1px;
+  outline: 1px solid #ffe500;
+}
+.ucla-btn--primary-light.ucla-btn:active {
+  background-color: #ffbf0f;
+}
+.ucla-btn--primary-light.ucla-btn:disabled {
+  background-color: #e5e5e5;
+}
+.ucla-btn--secondary.ucla-btn {
+  border: 2px solid #00598c;
+  color: #00598c;
+}
+.ucla-btn--secondary.ucla-btn:hover {
+  background-color: #0079bf;
+  border-color: #0079bf;
+  color: #fff;
+}
+.ucla-btn--secondary.ucla-btn:focus {
+  outline-offset: 1px;
+  outline: 1px solid #00568c;
+}
+.ucla-btn--secondary.ucla-btn:active {
+  background-color: #003b5c;
+  border-color: #003b5c;
+}
+.ucla-btn--secondary.ucla-btn:disabled {
+  border-color: #999;
+  color: #999;
+  background-color: transparent;
+}
+.ucla-btn--secondary.ucla-btn:hover > svg path, .ucla-btn--secondary.ucla-btn:active > svg path {
+  fill: #fff;
+}
+.ucla-btn--secondary.ucla-btn > svg path {
+  fill: #00598c;
+}
+.ucla-btn--secondary-light.ucla-btn {
+  border: 2px solid #fff;
+  color: #fff;
+}
+.ucla-btn--secondary-light.ucla-btn:hover {
+  background-color: #ffe500;
+  border-color: #ffe500;
+  color: #000;
+}
+.ucla-btn--secondary-light.ucla-btn:focus {
+  outline-offset: 1px;
+  outline: 1px solid #ffe500;
+}
+.ucla-btn--secondary-light.ucla-btn:active {
+  background-color: #ffbf0f;
+  border-color: #ffbf0f;
+}
+.ucla-btn--secondary-light.ucla-btn:disabled {
+  border-color: #999;
+  color: #999;
+  background-color: transparent;
+}
+.ucla-btn--secondary-light.ucla-btn:hover > svg path, .ucla-btn--secondary-light.ucla-btn:active > svg path {
+  fill: #000;
+}
+.ucla-btn--tertiary {
+  color: #00598c;
+}
+.ucla-btn--tertiary:hover {
+  background-color: #0079bf;
+  border-color: #0079bf;
+  color: #fff;
+}
+.ucla-btn--tertiary:focus {
+  outline-offset: 1px;
+  outline: 1px solid #00568c;
+}
+.ucla-btn--tertiary:active {
+  background-color: #003b5c;
+  border-color: #003b5c;
+}
+.ucla-btn--tertiary:disabled {
+  color: #999;
+  background-color: transparent;
+}
+.ucla-btn--tertiary:hover > svg path, .ucla-btn--tertiary:active > svg path {
+  fill: #fff;
+}
+.ucla-btn--tertiary > svg path {
+  fill: #00598c;
+}
+.ucla-btn--tertiary-light.ucla-btn {
+  color: #fff;
+}
+.ucla-btn--tertiary-light.ucla-btn:hover {
+  background-color: #ffe500;
+  border-color: #ffe500;
+  color: #000;
+}
+.ucla-btn--tertiary-light.ucla-btn:focus {
+  outline-offset: 1px;
+  outline: 1px solid #ffe500;
+}
+.ucla-btn--tertiary-light.ucla-btn:active {
+  background-color: #ffbf0f;
+  border-color: #ffbf0f;
+}
+.ucla-btn--tertiary-light.ucla-btn:disabled {
+  border-color: #999;
+  color: #999;
+  background-color: transparent;
+}
+.ucla-btn--tertiary-light.ucla-btn:hover > svg path, .ucla-btn--tertiary-light.ucla-btn:active > svg path {
+  fill: #000;
+}
+.ucla-btn--tertiary-light.ucla-btn > svg path {
+  fill: #fff;
+}
+.ucla-btn:disabled {
+  cursor: not-allowed;
+}
+.ucla-btn > a {
+  text-decoration: none;
+}
+.ucla-btn > svg {
+  width: 20px;
+  height: 20px;
+}
+.ucla-btn--icon-lead.ucla-btn svg {
+  margin-right: 10px;
+}
+.ucla-btn--icon-trail.ucla-btn svg {
+  margin-left: 10px;
+}
+
+.ucla-pagination--list {
+  display: flex;
+}
+.ucla-pagination--list .ucla-pagination--page {
+  text-decoration: none;
+  border: 2px solid #00598c;
+  padding: 0.875rem 1.125rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 /*# sourceMappingURL=ucla-lib.css.map */
