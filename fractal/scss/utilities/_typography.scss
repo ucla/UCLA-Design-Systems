@@ -18,7 +18,6 @@ p {
 
     &.lead {
         font-size: 1.5rem;
-        line-height: 1;
     }
 }
 
@@ -44,7 +43,6 @@ a {
 
 small {
     font-size: 0.875rem;
-    line-height: 1.714;
 }
 
 strong {
@@ -110,35 +108,29 @@ code {
 // Title & Headline
 .title-text__xl {
     font-size: variables.$text-xxl;
-    line-height: 1.19;
 }
 
 .title-text__lg,
 .headline-text__xl {
     font-size: variables.$text-xl;
-    line-height: 1.25;
 }
 
 .title-text__md,
 .headline-text__lg {
     font-size: variables.$text-lg;
-    line-height: 1.22;
 }
 
 .title-text__sm,
 .headline-text__md {
     font-size: variables.$text-md;
-    line-height: 1.33;
 }
 
 .headline-text {
     font-size: variables.$text-base;
-    line-height: 1.25;
 }
 
 .headline-text__sm {
     font-size: variables.$text-sm;
-    line-height: 1.71;
 }
 
 .headline-text__xl,
@@ -147,6 +139,7 @@ code {
 .headline-text,
 .headline-text__sm {
     font-weight: bold;
+    line-height: 1.2;
 }
 
 .ucla-prose {
