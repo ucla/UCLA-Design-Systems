@@ -1,0 +1,41 @@
+
+@use "../utilities/colors";
+@use "../utilities/variables";
+.ribbon {
+    max-width: 776px;
+    height: 4rem;
+    h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      background-color: colors.$ucla-blue;
+      color: colors.$white;
+      line-height: 1.6;
+      // white-space: pre-wrap;
+      display: inline;
+      text-transform: uppercase;
+      box-shadow: 10px 0 0 colors.$ucla-blue;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+
+    }
+  
+    &--highlight {
+  
+      h3 {
+        font-size: 3rem;
+        font-weight: 700;
+        background-color: colors.$ucla-gold;
+        color: colors.$grey-80;
+        line-height: 2;
+        // padding-left: 12px;
+        padding: 8px 12px 8px 12px;
+        box-shadow: 14px 0 0 colors.$ucla-gold;
+        display: inline;
+        text-transform: none;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+      }
+
+    }
+  }
