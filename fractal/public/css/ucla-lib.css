@@ -123,16 +123,6 @@ html {
     text-size-adjust: 100%;
 }
 
-body {
-    font-family: "Helvetica", "Roboto", "Arial", sans-serif;
-    font-size: 16px;
-}
-
-p {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
 .visuallyhidden {
     width: 1px;
     height: 1px;
