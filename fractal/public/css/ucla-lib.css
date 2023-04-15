@@ -1107,6 +1107,9 @@ body {
 .accordion__heading:active {
     color: #fff;
 }
+.accordion__heading:active {
+  color: #fff;
+}
 
 .accordion__heading-button {
     padding: 0.625rem 2.75rem 0.625rem 0.5rem;
@@ -1132,6 +1135,12 @@ body {
 }
 .accordion__heading-button:active {
     background-color: #003b5c;
+}
+.accordion__heading-button:hover {
+  background-color: #0079bf;
+}
+.accordion__heading-button:active {
+  background-color: #003b5c;
 }
 .is-open .accordion__heading-button {
     background-image: url("/icons/denotive/up-arrow--blue.svg");
