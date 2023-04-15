@@ -1,0 +1,198 @@
+@use "../utilities/colors";
+.ucla-btn {
+    $this: &;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.625rem 0.875rem;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1.25;
+    display: flex;
+    align-items: center;
+
+    &--primary#{$this} {
+        background-color: colors.$default-state;
+        color: colors.$white;
+        border: 2px solid transparent;
+
+        &:hover {
+            background-color: colors.$hover-state;
+        }
+        &:focus {
+            outline-offset: 1px;
+            outline: 1px solid colors.$focus-state;
+        }
+        &:active {
+            background-color: colors.$active-state;
+        }
+        &:disabled {
+            background-color: colors.$disabled-state;
+        }
+    }
+    &--primary-light#{$this} {
+        background-color: colors.$default-state-light;
+        border: 2px solid transparent;
+
+        &:hover {
+            background-color: colors.$hover-state-light;
+        }
+        &:focus {
+            outline-offset: 1px;
+            outline: 1px solid colors.$focus-state-light;
+        }
+        &:active {
+            background-color: colors.$active-state-light;
+        }
+        &:disabled {
+            background-color: colors.$disabled-state-light;
+        }
+    }
+    &--secondary#{$this} {
+        border: 2px solid colors.$default-state;
+        color: colors.$default-state;
+        &:hover {
+            background-color: colors.$hover-state;
+            border-color: colors.$hover-state;
+            color: colors.$white;
+        }
+        &:focus {
+            outline-offset: 1px;
+            outline: 1px solid colors.$focus-state;
+        }
+        &:active {
+            background-color: colors.$active-state;
+            border-color: colors.$active-state;
+        }
+        &:disabled {
+            border-color: colors.$disabled-state;
+            color: colors.$disabled-state;
+            background-color: transparent;
+        }
+
+        &:hover > svg path,
+        &:active > svg path {
+            fill: colors.$white;
+        }
+
+        & > svg path {
+            fill: colors.$default-state;
+        }
+    }
+    &--secondary-light#{$this} {
+        border: 2px solid colors.$white;
+        color: colors.$white;
+        &:hover {
+            background-color: colors.$hover-state-light;
+            border-color: colors.$hover-state-light;
+            color: #000;
+        }
+        &:focus {
+            outline-offset: 1px;
+            outline: 1px solid colors.$focus-state-light;
+        }
+        &:active {
+            background-color: colors.$active-state-light;
+            border-color: colors.$active-state-light;
+        }
+        &:disabled {
+            border-color: colors.$disabled-state;
+            color: colors.$disabled-state;
+            background-color: transparent;
+        }
+        &:hover > svg path,
+        &:active > svg path {
+            fill: #000;
+        }
+    }
+    &--tertiary {
+        color: colors.$default-state;
+        &:hover {
+            background-color: colors.$hover-state;
+            border-color: colors.$hover-state;
+            color: colors.$white;
+        }
+        &:focus {
+            outline-offset: 1px;
+            outline: 1px solid colors.$focus-state;
+        }
+        &:active {
+            background-color: colors.$active-state;
+            border-color: colors.$active-state;
+        }
+
+        &:disabled {
+            color: colors.$disabled-state;
+            background-color: transparent;
+        }
+
+        &:hover > svg path,
+        &:active > svg path {
+            fill: colors.$white;
+        }
+
+        & > svg path {
+            fill: colors.$default-state;
+        }
+    }
+    &--tertiary-light#{$this} {
+        color: colors.$white;
+        &:hover {
+            background-color: colors.$hover-state-light;
+            border-color: colors.$hover-state-light;
+            color: #000;
+        }
+        &:focus {
+            outline-offset: 1px;
+            outline: 1px solid colors.$focus-state-light;
+        }
+        &:active {
+            background-color: colors.$active-state-light;
+            border-color: colors.$active-state-light;
+        }
+        &:disabled {
+            border-color: colors.$disabled-state;
+            color: colors.$disabled-state;
+            background-color: transparent;
+        }
+        &:hover > svg path,
+        &:active > svg path {
+            fill: #000;
+        }
+
+        & > svg path {
+            fill: colors.$white;
+        }
+    }
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    & > a {
+        text-decoration: none;
+    }
+
+    & > svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    &--icon-lead#{$this} svg {
+        margin-right: 10px;
+    }
+    &--icon-trail#{$this} svg {
+        margin-left: 10px;
+    }
+}
+
+.ucla-pagination--list {
+    display: flex;
+
+    .ucla-pagination--page {
+        text-decoration: none;
+        border: 2px solid colors.$default-state;
+        padding: 0.875rem 1.125rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+    }
+}

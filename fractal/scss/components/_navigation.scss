@@ -30,6 +30,11 @@ body {
     & > a {
         height: 20px;
         width: 61.71px;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
     }
 
     &__breadcrumb {
@@ -42,6 +47,16 @@ body {
                 font-size: 1rem;
                 font-weight: bold;
                 color: colors.$white;
+                text-decoration: none;
+
+                &:visited {
+                    color: colors.$white;
+                }
+
+                &:hover,
+                &:focus {
+                    background-color: transparent;
+                }
             }
 
             &::before {
@@ -79,8 +94,16 @@ body {
         > a {
             font-size: 1.75rem;
             font-weight: bold;
+            text-decoration: none;
+            color: colors.$grey-80;
             @include mixins.for-size(desktop-up) {
                 font-size: 2.25rem;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                color: colors.$grey-80;
             }
         }
     }
@@ -292,6 +315,11 @@ body {
     flex-grow: 1;
     display: block;
     padding: 0.8rem 1.5rem;
+    text-decoration: none;
+
+    &:visited {
+        color: colors.$default-state;
+    }
 
     @include mixins.for-size(up-to-tablet) {
         &:hover,
@@ -374,6 +402,7 @@ body {
     .nav-secondary__link {
         font-size: 1rem;
         font-weight: bold;
+        text-decoration: none;
         color: colors.$default-state;
         flex-grow: 1;
         display: block;
@@ -387,6 +416,10 @@ body {
 
         &--active {
             background-color: colors.$default-state;
+            color: colors.$white;
+        }
+
+        &:hover {
             color: colors.$white;
         }
     }
