@@ -1,41 +1,42 @@
-
 @use "../utilities/colors";
 @use "../utilities/variables";
-.ribbon {
-    max-width: 776px;
-    height: 4rem;
-    h2 {
-      font-size: 3rem;
-      font-weight: 700;
-      background-color: colors.$ucla-blue;
-      color: colors.$white;
-      line-height: 1.6;
-      // white-space: pre-wrap;
-      display: inline;
-      text-transform: uppercase;
-      box-shadow: 10px 0 0 colors.$ucla-blue;
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: clone;
+@use "../utilities/mixins";
 
-    }
-  
-    &--highlight {
-  
-      h3 {
+.ucla-ribbon--brand .ucla-ribbon__text,
+.ucla-ribbon--highlight .ucla-ribbon__text {
+    font-weight: bold;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    display: inline;
+    padding: 4px 0 4px 8px;
+}
+.ucla-ribbon--brand {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    max-width: 30ch;
+    color: colors.$white;
+
+    @include mixins.for-size(desktop-up) {
         font-size: 3rem;
-        font-weight: 700;
-        background-color: colors.$ucla-gold;
-        color: colors.$grey-80;
-        line-height: 2;
-        // padding-left: 12px;
-        padding: 8px 12px 8px 12px;
-        box-shadow: 14px 0 0 colors.$ucla-gold;
-        display: inline;
-        text-transform: none;
-        -webkit-box-decoration-break: clone;
-        box-decoration-break: clone;
-
-      }
-
+        line-height: 1.4;
     }
-  }
+    .ucla-ribbon__text {
+        background-color: colors.$ucla-blue;
+        box-shadow: 10px 0 0 colors.$ucla-blue;
+    }
+}
+
+.ucla-ribbon--highlight {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 25ch;
+
+    @include mixins.for-size(desktop-up) {
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+    .ucla-ribbon__text {
+        background-color: colors.$ucla-gold;
+        box-shadow: 10px 0 0 colors.$ucla-gold;
+    }
+}
