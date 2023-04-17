@@ -7,6 +7,7 @@
 * [Requirements](#requirements)
 * [Instructions](#instructions)
 * [Helpful npm commands](#helpful-npm-commands)
+* [Conventional Commits](#conventional-commits)
 
 ---
 
@@ -82,3 +83,5 @@ The Conventional Commits specification is a lightweight convention on top of com
 You can read more about it here: [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 [conventional commits cheat sheet](https://cheatography.com/albelop/cheat-sheets/conventional-commits/)
+
+---
