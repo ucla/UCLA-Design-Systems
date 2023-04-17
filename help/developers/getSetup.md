@@ -66,7 +66,7 @@
 
 ---
 
-# Helpful npm commands
+# Helpful NPM Commands
 
 | Task | Description |
 |-|-|
@@ -74,3 +74,11 @@
 | `npm run start` | Start Fractal development web server, watch for styling and script changes for both the documentation and components library, and run linters for both the documentation and components library |
 
 ---
+
+# Conventional Commits
+
+The Conventional Commits specification is a lightweight convention on top of commit messages. It provides an easy set of rules for creating an explicit commit history; which makes it easier to write automated tools on top of. This convention dovetails with SemVer, by describing the features, fixes, and breaking changes made in commit messages.
+
+You can read more about it here: [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+[conventional commits cheat sheet](https://cheatography.com/albelop/cheat-sheets/conventional-commits/)
