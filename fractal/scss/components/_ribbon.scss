@@ -1,0 +1,42 @@
+@use "../utilities/colors";
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+.ucla-ribbon--brand .ucla-ribbon__text,
+.ucla-ribbon--highlight .ucla-ribbon__text {
+    font-weight: bold;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    display: inline;
+    padding: 4px 0 4px 8px;
+}
+.ucla-ribbon--brand {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    max-width: 30ch;
+    color: colors.$white;
+
+    @include mixins.for-size(desktop-up) {
+        font-size: 3rem;
+        line-height: 1.4;
+    }
+    .ucla-ribbon__text {
+        background-color: colors.$ucla-blue;
+        box-shadow: 10px 0 0 colors.$ucla-blue;
+    }
+}
+
+.ucla-ribbon--highlight {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 25ch;
+
+    @include mixins.for-size(desktop-up) {
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+    .ucla-ribbon__text {
+        background-color: colors.$ucla-gold;
+        box-shadow: 10px 0 0 colors.$ucla-gold;
+    }
+}
