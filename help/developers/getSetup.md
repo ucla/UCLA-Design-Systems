@@ -6,7 +6,7 @@
 
 * [Requirements](#requirements)
 * [Instructions](#instructions)
-* [Helpful npm commands](#helpful-npm-commands)
+* [Helpful NPM Commands](#helpful-npm-commands)
 * [Conventional Commits](#conventional-commits)
 
 ---
@@ -77,6 +77,8 @@
 ---
 
 # Conventional Commits
+
+This project uses conventional commits, which is a requirement for the semantic release plugin installed into the repository.
 
 The Conventional Commits specification is a lightweight convention on top of commit messages. It provides an easy set of rules for creating an explicit commit history; which makes it easier to write automated tools on top of. This convention dovetails with SemVer, by describing the features, fixes, and breaking changes made in commit messages.
 
