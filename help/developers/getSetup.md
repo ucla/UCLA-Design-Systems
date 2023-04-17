@@ -4,9 +4,9 @@
 
 ## Table of Contents
 
-* [Requirements](#markdown-header-requirements)
-* [Instructions](#markdown-header-instructions)
-* [Helpful npm commands](#markdown-header-helpful-npm-commands)
+* [Requirements](#requirements)
+* [Instructions](#instructions)
+* [Helpful npm commands](#helpful-npm-commands)
 
 ---
 
@@ -40,7 +40,7 @@
 
   - If installed successfully, these commands should return a version number, similar to below:
 
-    ![npm v6.14.17, node v14.19.2](./../images/dependency-versions.png)
+    ![npm v6.14.17, node v14.19.2](../../images/dependency-versions.png)
 
 4. Prepare the development environment:
 
@@ -66,7 +66,7 @@
 
 ---
 
-# Helpful gulp commands
+# Helpful npm commands
 
 | Task | Description |
 |-|-|
