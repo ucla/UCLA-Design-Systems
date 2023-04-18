@@ -41,3 +41,4 @@ jobs:
         run: |
           mkdir redirection
           touch ./redirection/index.html
+          aws s3 sync ./redirection/index.html s3://dev.designsystem.brand.ucla.edu/
