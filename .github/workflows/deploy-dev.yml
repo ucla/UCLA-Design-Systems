@@ -36,5 +36,7 @@ jobs:
       - name: Deploy
         run: aws s3 sync ./fractal/build s3://dev.designsystem.brand.ucla.edu/${{ steps.previoustag.outputs.tag }}
       - name: Write index.html file
-        run: mkdir redirection
-        run: touch ./redirection/index.html
+        run: |
+          mkdir redirection
+          touch ./redirection/index.html
+          
