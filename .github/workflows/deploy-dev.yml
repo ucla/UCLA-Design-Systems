@@ -37,8 +37,8 @@ jobs:
           fallback: 1.0.0 #Optional fallback tag to use when no tag can be found
       - name: Deploy
         run: aws s3 sync ./fractal/build s3://dev.designsystem.brand.ucla.edu/${{ steps.previoustag.outputs.tag }}
-      - name: Write index.html file
+      - name: Update Redirection
         run: |
           mkdir redirection
           touch ./redirection/index.html
-          aws s3 sync ./redirection s3://dev.designsystem.brand.ucla.edu/ --metadata '{"x-amz-website-redirect-location":"https://http://dev.designsystem.brand.ucla.edu.s3-website-us-west-2.amazonaws.com/${{ steps.previoustag.outputs.tag }}/index.html"}'
+          aws s3 sync ./redirection s3://dev.designsystem.brand.ucla.edu/ --metadata '{"x-amz-website-redirect-location":"https://dev.designsystem.brand.ucla.edu.s3-website-us-west-2.amazonaws.com/${{ steps.previoustag.outputs.tag }}/index.html"}'
