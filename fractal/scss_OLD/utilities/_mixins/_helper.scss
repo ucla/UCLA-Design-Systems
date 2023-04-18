@@ -1,0 +1,127 @@
+@use "../colors";
+
+/*
+ * Helper utilities
+ * Mixins and utilities that are globally used
+ */
+
+// Fix mobile bug with images used for buttons that are displaying hover states persistently
+@mixin fix-background-image-hover($default-image, $hover-image) {
+  background-image: url($hover-image);
+  @media (hover: none) {
+    background-image: url($default-image);
+  }
+}
+
+// Fix mobile bug with images used for buttons that are displaying hover states persistently
+@mixin fix-mobile-color-hover($default-color, $hover-color) {
+  color: $hover-color;
+  @media (hover: none) {
+    color: $default-color;
+  }
+}
+
+// Fix mobile bug with buttons that are displaying hover states persistently
+@mixin fix-mobile-button-color-hover($default-background, $hover-background) {
+  background: $hover-background;
+  @media (hover: none) {
+    background: $default-background;
+  }
+}
+
+// Fix mobile bug with accordion arrows that are displaying hover states persistently
+@mixin fix-mobile-accordion-color-hover($default-background, $default-color, $hover-background, $hover-color) {
+  background: $hover-background;
+  color: $hover-color;
+  @media (hover: none) {
+    background: $default-background;
+    color: $default-color;
+  }
+}
+
+// Fix CSS Grid compatibility for IE 11
+@mixin display-grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+// Fix CSS Grid item compatibility for IE 11
+@mixin grid-item ($col-start, $col-end, $row-start, $row-end) {
+  -ms-grid-column: $col-start;
+  -ms-grid-column-span: $col-end - $col-start;
+  -ms-grid-row: $row-start;
+  -ms-grid-row-span: $row-end - $row-start;
+}
+
+@mixin box-shadow ($opt) {
+	-webkit-box-shadow: $opt;
+	-moz-box-shadow: $opt;
+	box-shadow: $opt;
+}
+
+@mixin border-radius ( $size ) {
+	-webkit-border-radius: $size;
+	-moz-border-radius: $size;
+	border-radius: $size;
+}
+
+@mixin transform ( $opt ) {
+	-webkit-transform: $opt;
+	-moz-transform: $opt;
+	-ms-transform: $opt;
+	-o-transform: $opt;
+	transform: $opt;
+}
+
+@mixin overflow-hidden() {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+}
+
+// Reusable pseudo-classes for the anchor tag
+@mixin pseudo-classes() {
+  &:link {
+    color: colors.$default-state;
+  }
+
+  &:focus {
+    color: colors.$focus-state;
+    outline: 1px dotted colors.$focus-state;
+  }
+
+  &:hover {
+    background-color: colors.$hover-state;
+  }
+
+  &:hover, &:active {
+    color: colors.$white;
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: colors.$active-state;
+    color: colors.$white;
+    outline: none;
+  }
+
+  &:visited {
+    color: colors.$visited-state;
+
+    &:hover {
+      color: colors.$white;
+    }
+  }
+}
+
+@mixin is-white-text() {
+  > h1, h2, h3, h4, h5, h6,
+  p, span,
+  tr th, //table column heads
+  dt, //accordion buttons
+  li::before, // ucla lists
+  .stat-tout__label, .stat-tout__number, .stat-tout__source // stat-touts
+  {
+    color: colors.$white;
+  }
+}

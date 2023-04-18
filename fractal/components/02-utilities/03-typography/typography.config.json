@@ -1,0 +1,113 @@
+{
+	"title": "typography",
+	"collated": "true",
+	"status": "ready",
+	"variants": [
+		{
+			"name": "default",
+			"label": "Title Extra Large"
+		},
+		{
+			"name": "title-large",
+			"context": {
+				"order": 2
+			}
+		},
+		{
+			"name": "title-medium",
+			"context": {
+				"order": 3
+			}
+		},
+		{
+			"name": "title-small",
+			"context": {
+				"order": 4
+			}
+		},
+		{
+			"name": "headline-extra-large",
+			"context": {
+				"order": 5
+			}
+		},
+		{
+			"name": "headline-large",
+			"context": {
+				"order": 6
+			}
+		},
+		{
+			"name": "headline-medium",
+			"context": {
+				"order": 7
+			}
+		},
+		{
+			"name": "headline-small",
+			"context": {
+				"order": 8
+			}
+		},
+		{
+			"name": "paragraph",
+			"context": {
+				"order": 9
+			}
+		},
+		{
+			"name": "paragraph-lead",
+			"context": {
+				"order": 10
+			}
+		},
+		{
+			"name": "paragraph-small",
+			"context": {
+				"order": 11
+			}
+		},
+		{
+			"name": "code",
+			"context": {
+				"order": 12
+			}
+		},
+		{
+			"name": "strong",
+			"context": {
+				"order": 13
+			}
+		},
+		{
+			"name": "emphasis",
+			"context": {
+				"order": 14
+			}
+		},
+		{
+			"name": "deleted",
+			"context": {
+				"order": 15
+			}
+		},
+		{
+			"name": "marked",
+			"context": {
+				"order": 16
+			}
+		},
+		{
+			"name": "inserted",
+			"context": {
+				"order": 17
+			}
+		},
+		{
+			"name": "blockquote",
+			"context": {
+				"order": 18
+			}
+		}
+	]
+}

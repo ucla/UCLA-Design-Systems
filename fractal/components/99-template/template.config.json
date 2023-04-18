@@ -1,0 +1,10 @@
+{
+	"title": "template",
+	"status": "in_progress",
+  "hidden": true,
+  "context": {
+		"template": {
+			"copy": "Template Copy"
+		}
+  }
+}

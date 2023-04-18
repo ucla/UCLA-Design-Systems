@@ -1,0 +1,52 @@
+{
+	"title": "Cards",
+  "status": "ready",
+  "collated": true,
+  "context": {
+       "title": "How do parents embrace technology for kids, but prevent it from ruling the household?",
+       "description": "With schools closed and remote learning the norm, how many hours of digital technology are acceptable for kids, and how much is too much? Can parents control when kids use tec…",
+       "button": [{
+           "link": "#",
+           "cta-title": "CTA 1"
+       },{
+           "link": "#",
+           "cta-title": "CTA 2"
+       }]
+   },
+   "variants": [
+       {
+           "name": "default",
+           "label": "Basic"
+       },
+       {
+           "name": "event",
+           "context": {
+               "order": 2
+           }
+       },
+       {
+            "name": "featured-story",
+            "context": {
+                "order": 3
+            }
+       },
+       {
+            "name": "story",
+            "context": {
+                "order": 4
+            }
+        },
+        {
+            "name": "info",
+            "context": {
+                "order": 5
+            }
+        },
+        {
+            "name": "person",
+            "context": {
+                "order": 6
+            }
+        }
+   ]
+}

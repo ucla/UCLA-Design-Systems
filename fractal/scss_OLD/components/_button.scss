@@ -1,0 +1,550 @@
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+.btn {
+  padding: 10px 16px;
+  font-size: variables.$ucla-font-size-default;
+  line-height: variables.$ucla-font-size-default;
+  font-weight: bold;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.icon--play {
+      padding-left: 14px;
+
+      &::before {
+        flex-shrink: 0;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-image: url("../icons/denotive/play--white.svg");
+        margin-right: 10px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+  }
+
+  &.icon--link {
+    padding-right: 14px;
+
+    &::after {
+      flex-shrink: 0;
+      content: "";
+      width: 12px;
+      height: 12px;
+      background-image: url("../icons/denotive/external-link--white.svg");
+      margin-left: 14px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  // primary-light button styling
+  &--lightbg {
+    background: colors.$default-state;
+    color: colors.$white;
+
+    &:visited {
+      background: colors.$default-state;
+      color: colors.$white;
+    }
+
+    &:hover {
+      background: colors.$hover-state;
+    }
+
+    &:focus {
+      background: colors.$focus-state;
+      outline: 1px solid colors.$hover-state;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      background: colors.$active-state;
+      outline: none;
+    }
+
+    &:disabled {
+      background: colors.$disabled-state;
+      color: colors.$white;
+    }
+  }
+
+  // primary-dark button styling
+  &--darkbg {
+    color: black;
+    background: colors.$ucla-gold;
+
+    &:visited {
+      color: black;
+      background: colors.$ucla-gold;
+    }
+
+    &:hover {
+      background: colors.$hover-state-light;
+      color: black;
+    }
+
+    &:focus {
+      background: colors.$focus-state-light;
+      outline: 1px solid colors.$white;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      background: colors.$active-state-light;
+      outline: none;
+    }
+
+    &:disabled {
+      background: colors.$disabled-state-light;
+    }
+
+    &.icon--play::before {
+      background-image: url("../icons/denotive/play--black.svg");
+      background-size: contain;
+    }
+
+    &.icon--link::after {
+      background-image: url("../icons/denotive/external-link--black.svg");
+      background-size: contain;
+    }
+  }
+
+  // secondary button styling
+  &--secondary {
+    // secondary-light button styling
+    &--lightbg {
+      background-color: transparent;
+      color: colors.$default-state;
+      border: 2px solid colors.$default-state;
+
+      &.icon--play::before {
+        background-image: url("../icons/denotive/play--blue.svg");
+        background-size: contain;
+        background-position: 0 -1px;
+      }
+
+      &.icon--link::after {
+        background-image: url("../icons/denotive/external-link--defaultblue.svg");
+        background-size: contain;
+        background-position: 0 -1px;
+      }
+
+      &.icon--play:hover::before,
+      &.icon--play:focus::before {
+        background-image: url("../icons/denotive/play--white.svg");
+        background-size: contain;
+        background-position: 0 -1px;
+      }
+
+      &.icon--link:hover::after,
+      &.icon--link:focus::after {
+        background-image: url("../icons/denotive/external-link--white.svg");
+        background-size: contain;
+        background-position: 0 -1px;
+      }
+
+      &:visited {
+        background: transparent;
+        color: colors.$default-state;
+        border: 2px solid colors.$default-state;
+      }
+
+      &:hover {
+        background: colors.$hover-state;
+        border-color: colors.$hover-state;
+        color: colors.$white;
+      }
+
+      &:focus {
+        background: colors.$focus-state;
+        border-color: transparent;
+        outline: 1px solid colors.$focus-state;
+        outline-offset: 2px;
+        color: colors.$white;
+      }
+
+      &:active {
+        background: colors.$active-state;
+        color: colors.$white;
+      }
+
+      &:disabled {
+        border-color: colors.$disabled-state;
+        color: colors.$disabled-state;
+        background: colors.$white;
+      }
+    }
+
+    // secondary-dark button styling
+    &--darkbg {
+      background: transparent;
+      color: colors.$white;
+      border: 2px solid colors.$white;
+
+      &.icon--play:hover::before,
+      &.icon--play:focus::before {
+        background-image: url("../icons/denotive/play--black.svg");
+        background-size: contain;
+        background-position: 0 -1px;
+      }
+
+      &.icon--play::before {
+        background-image: url("../icons/denotive/play--white.svg");
+        background-size: contain;
+        background-position: 0 -1px;
+      }
+
+      &.icon--link:hover::after,
+      &.icon--link:focus::after {
+        background-image: url("../icons/denotive/external-link--black.svg");
+        background-size: contain;
+        background-position: 0 -1px;
+      }
+
+      &.icon--link::after {
+        background-image: url("../icons/denotive/external-link--white.svg");
+        background-size: contain;
+        background-position: 0 -1px;
+      }
+
+      &:visited {
+        background: transparent;
+        color: colors.$white;
+        border: 2px solid colors.$white;
+      }
+
+      &:hover {
+        background: colors.$hover-state-light;
+        border-color: colors.$hover-state-light;
+        color: colors.$black;
+      }
+
+      &:focus {
+        background: colors.$focus-state-light;
+        border-color: transparent;
+        outline: 1px solid colors.$white;
+        outline-offset: 2px;
+        color: colors.$black;
+      }
+
+      &:active {
+        background: colors.$active-state-light;
+        color: colors.$black;
+        border: 2px solid colors.$active-state-light;
+      }
+
+      &:disabled {
+        color: colors.$disabled-state-light;
+        background: transparent;
+        border-color: colors.$disabled-state-light;
+      }
+    }
+  }
+
+  // tertiary button styling
+  &--tertiary {
+    background: transparent;
+    color: colors.$default-state;
+
+    &.icon--play:hover::before,
+    &.icon--play:focus::before {
+      background-image: url("../icons/denotive/play--white.svg");
+      background-size: contain;
+    }
+
+    &.icon--play::before {
+      background-image: url("../icons/denotive/play--blue.svg");
+      background-size: contain;
+    }
+
+    &:visited {
+      background: transparent;
+      color: colors.$default-state;
+    }
+
+    &:hover {
+      background: colors.$hover-state;
+      color: colors.$white;
+    }
+
+    &:focus {
+      background: colors.$focus-state;
+      outline: 1px solid colors.$hover-state;
+      outline-offset: 2px;
+      color: colors.$white;
+    }
+
+    &:active {
+      background: colors.$active-state;
+      color: colors.$white;
+      outline: none;
+    }
+
+    &:disabled {
+      color: colors.$disabled-state;
+      background: transparent;
+    }
+
+    &.icon--play:hover::before,
+    &.icon--play:focus::before {
+      background-image: url("../icons/denotive/play--white.svg");
+      background-size: contain;
+    }
+
+    &.icon--play::before {
+      background-image: url("../icons/denotive/play--blue.svg");
+      background-size: contain;
+    }
+
+    &.icon--link:hover::after,
+    &.icon--link:focus::after {
+      background-image: url("../icons/denotive/external-link--white.svg");
+      background-size: contain;
+    }
+
+    &.icon--link::after {
+      background-image: url("../icons/denotive/external-link--defaultblue.svg");
+      background-size: contain;
+    }
+
+    &--darkbg {
+      &.icon--play::before {
+        background-image: url("../icons/denotive/play--black.svg");
+      }
+      &.icon--link::after {
+        background-image: url("../icons/denotive/external-link--black.svg");
+      }
+    }
+  }
+
+  /*** Button Group Styling ***/
+  &--group {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 2px;
+
+    &-left,
+    &-center,
+    &-right {
+      background: colors.$white;
+      color: colors.$default-state;
+      border: 2px solid colors.$default-state;
+      border-radius: 0;
+
+      &:visited {
+        background: colors.$white;
+        color: colors.$default-state;
+        border: 2px solid colors.$default-state;
+      }
+
+      &:hover {
+        color: colors.$white;
+        border-color: colors.$hover-state;
+        background: colors.$hover-state;
+      }
+
+      &:focus {
+        color: colors.$white;
+        border-color: colors.$focus-state;
+        background: colors.$focus-state;
+        outline: 1px solid colors.$hover-state;
+        outline-offset: 2px;
+      }
+
+      &:active {
+        color: colors.$white;
+        background: colors.$active-state;
+        border-color: colors.$active-state;
+        outline: none;
+      }
+
+      &:disabled {
+        background: colors.$disabled-state;
+        border-color: colors.$disabled-state;
+        color: colors.$white;
+      }
+    }
+
+    // Outer corners should be rounded
+    &-left {
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+
+    &-right {
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+  }
+
+  &--sm {
+    padding: 8px 12px;
+    font-size: variables.$ucla-font-size-small;
+    line-height: variables.$ucla-font-size-small;
+
+    &.icon--play {
+      padding-left: 10px;
+    }
+
+    &.icon--link {
+      padding-right: 10px;
+    }
+  }
+
+  &--xs {
+    padding: 4px 8px;
+    font-size: variables.$ucla-font-size-small;
+    line-height: variables.$ucla-font-size-small;
+
+    &.icon--play {
+      padding-left: 6px;
+    }
+
+    &.icon--link {
+      padding-right: 6px;
+    }
+  }
+}
+
+// Pagination Styling
+.pagination,
+.pagination--boxed {
+  padding-inline-start: 0;
+  padding-left: 0;
+  list-style: none;
+  margin: 16px 0;
+
+  // remove comp library's default bullets
+  li::before {
+    content: none;
+  }
+
+  display: flex;
+  gap: 2px;
+
+  // boxed and unboxed shared styling
+  li {
+    // display: inline;
+
+    & .page {
+      text-decoration: none;
+      padding: 7px 12px;
+      border-width: 2px;
+      border-style: solid;
+      border-color: transparent;
+      color: colors.$default-state;
+
+      &:visited {
+        color: colors.$default-state;
+      }
+
+      &:hover {
+        color: colors.$white;
+        background: colors.$hover-state;
+        border-color: colors.$hover-state;
+
+        & .pagination-next {
+          background-image: url('../icons/denotive/right-arrow--white.svg');
+        }
+        & .pagination-prev {
+          background-image: url('../icons/denotive/left-arrow--white.svg');
+        }
+      }
+
+      &:focus {
+        background: colors.$focus-state;
+        border-color: colors.$focus-state;
+        outline: 1px solid colors.$hover-state;
+        outline-offset: 2px;
+        color: colors.$white;
+
+        & .pagination-next {
+          background-image: url('../icons/denotive/right-arrow--white.svg');
+        }
+        & .pagination-prev {
+          background-image: url('../icons/denotive/left-arrow--white.svg');
+        }
+      }
+
+      &:active {
+        background: colors.$active-state;
+        border-color: colors.$active-state;
+        color: colors.$white;
+        outline: none;
+
+        & .pagination-next {
+          background-image: url('../icons/denotive/right-arrow--white.svg');
+        }
+        & .pagination-prev {
+          background-image: url('../icons/denotive/left-arrow--white.svg');
+        }
+      }
+
+      // Next & Previous Button
+      .pagination-next, .pagination-prev {
+        width: 8.5px;
+        height: 16px;
+        display: inline-block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        background-position-x: center;
+      }
+      .pagination-next {
+        background-image: url('../icons/denotive/right-arrow--blue.svg');
+      }
+      .pagination-prev {
+        background-image: url('../icons/denotive/left-arrow--blue.svg');
+      }
+    }
+
+    & .page--current {
+      color: colors.$grey-40;
+
+      &:visited {
+        color: colors.$grey-40;
+        border-color: colors.$grey-40;
+      }
+
+      &:hover {
+        color: colors.$white;
+        border-color: colors.$hover-state;
+      }
+
+      &:focus {
+        color: colors.$white;
+      }
+
+      &:active {
+        border-color: colors.$active-state;
+      }
+    }
+  }
+}
+
+// boxed class specific styling
+.pagination--boxed {
+  li .page {
+    padding: 7px 12px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: colors.$default-state;
+    border-radius: 2px;
+  }
+}

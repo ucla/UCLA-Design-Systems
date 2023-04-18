@@ -1,0 +1,49 @@
+@use "colors";
+
+// Background Utilities
+// .has-background-grey-40 {
+//   background: colors.$grey-40;
+// }
+
+// .has-background-lightest-grey-2 {
+//   background: colors.$lightest-grey-2;
+// }
+
+// .has-background-light-grey {
+//   background: colors.$light-grey;
+// }
+
+// .has-background-ucla-blue {
+//   background: colors.$ucla-blue;
+// }
+
+// .has-background-white {
+//   background: colors.$white;
+// }
+
+.has-background {
+  &-grey-20 {
+    background-color: colors.$grey-20;
+  }
+  &-light-grey-08 {
+    background-color: colors.$grey-08;
+  }
+  &-light-grey {
+    background-color: colors.$grey-10;
+  }
+  &-grey-05 {
+    background-color: colors.$grey-05;
+  }
+  &-ucla-blue {
+    background-color: colors.$ucla-blue;
+  }
+  &-white {
+    background-color: colors.$white;
+  }
+  &-darker-blue {
+    background-color: colors.$darker-blue;
+  }
+  &-darkest-blue {
+    background-color: colors.$darkest-blue;
+  }
+}

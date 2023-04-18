@@ -1,0 +1,17 @@
+{
+	"title": "Lists",
+	"status": "ready",
+	"collated": true,
+	"variants": [
+		{
+			"name": "default",
+			"label": "Ordered List"
+		},
+		{
+			"name": "unordered-lists",
+			"context": {
+				"order": 2
+			}
+		}
+	]
+}

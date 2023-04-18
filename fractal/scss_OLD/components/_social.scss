@@ -1,0 +1,246 @@
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+// === SOCIAL MEDIA LINKS ===//
+.social-links-container,
+.social-links-container--blue {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  a {
+    height: 48px;
+    width: 48px;
+    margin: 2px;
+    border-radius: 2px;
+  }
+
+  svg {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+.social-links-container {
+  &--blue {
+    background: colors.$ucla-blue;
+  }
+
+  a:hover {
+    background: colors.$hover-state;
+  }
+
+  a:focus {
+    outline: 1px dotted colors.$focus-state;
+  }
+
+  a:active {
+    background: colors.$active-state;
+  }
+
+  &--blue {
+    background: colors.$ucla-blue;
+
+    a:hover {
+      background: colors.$hover-state-light;
+    }
+
+    a:focus {
+      outline: 1px dotted colors.$white;
+    }
+
+    a:active {
+      background: colors.$active-state-light;
+    }
+  }
+
+  // Corporation Branded Colors icons
+  .social-icon {
+    &--facebook {
+      background: url("../icons/social/facebook--brand.svg");
+      width: 44px;
+      height: 44px;
+      display: block;
+      content: "";
+    }
+
+    &--twitter {
+      background: url("../icons/social/twitter--brand.svg");
+      width: 44px;
+      height: 44px;
+      display: block;
+      content: "";
+    }
+
+    &--instagram {
+      background: url("../icons/social/instagram--brand.svg");
+      width: 44px;
+      height: 44px;
+      display: block;
+      content: "";
+    }
+
+    &--snapchat {
+      background: url("../icons/social/snapchat--brand.svg");
+      width: 44px;
+      height: 44px;
+      display: block;
+      content: "";
+    }
+
+    &--linkedin {
+      background: url("../icons/social/linkedin--brand.svg");
+      width: 44px;
+      height: 44px;
+      display: block;
+      content: "";
+    }
+
+    &--youtube {
+      background: url("../icons/social/youtube--brand.svg");
+      width: 44px;
+      height: 44px;
+      display: block;
+      content: "";
+    }
+
+    &--tiktok {
+      background: url("../icons/social/tiktok--brand.svg");
+      width: 44px;
+      height: 44px;
+      display: block;
+      content: "";
+    }
+  }
+
+  //  White icons
+  &--blue {
+    .social-icon {
+      &--facebook {
+        background: url("../icons/social/facebook--white.svg");
+        width: 44px;
+        height: 44px;
+        display: block;
+        content: "";
+      }
+
+      &--twitter {
+        background: url("../icons/social/twitter--white.svg");
+        width: 44px;
+        height: 44px;
+        display: block;
+        content: "";
+      }
+
+      &--instagram {
+        background: url("../icons/social/instagram--white.svg");
+        width: 44px;
+        height: 44px;
+        display: block;
+        content: "";
+      }
+
+      &--snapchat {
+        background: url("../icons/social/snapchat--white.svg");
+        width: 44px;
+        height: 44px;
+        display: block;
+        content: "";
+      }
+
+      &--linkedin {
+        background: url("../icons/social/linkedin--brand.svg");
+        width: 44px;
+        height: 44px;
+        display: block;
+        content: "";
+      }
+
+      &--youtube {
+        background: url("../icons/social/youtube--white.svg");
+        width: 44px;
+        height: 44px;
+        display: block;
+        content: "";
+      }
+
+      &--tiktok {
+        background: url("../icons/social/tiktok--white.svg");
+        width: 44px;
+        height: 44px;
+        display: block;
+        content: "";
+      }
+    }
+  }
+
+  // White icons
+  &--blue,
+  a:hover,
+  a:active {
+    .social-icon {
+      &--facebook {
+        background: url("../icons/social/facebook--white.svg");
+      }
+
+      &--twitter {
+        background: url("../icons/social/twitter--white.svg");
+      }
+
+      &--instagram {
+        background: url("../icons/social/instagram--white.svg");
+      }
+
+      &--snapchat {
+        background: url("../icons/social/snapchat--white.svg");
+      }
+
+      &--linkedin {
+        background: url("../icons/social/linkedin--white.svg");
+      }
+
+      &--youtube {
+        background: url("../icons/social/youtube--white.svg");
+      }
+
+      &--tiktok {
+        background: url("../icons/social/tiktok--white.svg");
+      }
+    }
+  }
+
+  // Black icons
+  &--blue a:hover,
+  &--blue a:active {
+    .social-icon {
+      &--facebook {
+        background: url("../icons/social/facebook--black.svg");
+      }
+
+      &--twitter {
+        background: url("../icons/social/twitter--black.svg");
+      }
+
+      &--instagram {
+        background: url("../icons/social/instagram--black.svg");
+      }
+
+      &--snapchat {
+        background: url("../icons/social/snapchat--black.svg");
+      }
+
+      &--linkedin {
+        background: url("../icons/social/linkedin--black.svg");
+      }
+
+      &--youtube {
+        background: url("../icons/social/youtube--black.svg");
+      }
+
+      &--tiktok {
+        background: url("../icons/social/tiktok--black.svg");
+      }
+    }
+  }
+}

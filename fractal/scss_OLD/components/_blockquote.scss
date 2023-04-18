@@ -1,0 +1,68 @@
+@use "../utilities/_mixins/breakpoints";
+@use "../utilities/colors";
+@use "../utilities/variables";
+
+figure.blockquote {
+  display: block;
+  border-left: 8px solid colors.$ucla-blue;
+  padding: 0 0 0 32px;
+  margin: 24px 24px 0;
+
+  blockquote > p {
+      font-size: variables.$ucla-font-size-default;
+      line-height: 1.5;
+      display: block;
+      margin-bottom: 16px;
+      color: colors.$grey-80;
+    }
+
+    
+
+    @media only screen and (min-width: breakpoints.breakpoint-min(md)) {
+      width: calc((100% / 2) - (24px / 2));
+      float: left;
+      margin-right: 24px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @media only screen and (min-width: breakpoints.breakpoint-min(lg)) {
+      width: calc((100% / 3) - (48px / 3));
+      float: left;
+      margin-right: 24px;
+
+      &:nth-child(2n) {
+        margin-right: 24px;
+      }
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  
+  &> figcaption {
+    font-size: variables.$ucla-font-size-default;
+    line-height: 1.5;
+    display: block;
+    color: colors.$grey-60;
+    max-width: 212px;
+    padding-left: 20px;
+    position: relative;
+
+    &> cite {
+      font-style: italic;
+    }
+
+    &::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+    }
+
+    @media (min-width: breakpoints.breakpoint-min(md)) {
+      max-width: 312px;
+    }
+  }
+}

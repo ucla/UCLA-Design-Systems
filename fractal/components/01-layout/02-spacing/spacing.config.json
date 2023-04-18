@@ -1,0 +1,23 @@
+{
+	"title": "Spacing",
+	"collated": "true",
+	"status": "ready",
+	"variants": [
+		{
+			"name": "default",
+			"label": "Margin"
+		},
+		{
+			"name": "padding",
+			"context": {
+				"order": 2
+			}
+		},
+		{
+			"name": "center",
+			"context": {
+				"order": 3
+			}
+		}
+	]
+}
