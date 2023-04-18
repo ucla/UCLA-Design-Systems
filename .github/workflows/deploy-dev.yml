@@ -35,3 +35,6 @@ jobs:
           fallback: 1.0.0 #Optional fallback tag to use when no tag can be found
       - name: Deploy
         run: aws s3 sync ./fractal/build s3://dev.designsystem.brand.ucla.edu/${{ steps.previoustag.outputs.tag }}
+      - name: Write index.html file
+        run: mkdir redirection
+        run: touch ./redirection/index.html
