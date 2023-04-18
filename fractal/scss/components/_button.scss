@@ -29,6 +29,10 @@
         &:disabled {
             background-color: colors.$disabled-state;
         }
+
+        & > svg path {
+            fill: colors.$white;
+        }
     }
     &--primary-light#{$this} {
         background-color: colors.$default-state-light;
@@ -46,6 +50,10 @@
         }
         &:disabled {
             background-color: colors.$disabled-state-light;
+        }
+
+        & > svg path {
+            fill: colors.$black;
         }
     }
     &--secondary#{$this} {
@@ -103,6 +111,10 @@
         &:hover > svg path,
         &:active > svg path {
             fill: #000;
+        }
+
+        & > svg path {
+            fill: colors.$white;
         }
     }
     &--tertiary {
