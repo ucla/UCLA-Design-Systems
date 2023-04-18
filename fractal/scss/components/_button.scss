@@ -1,4 +1,5 @@
 @use "../utilities/colors";
+
 .ucla-btn {
     $this: &;
     font-size: 1rem;
@@ -7,7 +8,7 @@
     cursor: pointer;
     border-radius: 4px;
     line-height: 1.25;
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     &--primary#{$this} {
@@ -186,13 +187,47 @@
 
 .ucla-pagination--list {
     display: flex;
+    gap: 2px;
 
-    .ucla-pagination--page {
-        text-decoration: none;
-        border: 2px solid colors.$default-state;
-        padding: 0.875rem 1.125rem;
-        font-size: 1rem;
-        font-weight: bold;
-        text-align: center;
+    &-item.ucla-is-disabled > a {
+        pointer-events: none;
+        border-color: colors.$disabled-state;
+
+        & > svg path {
+            fill: colors.$disabled-state;
+        }
     }
+}
+
+.ucla-pagination--page {
+    text-decoration: none;
+    border: 2px solid colors.$default-state;
+    color: colors.$default-state;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > svg {
+        max-height: 0.75rem;
+        width: 100%;
+    }
+
+    &:hover {
+        border-color: colors.$focus-state;
+        background-color: colors.$focus-state;
+        color: colors.$white;
+        > svg path {
+            fill: colors.$white;
+        }
+    }
+}
+
+.ucla-pagination--page--current {
+    background-color: colors.$active-state;
+    color: colors.$white;
+    pointer-events: none;
 }
