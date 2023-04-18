@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "fractal start --sync --watch",
-    "build": "npm-run-all docs-build css js svg",
+    "build": "npm-run-all css js svg docs-build",
     "docs-build": "fractal build",
     "css": "npm-run-all css-compile css-compile-docs css-minify-*",
     "start-with-lint": "npm-run-all css-lint start",

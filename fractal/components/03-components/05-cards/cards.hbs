@@ -1,32 +1,32 @@
 <h2 class="mb-0">Card</h2>
-<article class="basic-card">
-  <img class="basic-card__image" src="{{path '/theme-assets/img/examples/event-card-example-1.jpg'}}"
+<div style="width:18em">
+<article class="ucla-card">
+  <img class="ucla-card__image" src="{{path '/theme-assets/img/examples/event-card-example-1.jpg'}}"
     alt="Two children on their phones under the blankets">
-  <div class="basic-card__info-wrapper">
-    <h1 class="basic-card__title"><span>{{ title }}</span></h1>
-    <p class="basic-card__description">{{ description }}</p>
-    <div class="basic-card__buttons">
+  <div class="ucla-card__body">
+    <h1 class="ucla-card__title">{{ title }}</h1>
+    <p class="ucla-card__description">{{ description }}</p>
       {{#each button}}
-      <button class="btn btn--tertiary">
+      <button class="ucla-btn ucla-btn--primary">
         {{ cta-title }}
       </button>
       {{/each}}
-    </div>
   </div>
 </article>
-
-<article class="basic-card-grey">
-  <img class="basic-card__image" src="{{path '/theme-assets/img/examples/event-card-example-1.jpg'}}"
+</div>
+<div style="width:18em">
+<article class="ucla-card">
+  <img class="ucla-card__image" src="{{path '/theme-assets/img/examples/event-card-example-1.jpg'}}"
     alt="Two children on their phones under the blankets">
-  <div class="basic-card__info-wrapper">
-    <h1 class="basic-card__title"><span>{{ title }}</span></h1>
-    <p class="basic-card__description">{{ description }}</p>
-    <div class="basic-card__buttons">
+  <div class="ucla-card__body">
+    <h1 class="ucla-card__title"><span>{{ title }}</span></h1>
+    <p class="ucla-card__description">{{ description }}</p>
+    
       {{#each button}}
-      <button class="btn btn--tertiary">
+      <a href="#" class="ucla-card__link">
         {{ cta-title }}
-      </button>
+      </a>
       {{/each}}
-    </div>
+    
   </div>
-</article>
+</article></div>

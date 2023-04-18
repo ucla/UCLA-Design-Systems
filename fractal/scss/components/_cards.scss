@@ -1,0 +1,60 @@
+@use "../utilities/colors";
+
+.ucla-card {
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+}
+
+.ucla-card__body {
+    padding: 1.5rem 1.5rem 2.25rem;
+    .ucla-card__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+    .ucla-card__description {
+        margin-bottom: 1.25rem;
+    }
+
+    .ucla-card__link {
+        text-decoration: none;
+        font-weight: bold;
+        color: colors.$default-state;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        & + .ucla-card__link {
+            margin-left: 0.75rem;
+        }
+    }
+}
+
+.ucla-card__event {
+    &-body {
+        display: flex;
+        gap: 1rem;
+        padding: 1.5rem;
+
+        .ucla-card__event-date {
+            color: colors.$default-state;
+            font-weight: bold;
+            text-align: center;
+
+            .ucla-card__event-month {
+                font-size: 1.25rem;
+            }
+            .ucla-card__event-day {
+                font-size: 2.25rem;
+            }
+        }
+
+        .ucla-card__title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: colors.$default-state;
+        }
+    }
+}
