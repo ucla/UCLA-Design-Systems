@@ -1,29 +1,39 @@
-<!-- Pagination (Boxed) -->
-<nav aria-label="Pagination">
-  <ul class="pagination--boxed">
-    <li><a class="page" href="#" aria-label="Previous"><span class="pagination-prev"></span></a></li>
-    <li><a class="page page--current" href="#">1</a></li>
-    <li><a class="page" href="#">2</a></li>
-    <li><a class="page" href="#">3</a></li>
-    <li><a class="page" href="#">4</a></li>
-    <li><a class="page" href="#">5</a></li>
-    <li><a class="page" href="#">6</a></li>
-    <li><a class="page" href="#">7</a></li>
-    <li><a class="page" href="#" aria-label="Next"><span class="pagination-next"></span></a></li>
-  </ul>
-</nav>
+<nav class="ucla-pagination" aria-label="Pagination">
+  <ul class="ucla-pagination--list">
+    <li class="ucla-pagination--list-item ucla-is-disabled">
+      <a class="ucla-pagination--page" href="#" aria-label="First Page">
+        <svg viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 12L7.41 10.59L2.83 6L7.41 1.41L6 1.23266e-07L3.29016e-06 6L6 12Z" fill="#00598C"/>
+          <path d="M11 12L12.41 10.59L7.83 6L12.41 1.41L11 1.23266e-07L5 6L11 12Z" fill="#00598C"/>
+        </svg>
+      </a>
+    </li>
+    <li class="ucla-pagination--list-item ucla-is-disabled">
+      <a class="ucla-pagination--page" href="#" aria-label="Previous">
+        <svg viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 12L7.41 10.59L2.83 6L7.41 1.41L6 1.23266e-07L3.29016e-06 6L6 12Z" fill="#00598C"/>
+        </svg>
+      </a>
+    </li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page ucla-pagination--page--current" href="#">1</a></li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">2</a></li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">3</a></li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">4</a></li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">5</a></li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">6</a></li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">7</a></li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#" aria-label="Next">
+      
+      <svg viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.41 0L0 1.41L4.58 6L0 10.59L1.41 12L7.41 6L1.41 0Z" fill="#00598C"/>
+      </svg>
 
-<!-- Pagination (Unboxed) -->
-<nav aria-label="Pagination">
-  <ul class="pagination">
-    <li><a class="page" href="#"><span class="pagination-prev"></span></a></li>
-    <li><a class="page page--current" href="#">1</a></li>
-    <li><a class="page" href="#">2</a></li>
-    <li><a class="page" href="#">3</a></li>
-    <li><a class="page" href="#">4</a></li>
-    <li><a class="page" href="#">5</a></li>
-    <li><a class="page" href="#">6</a></li>
-    <li><a class="page" href="#">7</a></li>
-    <li><a class="page" href="#"><span class="pagination-next"></span></a></li>
+    </a></li>
+    <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#" aria-label="Last Page">
+      <svg viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.41 0L0 1.41L4.58 6L0 10.59L1.41 12L7.41 6L1.41 0Z" fill="#00598C"/>
+        <path d="M6.41 0L5 1.41L9.58 6L5 10.59L6.41 12L12.41 6L6.41 0Z" fill="#00598C"/>
+      </svg>
+    </a></li>
   </ul>
 </nav>
