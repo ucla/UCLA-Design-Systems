@@ -1,1 +1,1 @@
-How to contribute
+How to contribute to this project
