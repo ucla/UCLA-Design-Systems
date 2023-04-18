@@ -9,7 +9,7 @@ Our goal is to provide flexible resources and tools for any person or team who c
 ---
 
 ## For Developers
-- [Get Local Environemnt Setup](./help/developers/getSetup.md)
+- [Get Local Environment Setup](./help/developers/getSetup.md)
 - [Learn How to Contribute](./help/developers/howToContribute.md)
 - [Project Directory Hierarchy](./help/developers/projectHierarchy.md)
 - [Using BEM Naming Convention](./help/developers/namingConvention.md)
