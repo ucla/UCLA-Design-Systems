@@ -1,3 +1,3 @@
 How to contribute to this project
 
-some more notes
+some more notes again
