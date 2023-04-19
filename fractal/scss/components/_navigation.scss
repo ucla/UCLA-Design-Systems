@@ -141,6 +141,7 @@ body {
 
         @include mixins.for-size(desktop-up) {
             order: 1;
+            white-space: nowrap;
         }
         > &__item {
             display: inline;
