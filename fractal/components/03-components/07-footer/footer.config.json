@@ -5,13 +5,7 @@
   "variants": [
     {
       "name": "default",
-      "label": "Department"
-    },
-    {
-      "name": "email"
-    },
-    {
-      "name": "global"
+      "label": "Default"
     }
   ]
 }
