@@ -241,6 +241,11 @@
         border-color: colors.$active-state;
         background-color: colors.$active-state;
     }
+
+    &:focus {
+        outline: 1px solid colors.$focus-state;
+        outline-offset: 1px;
+    }
 }
 
 .ucla-pagination--page--current {
