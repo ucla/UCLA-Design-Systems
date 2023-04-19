@@ -236,6 +236,11 @@
             fill: colors.$white;
         }
     }
+
+    &:active {
+        border-color: colors.$active-state;
+        background-color: colors.$active-state;
+    }
 }
 
 .ucla-pagination--page--current {
