@@ -1,11 +1,9 @@
 {
 	"title": "Footer",
   "status": "ready",
-  "collated": true,
   "variants": [
     {
-      "name": "default",
-      "label": "Default"
+      "name": "default"
     }
   ]
 }
