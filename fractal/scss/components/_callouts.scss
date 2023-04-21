@@ -28,6 +28,7 @@
         @include mixins.for-size(tablet-up) {
             margin-bottom: 0;
             margin-right: 1rem;
+            font-size: 3.375rem;
         }
     }
     .ucla-callout__body {

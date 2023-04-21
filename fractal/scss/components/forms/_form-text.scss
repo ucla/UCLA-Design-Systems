@@ -6,7 +6,7 @@
     border-radius: 4px;
     width: 100%;
     max-width: 100%;
-    padding: 0.625rem 1rem;
+    padding: 0.563rem 1rem;
 
     &::placeholder {
         color: colors.$grey-60;
@@ -37,7 +37,7 @@
 
     &:disabled {
         color: colors.$grey-20;
-        border: colors.$grey-05;
+        border-color: colors.$grey-05;
         cursor: not-allowed;
     }
 }
