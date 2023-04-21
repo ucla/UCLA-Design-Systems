@@ -1,0 +1,42 @@
+@use "../../utilities/colors";
+
+.ucla-field:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.ucla-field__label {
+    color: colors.$grey-80;
+    display: block;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.ucla-field__control {
+    box-sizing: border-box;
+    position: relative;
+    clear: both;
+}
+
+.ucla-field__help {
+    font-size: 0.8rem;
+    margin-top: 6px;
+
+    .ucla-is-warning & {
+        color: colors.$warning-orange;
+    }
+
+    .ucla-is-error & {
+        color: colors.$error-red;
+    }
+}
+
+.ucla-fieldset {
+    border: 1px solid colors.$grey-40;
+    padding: 2rem;
+
+    .ucla-fieldset__legend {
+        font-size: 1rem;
+        padding: 0 7px;
+    }
+}

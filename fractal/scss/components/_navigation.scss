@@ -422,6 +422,7 @@ body {
 
         &:hover {
             color: colors.$white;
+            background-color: colors.$hover-state;
         }
     }
 }

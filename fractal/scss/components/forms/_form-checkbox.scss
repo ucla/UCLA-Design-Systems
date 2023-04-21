@@ -1,0 +1,62 @@
+@use "../../utilities/colors";
+
+.ucla-field__checkbox-label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    line-height: 1.5;
+
+    &[disabled] {
+        color: colors.$disabled-state;
+        cursor: not-allowed;
+    }
+
+    .ucla-field__checkbox {
+        cursor: pointer;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+        border: 1px solid colors.$grey-60;
+        border-radius: 2px;
+
+        &:disabled {
+            background-color: colors.$grey-05;
+            border-color: colors.$disabled-state;
+            cursor: not-allowed;
+        }
+
+        &:not(:disabled):hover {
+            border: 2px solid colors.$hover-state;
+        }
+        &:focus {
+            border: 2px solid colors.$focus-state;
+        }
+
+        &:not(:disabled):active {
+            background-color: colors.$active-state;
+
+            &:checked {
+                background-image: url("data:image/svg+xml,%3Csvg width='17' height='13' viewBox='0 0 17 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.7 12.025L-1.1059e-06 6.325L1.425 4.9L5.7 9.175L14.875 2.60083e-06L16.3 1.425L5.7 12.025Z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+                background-color: colors.$active-state;
+            }
+        }
+
+        &:checked {
+            background-image: url("data:image/svg+xml,%3Csvg width='17' height='13' viewBox='0 0 17 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.7 12.025L-1.1059e-06 6.325L1.425 4.9L5.7 9.175L14.875 2.60083e-06L16.3 1.425L5.7 12.025Z' fill='%232774AE'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-color: colors.$white;
+            background-position: 50%;
+        }
+
+        &.ucla-is-error {
+            border: 2px solid colors.$error-red;
+        }
+    }
+
+    .ucla-is-error & {
+        .ucla-field__checkbox {
+            border: 2px solid colors.$error-red;
+        }
+    }
+}
