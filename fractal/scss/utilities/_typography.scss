@@ -142,6 +142,25 @@ code {
     line-height: 1.2;
 }
 
+.ucla-text-left {
+    text-align: left !important;
+}
+.ucla-text-right {
+    text-align: right !important;
+}
+.ucla-text-center {
+    text-align: center !important;
+}
+.ucla-text-regular {
+    font-weight: 400 !important;
+}
+.ucla-text-bold {
+    font-weight: 700 !important;
+}
+.ucla-text-uppercase {
+    text-transform: uppercase;
+}
+
 .ucla-prose {
     line-height: 1.5;
 

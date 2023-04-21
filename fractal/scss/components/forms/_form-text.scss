@@ -1,0 +1,67 @@
+@use "../../utilities/colors";
+
+.ucla-field__input {
+    background-color: colors.$grey-05;
+    border: 1px solid colors.$grey-60;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.625rem 1rem;
+
+    &::placeholder {
+        color: colors.$grey-60;
+    }
+
+    &:focus {
+        outline: 2px solid colors.$focus-state;
+    }
+
+    .ucla-is-warning &,
+    &.ucla-is-warning {
+        border-color: colors.$warning-orange;
+        color: colors.$warning-orange;
+    }
+
+    .ucla-is-error &,
+    &.ucla-is-error {
+        border-color: colors.$error-red;
+        color: colors.$error-red;
+    }
+
+    .ucla-has-left-icon & {
+        padding-left: 3em;
+    }
+    .ucla-has-right-icon & {
+        padding-right: 3em;
+    }
+
+    &:disabled {
+        color: colors.$grey-20;
+        border: colors.$grey-05;
+        cursor: not-allowed;
+    }
+}
+
+.ucla-field__icon-left,
+.ucla-field__icon-right {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5em;
+    height: 2.4em;
+
+    & > svg {
+        width: 20px;
+        height: 16px;
+    }
+}
+.ucla-field__icon-left {
+    left: 0;
+}
+.ucla-field__icon-right {
+    right: 0;
+}
