@@ -54,12 +54,6 @@
       "context": {
         "order": 9
       }
-    },
-    {
-      "name": "three-tier",
-      "context": {
-        "order": 10
-      }
     }
   ]
 }

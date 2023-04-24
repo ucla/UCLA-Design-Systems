@@ -39,9 +39,11 @@ body {
 
     &__breadcrumb {
         line-height: 0.6;
+        margin: 0;
 
         & > &-item {
             display: inline-block;
+            margin-top: 0;
 
             & > a {
                 font-size: 1rem;
@@ -138,6 +140,7 @@ body {
 
     &__list {
         order: 2;
+        margin: 0;
 
         @include mixins.for-size(desktop-up) {
             order: 1;
@@ -163,6 +166,10 @@ body {
         display: block;
         margin-left: auto;
         align-self: center;
+    }
+
+    &__list {
+        margin: 0;
     }
 }
 
@@ -254,6 +261,8 @@ body {
     align-items: center;
     flex-wrap: wrap;
     border-bottom: 1px solid colors.$grey-20;
+    margin-top: 0;
+
     @include mixins.for-size(desktop-up) {
         display: inline-flex;
         position: relative;
@@ -394,6 +403,7 @@ body {
 
 .nav-secondary__item {
     border-bottom: 1px solid colors.$grey-20;
+    margin-top: 0;
 
     @include mixins.for-size(desktop-up) {
         display: inline-block;
@@ -432,6 +442,7 @@ body {
     flex-grow: 1;
     width: 100%;
     background-color: colors.$grey-05;
+    margin: 0;
 
     @include mixins.for-size(up-to-tablet) {
         border-top: 1px solid colors.$grey-20;
