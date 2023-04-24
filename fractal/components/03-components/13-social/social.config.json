@@ -1,7 +1,7 @@
 {
   "title": "Social",
   "status": "ready",
-  "collated": true,
+  "hidden": true,
   "variants": [
     {
       "name": "default",

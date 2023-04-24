@@ -1,6 +1,8 @@
 @use "./navigation";
 @use "./alerts";
 @use "./accordion";
+@use "./banners";
+@use "./chips";
 @use "./forms";
 @use "./ribbon";
 @use "./tabs";
@@ -8,3 +10,4 @@
 @use "./cards";
 @use "./callouts";
 @use "./table";
+@use "./tile";

@@ -18,6 +18,9 @@
     },
     {
       "name": "pagination"
+    },
+    {
+      "name": "related-links"
     }
   ]
 }
