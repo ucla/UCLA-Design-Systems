@@ -1,7 +1,39 @@
 <h2 class="mt-24">Radio Input</h2>
-<div class="radio" style="margin-left: 5px">
-  <input class="radio__input" type="radio" name="radio" value="radio1">
-  <label class="radio__label" for="">Radio 1</label>
-  <input class="radio__input" type="radio" name="radio" value="radio2">
-  <label class="radio__label" for="">Radio 2</label>
+<div class="ucla-field">
+  <div class="ucla-field__control">
+    <label class="ucla-field__radio-label" for="exampleRadio1">
+        <input id="exampleRadio1" class="ucla-field__radio" type="radio" name="radio" value="radio1">
+        Radio 1
+      </label>
+      <label class="ucla-field__radio-label" for="exampleRadio2">
+        <input id="exampleRadio2" class="ucla-field__radio" type="radio" name="radio" value="radio2">
+        Radio 2
+      </label>
+  </div>
+</div>
+
+<div class="ucla-field ucla-is-error">
+  <div class="ucla-field__control">
+    <label class="ucla-field__radio-label" for="exampleRadioError1">
+        <input id="exampleRadioError1" class="ucla-field__radio" type="radio" name="radio-error" value="radio1">
+        Radio 1
+      </label>
+      <label class="ucla-field__radio-label" for="exampleRadioError2">
+        <input id="exampleRadioError2" class="ucla-field__radio" type="radio" name="radio-error" value="radio2">
+        Radio 2
+      </label>
+  </div>
+</div>
+
+<div class="ucla-field">
+  <div class="ucla-field__control">
+    <label class="ucla-field__radio-label" for="exampleRadioDisabled1" disabled>
+        <input id="exampleRadioDisabled1" class="ucla-field__radio" type="radio" name="radio-disabled" value="radio1" disabled>
+        Radio 1
+      </label>
+      <label class="ucla-field__radio-label" for="exampleRadioDisabled2" disabled>
+        <input id="exampleRadioDisabled2" class="ucla-field__radio" type="radio" name="radio-disabled" value="radio2" disabled>
+        Radio 2
+      </label>
+  </div>
 </div>

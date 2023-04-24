@@ -1,0 +1,63 @@
+@use "../utilities/colors";
+@use "../utilities/mixins";
+
+.ucla-table {
+    td,
+    th {
+        border: 1px solid colors.$grey-20;
+        border-width: 0;
+        padding: 0.875rem 1rem;
+        vertical-align: top;
+        font-size: 0.8rem;
+    }
+    th {
+        font-weight: bold;
+
+        &.ucla-sortable {
+            cursor: pointer;
+            position: relative;
+
+            svg {
+                width: 8px;
+                height: 14px;
+                position: absolute;
+                right: 0;
+
+                path {
+                    fill: colors.$grey-80;
+                }
+
+                &.asc path:first-child {
+                    fill: colors.$ucla-blue;
+                }
+                &.desc path:last-child {
+                    fill: colors.$ucla-blue;
+                }
+            }
+        }
+    }
+    tbody tr {
+        &:nth-child(odd) {
+            background-color: colors.$grey-05;
+        }
+        &.ucla-is-gold {
+            background-color: colors.$ucla-gold;
+        }
+        &.ucla-is-blue {
+            background-color: colors.$lightest-blue;
+        }
+    }
+    &.ucla-table__border {
+        td,
+        th {
+            border-width: 1px;
+        }
+    }
+}
+
+.ucla-table__responsive {
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    overflow: auto;
+    overflow-y: hidden;
+}

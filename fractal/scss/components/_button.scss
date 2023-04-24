@@ -118,6 +118,7 @@
         }
     }
     &--tertiary {
+        border: 2px solid colors.$white;
         color: colors.$default-state;
         &:hover {
             background-color: colors.$hover-state;
