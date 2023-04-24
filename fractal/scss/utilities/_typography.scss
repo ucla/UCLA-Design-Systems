@@ -251,6 +251,7 @@ ul {
     }
 
     &.ucla-list__inline {
+        margin-top: 0;
         margin-left: 0;
         list-style: none;
         & > li {
@@ -258,6 +259,10 @@ ul {
 
             &:not(:last-child) {
                 margin-right: 1.5rem;
+            }
+
+            & + li {
+                margin-top: 0;
             }
         }
     }
