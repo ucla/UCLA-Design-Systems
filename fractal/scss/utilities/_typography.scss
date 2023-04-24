@@ -1,5 +1,6 @@
 @use "./variables";
 @use "./colors";
+@use "./mixins";
 
 html {
     -moz-osx-font-smoothing: grayscale;
@@ -60,7 +61,12 @@ p {
     line-height: 1.5;
 
     &.lead {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        line-height: 1.2;
+
+        @include mixins.for-size(tablet-up) {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -243,6 +249,10 @@ ul {
         ul {
             list-style-type: square;
         }
+    }
+
+    & > li::marker {
+        font-size: 1.1rem;
     }
 
     &.ucla-list__plain {

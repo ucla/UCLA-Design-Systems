@@ -16,10 +16,11 @@
     max-width: 30ch;
     color: colors.$white;
 
-    @include mixins.for-size(desktop-up) {
+    @include mixins.for-size(tablet-up) {
         font-size: 3rem;
         line-height: 1.4;
     }
+
     .ucla-ribbon__text {
         background-color: colors.$ucla-blue;
         box-shadow: 10px 0 0 colors.$ucla-blue;
