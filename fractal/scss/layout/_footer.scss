@@ -76,6 +76,7 @@
 .ucla-social {
     display: flex;
     flex-wrap: nowrap;
+    list-style: none;
 
     .ucla-dept-footer & {
         margin-left: -0.75rem;
@@ -86,6 +87,10 @@
             margin-bottom: 0;
             margin-top: 1.875rem;
         }
+    }
+
+    &__item {
+        margin: 0;
     }
 
     &__link {
@@ -142,11 +147,16 @@
             color: colors.$white;
             margin-bottom: 8px;
         }
-        .ucla-dept-footer__nav li {
-            margin-bottom: 8px;
-            a {
-                font-size: 0.75rem;
-                text-decoration: none;
+        .ucla-dept-footer__nav {
+            list-style: none;
+            margin: 0;
+            li {
+                margin-top: 0;
+                margin-bottom: 8px;
+                a {
+                    font-size: 0.75rem;
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -175,8 +185,11 @@
     }
 
     .ucla-social {
+        margin-top: 0;
+        margin-left: -0.75rem;
         order: 3;
         @include mixins.for-size(tablet-up) {
+            margin-left: 0;
             order: 2;
         }
         @include mixins.for-size(desktop-up) {
@@ -229,8 +242,11 @@
     width: 100%;
     flex-direction: column;
     margin-top: 1rem;
+    margin-left: 0;
+    list-style: none;
 
     li {
+        margin-top: 0;
         margin-bottom: 1rem;
 
         @include mixins.for-size(tablet-up) {

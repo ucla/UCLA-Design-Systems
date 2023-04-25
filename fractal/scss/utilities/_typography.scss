@@ -1,5 +1,6 @@
 @use "./variables";
 @use "./colors";
+@use "./mixins";
 
 html {
     -moz-osx-font-smoothing: grayscale;
@@ -12,12 +13,64 @@ body {
     font-size: 16px;
 }
 
+.ucla-prose {
+    line-height: 1.5;
+
+    h1 {
+        font-size: variables.$text-xl;
+        line-height: 1.25;
+    }
+    h2 {
+        font-size: variables.$text-xl;
+        line-height: 1.25;
+    }
+    h3 {
+        font-size: variables.$text-lg;
+        line-height: 1.22;
+    }
+    h4 {
+        font-size: variables.$text-md;
+        line-height: 1.33;
+    }
+    h5 {
+        font-size: variables.$text-base;
+        line-height: 1.25;
+    }
+    h6 {
+        font-size: variables.$text-sm;
+        line-height: 1.71;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: bold;
+    }
+
+    p {
+        margin-block-start: 1rem;
+        margin-block-end: 1rem;
+
+        &:first-child {
+            margin-block-start: 0;
+        }
+    }
+}
+
 p {
     font-size: 1rem;
     line-height: 1.5;
 
     &.lead {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        line-height: 1.2;
+
+        @include mixins.for-size(tablet-up) {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -161,40 +214,87 @@ code {
     text-transform: uppercase;
 }
 
-.ucla-prose {
+// List
+li + li {
+    margin-top: 1.5rem;
+}
+
+ol {
+    list-style-position: outside;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+
+    &:not([type]) {
+        list-style-type: decimal;
+
+        &.ucla-list__lower-alpha {
+            list-style-type: lower-alpha;
+        }
+        &.ucla-list__lower-roman {
+            list-style-type: lower-roman;
+        }
+        &.ucla-list__upper-alpha {
+            list-style-type: upper-alpha;
+        }
+        &.ucla-list__upper-roman {
+            list-style-type: upper-roman;
+        }
+    }
+}
+
+ul {
+    list-style: disc outside;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+
+    ul {
+        list-style-type: circle;
+
+        ul {
+            list-style-type: square;
+        }
+    }
+
+    & > li::marker {
+        font-size: 1.1rem;
+    }
+
+    &.ucla-list__plain {
+        list-style: none;
+        margin-left: 0;
+    }
+
+    &.ucla-list__inline {
+        margin-top: 0;
+        margin-left: 0;
+        list-style: none;
+        & > li {
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: 1.5rem;
+            }
+
+            & + li {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+dt {
+    font-weight: bold;
     line-height: 1.5;
+}
 
-    h1 {
-        font-size: variables.$text-xl;
-        line-height: 1.25;
-    }
-    h2 {
-        font-size: variables.$text-xl;
-        line-height: 1.25;
-    }
-    h3 {
-        font-size: variables.$text-lg;
-        line-height: 1.22;
-    }
-    h4 {
-        font-size: variables.$text-md;
-        line-height: 1.33;
-    }
-    h5 {
-        font-size: variables.$text-base;
-        line-height: 1.25;
-    }
-    h6 {
-        font-size: variables.$text-sm;
-        line-height: 1.71;
-    }
+dd {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-weight: bold;
-    }
+hr {
+    background-color: colors.$grey-20;
+    border: none;
+    height: 1px;
+    margin: 1.5rem 0;
 }

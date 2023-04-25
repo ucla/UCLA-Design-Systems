@@ -1,0 +1,315 @@
+@use "../utilities/mixins";
+@use "../utilities/colors";
+
+.ucla-banner {
+    max-height: 214px;
+    width: 100%;
+    block-size: auto;
+    object-fit: cover;
+    object-position: top center;
+
+    @include mixins.for-size(tablet-up) {
+        max-height: 436px;
+    }
+}
+.ucla-banner__ribbon {
+    height: 214px;
+    padding-top: 2rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include mixins.for-size(tablet-up) {
+        padding-top: 4rem;
+        height: 436px;
+    }
+}
+
+.ucla-banner__text {
+    background-color: colors.$ucla-blue;
+    color: colors.$white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include mixins.for-size(tablet-up) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    @include mixins.for-size(desktop-up) {
+        padding-top: 6em;
+        padding-bottom: 6rem;
+    }
+
+    &.ucla-banner__text-full-width {
+        .ucla > .col & {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+    }
+}
+
+.ucla-banners__ribbon-text .ucla-banner__text {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: -2rem;
+
+    @include mixins.for-size(desktop-lg-up) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        margin-top: -4rem;
+    }
+
+    &.ucla-banner__text-white {
+        background-color: colors.$white;
+        color: colors.$grey-80;
+    }
+}
+
+.ucla-banner__box {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 76.5rem;
+    margin: 0 auto;
+
+    @include mixins.for-size(desktop-up) {
+        padding: 0 1.5rem;
+        align-items: center;
+
+        &-left {
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+
+            & > .ucla-banner__box-image {
+                margin-right: -50%;
+                right: 8.3333333333%;
+            }
+        }
+
+        &-right {
+            flex-direction: row;
+            justify-content: flex-end;
+            & > .ucla-banner__box-image {
+                margin-left: -50%;
+                left: 8.3333333333%;
+            }
+        }
+    }
+
+    & > .ucla-banner__box-text {
+        margin: -2rem 1.5rem 0;
+        display: block;
+        padding: 2rem;
+        background-color: colors.$ucla-blue;
+        color: colors.$white;
+
+        @include mixins.for-size(desktop-up) {
+            width: 50%;
+            z-index: 1;
+            flex-grow: 1;
+            flex-basis: 0;
+            flex-shrink: 1;
+            margin: 0;
+        }
+
+        &.ucla-banner__box-text-white {
+            background-color: colors.$white;
+            color: colors.$grey-80;
+        }
+    }
+
+    & > .ucla-banner__box-image {
+        width: 100%;
+        max-height: 214px;
+        object-fit: cover;
+        object-position: top center;
+
+        @include mixins.for-size(tablet-up) {
+            max-height: 436px;
+        }
+
+        @include mixins.for-size(desktop-up) {
+            max-height: 540px;
+            position: relative;
+        }
+    }
+}
+
+.ucla-banner__quote {
+    background-color: colors.$ucla-blue;
+    color: colors.$white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include mixins.for-size(tablet-up) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    @include mixins.for-size(desktop-up) {
+        padding-top: 5.5rem;
+        padding-bottom: 5.5rem;
+    }
+
+    .ucla-banner__quote-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include mixins.for-size(desktop-up) {
+            flex-direction: row;
+            align-items: start;
+        }
+
+        .ucla-banner__quote-image {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+
+            @include mixins.for-size(up-to-tablet) {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    .ucla-banner__quote-content {
+        margin-left: 1.5rem;
+        @include mixins.for-size(tablet-up) {
+            margin-left: 2rem;
+        }
+        @include mixins.for-size(desktop-up) {
+            margin-left: 4rem;
+        }
+        blockquote {
+            position: relative;
+        }
+        blockquote,
+        q {
+            quotes: "“" "”" "‘" "’";
+        }
+        q::before {
+            content: open-quote;
+        }
+        q::after {
+            content: close-quote;
+        }
+
+        blockquote > p {
+            font-size: 1.25rem;
+            font-weight: bold;
+            line-height: 1.12;
+            margin-bottom: 1rem;
+
+            @include mixins.for-size(tablet-up) {
+                font-size: 1.75rem;
+            }
+
+            @include mixins.for-size(desktop-up) {
+                font-size: 2.25rem;
+            }
+
+            &::before {
+                content: open-quote;
+                position: absolute;
+                margin-left: -24px;
+            }
+            &::after {
+                content: close-quote;
+            }
+        }
+
+        cite::before {
+            content: "\2014";
+            margin-right: 5px;
+        }
+
+        figure:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &.ucla-banner__quote-full-width {
+        .ucla > .col & {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+    }
+}
+
+.ucla-banner__email {
+    background-color: colors.$grey-05;
+    padding: 2rem 1.5rem;
+
+    @include mixins.for-size(desktop-up) {
+        padding: 4rem 1.5rem;
+    }
+
+    &-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.12;
+    }
+
+    .ucla-banner__email-form {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+
+        @include mixins.for-size(tablet-up) {
+            grid-template-columns: repeat(2, 1fr);
+
+            & > .ucla-field:first-child,
+            & > .ucla-field:last-child {
+                grid-column: 1/-1;
+            }
+        }
+
+        @include mixins.for-size(desktop-up) {
+            grid-template-columns: repeat(5, 1fr);
+
+            & > .ucla-field:first-child,
+            & > .ucla-field:last-child {
+                grid-column: unset;
+            }
+
+            & > .ucla-field:last-child {
+                align-self: end;
+            }
+        }
+
+        & > .ucla-field {
+            margin-bottom: 0;
+        }
+
+        .ucla-btn {
+            white-space: nowrap;
+            margin-top: 0.5rem;
+
+            @include mixins.for-size(desktop-up) {
+                margin-bottom: 0;
+                margin-left: auto;
+                display: block;
+            }
+        }
+    }
+
+    input {
+        background-color: colors.$white;
+    }
+
+    .ucla-banner__email-text {
+        font-size: 0.8rem;
+        line-height: 1.25;
+        margin-top: 1rem;
+
+        @include mixins.for-size(tablet-up) {
+            margin-top: 1.5rem;
+        }
+    }
+}
