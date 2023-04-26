@@ -10,13 +10,13 @@ html {
 
 body {
     /* Footer will be hidden on iOS Safari because of bottom panel */
-    height: 100vh;
+    min-height: 100vh;
 }
 
 @supports (-webkit-touch-callout: none) {
     body {
         /* The hack for Safari */
-        height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
     }
 }
 
