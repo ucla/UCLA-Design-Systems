@@ -1,5 +1,6 @@
 @use "./variables";
 @use "./colors";
+@use "./mixins";
 
 html {
     -moz-osx-font-smoothing: grayscale;
@@ -52,6 +53,10 @@ body {
     p {
         margin-block-start: 1rem;
         margin-block-end: 1rem;
+
+        &:first-child {
+            margin-block-start: 0;
+        }
     }
 }
 
@@ -60,7 +65,12 @@ p {
     line-height: 1.5;
 
     &.lead {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        line-height: 1.2;
+
+        @include mixins.for-size(tablet-up) {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -245,6 +255,10 @@ ul {
         }
     }
 
+    & > li::marker {
+        font-size: 1.1rem;
+    }
+
     &.ucla-list__plain {
         list-style: none;
         margin-left: 0;
@@ -270,10 +284,12 @@ ul {
 
 dt {
     font-weight: bold;
+    line-height: 1.5;
 }
 
 dd {
     margin-bottom: 1rem;
+    line-height: 1.5;
 }
 
 hr {

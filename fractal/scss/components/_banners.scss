@@ -54,9 +54,9 @@
 .ucla-banners__ribbon-text .ucla-banner__text {
     padding-top: 2rem;
     padding-bottom: 2rem;
-    margin-top: -2rem;
+    margin-top: -1.5rem;
 
-    @include mixins.for-size(desktop-up) {
+    @include mixins.for-size(desktop-lg-up) {
         padding-top: 4rem;
         padding-bottom: 4rem;
         margin-top: -4rem;
@@ -197,10 +197,18 @@
         }
 
         blockquote > p {
-            font-size: 2.25rem;
+            font-size: 1.25rem;
             font-weight: bold;
             line-height: 1.12;
             margin-bottom: 1rem;
+
+            @include mixins.for-size(tablet-up) {
+                font-size: 1.75rem;
+            }
+
+            @include mixins.for-size(desktop-up) {
+                font-size: 2.25rem;
+            }
 
             &::before {
                 content: open-quote;
@@ -237,6 +245,10 @@
 .ucla-banner__email {
     background-color: colors.$grey-05;
     padding: 2rem 1.5rem;
+
+    @include mixins.for-size(desktop-up) {
+        padding: 4rem 1.5rem;
+    }
 
     &-title {
         font-size: 1.25rem;
