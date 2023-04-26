@@ -25,6 +25,10 @@
     &__site-title-link {
         line-height: 0;
         margin-left: 1.125rem;
+
+        @include mixins.for-size(phone-only) {
+            display: none;
+        }
         @include mixins.for-size(desktop-up) {
             margin-left: 1.313rem;
         }
