@@ -8,6 +8,18 @@ html {
     text-size-adjust: 100%;
 }
 
+body {
+    /* Footer will be hidden on iOS Safari because of bottom panel */
+    height: 100vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        /* The hack for Safari */
+        height: -webkit-fill-available;
+    }
+}
+
 .visuallyhidden {
     width: 1px;
     height: 1px;
