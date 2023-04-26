@@ -1,0 +1,53 @@
+@use "../../utilities/colors";
+@use "../../utilities/mixins";
+
+.ucla-header--school {
+    border-top: 11px solid colors.$ucla-blue;
+    border-bottom: 1px solid colors.$grey-20;
+
+    &__logo-link {
+        line-height: 0;
+
+        @include mixins.for-size(up-to-tablet) {
+            margin-left: 1.5rem;
+        }
+        & > svg {
+            width: 6rem;
+            height: 2.75rem;
+
+            @include mixins.for-size(tablet-up) {
+                width: 7.688rem;
+                height: 3.563rem;
+            }
+        }
+    }
+
+    &__site-title-link {
+        line-height: 0;
+        margin-left: 1.125rem;
+        @include mixins.for-size(desktop-up) {
+            margin-left: 1.313rem;
+        }
+
+        & > svg {
+            max-height: 2.5rem;
+            margin-top: 7px;
+        }
+    }
+
+    .ucla-header__container {
+        padding: 1rem 0;
+        justify-content: flex-start;
+
+        @include mixins.for-size(tablet-up) {
+            padding: 0.938rem 0;
+        }
+        @include mixins.for-size(desktop-up) {
+            padding: 0.938rem 1.5rem 0;
+        }
+    }
+
+    .hamburger {
+        margin-left: auto;
+    }
+}

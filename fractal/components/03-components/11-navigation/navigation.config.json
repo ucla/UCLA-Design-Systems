@@ -5,55 +5,7 @@
   "variants": [
     {
       "name": "default",
-      "label": "Default"
-    },
-    {
-      "name": "primary",
-      "context": {
-        "order": 2
-      }
-    },
-    {
-      "name": "primary-with-search-without-children",
-      "context": {
-        "order": 3
-      }
-    },
-    {
-      "name": "primary-no-search",
-      "context": {
-        "order": 4
-      }
-    },
-    {
-      "name": "primary-without-search-with-children",
-      "context": {
-        "order": 5
-      }
-    },
-    {
-      "name": "secondary",
-      "context": {
-        "order": 6
-      }
-    },
-    {
-      "name": "hamburger",
-      "context": {
-        "order": 7
-      }
-    },
-    {
-      "name": "header-logo",
-      "context": {
-        "order": 8
-      }
-    },
-    {
-      "name": "breadcrumb",
-      "context": {
-        "order": 9
-      }
+      "label": "College"
     }
   ]
 }

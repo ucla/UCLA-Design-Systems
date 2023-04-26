@@ -2,11 +2,11 @@
 // Media Breakpoints
 @mixin for-size($range) {
     @if $range == phone-only {
-        @media (max-width: #{variables.$tablet - 1}) {
+        @media (max-width: #{variables.$tablet - 1px}) {
             @content;
         }
     } @else if $range == up-to-tablet {
-        @media (max-width: #{variables.$desktop - 1}) {
+        @media (max-width: #{variables.$desktop - 1px}) {
             @content;
         }
     } @else if $range == tablet-up {
