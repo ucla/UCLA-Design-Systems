@@ -17,12 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
     if (hamburger) {
         hamburger.addEventListener("click", (e) => {
             e.stopPropagation();
+            if (header.classList.contains("is-open")) {
+                hamburger.setAttribute("aria-expanded", "false");
+            } else {
+                hamburger.setAttribute("aria-expanded", "true");
+            }
             header.classList.toggle("is-open");
         });
     }
     if (searchButton) {
         searchButton.addEventListener("click", (e) => {
             e.stopPropagation();
+            if (primaryNavSearch.classList.contains("is-open")) {
+                searchButton.setAttribute("aria-expanded", "false");
+            } else {
+                searchButton.setAttribute("aria-expanded", "true");
+            }
             primaryNavSearch.classList.toggle("is-open");
         });
     }
@@ -33,12 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
             primaryNavSearch.classList.remove("is-open");
+            searchButton.setAttribute("aria-expanded", "false");
         });
     }
     if (document.getElementById("nav-main")) {
         document.addEventListener("click", (e) => {
             if (!document.getElementById("nav-main").contains(e.target)) {
                 header.classList.remove("is-open");
+                hamburger.setAttribute("aria-expanded", "false");
             }
         });
     }
@@ -51,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.stopPropagation();
                 if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
                     $el.classList.add("is-open");
+                    $el.setAttribute("aria-expanded", "true");
                 }
             });
 
@@ -63,6 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         return;
                     }
                     $el.classList.remove("is-open");
+                    console.log($el);
+                    $el.querySelector(".ucla-main-nav__toggle").setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
                 }
             );
         });
@@ -73,6 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
         $navPrimaryToggles.forEach(($el) => {
             $el.addEventListener("click", (e) => {
                 e.stopPropagation();
+                if ($el.closest("li").classList.contains("is-open")) {
+                    $el.setAttribute("aria-expanded", "false");
+                } else {
+                    $el.setAttribute("aria-expanded", "true");
+                }
                 $el.closest("li").classList.toggle("is-open");
             });
         });
