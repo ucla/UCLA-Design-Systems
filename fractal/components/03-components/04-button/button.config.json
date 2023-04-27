@@ -1,0 +1,26 @@
+{
+  "title": "Buttons",
+  "status": "ready",
+  "collated": true,
+  "variants": [
+    {
+      "name": "default",
+      "label": "Primary"
+    },
+    {
+      "name": "secondary",
+      "context": {
+        "order": 2
+      }
+    },
+    {
+      "name": "tertiary"
+    },
+    {
+      "name": "pagination"
+    },
+    {
+      "name": "related-links"
+    }
+  ]
+}

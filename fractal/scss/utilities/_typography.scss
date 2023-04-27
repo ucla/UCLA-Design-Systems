@@ -1,0 +1,300 @@
+@use "./variables";
+@use "./colors";
+@use "./mixins";
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    color: colors.$grey-80;
+    font-family: variables.$font;
+    font-size: 16px;
+}
+
+.ucla-prose {
+    line-height: 1.5;
+
+    h1 {
+        font-size: variables.$text-xl;
+        line-height: 1.25;
+    }
+    h2 {
+        font-size: variables.$text-xl;
+        line-height: 1.25;
+    }
+    h3 {
+        font-size: variables.$text-lg;
+        line-height: 1.22;
+    }
+    h4 {
+        font-size: variables.$text-md;
+        line-height: 1.33;
+    }
+    h5 {
+        font-size: variables.$text-base;
+        line-height: 1.25;
+    }
+    h6 {
+        font-size: variables.$text-sm;
+        line-height: 1.71;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: bold;
+    }
+
+    p {
+        margin-block-start: 1rem;
+        margin-block-end: 1rem;
+
+        &:first-child {
+            margin-block-start: 0;
+        }
+    }
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+
+    &.lead {
+        font-size: 1.25rem;
+        line-height: 1.2;
+
+        @include mixins.for-size(tablet-up) {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+a:not([class]) {
+    color: colors.$default-state;
+    text-decoration: underline;
+
+    &:visited {
+        color: colors.$visited-state;
+    }
+
+    &:hover {
+        color: colors.$white;
+        background-color: colors.$hover-state;
+    }
+    &:focus {
+        outline: 1px solid colors.$focus-state;
+    }
+    &:active {
+        color: colors.$active-state;
+    }
+}
+
+small {
+    font-size: 0.875rem;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+ins {
+    background-color: colors.$lightest-blue;
+}
+
+mark {
+    background: colors.$focus-state-light;
+}
+
+code {
+    font-family: "Courier", monospace;
+    background-color: rgba(83, 83, 99, 0.075);
+}
+
+.blockquote {
+    padding-left: 1.75rem;
+    border-left: 8px solid colors.$ucla-blue;
+
+    & > figcaption {
+        margin-top: 1rem;
+        padding-left: 1.1rem;
+        color: colors.$grey-60;
+        position: relative;
+
+        &::before {
+            content: "\2014";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+.text-lg {
+    font-size: variables.$text-md;
+    line-height: 1.5;
+}
+
+.text-sm {
+    font-size: variables.$text-sm;
+    line-height: 1.71;
+}
+
+.text-editorial {
+    font-size: variables.$text-sm;
+    font-weight: bold;
+    color: colors.$grey-60;
+}
+
+// Title & Headline
+.title-text__xl {
+    font-size: variables.$text-xxl;
+}
+
+.title-text__lg,
+.headline-text__xl {
+    font-size: variables.$text-xl;
+}
+
+.title-text__md,
+.headline-text__lg {
+    font-size: variables.$text-lg;
+}
+
+.title-text__sm,
+.headline-text__md {
+    font-size: variables.$text-md;
+}
+
+.headline-text {
+    font-size: variables.$text-base;
+}
+
+.headline-text__sm {
+    font-size: variables.$text-sm;
+}
+
+.headline-text__xl,
+.headline-text__lg,
+.headline-text__md,
+.headline-text,
+.headline-text__sm {
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.ucla-text-left {
+    text-align: left !important;
+}
+.ucla-text-right {
+    text-align: right !important;
+}
+.ucla-text-center {
+    text-align: center !important;
+}
+.ucla-text-regular {
+    font-weight: 400 !important;
+}
+.ucla-text-bold {
+    font-weight: 700 !important;
+}
+.ucla-text-uppercase {
+    text-transform: uppercase;
+}
+
+// List
+li + li {
+    margin-top: 1.5rem;
+}
+
+ol {
+    list-style-position: outside;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+
+    &:not([type]) {
+        list-style-type: decimal;
+
+        &.ucla-list__lower-alpha {
+            list-style-type: lower-alpha;
+        }
+        &.ucla-list__lower-roman {
+            list-style-type: lower-roman;
+        }
+        &.ucla-list__upper-alpha {
+            list-style-type: upper-alpha;
+        }
+        &.ucla-list__upper-roman {
+            list-style-type: upper-roman;
+        }
+    }
+}
+
+ul {
+    list-style: disc outside;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+
+    ul {
+        list-style-type: circle;
+
+        ul {
+            list-style-type: square;
+        }
+    }
+
+    & > li::marker {
+        font-size: 1.1rem;
+    }
+
+    &.ucla-list__plain {
+        list-style: none;
+        margin-left: 0;
+    }
+
+    &.ucla-list__inline {
+        margin-top: 0;
+        margin-left: 0;
+        list-style: none;
+        & > li {
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: 1.5rem;
+            }
+
+            & + li {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+dt {
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+dd {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+hr {
+    background-color: colors.$grey-20;
+    border: none;
+    height: 1px;
+    margin: 1.5rem 0;
+}

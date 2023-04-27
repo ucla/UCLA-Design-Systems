@@ -1,0 +1,73 @@
+@use "sass:math";
+@use "../utilities/mixins.scss";
+
+$column-gap: 0.75rem;
+
+.col {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: $column-gap;
+
+    .ucla {
+        flex: none;
+    }
+
+    @for $i from 1 through 12 {
+        &.span_#{$i}_of_12 {
+            flex: none;
+            width: math.percentage(math.div($i, 12));
+        }
+    }
+    @include mixins.for-size(tablet-up) {
+        @for $i from 1 through 12 {
+            &.span_#{$i}_of_12-md {
+                flex: none;
+                width: math.percentage(math.div($i, 12));
+            }
+        }
+    }
+    @include mixins.for-size(desktop-up) {
+        @for $i from 1 through 12 {
+            &.span_#{$i}_of_12-lg {
+                flex: none;
+                width: math.percentage(math.div($i, 12));
+            }
+        }
+    }
+}
+
+.ucla {
+    margin-left: (-$column-gap);
+    margin-right: (-$column-gap);
+    margin-top: (-$column-gap);
+    &:last-child {
+        margin-bottom: $column-gap;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: calc(1.5rem - #{$column-gap});
+    }
+
+    @include mixins.for-size(tablet-up) {
+        display: flex;
+    }
+}
+
+/* Start CSS Grid */
+
+.ucla-grid {
+    display: grid;
+    gap: $column-gap * 2;
+
+    @for $i from 1 through 12 {
+        &.cols-#{$i} {
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+        }
+
+        & > .ucla-grid_span-#{$i} {
+            grid-column: auto/span $i;
+        }
+    }
+}

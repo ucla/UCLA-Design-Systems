@@ -1,0 +1,12 @@
+<h2 class="mt-24">Info Card</h2>
+<article class="ucla-card ucla-card__info">
+    <div class="ucla-card__body">
+        <h3 class="ucla-card__title">{{title}}</h3>
+        <p class="ucla-card__description">{{ description }}</p>
+        
+        {{#each button}}
+        <a class="ucla-card__link" href="{{link}}">{{cta-title}}</a>
+        {{/each}}
+        
+    </div>
+</article>

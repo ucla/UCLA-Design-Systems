@@ -1,0 +1,149 @@
+@use "./_mixins/breakpoints";
+@use "./_mixins/helper";
+@use "./variables";
+@use "./colors";
+
+body {
+  color: colors.$grey-80;
+  font-family: variables.$font;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  line-height: 1.125;
+  margin-bottom: 1rem;
+}
+
+h1,
+.h1 {
+  font-size: variables.$ucla-font-size-xx-large;
+
+  @media (min-width: breakpoints.breakpoint-min(md)) {
+    font-size: variables.$ucla-font-size-xxx-large;
+  }
+}
+
+h2,
+.h2 {
+  font-size: variables.$ucla-font-size-x-large;
+
+  @media (min-width: breakpoints.breakpoint-min(md)) {
+    font-size: variables.$ucla-font-size-xx-large;
+  }
+}
+
+h3,
+.h3 {
+  font-size: variables.$ucla-font-size-large;
+}
+
+h4,
+.h4 {
+  font-size: variables.$ucla-font-size-medium;
+}
+
+h5,
+.h5 {
+  font-size: variables.$ucla-font-size-default;
+  line-height: 1.25;
+}
+
+h6,
+.h6 {
+  font-size: variables.$ucla-font-size-xx-small;
+  line-height: 1.33;
+}
+
+p {
+  //color: colors.$grey-80; // declared on body
+  font-size: variables.$ucla-font-size-default;
+  line-height: 1.5;
+  margin-bottom: 1em;
+
+  // small should be 80% and is declared globally in normalize.scss
+  // small {
+  //   font-size: variables.$ucla-font-size-xx-small;
+  //   line-height: 1.33;
+  // }
+}
+
+// add typographical name of lead and lede
+.lead,
+.lede {
+  font-size: variables.$ucla-font-size-large;
+  line-height: 1.33;
+}
+
+.body-copy-small {
+  font-size: variables.$ucla-font-size-xx-small;
+  line-height: 1.5;
+  color: colors.$grey-80;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.has-white-text {
+  color: colors.$white;
+
+  @include helper.is-white-text; // located in /utilities/_mixins/_helper.scss
+
+  >div,
+  >aside {
+    @include helper.is-white-text; // located in /utilities/_mixins/_helper.scss
+  }
+}
+
+// moved from grid.scss here b/c this isn't grid related
+/* change colours to suit your needs */
+ins {
+  background-color: colors.$lightest-blue; //what is this in colors.scss
+  color: colors.$black;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: colors.$default-state-light;
+  color: colors.$black;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+
+input,
+select {
+  vertical-align: middle;
+}
+
+nav ul {
+  list-style: none;
+}
+
+code {
+  font-family: monospace;
+  font-weight: 400;
+  background: rgba(83,83,99,.075);
+  padding: 2px 3px;
+  border-radius: 2px;
+}
