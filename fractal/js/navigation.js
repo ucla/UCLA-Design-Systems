@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         return;
                     }
                     $el.classList.remove("is-open");
-                    console.log($el);
                     $el.querySelector(".ucla-main-nav__toggle").setAttribute(
                         "aria-expanded",
                         "false"
