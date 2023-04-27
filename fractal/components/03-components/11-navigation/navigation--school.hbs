@@ -1,15 +1,9 @@
-<header class="ucla-header ucla-header--college">
-
-  {{> @navigation--header-logo }}
-
-  <div class="ucla-header__container" id="header-wrap">
-    <div class="ucla-header__site-name">
-      <a href="#" title="Department Name" rel="home">Department Name</a>
-    </div>
-      {{> @navigation--secondary-nav }} 
-      {{> @navigation--hamburger }}
-     
-      <nav id="nav-main" class="ucla-main-nav" aria-label="Main Menu">
+<header class="ucla-header ucla-header--school">
+    <div class="ucla-header__container" id="header-wrap">
+        {{> @navigation--school-header-logo}}
+        {{> @navigation--secondary-nav }} 
+        {{> @navigation--hamburger }}
+        <nav id="nav-main" class="ucla-main-nav" aria-label="Main Menu">
         
         <ul class="ucla-main-nav__list">
           
@@ -164,9 +158,8 @@
         </div>
       </div>
       </nav>
-  </div>
+    </div>
 </header>
-
 <div class="container">
   {{ render '@grid--auto-column' }}
 </div>

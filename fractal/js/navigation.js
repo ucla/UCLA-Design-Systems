@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     const hamburger = document.getElementById("primary-ham");
     const header = document.getElementById("header-wrap");
-    const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
-    const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
+    const $navPrimaryHasChildren = getAll(".ucla-main-nav__item--has-children");
+    const $navPrimaryToggles = getAll(".ucla-main-nav__toggle");
     const searchButton = document.getElementById("search-button");
     const primaryNavSearch = document.getElementById("primary-nav-search");
 
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             // Hide dropdown when tab out
-            $el.querySelector(".nav-primary__sublist").addEventListener(
+            $el.querySelector(".ucla-main-nav__sublist").addEventListener(
                 "focusout",
                 (e) => {
                     e.stopPropagation();
@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Down arrow click triggers dropdown
-    if ($subNavPrimaryToggles.length > 0) {
-        $subNavPrimaryToggles.forEach(($el) => {
+    if ($navPrimaryToggles.length > 0) {
+        $navPrimaryToggles.forEach(($el) => {
             $el.addEventListener("click", (e) => {
                 e.stopPropagation();
                 $el.closest("li").classList.toggle("is-open");
