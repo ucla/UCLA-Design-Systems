@@ -67,6 +67,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
+            $el.addEventListener("mouseover", (e) => {
+                $el.setAttribute("aria-expanded", "true");
+            });
+            $el.addEventListener("mouseout", (e) => {
+                $el.setAttribute("aria-expanded", "false");
+            });
+
             // Hide dropdown when tab out
             $el.querySelector(".ucla-main-nav__sublist").addEventListener(
                 "focusout",
