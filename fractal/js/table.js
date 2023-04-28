@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let getSiblings = (n) =>
                     [...n.parentElement.children].filter((c) => c != n);
                 let siblings = getSiblings(this);
+
                 // Get <tbody> rows
                 table
                     .querySelectorAll("tbody tr")
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         e.querySelector("svg.asc") ||
                         e.querySelector("svg.desc")
                     ) {
+                        e.removeAttribute("aria-sort");
                         e.querySelector("svg").classList.replace(
                             "asc",
                             "sort-default"
@@ -76,11 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 if (order.contains("sort-default")) {
                     order.replace("sort-default", "desc");
+                    el.setAttribute("aria-sort", "descending");
                 } else if (order.contains("desc")) {
                     obj_key.reverse();
                     order.replace("desc", "asc");
+                    el.setAttribute("aria-sort", "ascending");
                 } else {
                     order.replace("asc", "desc");
+                    el.setAttribute("aria-sort", "descending");
                 }
 
                 let html = "";

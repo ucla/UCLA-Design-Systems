@@ -9,16 +9,16 @@
       {{> @navigation--secondary-nav }} 
       {{> @navigation--hamburger }}
      
-      <nav id="nav-main" class="ucla-main-nav" aria-label="Main Menu">
+      <nav aria-labelledby="primary-ham" id="nav-main" class="ucla-main-nav" aria-label="Main Menu">
         
-        <ul class="ucla-main-nav__list">
+        <ul class="ucla-main-nav__list" role="menubar" data-menubar-item-expanded="true">
           
           <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
             <a class="ucla-main-nav__link ucla-main-nav__link--current-page" href="#">Parent Item</a>
-            <button class="ucla-main-nav__toggle" aria-label="toggle">
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="ucla-main-nav__sublist" aria-expanded="false">
+            <ul class="ucla-main-nav__sublist">
               <li class="ucla-main-nav__item">
                 <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
@@ -38,28 +38,28 @@
           </li>
           <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
             <a class="ucla-main-nav__link" href="#">Parent Item</a>
-            <button class="ucla-main-nav__toggle" aria-label="toggle">
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="ucla-main-nav__sublist" aria-expanded="false">
+            <ul class="ucla-main-nav__sublist">
               <li class="ucla-main-nav__item">
                 <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
               <li class="ucla-main-nav__item ucla-nav_sublist--has-children">
                 <a class="ucla-main-nav__link" href="#">Nav Item</a>
-                <button class="ucla-main-nav__toggle" aria-label="toggle">
+                <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
                   <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
                 </button>
-                <ul class="ucla-main-nav__sublist" aria-expanded="false" id="third-level">
+                <ul class="ucla-main-nav__sublist" id="third-level">
                   <li class="ucla-main-nav__item">
                     <a class="ucla-main-nav__link" href="#">Nav Item</a>
                   </li>
                   <li class="ucla-main-nav__item ucla-nav_sublist--has-children">
                     <a class="ucla-main-nav__link" href="#">Nav Item</a>
-                    <button class="ucla-main-nav__toggle" aria-label="toggle">
+                    <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
                       <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
                     </button>
-                    <ul class="ucla-main-nav__sublist" aria-expanded="false" id="forth-level">
+                    <ul class="ucla-main-nav__sublist" id="forth-level">
                       <li class="ucla-main-nav__item">
                         <a class="ucla-main-nav__link" href="#">Nav Item</a>
                       </li>
@@ -74,10 +74,10 @@
           </li>
           <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
             <a class="ucla-main-nav__link" href="#">Parent Item</a>
-            <button class="ucla-main-nav__toggle" aria-label="toggle">
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="ucla-main-nav__sublist" aria-expanded="false">
+            <ul class="ucla-main-nav__sublist">
               <li class="ucla-main-nav__item">
                 <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
@@ -94,10 +94,10 @@
           </li>
           <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
             <a class="ucla-main-nav__link" href="#">Parent Item</a>
-            <button class="ucla-main-nav__toggle" aria-label="toggle">
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="ucla-main-nav__sublist" aria-expanded="false">
+            <ul class="ucla-main-nav__sublist">
               <li class="ucla-main-nav__item">
                 <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
@@ -108,10 +108,10 @@
           </li>
           <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
             <a class="ucla-main-nav__link" href="#">Parent Item</a>
-            <button class="ucla-main-nav__toggle" aria-label="toggle">
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="ucla-main-nav__sublist" aria-expanded="false">
+            <ul class="ucla-main-nav__sublist">
               <li class="ucla-main-nav__item">
                 <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
@@ -133,7 +133,7 @@
           </li>
         </ul>
         <div class="ucla-main-nav__search-desktop" id="primary-nav-search">
-        <button id="search-button" class="ucla-main-nav__search-desktop-button">
+        <button id="search-button" aria-expanded="false" class="ucla-main-nav__search-desktop-button">
           <svg role="img" aria-label="Search Icon" class="ucla-main-nav__search-icon" width="18px" height="18px"
             viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
