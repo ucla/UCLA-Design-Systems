@@ -35,7 +35,7 @@ For more information, visit [Code Contributions documentation](/fractal/docs/07-
 
 3. All edits should be made in the ***/fractal/*** folder. See more information about the [project directory](./projectHierarchy.md).
 
-4. After making your changes locally, [commit your changes]((https://docs.github.com/en/get-started/quickstart/hello-world#making-and-committing-changes) so others have a log of your updates. Please be sure to use the [conventional commit](https://cheatography.com/albelop/cheat-sheets/conventional-commits/) standard.
+4. After making your changes locally, [commit your changes](https://docs.github.com/en/get-started/quickstart/hello-world#making-and-committing-changes) so others have a log of your updates. Please be sure to use the [conventional commit](https://cheatography.com/albelop/cheat-sheets/conventional-commits/) standard.
 
   ```
   git commit -am "<type>[optional scope]: <description of your updates>"
