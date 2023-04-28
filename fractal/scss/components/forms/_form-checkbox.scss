@@ -49,6 +49,10 @@
             background-position: 50%;
         }
 
+        &.ucla-is-warning {
+            border: 2px solid colors.$warning-orange;
+        }
+
         &.ucla-is-error {
             border: 2px solid colors.$error-red;
         }
@@ -57,6 +61,11 @@
     .ucla-is-error & {
         .ucla-field__checkbox {
             border: 2px solid colors.$error-red;
+        }
+    }
+    .ucla-is-warning & {
+        .ucla-field__checkbox {
+            border: 2px solid colors.$warning-orange;
         }
     }
 }

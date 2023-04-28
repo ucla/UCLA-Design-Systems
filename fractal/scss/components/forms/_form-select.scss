@@ -24,6 +24,12 @@
         outline: 2px solid colors.$focus-state;
     }
 
+    .ucla-is-warning &,
+    &.ucla-is-warning {
+        border-color: colors.$warning-orange;
+        color: colors.$warning-orange;
+    }
+
     .ucla-is-error &,
     &.ucla-is-error {
         border-color: colors.$error-red;
