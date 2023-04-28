@@ -5,23 +5,25 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="{{ path '/css/ucla-lib.css' }}">
   <title>Preview</title>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="{{ path '/js/ucla-lib-scripts.js' }}"></script>
   <style>
     .example-content {
-      background: #757575;
+      background-color: #757575;
       border-radius: 4px;
       text-align: center;
       color: #fff;
       padding: 1.25rem 0;
       margin: 0;
     }
+    .example-content--highlight {
+      background-color: #2774ae;
+    }
   </style>
 </head>
 
 <body>
   {{{ yield }}}
+
+  <script src="{{ path '/js/ucla-lib-scripts.js' }}"></script>
 </body>
 
 </html>

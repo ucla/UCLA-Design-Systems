@@ -1,10 +1,11 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelector(".ucla-c-tabs");
-    if (tabs) {
-        const tabButtons = tabs.querySelectorAll(".ucla-c-tablink");
-        const tabPanels = document.querySelectorAll(".ucla-c-tabpanel");
+    const tabs = document.querySelectorAll(".ucla-c-tabs");
+
+    for (let i = 0; i < tabs.length; i++) {
+        const tabButtons = tabs[i].querySelectorAll(".ucla-c-tablink");
+        const tabPanels = tabs[i].querySelectorAll(".ucla-c-tabpanel");
 
         let handleTabClick = (e) => {
             tabButtons.forEach((button) => {
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.currentTarget.setAttribute("aria-selected", true);
             e.currentTarget.classList.add("is-active");
             const { id } = e.currentTarget;
-            const tabPanel = tabs.querySelector(`#${id}-tab`);
+            const tabPanel = tabs[i].querySelector(`#${id}-tab`);
             tabPanel.hidden = false;
         };
         tabButtons.forEach((button) =>

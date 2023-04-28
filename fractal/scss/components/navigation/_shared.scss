@@ -1,0 +1,22 @@
+@use "../../utilities/mixins";
+@use "../../utilities/colors";
+
+.ucla-header__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 1.5rem;
+    max-width: 76.5rem;
+    margin: 0 auto;
+
+    @include mixins.for-size(up-to-tablet) {
+        justify-content: space-between;
+        position: relative;
+        padding-bottom: 1.5rem;
+    }
+
+    @include mixins.for-size(desktop-up) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}

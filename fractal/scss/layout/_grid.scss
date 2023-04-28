@@ -17,7 +17,21 @@ $column-gap: 0.75rem;
     @for $i from 1 through 12 {
         &.span_#{$i}_of_12 {
             flex: none;
-            @include mixins.for-size(tablet-up) {
+            width: math.percentage(math.div($i, 12));
+        }
+    }
+    @include mixins.for-size(tablet-up) {
+        @for $i from 1 through 12 {
+            &.span_#{$i}_of_12-md {
+                flex: none;
+                width: math.percentage(math.div($i, 12));
+            }
+        }
+    }
+    @include mixins.for-size(desktop-up) {
+        @for $i from 1 through 12 {
+            &.span_#{$i}_of_12-lg {
+                flex: none;
                 width: math.percentage(math.div($i, 12));
             }
         }

@@ -29,22 +29,26 @@
 }
 
 .accordion__heading-button {
-    padding: 0.625rem 2.75rem 0.625rem 0.5rem;
+    padding: 0.625rem 0.5rem;
     width: 100%;
     cursor: pointer;
-    background-image: url("/icons/denotive/down--blue.svg");
-    background-repeat: no-repeat;
-    background-position: right 1.25rem center;
-    background-size: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    // background-image: url("/icons/denotive/down--blue.svg");
+    // background-repeat: no-repeat;
+    // background-position: right 1.25rem center;
+    // background-size: 1.5rem;
 
     @include mixins.for-size(desktop-up) {
-        padding: 1.125rem 3.25rem 1.125rem 1rem;
+        padding: 1.125rem 1rem;
     }
 
     &:hover,
     &:active {
         color: colors.$white;
-        background-image: url("/icons/denotive/down--white.svg");
+        svg > path {
+            fill: colors.$white;
+        }
     }
 
     &:hover {
@@ -53,11 +57,25 @@
     &:active {
         background-color: colors.$active-state;
     }
+
+    & > svg {
+        margin-left: auto;
+
+        & > path {
+            fill: colors.$default-state;
+        }
+    }
     .is-open & {
-        background-image: url("/icons/denotive/up-arrow--blue.svg");
+        // background-image: url("/icons/denotive/up-arrow--blue.svg");
+
+        svg {
+            transform: rotate(180deg);
+        }
 
         &:hover {
-            background-image: url("/icons/denotive/up-arrow--white.svg");
+            svg > path {
+                fill: colors.$white;
+            }
         }
     }
 }

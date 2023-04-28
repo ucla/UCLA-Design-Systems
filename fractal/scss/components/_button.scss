@@ -29,10 +29,15 @@
         &:disabled {
             background-color: colors.$disabled-state;
         }
+
+        & > svg path {
+            fill: colors.$white;
+        }
     }
     &--primary-light#{$this} {
         background-color: colors.$default-state-light;
         border: 2px solid transparent;
+        color: colors.$grey-80;
 
         &:hover {
             background-color: colors.$hover-state-light;
@@ -46,6 +51,10 @@
         }
         &:disabled {
             background-color: colors.$disabled-state-light;
+        }
+
+        & > svg path {
+            fill: colors.$black;
         }
     }
     &--secondary#{$this} {
@@ -104,8 +113,13 @@
         &:active > svg path {
             fill: #000;
         }
+
+        & > svg path {
+            fill: colors.$white;
+        }
     }
     &--tertiary {
+        border: 2px solid colors.$white;
         color: colors.$default-state;
         &:hover {
             background-color: colors.$hover-state;
@@ -188,13 +202,19 @@
 .ucla-pagination--list {
     display: flex;
     gap: 2px;
+    margin: 0;
+    list-style: none;
 
-    &-item.ucla-is-disabled > a {
-        pointer-events: none;
-        border-color: colors.$disabled-state;
+    &-item {
+        margin: 0;
 
-        & > svg path {
-            fill: colors.$disabled-state;
+        &.ucla-is-disabled > a {
+            pointer-events: none;
+            border-color: colors.$disabled-state;
+
+            & > svg path {
+                fill: colors.$disabled-state;
+            }
         }
     }
 }
@@ -224,10 +244,67 @@
             fill: colors.$white;
         }
     }
+
+    &:active {
+        border-color: colors.$active-state;
+        background-color: colors.$active-state;
+    }
+
+    &:focus {
+        outline: 1px solid colors.$focus-state;
+        outline-offset: 1px;
+    }
 }
 
 .ucla-pagination--page--current {
     background-color: colors.$active-state;
     color: colors.$white;
     pointer-events: none;
+}
+
+.ucla-related-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: colors.$default-state;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.75;
+    padding: 0.625rem 1rem;
+    border-top: 1px solid colors.$grey-20;
+    border-bottom: 1px solid colors.$grey-20;
+
+    svg {
+        width: 18px;
+        height: 18px;
+        & > path {
+            fill: colors.$default-state;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+
+    &:hover {
+        color: colors.$white;
+        background-color: colors.$hover-state;
+        border-color: colors.$hover-state;
+
+        svg > path {
+            fill: colors.$white;
+        }
+    }
+    &:focus {
+        outline: 2px solid colors.$focus-state;
+    }
+    &:active {
+        color: colors.$white;
+        background-color: colors.$active-state;
+        border-color: colors.$active-state;
+
+        svg > path {
+            fill: colors.$white;
+        }
+    }
 }
