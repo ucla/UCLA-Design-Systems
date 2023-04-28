@@ -4,8 +4,8 @@
 
 ## Table of Contents
 
-* [Ways to contribute](#markdown-header-ways-to-contribute)
-* [Dev Workflow](#markdown-header-dev-workflow)
+* [Ways to contribute](#ways-to-contribute)
+* [Dev Workflow](#dev-workflow)
 
 ---
 
@@ -17,4 +17,4 @@ These are the main ways to contribute to this project:
 - writing documentation
 - fixing bugs
 
-For more information, visit [Code Contributions documentation](/fractal/docs/07-contribute/index.md) on the Fractal website.
+For more information, visit [Code Contributions documentation](/fractal/docs/07-contribute/01-index.md) on the Fractal website.
