@@ -58,4 +58,4 @@ For more information, visit [Code Contributions documentation](/fractal/docs/07-
 
 ---
 
-:arrow_left: [Go Back to Main README](https://github.com/ucla/UCLA-Design-Systems/tree/develop)
+:arrow_left: [Go Back to Main README](../../)
