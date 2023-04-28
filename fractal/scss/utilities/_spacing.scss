@@ -1,0 +1,64 @@
+.m-0 {
+    margin: 0 !important;
+}
+.p-0 {
+    margin: 0 !important;
+}
+
+$spacing-abbr: (
+    "margin": "m",
+    "padding": "p",
+) !default;
+$directional: (
+    "top": "t",
+    "right": "r",
+    "bottom": "b",
+    "left": "l",
+) !default;
+$horizontal: "x" !default;
+$vertical: "y" !default;
+$values: (
+    "0": 0,
+    "1": 0.125rem,
+    "2": 0.25rem,
+    "3": 0.5rem,
+    "4": 0.75rem,
+    "5": 1rem,
+    "6": 1.5rem,
+    "7": 2rem,
+    "8": 3rem,
+    "9": 4rem,
+    "10": 5rem,
+    "auto": auto,
+) !default;
+
+@each $property, $abbr in $spacing-abbr {
+    @each $name, $value in $values {
+        // m-(value) or p-(value)
+        .#{$abbr}-#{$name} {
+            #{$property}: $value !important;
+        }
+
+        // directional
+        @each $direction, $suffix in $directional {
+            .#{$abbr}#{$suffix}-#{$name} {
+                #{$property}-#{$direction}: $value !important;
+            }
+        }
+
+        // horizontal
+        @if $horizontal != null {
+            .#{$abbr}#{$horizontal}-#{$name} {
+                #{$property}-left: $value !important;
+                #{$property}-right: $value !important;
+            }
+        }
+        // vertical
+        @if $vertical != null {
+            .#{$abbr}#{$vertical}-#{$name} {
+                #{$property}-top: $value !important;
+                #{$property}-bottom: $value !important;
+            }
+        }
+    }
+}
