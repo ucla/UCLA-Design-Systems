@@ -4,13 +4,17 @@
             <button
                 type="button"
                 class="accordion__heading-button"
+                id="accordionOneButton"
                 aria-expanded="true"
                 aria-controls="accordionOne"
             >
             Royce Hall
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 9.41L16.59 8L12 12.58L7.41 8L6 9.41L12 15.41L18 9.41Z" fill="#333333"/>
+            </svg>
             </button>
         </h4>
-        <div class="accordion__content" id="accordionOne">
+        <div aria-labelledby="accordionOneButton" class="accordion__content" id="accordionOne">
             <p>
                 Royce Hall is a building on the campus of the University of California, Los Angeles. Designed by the Los Angeles firm of Allison &amp; Allison and completed in 1929, it is one of the four original buildings on UCLA's Westwood campus and has come to be the defining image of the university.
             </p>
@@ -21,13 +25,17 @@
             <button
                 type="button"
                 class="accordion__heading-button"
+                id="accordionTwoButton"
                 aria-expanded="false"
                 aria-controls="accordionTwo"
             >
             Fowler Museum
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 9.41L16.59 8L12 12.58L7.41 8L6 9.41L12 15.41L18 9.41Z" fill="#333333"/>
+            </svg>
             </button>
         </h4>
-        <div class="accordion__content" id="accordionTwo">
+        <div class="accordion__content" aria-labelledby="accordionTwoButton" id="accordionTwo">
             <p>
                 The Fowler Museum at UCLA, commonly known as The Fowler, and formerly Museum of Cultural History and Fowler Museum of Cultural History, is a museum on the campus of the University of California, Los Angeles (UCLA) which explores art and material culture primarily from Africa, Asia and the Pacific, and the Americas, past and present.
             </p>
@@ -38,13 +46,17 @@
             <button
                 type="button"
                 class="accordion__heading-button"
+                id="accordionThreeButton"
                 aria-expanded="false"
-                aria-controls="accordionTwo"
+                aria-controls="accordionThree"
             >
             Luskin Conference Center
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 9.41L16.59 8L12 12.58L7.41 8L6 9.41L12 15.41L18 9.41Z" fill="#333333"/>
+            </svg>
             </button>
         </h4>
-        <div class="accordion__content" id="accordionTwo">
+        <div aria-labelledby="accordionThreeButton" class="accordion__content" id="accordionThree">
             <p>
                 The UCLA Meyer and Renee Luskin School of Public Affairs, commonly known as the UCLA Luskin School of Public Affairs, is the public affairs/public service graduate school at the University of California, Los Angeles. The school consists of three graduate departments—Public Policy, Social Welfare, and Urban Planning—and an undergraduate program in Public Affairs that began accepting students in 2018. In all, the school offers three undergraduate minors, the undergraduate major, three master's degrees, and two doctoral degrees.
             </p>
@@ -53,17 +65,21 @@
 </div>
 
 
-
+<p class="headline-text__md mt-8 mb-4">Multi-Open Accordion</p>
 <div class="accordion is-multiselect">
     <div class="accordion-item is-open">
         <h4 class="accordion__heading">
             <button
                 type="button"
                 class="accordion__heading-button"
+                id="accordionTwoOneButton"
                 aria-expanded="true"
                 aria-controls="accordionTwoOne"
             >
             Royce Hall
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 9.41L16.59 8L12 12.58L7.41 8L6 9.41L12 15.41L18 9.41Z" fill="#333333"/>
+            </svg>
             </button>
         </h4>
         <div class="accordion__content" id="accordionTwoOne">
@@ -81,6 +97,9 @@
                 aria-controls="accordionTwoTwo"
             >
             Fowler Museum
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 9.41L16.59 8L12 12.58L7.41 8L6 9.41L12 15.41L18 9.41Z" fill="#333333"/>
+            </svg>
             </button>
         </h4>
         <div class="accordion__content" id="accordionTwoTwo">
@@ -98,6 +117,9 @@
                 aria-controls="accordionTwoThree"
             >
             Luskin Conference Center
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 9.41L16.59 8L12 12.58L7.41 8L6 9.41L12 15.41L18 9.41Z" fill="#333333"/>
+            </svg>
             </button>
         </h4>
         <div class="accordion__content" id="accordionTwoThree">

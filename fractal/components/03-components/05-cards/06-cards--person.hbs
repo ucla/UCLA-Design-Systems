@@ -1,60 +1,67 @@
-<h2 class="mt-24">Person Card</h2>
-<article class="person-card">
-  <img class="person-card__image" src="{{path '/theme-assets/img/examples/person-card-gene.jpg'}}"
+<div style="max-width: 376px">
+<article class="ucla-card ucla-card__person">
+  <img class="ucla-card__image" src="{{path '/theme-assets/img/examples/person-card-gene.jpg'}}"
     alt="Headshot of Gene Block">
-  <div class="person-card__info-wrapper">
-    <h1 class="person-card__name">Gene Block</h1>
-    <h2 class="person-card__department">Title, Department</h2>
-    <p class="person-card__description">With schools closed and remote learning the norm, how many hours of digital
+  <div class="ucla-card__body">
+    <h1 class="ucla-card__title">Gene Block</h1>
+    <h2 class="ucla-card__person-pronouns">They/Them</h2>
+    <h2 class="ucla-card__person-department">Title, Department</h2>
+    <p class="ucla-card__description">With schools closed and remote learning the norm, how many hours of digital
       technology are acceptable for kids, and how much is too much? Can parents control when kids use tec…</p>
-    <div class="person-card__contact">
-      <div class="person-card__contact-details">
-        <p class="person-card__contact-label">Email</p>
+    <!--div class="ucla-card__person-card__contact">
+      <div class="ucla-card__person-card__contact-details">
+        <p class="ucla-card__person-card__contact-label">Email</p>
         <a href="mailto:myemail@ucla.edu">myemail@ucla.edu</a>
       </div>
-      <div class="person-card__contact-details">
-        <p class="person-card__contact-label">Phone</p>
+      <div class="ucla-card__person-card__contact-details">
+        <p class="ucla-card__person-card__contact-label">Phone</p>
         <a href="tel:+1-555-555-5555;123">(555) 555-5555 ext. 555</a>
       </div>
-      <div class="person-card__contact-details">
-        <p class="person-card__contact-label">Office</p>
+      <div class="ucla-card__person-card__contact-details">
+        <p class="ucla-card__person-card__contact-label">Office</p>
         <p>1111 Murphy Hall</p>
       </div>
-      <div class="person-card__contact-details">
-        <p class="person-card__contact-label">Mail</p>
+      <div class="ucla-card__person-card__contact-details">
+        <p class="ucla-card__person-card__contact-label">Mail</p>
         <p>410 Charles E. Young Drive East,<br />Los Angeles, CA 90024</p>
       </div>
-    </div>
-    <em class="person-card__photo-credit">Photo Credit: lorem ipsum dolore</em>
+    </div-->
+    <dl class="ucla-card__person-contact">
+      <dt>Email</dt>
+      <dd>myemail@ucla.edu</dd>
+      <dt>Phone</dt>
+      <dd>(555) 555-5555 ext. 555</dd>
+      <dt>Office</dt>
+      <dd>1111 Murphy Hall</dd>
+      <dt>Mail</dt>
+      <dd>410 Charles E.Young Drive<br />Los Angeles, CA 90024</dd>
+    </dl>
+    <em class="ucla-card__person-credit">Photo Credit: lorem ipsum dolore</em>
   </div>
 </article>
-
-<article class="person-card-grey">
-  <img class="person-card__image" src="{{path '/theme-assets/img/examples/person-card-gene.jpg'}}"
-    alt="Headshot of Gene Block">
-  <div class="person-card__info-wrapper">
-    <h1 class="person-card__name">Gene Block</h1>
-    <h2 class="person-card__department">Title, Department</h2>
-    <p class="person-card__description">With schools closed and remote learning the norm, how many hours of digital
+</div>
+<h2 class="headline-text__md mb-3 mt-6">Person Card with Link</h2>
+<div style="max-width: 376px">
+<article class="ucla-card ucla-card__person">
+  <a class="ucla-card__image-link" href="#"><img class="ucla-card__image" src="{{path '/theme-assets/img/examples/person-card-gene.jpg'}}"
+    alt="Headshot of Gene Block"></a>
+  <div class="ucla-card__body">
+    <h1 class="ucla-card__title"><a class="ucla-card__name-link" href="#">Gene Block</a></h1>
+    <h2 class="ucla-card__person-pronouns">They/Them</h2>
+    <h2 class="ucla-card__person-department">Title, Department</h2>
+    <p class="ucla-card__description">With schools closed and remote learning the norm, how many hours of digital
       technology are acceptable for kids, and how much is too much? Can parents control when kids use tec…</p>
-    <div class="person-card__contact">
-      <div class="person-card__contact-details">
-        <p class="person-card__contact-label">Email</p>
-        <a href="mailto:myemail@ucla.edu">myemail@ucla.edu</a>
-      </div>
-      <div class="person-card__contact-details">
-        <p class="person-card__contact-label">Phone</p>
-        <a href="tel:+1-555-555-5555;123">(555) 555-5555 ext. 555</a>
-      </div>
-      <div class="person-card__contact-details">
-        <p class="person-card__contact-label">Office</p>
-        <p>1111 Murphy Hall</p>
-      </div>
-      <div class="person-card__contact-details">
-        <p class="person-card__contact-label">Mail</p>
-        <p>410 Charles E. Young Drive East,<br />Los Angeles, CA 90024</p>
-      </div>
-    </div>
-    <em class="person-card__photo-credit">Photo Credit: lorem ipsum dolore</em>
+    <dl class="ucla-card__person-contact">
+      <dt>Email</dt>
+      <dd>myemail@ucla.edu</dd>
+      <dt>Phone</dt>
+      <dd>(555) 555-5555 ext. 555</dd>
+      <dt>Office</dt>
+      <dd>1111 Murphy Hall</dd>
+      <dt>Mail</dt>
+      <dd>410 Charles E.Young Drive<br />Los Angeles, CA 90024</dd>
+    </dl>
+    <em class="ucla-card__person-credit">Photo Credit: lorem ipsum dolore</em>
   </div>
 </article>
+</div>

@@ -1,0 +1,12 @@
+---
+handle: quote-banner-design
+---
+A quote banner is a type of text banner that displays a quote in large, prominent text that spans the width of the banner.
+
+#### When to use
+
+Quote banners can be used to highlight a quote of someone notable that is related to the page's content.
+
+#### Anatomy
+
+![Quote Banner Anatomy](/theme-assets/img/docs/components/banners/quote-banner-anatomy.svg)

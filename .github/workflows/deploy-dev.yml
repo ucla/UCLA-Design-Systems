@@ -45,3 +45,5 @@ jobs:
           mkdir redirection
           touch ./redirection/index.html
           aws s3 sync ./redirection s3://dev.designsystem.brand.ucla.edu/ --website-redirect http://dev.designsystem.brand.ucla.edu.s3-website-us-west-2.amazonaws.com/build/${{ steps.previoustag.outputs.tag }}/
+      - name: Upload Assets
+        run: aws s3 sync ./fractal/build/theme-assets s3://dev.designsystem.brand.ucla.edu
