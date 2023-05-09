@@ -1,33 +1,24 @@
 <div class="ucla-c-tabs">
   <!-- .tablist is the container for tabs only -->
   <nav class="ucla-c-tabslist" role="tablist" aria-label="content-tabs">
-    <button id="panel-01" class="ucla-c-tablink is-active" role="tab" aria-selected="true" aria-controls="panel-01-tab">
+    <button id="accordion-design" onclick="openTab(event)" class="ucla-c-tablink is-active" role="tab" aria-selected="true" aria-controls="tab-accordion-design">
       Design Specifications
     </button>
-    <button id="panel-02" class="ucla-c-tablink" role="tab" aria-selected="false" aria-controls="panel-02-tab">
+    <button id="accordion-development" onclick="openTab(event)" class="ucla-c-tablink" role="tab" aria-selected="false" aria-controls="tab-accordion-development">
       Developer Documentation
     </button>
-    <button id="panel-03" class="ucla-c-tablink" role="tab" aria-selected="false" aria-controls="panel-03-tab">
+    <button id="accordion-etc" onclick="openTab(event)" class="ucla-c-tablink" role="tab" aria-selected="false" aria-controls="tab-accordion-etc">
       Change Log
     </button>
   </nav>
   <!-- .tabcontent contain panels of content -->
 <section class="ucla-c-tabpanels">
-<article id="panel-01-tab" tabindex="0" role="tabpanel" aria-labelledby="panel-01" class="ucla-c-tabpanel ucla-prose">
+<article id="tab-accordion-design" tabindex="0" role="tabpanel" aria-labelledby="accordion-design" class="ucla-c-tabpanel ucla-prose">
 
-Display content in a compact manner. Accordions provide a space-saving technique for displaying content in your viewport. Users can explore an overview of topics and then expand accordions as needed to see more information.
-
-#### When to use
-
-Use accordions only when information doesn’t need to be immediately visible, and you believe additional information will overwhelm users.
-Use accordions to a greater extent on mobile devices to help reduce scrolling.
-
-#### Anatomy
-
-![Accordion Anatomy](/theme-assets/img/docs/components/accordion/anatomy.svg)
+{{> @accordion-design}}
 
 </article>
-    <article id="panel-02-tab" tabindex="0" role="tabpanel" aria-labelledby="panel-02" class="ucla-c-tabpanel" hidden>
+    <article id="tab-accordion-development" tabindex="0" role="tabpanel" aria-labelledby="accordion-development" class="ucla-c-tabpanel" hidden>
       <p>Panel 2: Tenured</p>
       <p>Include content about your department's tenured faculty here.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
@@ -35,7 +26,7 @@ Use accordions to a greater extent on mobile devices to help reduce scrolling.
           <a href="#">Example of inline link</a>.
       </p>
     </article>
-    <article id="panel-03-tab" tabindex="0" role="tabpanel" aria-labelledby="panel-03" class="ucla-c-tabpanel" hidden>
+    <article id="tab-accordion-etc" tabindex="0" role="tabpanel" aria-labelledby="accordion-etc" class="ucla-c-tabpanel" hidden>
       <p>Panel 3: Adjunct</p>
       <p>Include content about your department's adjunct faculty here.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>

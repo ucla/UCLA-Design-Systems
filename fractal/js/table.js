@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 let value_list = {}; // <tr> Object
                 let obj_key = []; // Values of selected column
                 let string_count = 0;
-                let number_count = 0;
+                // let number_count = 0;
 
                 let getSiblings = (n) =>
-                    [...n.parentElement.children].filter((c) => c != n);
+                    [...n.parentElement.children].filter((c) => c !== n);
                 let siblings = getSiblings(this);
 
                 // Get <tbody> rows
