@@ -18,14 +18,11 @@
 {{> @grid-design}}
 
 </article>
-    <article id="tab-grid-development" tabindex="0" role="tabpanel" aria-labelledby="grid-development" class="ucla-c-tabpanel" hidden>
-      <p>Panel 2: Tenured</p>
-      <p>Include content about your department's tenured faculty here.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-      <p>
-          <a href="#">Example of inline link</a>.
-      </p>
-    </article>
+<article id="tab-grid-development" tabindex="0" role="tabpanel" aria-labelledby="grid-development" class="ucla-c-tabpanel ucla-prose" hidden>
+      
+{{> @grid-developer}}
+
+</article>
     <article id="tab-grid-etc" tabindex="0" role="tabpanel" aria-labelledby="grid-etc" class="ucla-c-tabpanel" hidden>
       <p>Panel 3: Adjunct</p>
       <p>Include content about your department's adjunct faculty here.</p>

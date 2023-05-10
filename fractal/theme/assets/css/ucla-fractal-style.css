@@ -37,6 +37,7 @@
 
 code {
   background: rgba(83, 83, 99, 0.075);
+  color: #d14;
   padding: 2px 3px;
   border-radius: 2px;
 }
@@ -47,9 +48,9 @@ code {
 .Prose pre {
   width: 100%;
   background: rgba(83, 83, 99, 0.075);
-  padding: 20px;
+  padding: 20px 0;
   border-radius: 10px;
-  overflow-y: scroll;
+  white-space: pre-wrap;
 }
 .Prose pre::-webkit-scrollbar {
   width: 10px;
@@ -88,6 +89,27 @@ code {
   color: #333;
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+}
+.Prose .ucla-prose ul {
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+.Prose .ucla-prose li + li {
+  margin-top: 0;
+}
+.Prose .example-content {
+  background-color: #757575;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  padding: 1.25rem 0;
+  margin: 0;
+}
+.Prose .example-content--highlight {
+  background-color: #2774ae;
+}
+.Prose .ucla-c-tabpanel {
+  outline-color: transparent;
 }
 
 .Status-label {

@@ -18,14 +18,11 @@
 {{> @accordion-design}}
 
 </article>
-    <article id="tab-accordion-development" tabindex="0" role="tabpanel" aria-labelledby="accordion-development" class="ucla-c-tabpanel" hidden>
-      <p>Panel 2: Tenured</p>
-      <p>Include content about your department's tenured faculty here.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-      <p>
-          <a href="#">Example of inline link</a>.
-      </p>
-    </article>
+<article id="tab-accordion-development" tabindex="0" role="tabpanel" aria-labelledby="accordion-development" class="ucla-c-tabpanel" hidden>
+  
+{{> @accordion-developer}}
+
+</article>
     <article id="tab-accordion-etc" tabindex="0" role="tabpanel" aria-labelledby="accordion-etc" class="ucla-c-tabpanel" hidden>
       <p>Panel 3: Adjunct</p>
       <p>Include content about your department's adjunct faculty here.</p>

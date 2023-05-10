@@ -13,6 +13,7 @@
 
 code {
     background: rgba(83, 83, 99, 0.075);
+    color: #d14;
     padding: 2px 3px;
     border-radius: 2px;
 }
@@ -23,9 +24,9 @@ code {
     pre {
         width: 100%;
         background: rgba(83, 83, 99, 0.075);
-        padding: 20px;
+        padding: 20px 0;
         border-radius: 10px;
-        overflow-y: scroll;
+        white-space: pre-wrap;
 
         // style scroll bars for long blocks of code
         &::-webkit-scrollbar {
@@ -77,37 +78,31 @@ code {
         font-family: "Helvetica", "Roboto", "Arial", sans-serif;
     }
 
-    // h1 {
-    //     font-size: 3.375rem;
+    .ucla-prose {
+        ul {
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        li + li {
+            margin-top: 0;
+        }
+    }
 
-    //     @media (min-width: 768px) {
-    //         font-size: 5.063rem;
-    //     }
-    // }
+    .example-content {
+        background-color: #757575;
+        border-radius: 4px;
+        text-align: center;
+        color: #fff;
+        padding: 1.25rem 0;
+        margin: 0;
+    }
+    .example-content--highlight {
+        background-color: #2774ae;
+    }
 
-    // h2 {
-    //     font-size: 2.25rem;
-
-    //     @media (min-width: 768px) {
-    //         font-size: 3.375rem;
-    //     }
-    // }
-
-    // h3 {
-    //     font-size: 2.25rem;
-    // }
-
-    // h4 {
-    //     font-size: 1.5rem;
-    // }
-
-    // h5 {
-    //     font-size: 1rem;
-    // }
-
-    // h6 {
-    //     font-size: 0.875rem;
-    // }
+    .ucla-c-tabpanel {
+        outline-color: transparent;
+    }
 }
 
 .Status {
