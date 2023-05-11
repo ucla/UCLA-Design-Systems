@@ -60,6 +60,11 @@
             background-color: colors.$ucla-blue;
         }
 
+        .ucla-is-warning &,
+        &.ucla-is-warning {
+            border: 2px solid colors.$warning-orange;
+        }
+
         .ucla-is-error &,
         &.ucla-is-error {
             border: 2px solid colors.$error-red;

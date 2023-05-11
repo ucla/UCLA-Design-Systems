@@ -78,4 +78,8 @@
     &.ucla-btn--icon-trail svg {
         margin-left: 11px;
     }
+
+    & + .ucla-chip {
+        margin-left: 0.75rem;
+    }
 }

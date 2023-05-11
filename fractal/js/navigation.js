@@ -67,10 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
-            $el.addEventListener("mouseover", (e) => {
+            $el.addEventListener("mouseover", () => {
                 $el.setAttribute("aria-expanded", "true");
             });
-            $el.addEventListener("mouseout", (e) => {
+            $el.addEventListener("mouseout", () => {
                 $el.setAttribute("aria-expanded", "false");
             });
 
