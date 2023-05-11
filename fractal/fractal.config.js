@@ -103,7 +103,11 @@ const myCustomisedTheme = mandelbrot({
         "/css/ucla-lib.min.css",
         "/theme-assets/css/ucla-fractal-style.css",
     ],
-    scripts: ["default", "/theme-assets/js/ucla-fractal-script.js"],
+    scripts: [
+        "default",
+        "/js/ucla-lib-scripts.js",
+        "/theme-assets/js/ucla-fractal-script.js",
+    ],
     navigation: "default",
     favicon: "/theme-assets/favicon.ico",
     highlightStyles:

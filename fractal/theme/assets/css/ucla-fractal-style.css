@@ -42,62 +42,62 @@ code {
   border-radius: 2px;
 }
 
-.Prose {
+[dir=ltr] .Prose {
   max-width: 48.5rem;
 }
-.Prose pre {
+[dir=ltr] .Prose pre {
   width: 100%;
   background: rgba(83, 83, 99, 0.075);
   padding: 20px 0;
   border-radius: 10px;
   white-space: pre-wrap;
 }
-.Prose pre::-webkit-scrollbar {
+[dir=ltr] .Prose pre::-webkit-scrollbar {
   width: 10px;
 }
-.Prose pre::-webkit-scrollbar-track {
+[dir=ltr] .Prose pre::-webkit-scrollbar-track {
   background-color: #e5e5e5;
 }
-.Prose pre::-webkit-scrollbar-thumb {
+[dir=ltr] .Prose pre::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #2774ae;
 }
-.Prose pre code {
+[dir=ltr] .Prose pre code {
   background: rgba(83, 83, 99, 0);
 }
-.Prose pre code.active {
+[dir=ltr] .Prose pre code.active {
   background: #3399ff;
 }
-.Prose table {
+[dir=ltr] .Prose table {
   margin: 0;
 }
-.Prose h1,
-.Prose h2,
-.Prose h3,
-.Prose h4,
-.Prose h5,
-.Prose h6 {
+[dir=ltr] .Prose h1,
+[dir=ltr] .Prose h2,
+[dir=ltr] .Prose h3,
+[dir=ltr] .Prose h4,
+[dir=ltr] .Prose h5,
+[dir=ltr] .Prose h6 {
   font-family: "Helvetica", "Arial", sans-serif;
 }
-.Prose h1,
-.Prose h2,
-.Prose h3,
-.Prose h4,
-.Prose h5,
-.Prose h6 {
+[dir=ltr] .Prose h1,
+[dir=ltr] .Prose h2,
+[dir=ltr] .Prose h3,
+[dir=ltr] .Prose h4,
+[dir=ltr] .Prose h5,
+[dir=ltr] .Prose h6 {
   margin: 0;
-  color: #333;
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
 }
-.Prose .ucla-prose ul {
+[dir=ltr] .Prose ul,
+[dir=ltr] .Prose ol {
   padding-left: 0;
   margin-bottom: 1.5rem;
 }
-.Prose .ucla-prose li + li {
+[dir=ltr] .Prose li + li {
   margin-top: 0;
 }
-.Prose .example-content {
+[dir=ltr] .Prose .example-content {
   background-color: #757575;
   border-radius: 4px;
   text-align: center;
@@ -105,10 +105,10 @@ code {
   padding: 1.25rem 0;
   margin: 0;
 }
-.Prose .example-content--highlight {
+[dir=ltr] .Prose .example-content--highlight {
   background-color: #2774ae;
 }
-.Prose .ucla-c-tabpanel {
+[dir=ltr] .Prose .ucla-doc-tabpanel {
   outline-color: transparent;
 }
 
@@ -146,6 +146,37 @@ code {
 .create-button:focus {
   outline: 1px dotted #00568c;
   outline-offset: 1px;
+}
+
+.ucla-doc-tabslist {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.ucla-doc-tablink {
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00598c;
+  padding: 0.75rem 1.5rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+}
+.ucla-doc-tablink.is-active {
+  border-bottom: 4px solid #ffd100;
+  color: #333;
+}
+.ucla-doc-tablink:hover {
+  border-bottom: 4px solid #0079bf;
+}
+.ucla-doc-tablink:active {
+  border-bottom: 4px solid #003b5c;
+}
+
+.ucla-doc-tabpanels {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /***************** STOP!!! READ THIS!! *****************/
