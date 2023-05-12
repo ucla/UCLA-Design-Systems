@@ -103,9 +103,15 @@ const myCustomisedTheme = mandelbrot({
         "/css/ucla-lib.min.css",
         "/theme-assets/css/ucla-fractal-style.css",
     ],
-    scripts: ["default", "/theme-assets/js/ucla-fractal-script.js"],
+    scripts: [
+        "default",
+        "/js/ucla-lib-scripts.js",
+        "/theme-assets/js/ucla-fractal-script.js",
+    ],
     navigation: "default",
     favicon: "/theme-assets/favicon.ico",
+    highlightStyles:
+        "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.5.0/build/styles/github.min.css",
     // static: {
     //   mount: 'theme-assets'
     // }
@@ -117,6 +123,7 @@ myCustomisedTheme.addStatic(__dirname + "/theme/assets", "/theme-assets");
 
 fractal.web.theme(myCustomisedTheme);
 fractal.web.set("static.path", __dirname + "/public");
+
 //fractal.web.set('static.mount', '/public');
 // https://github.com/jwir3/fractal-status-helper
 const FractalStatusHelper = require("fractal-status-helper")(fractal);

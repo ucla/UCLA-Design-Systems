@@ -13,19 +13,20 @@
 
 code {
     background: rgba(83, 83, 99, 0.075);
+    color: #d14;
     padding: 2px 3px;
     border-radius: 2px;
 }
 
-.Prose {
+[dir="ltr"] .Prose {
     max-width: 48.5rem;
 
     pre {
         width: 100%;
         background: rgba(83, 83, 99, 0.075);
-        padding: 20px;
+        padding: 20px 0;
         border-radius: 10px;
-        overflow-y: scroll;
+        white-space: pre-wrap;
 
         // style scroll bars for long blocks of code
         &::-webkit-scrollbar {
@@ -72,42 +73,34 @@ code {
     h5,
     h6 {
         margin: 0;
-        color: #333;
         font-weight: bold;
         font-family: "Helvetica", "Roboto", "Arial", sans-serif;
     }
 
-    // h1 {
-    //     font-size: 3.375rem;
+    ul,
+    ol {
+        padding-left: 0;
+        margin-bottom: 1.5rem;
+    }
+    li + li {
+        margin-top: 0;
+    }
 
-    //     @media (min-width: 768px) {
-    //         font-size: 5.063rem;
-    //     }
-    // }
+    .example-content {
+        background-color: #757575;
+        border-radius: 4px;
+        text-align: center;
+        color: #fff;
+        padding: 1.25rem 0;
+        margin: 0;
+    }
+    .example-content--highlight {
+        background-color: #2774ae;
+    }
 
-    // h2 {
-    //     font-size: 2.25rem;
-
-    //     @media (min-width: 768px) {
-    //         font-size: 3.375rem;
-    //     }
-    // }
-
-    // h3 {
-    //     font-size: 2.25rem;
-    // }
-
-    // h4 {
-    //     font-size: 1.5rem;
-    // }
-
-    // h5 {
-    //     font-size: 1rem;
-    // }
-
-    // h6 {
-    //     font-size: 0.875rem;
-    // }
+    .ucla-doc-tabpanel {
+        outline-color: transparent;
+    }
 }
 
 .Status {
@@ -150,4 +143,37 @@ code {
         outline: 1px dotted #00568c;
         outline-offset: 1px;
     }
+}
+
+.ucla-doc-tabslist {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.ucla-doc-tablink {
+    display: inline-block;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00598c;
+    padding: 0.75rem 1.5rem 0.5rem;
+    cursor: pointer;
+    border-bottom: 4px solid transparent;
+
+    &.is-active {
+        border-bottom: 4px solid #ffd100;
+        color: #333;
+    }
+
+    &:hover {
+        border-bottom: 4px solid #0079bf;
+    }
+    &:active {
+        border-bottom: 4px solid #003b5c;
+    }
+}
+
+.ucla-doc-tabpanels {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
