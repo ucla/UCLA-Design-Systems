@@ -1,6 +1,6 @@
 ## Branch Info
 
-1. "main" - This is the "production" branch. When the beta release is ready for production, merge the 'beta' branch into the 'mai'n branch. This will trigger a automatic semantic release and a version number will be assigned and the branch will be tagged. Release Notes will also automatically be generated.
+1. "main" - This is the "production" branch. When the beta release is ready for production, merge the 'beta' branch into the 'main' branch. This will trigger a automatic semantic release and a version number will be assigned and the branch will be tagged. Release Notes will also automatically be generated.
 
 1. "beta" - This is a release branch for 'beta'. Whenever the project is ready to create a beta release, merge the 'develop' branch into the 'beta' branch. This will trigger a automatic semantic release and a version number will be assigned and the branch will be tagged. Release Notes will also autmatically be generated.
 
