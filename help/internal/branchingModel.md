@@ -1,6 +1,4 @@
-## Branch Info (BETA)
-
-DURING BETA:
+## Branch Info
 
 1. "main" - This is the "production" branch. When the beta release is ready for production, merge the 'beta' branch into the 'mai'n branch. This will trigger a automatic semantic release and a version number will be assigned and the branch will be tagged. Release Notes will also automatically be generated.
 
