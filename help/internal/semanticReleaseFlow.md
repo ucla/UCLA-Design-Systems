@@ -6,4 +6,4 @@ To make a Beta relase just merge the 'develop' branch into the 'beta' branch and
 
 The semantic-release plugin will read the commit messages to determine the versioning so it's important to follow the [convetional commit](https://www.conventionalcommits.org/en/v1.0.0/) standards.
 
- - [Go Back to Main README](./../README.md)
+ - [Go Back to Main README](../../README.md)
