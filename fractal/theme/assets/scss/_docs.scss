@@ -42,6 +42,10 @@ code {
             }
         }
 
+        &:first-child {
+            margin-top: 0;
+        }
+
         code {
             background: rgba(83, 83, 99, 0);
 
@@ -64,6 +68,7 @@ code {
     h5,
     h6 {
         font-family: "Helvetica", "Arial", sans-serif;
+        opacity: 1;
     }
 
     h1,
@@ -81,6 +86,12 @@ code {
     ol {
         padding-left: 0;
         margin-bottom: 1.5rem;
+
+        & ul,
+        & ol {
+            margin-top: 0.25rem;
+            margin-bottom: 0;
+        }
     }
     li + li {
         margin-top: 0;
