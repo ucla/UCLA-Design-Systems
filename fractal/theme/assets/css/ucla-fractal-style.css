@@ -62,6 +62,9 @@ code {
   border-radius: 5px;
   background-color: #2774ae;
 }
+[dir=ltr] .Prose pre:first-child {
+  margin-top: 0;
+}
 [dir=ltr] .Prose pre code {
   background: rgba(83, 83, 99, 0);
 }
@@ -78,6 +81,7 @@ code {
 [dir=ltr] .Prose h5,
 [dir=ltr] .Prose h6 {
   font-family: "Helvetica", "Arial", sans-serif;
+  opacity: 1;
 }
 [dir=ltr] .Prose h1,
 [dir=ltr] .Prose h2,
@@ -93,6 +97,12 @@ code {
 [dir=ltr] .Prose ol {
   padding-left: 0;
   margin-bottom: 1.5rem;
+}
+[dir=ltr] .Prose ul ul, [dir=ltr] .Prose ul ol,
+[dir=ltr] .Prose ol ul,
+[dir=ltr] .Prose ol ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
 }
 [dir=ltr] .Prose li + li {
   margin-top: 0;

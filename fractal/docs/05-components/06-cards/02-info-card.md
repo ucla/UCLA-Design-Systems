@@ -15,35 +15,14 @@
 <section class="ucla-doc-tabpanels">
 <article id="tab-info-card-design" tabindex="0" role="tabpanel" aria-labelledby="info-card-design" class="ucla-doc-tabpanel ucla-prose">
 
-This card provides a brief snipped of information. Heading and either a summary or a list of related links is required.
-
-#### When to use
-
-**Collections of related content.** Cards help present a collection of related groups of content, like articles or sections of a website.
-
-#### Anatomy
-
-![Basic Card Anatomy](/theme-assets/img/docs/components/cards/info-card-anatomy.svg)
-
-**1. Title (required)**
-
-**2. Supporting Text**
-
-**3. Text Link**
-
-**4. Border (required)**
-
-**5. Container (required)**
+{{> @info-card-design}}
 
 </article>
-    <article id="tab-info-card-development" tabindex="0" role="tabpanel" aria-labelledby="info-card-development" class="ucla-doc-tabpanel" hidden>
-      <p>Panel 2: Tenured</p>
-      <p>Include content about your department's tenured faculty here.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-      <p>
-          <a href="#">Example of inline link</a>.
-      </p>
-    </article>
+<article id="tab-info-card-development" tabindex="0" role="tabpanel" aria-labelledby="info-card-development" class="ucla-doc-tabpanel" hidden>
+
+{{> @info-card-development}}
+
+</article>
     <article id="tab-info-card-etc" tabindex="0" role="tabpanel" aria-labelledby="info-card-etc" class="ucla-doc-tabpanel" hidden>
       <p>Panel 3: Adjunct</p>
       <p>Include content about your department's adjunct faculty here.</p>

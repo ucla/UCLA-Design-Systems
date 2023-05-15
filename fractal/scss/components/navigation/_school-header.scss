@@ -23,19 +23,19 @@
     }
 
     &__site-title-link {
-        line-height: 0;
-        margin-left: 1.125rem;
+        line-height: 20px;
+        margin-left: 0.375rem;
+        font-size: 1.188rem;
+        font-weight: bold;
+        overflow-wrap: break-word;
 
         @include mixins.for-size(phone-only) {
-            display: none;
-        }
-        @include mixins.for-size(desktop-up) {
-            margin-left: 1.313rem;
+            inline-size: 106px;
         }
 
-        & > svg {
-            max-height: 2.5rem;
-            margin-top: 7px;
+        @include mixins.for-size(tablet-up) {
+            margin-left: 0.625rem;
+            font-size: 2rem;
         }
     }
 
@@ -53,5 +53,23 @@
 
     .hamburger {
         margin-left: auto;
+    }
+}
+
+// SVG Logo
+.ucla-header--school__site-title-link > svg {
+    max-height: 2.5rem;
+    margin-top: 7px;
+
+    @include mixins.for-size(phone-only) {
+        &.ucla-header--school__site-title-link-desktop {
+            display: none;
+        }
+    }
+
+    @include mixins.for-size(tablet-up) {
+        &.ucla-header--school__site-title-link-mobile {
+            display: none;
+        }
     }
 }
