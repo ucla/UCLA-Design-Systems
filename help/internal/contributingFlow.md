@@ -10,4 +10,4 @@
 1. Merge 'beta' into 'main' and a release will be made.
 1. Merge 'main' into 'prod-deploy' to deploy code to production.
 
- - [Go Back to Main README](https://bitbucket.org/uclaucomm/ucla-bruin-components/src/campus/)
+ - [Go Back to Main README](./../README.md)
