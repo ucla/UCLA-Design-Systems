@@ -38,23 +38,31 @@ body {
   }
 }
 
-.ucla-header__container .ucla-header__site-name {
-  @include mixins.for-size(up-to-tablet) {
-    margin-left: 1.5rem;
-  }
-  > a {
-    font-size: 1.75rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: colors.$grey-80;
-    @include mixins.for-size(desktop-up) {
-      font-size: 2.25rem;
-    }
+.ucla-header__container {
+  padding-bottom: 1.5rem;
 
-    &:hover,
-    &:focus {
-      background-color: transparent;
+  &:has(.ucla-main-nav) {
+    padding-bottom: 0;
+  }
+
+  .ucla-header__site-name {
+    @include mixins.for-size(up-to-tablet) {
+      margin-left: 1.5rem;
+    }
+    > a {
+      font-size: 1.75rem;
+      font-weight: bold;
+      text-decoration: none;
       color: colors.$grey-80;
+      @include mixins.for-size(desktop-up) {
+        font-size: 2.25rem;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: colors.$grey-80;
+      }
     }
   }
 }
