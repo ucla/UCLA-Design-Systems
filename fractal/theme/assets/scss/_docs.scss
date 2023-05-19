@@ -3,188 +3,204 @@
 // https://fractal.build/guide/web/default-theme.html#default-theme-mandelbrot
 
 .Document {
-    padding: 40px 90px;
+  padding: 40px 90px;
 }
 
 .Document-title {
-    font-size: 5.063rem;
-    line-height: 1.125;
+  font-size: 5.063rem;
+  line-height: 1.125;
 }
 
 code {
-    background: rgba(83, 83, 99, 0.075);
-    color: #d14;
-    padding: 2px 3px;
-    border-radius: 2px;
+  background: rgba(83, 83, 99, 0.075);
+  color: #d14;
+  padding: 2px 3px;
+  border-radius: 2px;
 }
 
 [dir="ltr"] .Prose {
-    max-width: 48.5rem;
+  max-width: 48.5rem;
 
-    pre {
-        width: 100%;
-        background: rgba(83, 83, 99, 0.075);
-        padding: 20px 0;
-        border-radius: 10px;
-        white-space: pre-wrap;
+  @media (min-width: 1024px) {
+    max-width: 62rem;
+  }
 
-        // style scroll bars for long blocks of code
-        &::-webkit-scrollbar {
-            width: 10px;
+  pre {
+    width: 100%;
+    background: rgba(83, 83, 99, 0.075);
+    padding: 20px 0;
+    border-radius: 10px;
+    white-space: pre-wrap;
 
-            &-track {
-                background-color: #e5e5e5;
-            }
+    // style scroll bars for long blocks of code
+    &::-webkit-scrollbar {
+      width: 10px;
 
-            &-thumb {
-                border-radius: 5px;
-                background-color: #2774ae;
-            }
-        }
+      &-track {
+        background-color: #e5e5e5;
+      }
 
-        &:first-child {
-            margin-top: 0;
-        }
-
-        code {
-            background: rgba(83, 83, 99, 0);
-
-            &.active {
-                background: #3399ff;
-            }
-        }
-    }
-
-    table {
-        margin: 0;
-    }
-
-    // Override "black" theme header sizing with our own
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Helvetica", "Arial", sans-serif;
-        opacity: 1;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: 0;
-        font-weight: bold;
-        font-family: "Helvetica", "Roboto", "Arial", sans-serif;
-    }
-
-    ul,
-    ol {
-        padding-left: 0;
-        margin-bottom: 1.5rem;
-
-        & ul,
-        & ol {
-            margin-top: 0.25rem;
-            margin-bottom: 0;
-        }
-    }
-    li + li {
-        margin-top: 0;
-    }
-
-    .example-content {
-        background-color: #757575;
-        border-radius: 4px;
-        text-align: center;
-        color: #fff;
-        padding: 1.25rem 0;
-        margin: 0;
-    }
-    .example-content--highlight {
+      &-thumb {
+        border-radius: 5px;
         background-color: #2774ae;
+      }
     }
 
-    .ucla-doc-tabpanel {
-        outline-color: transparent;
+    &:first-child {
+      margin-top: 0;
     }
+
+    code {
+      background: rgba(83, 83, 99, 0);
+
+      &.active {
+        background: #3399ff;
+      }
+    }
+  }
+
+  table {
+    margin: 0;
+  }
+
+  // Override "black" theme header sizing with our own
+
+  & > h1:not([class]),
+  & > h2:not([class]),
+  & > h3:not([class]),
+  & > h4:not([class]),
+  & > h5:not([class]),
+  & > h6:not([class]) {
+    font-family: "Helvetica", "Arial", sans-serif;
+    opacity: 1;
+  }
+
+  & > h1:not([class]),
+  & > h2:not([class]),
+  & > h3:not([class]),
+  & > h4:not([class]),
+  & > h5:not([class]),
+  & > h6:not([class]) {
+    margin: 0;
+    font-weight: bold;
+    font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+  }
+
+  ul.ucla-main-nav__sublist {
+    padding-left: 0;
+  }
+
+  .ucla-main-nav__toggle > svg {
+    vertical-align: unset;
+  }
+
+  ul:not([class]),
+  ol {
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+
+    & ul:not([class]),
+    & ol {
+      margin-top: 0.25rem;
+      margin-bottom: 0;
+    }
+  }
+  li:not([class]) + li:not([class]) {
+    margin-top: 0;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+
+  .example-content {
+    background-color: #757575;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    padding: 1.25rem 0;
+    margin: 0;
+  }
+  .example-content--highlight {
+    background-color: #2774ae;
+  }
+
+  .ucla-doc-tabpanel {
+    outline-color: transparent;
+  }
 }
 
 .Status {
-    &-label {
-        text-transform: none;
-    }
+  &-label {
+    text-transform: none;
+  }
 }
 
 .create-button {
-    background-color: #006298;
-    border-radius: 6px;
+  background-color: #006298;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+  padding: 12px 16px;
+  text-decoration: none;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+
+  &.small {
+    font-size: 0.875rem;
+    padding: 8px 10px;
+
+    img {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &:hover {
     color: #ffffff;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
-    line-height: 1;
-    text-decoration: none;
-    padding: 12px 16px;
-    text-decoration: none;
-    vertical-align: middle;
-    margin-bottom: 1rem;
+    background: #0079bf;
+  }
 
-    &.small {
-        font-size: 0.875rem;
-        padding: 8px 10px;
-
-        img {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-        }
-    }
-
-    &:hover {
-        color: #ffffff;
-        background: #0079bf;
-    }
-
-    &:focus {
-        outline: 1px dotted #00568c;
-        outline-offset: 1px;
-    }
+  &:focus {
+    outline: 1px dotted #00568c;
+    outline-offset: 1px;
+  }
 }
 
 .ucla-doc-tabslist {
-    display: flex;
-    border-bottom: 1px solid #ccc;
+  display: flex;
+  border-bottom: 1px solid #ccc;
 }
 
 .ucla-doc-tablink {
-    display: inline-block;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #00598c;
-    padding: 0.75rem 1.5rem 0.5rem;
-    cursor: pointer;
-    border-bottom: 4px solid transparent;
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00598c;
+  padding: 0.75rem 1.5rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
 
-    &.is-active {
-        border-bottom: 4px solid #ffd100;
-        color: #333;
-    }
+  &.is-active {
+    border-bottom: 4px solid #ffd100;
+    color: #333;
+  }
 
-    &:hover {
-        border-bottom: 4px solid #0079bf;
-    }
-    &:active {
-        border-bottom: 4px solid #003b5c;
-    }
+  &:hover {
+    border-bottom: 4px solid #0079bf;
+  }
+  &:active {
+    border-bottom: 4px solid #003b5c;
+  }
 }
 
 .ucla-doc-tabpanels {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
