@@ -32,8 +32,8 @@
     align-items: center;
     display: flex;
 
-    &:first-child {
-      padding: 0;
+    &:first-child .ucla-breadcrumb__link {
+      padding-left: 0;
     }
 
     & + .ucla-breadcrumb__list-item {
@@ -51,5 +51,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin: 0;
   }
 }
