@@ -1,0 +1,56 @@
+@use "../utilities/mixins";
+@use "../utilities/colors";
+
+.ucla-breadcrumb {
+  font-size: 1rem;
+  white-space: nowrap;
+
+  .ucla-breadcrumb__link {
+    align-items: center;
+    color: colors.$default-state;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 8px;
+
+    &:hover {
+      color: colors.$hover-state;
+    }
+
+    &:active {
+      color: colors.$active-state;
+    }
+
+    &:focus {
+      outline: 1px solid colors.$focus-state;
+      color: colors.$focus-state;
+    }
+  }
+
+  .ucla-breadcrumb__list-item {
+    align-items: center;
+    display: flex;
+
+    &:first-child .ucla-breadcrumb__link {
+      padding-left: 0;
+    }
+
+    & + .ucla-breadcrumb__list-item {
+      margin-top: 0;
+
+      &::before {
+        color: colors.$grey-40;
+        content: "/";
+      }
+    }
+  }
+
+  .ucla-breadcrumb__list {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+  }
+}

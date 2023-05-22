@@ -2,91 +2,67 @@
 @use "../../utilities/mixins";
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 
-    @include mixins.for-size(desktop-up) {
-        overflow-x: unset;
-    }
+  @include mixins.for-size(desktop-up) {
+    overflow-x: unset;
+  }
 }
 
 .ucla-header--college {
-    border-bottom: 1px solid colors.$grey-20;
+  border-bottom: 1px solid colors.$grey-20;
 }
 
 .ucla-header__logo {
-    padding-top: 0.875rem;
-    padding-bottom: 1rem;
-    display: flex;
-    align-items: flex-end;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    max-width: 76.5rem;
-    margin: 0 auto;
+  padding-top: 0.875rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  max-width: 76.5rem;
+  margin: 0 auto;
 
-    &-container {
-        background-color: colors.$ucla-blue;
+  &-container {
+    background-color: colors.$ucla-blue;
+  }
+
+  & > a {
+    height: 20px;
+    width: 61.71px;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
     }
-
-    & > a {
-        height: 20px;
-        width: 61.71px;
-
-        &:hover,
-        &:focus {
-            background-color: transparent;
-        }
-    }
-
-    &-breadcrumb {
-        line-height: 0.6;
-        margin: 0;
-
-        & > &-item {
-            display: inline-block;
-            margin-top: 0;
-
-            & > a {
-                font-size: 1rem;
-                font-weight: bold;
-                color: colors.$white;
-                text-decoration: none;
-
-                &:visited {
-                    color: colors.$white;
-                }
-
-                &:hover,
-                &:focus {
-                    background-color: transparent;
-                }
-            }
-
-            &::before {
-                content: "/";
-                color: colors.$white;
-                margin: 0 0.5rem;
-            }
-        }
-    }
+  }
 }
 
-.ucla-header__container .ucla-header__site-name {
+.ucla-header__container {
+  padding-bottom: 1.5rem;
+
+  &:has(.ucla-main-nav) {
+    padding-bottom: 0;
+  }
+
+  .ucla-header__site-name {
     @include mixins.for-size(up-to-tablet) {
-        margin-left: 1.5rem;
+      margin-left: 1.5rem;
     }
     > a {
-        font-size: 1.75rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: colors.$grey-80;
-        @include mixins.for-size(desktop-up) {
-            font-size: 2.25rem;
-        }
+      font-size: 1.75rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: colors.$grey-80;
+      @include mixins.for-size(desktop-up) {
+        font-size: 2.25rem;
+      }
 
-        &:hover,
-        &:focus {
-            background-color: transparent;
-            color: colors.$grey-80;
-        }
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: colors.$grey-80;
+      }
     }
+  }
 }
