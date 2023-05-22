@@ -39,4 +39,9 @@ jobs:
         run: aws s3 sync ./fractal/build s3://designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
       - name: Invalidate Cloudfront Cache
         run: aws cloudfront create-invalidation --distribution-id E2C84XNMA5K34D --paths '/*';
-        
+      - name: Update Redirection
+        run: |
+          mkdir redirection
+          touch ./redirection/index.html
+          aws s3 sync ./redirection s3://designsystem.brand.ucla.edu/ --website-redirect https://designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}/
+
