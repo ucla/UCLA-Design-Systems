@@ -37,6 +37,8 @@ jobs:
           fallback: 1.0.0 #Optional fallback tag to use when no tag can be found
       - name: Deploy
         run: aws s3 sync ./fractal/build s3://designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
+      - name: Upload Assets
+        run: aws s3 sync ./fractal/build/theme-assets/ s3://designsystem.brand.ucla.edu/theme-assets
       - name: Invalidate Cloudfront Cache
         run: aws cloudfront create-invalidation --distribution-id E2C84XNMA5K34D --paths '/*';
       - name: Update Redirection
