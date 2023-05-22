@@ -65,6 +65,16 @@ code {
 
   // Override "black" theme header sizing with our own
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: unset;
+    opacity: 1;
+  }
+
   & > h1:not([class]),
   & > h2:not([class]),
   & > h3:not([class]),
@@ -84,6 +94,12 @@ code {
     margin: 0;
     font-weight: bold;
     font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+  }
+
+  blockquote {
+    padding-left: unset;
+    border-left: unset;
+    opacity: 1;
   }
 
   ul.ucla-main-nav__sublist {
