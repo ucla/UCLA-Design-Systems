@@ -1,0 +1,26 @@
+name: Deploy Development
+
+on:
+  push:
+    branches:
+      [ automation, prod-deploy ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+        working-directory: fractal
+      - name: Fractal Build
+        run: npm run build
+        working-directory: fractal
+      - run: ls -al
+        working-directory: fractal/build
