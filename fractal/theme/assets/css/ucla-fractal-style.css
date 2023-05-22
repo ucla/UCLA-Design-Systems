@@ -79,6 +79,15 @@ code {
 [dir=ltr] .Prose table {
   margin: 0;
 }
+[dir=ltr] .Prose h1,
+[dir=ltr] .Prose h2,
+[dir=ltr] .Prose h3,
+[dir=ltr] .Prose h4,
+[dir=ltr] .Prose h5,
+[dir=ltr] .Prose h6 {
+  color: unset;
+  opacity: 1;
+}
 [dir=ltr] .Prose > h1:not([class]), [dir=ltr] .Prose > h2:not([class]), [dir=ltr] .Prose > h3:not([class]), [dir=ltr] .Prose > h4:not([class]), [dir=ltr] .Prose > h5:not([class]), [dir=ltr] .Prose > h6:not([class]) {
   font-family: "Helvetica", "Arial", sans-serif;
   opacity: 1;
@@ -87,6 +96,11 @@ code {
   margin: 0;
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+}
+[dir=ltr] .Prose blockquote {
+  padding-left: unset;
+  border-left: unset;
+  opacity: 1;
 }
 [dir=ltr] .Prose ul.ucla-main-nav__sublist {
   padding-left: 0;
