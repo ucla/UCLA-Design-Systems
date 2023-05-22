@@ -274,8 +274,12 @@
 
     .ucla-card__person-pronouns,
     .ucla-card__person-department {
-        margin-top: 0.5rem;
+        font-size: 1rem;
+        margin: 0.5rem 0 0 0;
         color: colors.$grey-60;
+    }
+    .ucla-card__person-pronouns {
+        font-weight: normal;
     }
     .ucla-card__person-department {
         font-weight: bold;
