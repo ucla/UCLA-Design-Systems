@@ -46,6 +46,14 @@ jobs:
           mkdir redirection
           touch ./redirection/index.html
           aws s3 sync ./redirection s3://designsystem.brand.ucla.edu/ --website-redirect https://designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}/
+      - name: Install zip
+        uses: montudor/action-zip@v1
+      - name: Zip Public Directory
+        run: zip -qq -r function.zip css icons js
+        working-directory: fractal/public
+      - name: Test 
+        run: |
+          ls fractal/public
       - name: Deploy to CDN
         run: aws s3 sync ./fractal/public s3://cdn.designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
       - name: Invalidate Cloudfront CDN Cache
