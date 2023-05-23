@@ -108,6 +108,12 @@ code {
 [dir=ltr] .Prose .ucla-main-nav__toggle > svg {
   vertical-align: unset;
 }
+[dir=ltr] .Prose ul.ucla-social {
+  padding-left: unset;
+}
+[dir=ltr] .Prose ul.ucla-social li {
+  list-style: none;
+}
 [dir=ltr] .Prose ul:not([class]),
 [dir=ltr] .Prose ol {
   padding-left: 0;

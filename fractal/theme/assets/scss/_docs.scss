@@ -110,6 +110,13 @@ code {
     vertical-align: unset;
   }
 
+  ul.ucla-social {
+    padding-left: unset;
+    li {
+      list-style: none;
+    }
+  }
+
   ul:not([class]),
   ol {
     padding-left: 0;
