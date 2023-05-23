@@ -49,7 +49,7 @@ jobs:
       - name: Install zip
         uses: montudor/action-zip@v1
       - name: Zip Public Directory
-        run: zip -qq -r function.zip css icons js
+        run: zip -qq -r dist.zip css icons js
         working-directory: fractal/public
       - name: Test 
         run: |
@@ -58,4 +58,6 @@ jobs:
         run: aws s3 sync ./fractal/public s3://cdn.designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
       - name: Invalidate Cloudfront CDN Cache
         run: aws cloudfront create-invalidation --distribution-id E2DQ5F0P62DAQN --paths '/*';
+      - name: Make a Redirection to Design System
+        run: aws s3 sync ./redirection s3://cdn.designsystem.brand.ucla.edu/ --website-redirect https://designsystem.brand.ucla.edu/
 
