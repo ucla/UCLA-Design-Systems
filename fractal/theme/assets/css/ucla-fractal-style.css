@@ -79,6 +79,10 @@ code {
 [dir=ltr] .Prose table {
   margin: 0;
 }
+[dir=ltr] .Prose th,
+[dir=ltr] .Prose tr {
+  background-color: unset;
+}
 [dir=ltr] .Prose h1,
 [dir=ltr] .Prose h2,
 [dir=ltr] .Prose h3,

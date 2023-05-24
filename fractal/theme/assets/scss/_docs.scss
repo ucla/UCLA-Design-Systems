@@ -62,6 +62,10 @@ code {
   table {
     margin: 0;
   }
+  th,
+  tr {
+    background-color: unset;
+  }
 
   // Override "black" theme header sizing with our own
 
