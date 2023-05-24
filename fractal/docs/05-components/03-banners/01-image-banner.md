@@ -7,9 +7,6 @@
     <button id="img-banner-development" onclick="openTab(event)" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-img-banner-development">
       Developer Documentation
     </button>
-    <button id="img-banner-etc" onclick="openTab(event)" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-img-banner-etc">
-      Change Log
-    </button>
   </nav>
   <!-- .tabcontent contain panels of content -->
 <section class="ucla-doc-tabpanels">
@@ -18,21 +15,10 @@
 {{> @image-banner-design}}
 
 </article>
-    <article id="tab-img-banner-development" tabindex="0" role="tabpanel" aria-labelledby="img-banner-development" class="ucla-doc-tabpanel" hidden>
-      <p>Panel 2: Tenured</p>
-      <p>Include content about your department's tenured faculty here.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-      <p>
-          <a href="#">Example of inline link</a>.
-      </p>
-    </article>
-    <article id="tab-img-banner-etc" tabindex="0" role="tabpanel" aria-labelledby="img-banner-etc" class="ucla-doc-tabpanel" hidden>
-      <p>Panel 3: Adjunct</p>
-      <p>Include content about your department's adjunct faculty here.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-      <p>
-          <a href="#">Example of inline link</a>.
-      </p>
-    </article>
+<article id="tab-img-banner-development" tabindex="0" role="tabpanel" aria-labelledby="img-banner-development" class="ucla-doc-tabpanel ucla-prose" hidden>
+  
+{{> @image-banner-development}}
+
+</article>
   </section>
 </div>

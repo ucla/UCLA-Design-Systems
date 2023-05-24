@@ -45,6 +45,11 @@ code {
 [dir=ltr] .Prose {
   max-width: 48.5rem;
 }
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose {
+    max-width: 62rem;
+  }
+}
 [dir=ltr] .Prose pre {
   width: 100%;
   background: rgba(83, 83, 99, 0.075);
@@ -74,14 +79,9 @@ code {
 [dir=ltr] .Prose table {
   margin: 0;
 }
-[dir=ltr] .Prose h1,
-[dir=ltr] .Prose h2,
-[dir=ltr] .Prose h3,
-[dir=ltr] .Prose h4,
-[dir=ltr] .Prose h5,
-[dir=ltr] .Prose h6 {
-  font-family: "Helvetica", "Arial", sans-serif;
-  opacity: 1;
+[dir=ltr] .Prose th,
+[dir=ltr] .Prose tr {
+  background-color: unset;
 }
 [dir=ltr] .Prose h1,
 [dir=ltr] .Prose h2,
@@ -89,23 +89,51 @@ code {
 [dir=ltr] .Prose h4,
 [dir=ltr] .Prose h5,
 [dir=ltr] .Prose h6 {
+  color: unset;
+  opacity: 1;
+}
+[dir=ltr] .Prose > h1:not([class]), [dir=ltr] .Prose > h2:not([class]), [dir=ltr] .Prose > h3:not([class]), [dir=ltr] .Prose > h4:not([class]), [dir=ltr] .Prose > h5:not([class]), [dir=ltr] .Prose > h6:not([class]) {
+  font-family: "Helvetica", "Arial", sans-serif;
+  opacity: 1;
+}
+[dir=ltr] .Prose > h1:not([class]), [dir=ltr] .Prose > h2:not([class]), [dir=ltr] .Prose > h3:not([class]), [dir=ltr] .Prose > h4:not([class]), [dir=ltr] .Prose > h5:not([class]), [dir=ltr] .Prose > h6:not([class]) {
   margin: 0;
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
 }
-[dir=ltr] .Prose ul,
+[dir=ltr] .Prose blockquote {
+  padding-left: unset;
+  border-left: unset;
+  opacity: 1;
+}
+[dir=ltr] .Prose ul.ucla-main-nav__sublist {
+  padding-left: 0;
+}
+[dir=ltr] .Prose .ucla-main-nav__toggle > svg {
+  vertical-align: unset;
+}
+[dir=ltr] .Prose ul.ucla-social {
+  padding-left: unset;
+}
+[dir=ltr] .Prose ul.ucla-social li {
+  list-style: none;
+}
+[dir=ltr] .Prose ul:not([class]),
 [dir=ltr] .Prose ol {
   padding-left: 0;
   margin-bottom: 1.5rem;
 }
-[dir=ltr] .Prose ul ul, [dir=ltr] .Prose ul ol,
-[dir=ltr] .Prose ol ul,
+[dir=ltr] .Prose ul:not([class]) ul:not([class]), [dir=ltr] .Prose ul:not([class]) ol,
+[dir=ltr] .Prose ol ul:not([class]),
 [dir=ltr] .Prose ol ol {
   margin-top: 0.25rem;
   margin-bottom: 0;
 }
-[dir=ltr] .Prose li + li {
+[dir=ltr] .Prose li:not([class]) + li:not([class]) {
   margin-top: 0;
+}
+[dir=ltr] .Prose li {
+  margin-bottom: 0;
 }
 [dir=ltr] .Prose .example-content {
   background-color: #757575;
@@ -202,12 +230,9 @@ body {
   background: #00598c;
 }
 
-a {
-  color: #00598c;
-}
-
 a.Tree-entityLink {
   font-weight: bold;
+  color: #00598c;
 }
 
 .hljs-number,
