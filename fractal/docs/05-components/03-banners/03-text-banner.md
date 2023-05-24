@@ -7,9 +7,6 @@
     <button id="text-banner-development" onclick="openTab(event)" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-text-banner-development">
       Developer Documentation
     </button>
-    <button id="text-banner-etc" onclick="openTab(event)" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-text-banner-etc">
-      Change Log
-    </button>
   </nav>
   <!-- .tabcontent contain panels of content -->
 <section class="ucla-doc-tabpanels">
@@ -22,14 +19,6 @@
   
 {{> @text-banner-development}}
 
-</article>
-<article id="tab-text-banner-etc" tabindex="0" role="tabpanel" aria-labelledby="text-banner-etc" class="ucla-doc-tabpanel" hidden>
-  <p>Panel 3: Adjunct</p>
-  <p>Include content about your department's adjunct faculty here.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-  <p>
-      <a href="#">Example of inline link</a>.
-  </p>
 </article>
   </section>
 </div>
