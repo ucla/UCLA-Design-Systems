@@ -18,21 +18,10 @@
 {{> @radio-buttons-design}}
 
 </article>
-    <article id="tab-form-radio-buttons-development" tabindex="0" role="tabpanel" aria-labelledby="form-radio-buttons-development" class="ucla-doc-tabpanel" hidden>
-      <p>Panel 2: Tenured</p>
-      <p>Include content about your department's tenured faculty here.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-      <p>
-          <a href="#">Example of inline link</a>.
-      </p>
-    </article>
-    <article id="tab-form-radio-buttons-etc" tabindex="0" role="tabpanel" aria-labelledby="form-radio-buttons-etc" class="ucla-doc-tabpanel" hidden>
-      <p>Panel 3: Adjunct</p>
-      <p>Include content about your department's adjunct faculty here.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-      <p>
-          <a href="#">Example of inline link</a>.
-      </p>
-    </article>
+<article id="tab-form-radio-buttons-development" tabindex="0" role="tabpanel" aria-labelledby="form-radio-buttons-development" class="ucla-doc-tabpanel ucla-prose" hidden>
+  
+{{> @radio-buttons-development}}  
+
+</article>
   </section>
 </div>

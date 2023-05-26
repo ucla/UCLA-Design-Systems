@@ -50,6 +50,10 @@ code {
     max-width: 62rem;
   }
 }
+[dir=ltr] .Prose p.ucla-field__help {
+  margin-top: 6px;
+  margin-block-end: unset;
+}
 [dir=ltr] .Prose pre {
   width: 100%;
   background: rgba(83, 83, 99, 0.075);

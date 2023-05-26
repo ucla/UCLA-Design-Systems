@@ -25,6 +25,12 @@ code {
     max-width: 62rem;
   }
 
+  p.ucla-field__help {
+    margin-top: 6px;
+
+    margin-block-end: unset;
+  }
+
   pre {
     width: 100%;
     background: rgba(83, 83, 99, 0.075);
