@@ -18,11 +18,17 @@ code {
   border-radius: 2px;
 }
 
-[dir="ltr"] .Prose {
+[dir="ltr"] .Prose1 {
   max-width: 48.5rem;
 
   @media (min-width: 1024px) {
     max-width: 62rem;
+  }
+
+  p.ucla-field__help {
+    margin-top: 6px;
+
+    margin-block-end: unset;
   }
 
   pre {
@@ -69,12 +75,12 @@ code {
 
   // Override "black" theme header sizing with our own
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1:not([class]),
+  h2:not([class]),
+  h3:not([class]),
+  h4:not([class]),
+  h5:not([class]),
+  h6:not([class]) {
     color: unset;
     opacity: 1;
   }
@@ -118,6 +124,12 @@ code {
     padding-left: unset;
     li {
       list-style: none;
+    }
+  }
+
+  a.ucla-tile {
+    &:hover {
+      color: white;
     }
   }
 

@@ -17,7 +17,7 @@
 
 {% block docContent %}
 
-    <div class="Prose">
+    <div class="Prose1">
         {% block pageContent %}
             {% import "macros/errors.nunj" as errors %}
             {% if doc %}
