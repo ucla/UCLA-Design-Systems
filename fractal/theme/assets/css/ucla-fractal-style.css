@@ -122,6 +122,9 @@ code {
 [dir=ltr] .Prose ul.ucla-social li {
   list-style: none;
 }
+[dir=ltr] .Prose a.ucla-tile:hover {
+  color: white;
+}
 [dir=ltr] .Prose ul:not([class]),
 [dir=ltr] .Prose ol {
   padding-left: 0;

@@ -127,6 +127,12 @@ code {
     }
   }
 
+  a.ucla-tile {
+    &:hover {
+      color: white;
+    }
+  }
+
   ul:not([class]),
   ol {
     padding-left: 0;
