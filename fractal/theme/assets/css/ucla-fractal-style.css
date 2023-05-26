@@ -42,107 +42,107 @@ code {
   border-radius: 2px;
 }
 
-[dir=ltr] .Prose {
+[dir=ltr] .Prose1 {
   max-width: 48.5rem;
 }
 @media (min-width: 1024px) {
-  [dir=ltr] .Prose {
+  [dir=ltr] .Prose1 {
     max-width: 62rem;
   }
 }
-[dir=ltr] .Prose p.ucla-field__help {
+[dir=ltr] .Prose1 p.ucla-field__help {
   margin-top: 6px;
   margin-block-end: unset;
 }
-[dir=ltr] .Prose pre {
+[dir=ltr] .Prose1 pre {
   width: 100%;
   background: rgba(83, 83, 99, 0.075);
   padding: 20px 0;
   border-radius: 10px;
   white-space: pre-wrap;
 }
-[dir=ltr] .Prose pre::-webkit-scrollbar {
+[dir=ltr] .Prose1 pre::-webkit-scrollbar {
   width: 10px;
 }
-[dir=ltr] .Prose pre::-webkit-scrollbar-track {
+[dir=ltr] .Prose1 pre::-webkit-scrollbar-track {
   background-color: #e5e5e5;
 }
-[dir=ltr] .Prose pre::-webkit-scrollbar-thumb {
+[dir=ltr] .Prose1 pre::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #2774ae;
 }
-[dir=ltr] .Prose pre:first-child {
+[dir=ltr] .Prose1 pre:first-child {
   margin-top: 0;
 }
-[dir=ltr] .Prose pre code {
+[dir=ltr] .Prose1 pre code {
   background: rgba(83, 83, 99, 0);
 }
-[dir=ltr] .Prose pre code.active {
+[dir=ltr] .Prose1 pre code.active {
   background: #3399ff;
 }
-[dir=ltr] .Prose table {
+[dir=ltr] .Prose1 table {
   margin: 0;
 }
-[dir=ltr] .Prose th,
-[dir=ltr] .Prose tr {
+[dir=ltr] .Prose1 th,
+[dir=ltr] .Prose1 tr {
   background-color: unset;
 }
-[dir=ltr] .Prose h1,
-[dir=ltr] .Prose h2,
-[dir=ltr] .Prose h3,
-[dir=ltr] .Prose h4,
-[dir=ltr] .Prose h5,
-[dir=ltr] .Prose h6 {
+[dir=ltr] .Prose1 h1:not([class]),
+[dir=ltr] .Prose1 h2:not([class]),
+[dir=ltr] .Prose1 h3:not([class]),
+[dir=ltr] .Prose1 h4:not([class]),
+[dir=ltr] .Prose1 h5:not([class]),
+[dir=ltr] .Prose1 h6:not([class]) {
   color: unset;
   opacity: 1;
 }
-[dir=ltr] .Prose > h1:not([class]), [dir=ltr] .Prose > h2:not([class]), [dir=ltr] .Prose > h3:not([class]), [dir=ltr] .Prose > h4:not([class]), [dir=ltr] .Prose > h5:not([class]), [dir=ltr] .Prose > h6:not([class]) {
+[dir=ltr] .Prose1 > h1:not([class]), [dir=ltr] .Prose1 > h2:not([class]), [dir=ltr] .Prose1 > h3:not([class]), [dir=ltr] .Prose1 > h4:not([class]), [dir=ltr] .Prose1 > h5:not([class]), [dir=ltr] .Prose1 > h6:not([class]) {
   font-family: "Helvetica", "Arial", sans-serif;
   opacity: 1;
 }
-[dir=ltr] .Prose > h1:not([class]), [dir=ltr] .Prose > h2:not([class]), [dir=ltr] .Prose > h3:not([class]), [dir=ltr] .Prose > h4:not([class]), [dir=ltr] .Prose > h5:not([class]), [dir=ltr] .Prose > h6:not([class]) {
+[dir=ltr] .Prose1 > h1:not([class]), [dir=ltr] .Prose1 > h2:not([class]), [dir=ltr] .Prose1 > h3:not([class]), [dir=ltr] .Prose1 > h4:not([class]), [dir=ltr] .Prose1 > h5:not([class]), [dir=ltr] .Prose1 > h6:not([class]) {
   margin: 0;
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
 }
-[dir=ltr] .Prose blockquote {
+[dir=ltr] .Prose1 blockquote {
   padding-left: unset;
   border-left: unset;
   opacity: 1;
 }
-[dir=ltr] .Prose ul.ucla-main-nav__sublist {
+[dir=ltr] .Prose1 ul.ucla-main-nav__sublist {
   padding-left: 0;
 }
-[dir=ltr] .Prose .ucla-main-nav__toggle > svg {
+[dir=ltr] .Prose1 .ucla-main-nav__toggle > svg {
   vertical-align: unset;
 }
-[dir=ltr] .Prose ul.ucla-social {
+[dir=ltr] .Prose1 ul.ucla-social {
   padding-left: unset;
 }
-[dir=ltr] .Prose ul.ucla-social li {
+[dir=ltr] .Prose1 ul.ucla-social li {
   list-style: none;
 }
-[dir=ltr] .Prose a.ucla-tile:hover {
+[dir=ltr] .Prose1 a.ucla-tile:hover {
   color: white;
 }
-[dir=ltr] .Prose ul:not([class]),
-[dir=ltr] .Prose ol {
+[dir=ltr] .Prose1 ul:not([class]),
+[dir=ltr] .Prose1 ol {
   padding-left: 0;
   margin-bottom: 1.5rem;
 }
-[dir=ltr] .Prose ul:not([class]) ul:not([class]), [dir=ltr] .Prose ul:not([class]) ol,
-[dir=ltr] .Prose ol ul:not([class]),
-[dir=ltr] .Prose ol ol {
+[dir=ltr] .Prose1 ul:not([class]) ul:not([class]), [dir=ltr] .Prose1 ul:not([class]) ol,
+[dir=ltr] .Prose1 ol ul:not([class]),
+[dir=ltr] .Prose1 ol ol {
   margin-top: 0.25rem;
   margin-bottom: 0;
 }
-[dir=ltr] .Prose li:not([class]) + li:not([class]) {
+[dir=ltr] .Prose1 li:not([class]) + li:not([class]) {
   margin-top: 0;
 }
-[dir=ltr] .Prose li {
+[dir=ltr] .Prose1 li {
   margin-bottom: 0;
 }
-[dir=ltr] .Prose .example-content {
+[dir=ltr] .Prose1 .example-content {
   background-color: #757575;
   border-radius: 4px;
   text-align: center;
@@ -150,10 +150,10 @@ code {
   padding: 1.25rem 0;
   margin: 0;
 }
-[dir=ltr] .Prose .example-content--highlight {
+[dir=ltr] .Prose1 .example-content--highlight {
   background-color: #2774ae;
 }
-[dir=ltr] .Prose .ucla-doc-tabpanel {
+[dir=ltr] .Prose1 .ucla-doc-tabpanel {
   outline-color: transparent;
 }
 

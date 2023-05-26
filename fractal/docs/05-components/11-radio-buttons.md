@@ -7,9 +7,6 @@
     <button id="form-radio-buttons-development" onclick="openTab(event)" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-form-radio-buttons-development">
       Developer Documentation
     </button>
-    <button id="form-radio-buttons-etc" onclick="openTab(event)" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-form-radio-buttons-etc">
-      Change Log
-    </button>
   </nav>
   <!-- .tabcontent contain panels of content -->
 <section class="ucla-doc-tabpanels">
