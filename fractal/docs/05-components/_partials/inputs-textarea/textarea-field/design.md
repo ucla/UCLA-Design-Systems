@@ -1,5 +1,5 @@
 ---
-handle: textboxfield-design
+handle: textareafield-design
 ---
 A text input allows users to enter any combination of letters, numbers, or symbols. Text input boxes can span single or multiple lines.
 
@@ -9,7 +9,7 @@ A user needs to input text-based information that is longer or cannot be divided
 
 #### Anatomy
 
-![Textbox Field Anatomy](/theme-assets/img/docs/components/forms/textbox-field-anatomy.svg)
+![Textarea Field Anatomy](/theme-assets/img/docs/components/forms/textbox-field-anatomy.svg)
 
 **1. Label**
 
@@ -29,4 +29,4 @@ Clearly state if and when users can expect a response from your department.
 
 #### States
 
-![Textbox Field States](/theme-assets/img/docs/components/forms/textbox-field-states.svg)
+![Textarea Field States](/theme-assets/img/docs/components/forms/textbox-field-states.svg)

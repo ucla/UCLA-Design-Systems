@@ -15,7 +15,7 @@
 {{> @tab-doc-design}}
 
 </article>
-<article id="tab-tab-doc-development" tabindex="0" role="tabpanel" aria-labelledby="tab-doc-development" class="ucla-doc-tabpanel" hidden>
+<article id="tab-tab-doc-development" tabindex="0" role="tabpanel" aria-labelledby="tab-doc-development" class="ucla-doc-tabpanel ucla-prose" hidden>
   
 {{> @tab-doc-development}}
 
