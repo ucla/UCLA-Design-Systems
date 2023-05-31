@@ -1,0 +1,28 @@
+@use "../utilities/colors";
+
+.ucla-carousel {
+  .ucla-carousel__pagination {
+    position: unset;
+  }
+  .ucla-carousel__page {
+    background: colors.$grey-20;
+    width: 10px;
+    height: 10px;
+    opacity: unset;
+
+    &.is-active {
+      background: colors.$active-state;
+      scale: unset;
+      transform: unset;
+    }
+
+    &:hover {
+      background: colors.$hover-state;
+    }
+
+    &:focus {
+      outline: 1px solid colors.$focus-state;
+      outline-offset: 1px;
+    }
+  }
+}

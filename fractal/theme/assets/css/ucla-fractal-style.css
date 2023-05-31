@@ -60,6 +60,7 @@ code {
   padding: 20px 0;
   border-radius: 10px;
   white-space: pre-wrap;
+  margin: 1rem 0;
 }
 [dir=ltr] .Prose1 pre::-webkit-scrollbar {
   width: 10px;
@@ -222,6 +223,18 @@ code {
 .ucla-doc-tabpanels {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.splide.ucla-carousel.doc-slider-is-overflow .splide__pagination {
+  display: flex;
+}
+
+a {
+  color: unset;
+}
+
+.ucla-card.icon-docs > .ucla-card__body > .ucla-card__description {
+  margin-block-end: 0;
 }
 
 /***************** STOP!!! READ THIS!! *****************/
