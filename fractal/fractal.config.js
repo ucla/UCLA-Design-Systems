@@ -97,7 +97,7 @@ const mandelbrot = require("@frctl/mandelbrot");
 const myCustomisedTheme = mandelbrot({
   skin: "black",
   // any other theme configuration values here
-  nav: ["search", "docs", "components", "information"],
+  nav: ["search", "docs", "information"],
   styles: [
     "default",
     "/theme-assets/css/ucla-fractal-style.css",
