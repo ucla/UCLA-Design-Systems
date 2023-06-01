@@ -1,64 +1,63 @@
-@use "../utilities/colors";
 @use "../utilities/variables";
 
 .ucla-alert {
-    /* Default Alerts Styling */
-    padding: 1.125rem;
-    border-width: 2px;
-    border-style: solid;
-    line-height: 1.5;
-    display: flex;
-    align-items: center;
+  /* Default Alerts Styling */
+  padding: 1.125rem;
+  border-width: 2px;
+  border-style: solid;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
 
-    .ucla-alert--icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 8px;
-    }
+  .ucla-alert--icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
 
-    .ucla-alert--close {
-        display: inherit;
-        cursor: pointer;
-        margin-left: auto;
-        svg {
-            width: 24px;
-            height: 24px;
-        }
+  .ucla-alert--close {
+    display: inherit;
+    cursor: pointer;
+    margin-left: auto;
+    svg {
+      width: 24px;
+      height: 24px;
     }
+  }
 
-    /* Specific Alert Styles */
-    &--primary {
-        border-color: colors.$primary-alert-blue;
-        svg path {
-            fill: colors.$primary-alert-blue;
-        }
+  /* Specific Alert Styles */
+  &--primary {
+    border-color: variables.$primary-alert-blue;
+    svg path {
+      fill: variables.$primary-alert-blue;
     }
+  }
 
-    &--secondary {
-        border-color: colors.$secondary-alert-grey;
-        svg path {
-            fill: colors.$secondary-alert-grey;
-        }
+  &--secondary {
+    border-color: variables.$secondary-alert-grey;
+    svg path {
+      fill: variables.$secondary-alert-grey;
     }
+  }
 
-    &--success {
-        border-color: colors.$success-green;
-        svg path {
-            fill: colors.$success-green;
-        }
+  &--success {
+    border-color: variables.$success-green;
+    svg path {
+      fill: variables.$success-green;
     }
+  }
 
-    &--error {
-        border-color: colors.$error-red;
-        svg path {
-            fill: colors.$error-red;
-        }
+  &--error {
+    border-color: variables.$error-red;
+    svg path {
+      fill: variables.$error-red;
     }
+  }
 
-    &--warning {
-        border-color: colors.$warning-orange;
-        svg path {
-            fill: colors.$warning-orange;
-        }
+  &--warning {
+    border-color: variables.$warning-orange;
+    svg path {
+      fill: variables.$warning-orange;
     }
+  }
 }

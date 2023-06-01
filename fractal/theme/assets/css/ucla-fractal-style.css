@@ -37,57 +37,125 @@
 
 code {
   background: rgba(83, 83, 99, 0.075);
+  color: #d14;
   padding: 2px 3px;
   border-radius: 2px;
 }
 
-.Prose {
+[dir=ltr] .Prose1 {
   max-width: 48.5rem;
 }
-.Prose pre {
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 {
+    max-width: 62rem;
+  }
+}
+[dir=ltr] .Prose1 p.ucla-field__help {
+  margin-top: 6px;
+  margin-block-end: unset;
+}
+[dir=ltr] .Prose1 pre {
   width: 100%;
   background: rgba(83, 83, 99, 0.075);
-  padding: 20px;
+  padding: 20px 0;
   border-radius: 10px;
-  overflow-y: scroll;
+  white-space: pre-wrap;
+  margin: 1rem 0;
 }
-.Prose pre::-webkit-scrollbar {
+[dir=ltr] .Prose1 pre::-webkit-scrollbar {
   width: 10px;
 }
-.Prose pre::-webkit-scrollbar-track {
+[dir=ltr] .Prose1 pre::-webkit-scrollbar-track {
   background-color: #e5e5e5;
 }
-.Prose pre::-webkit-scrollbar-thumb {
+[dir=ltr] .Prose1 pre::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #2774ae;
 }
-.Prose pre code {
+[dir=ltr] .Prose1 pre:first-child {
+  margin-top: 0;
+}
+[dir=ltr] .Prose1 pre code {
   background: rgba(83, 83, 99, 0);
 }
-.Prose pre code.active {
+[dir=ltr] .Prose1 pre code.active {
   background: #3399ff;
 }
-.Prose table {
+[dir=ltr] .Prose1 table {
   margin: 0;
 }
-.Prose h1,
-.Prose h2,
-.Prose h3,
-.Prose h4,
-.Prose h5,
-.Prose h6 {
+[dir=ltr] .Prose1 th,
+[dir=ltr] .Prose1 tr {
+  background-color: unset;
+}
+[dir=ltr] .Prose1 h1:not([class]),
+[dir=ltr] .Prose1 h2:not([class]),
+[dir=ltr] .Prose1 h3:not([class]),
+[dir=ltr] .Prose1 h4:not([class]),
+[dir=ltr] .Prose1 h5:not([class]),
+[dir=ltr] .Prose1 h6:not([class]) {
+  color: unset;
+  opacity: 1;
+}
+[dir=ltr] .Prose1 > h1:not([class]), [dir=ltr] .Prose1 > h2:not([class]), [dir=ltr] .Prose1 > h3:not([class]), [dir=ltr] .Prose1 > h4:not([class]), [dir=ltr] .Prose1 > h5:not([class]), [dir=ltr] .Prose1 > h6:not([class]) {
   font-family: "Helvetica", "Arial", sans-serif;
+  opacity: 1;
 }
-.Prose h1,
-.Prose h2,
-.Prose h3,
-.Prose h4,
-.Prose h5,
-.Prose h6 {
+[dir=ltr] .Prose1 > h1:not([class]), [dir=ltr] .Prose1 > h2:not([class]), [dir=ltr] .Prose1 > h3:not([class]), [dir=ltr] .Prose1 > h4:not([class]), [dir=ltr] .Prose1 > h5:not([class]), [dir=ltr] .Prose1 > h6:not([class]) {
   margin: 0;
-  color: #333;
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+}
+[dir=ltr] .Prose1 blockquote {
+  padding-left: unset;
+  border-left: unset;
+  opacity: 1;
+}
+[dir=ltr] .Prose1 ul.ucla-main-nav__sublist {
+  padding-left: 0;
+}
+[dir=ltr] .Prose1 .ucla-main-nav__toggle > svg {
+  vertical-align: unset;
+}
+[dir=ltr] .Prose1 ul.ucla-social {
+  padding-left: unset;
+}
+[dir=ltr] .Prose1 ul.ucla-social li {
+  list-style: none;
+}
+[dir=ltr] .Prose1 a.ucla-tile:hover {
+  color: white;
+}
+[dir=ltr] .Prose1 ul:not([class]),
+[dir=ltr] .Prose1 ol {
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+[dir=ltr] .Prose1 ul:not([class]) ul:not([class]), [dir=ltr] .Prose1 ul:not([class]) ol,
+[dir=ltr] .Prose1 ol ul:not([class]),
+[dir=ltr] .Prose1 ol ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+[dir=ltr] .Prose1 li:not([class]) + li:not([class]) {
+  margin-top: 0;
+}
+[dir=ltr] .Prose1 li {
+  margin-bottom: 0;
+}
+[dir=ltr] .Prose1 .example-content {
+  background-color: #757575;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  padding: 1.25rem 0;
+  margin: 0;
+}
+[dir=ltr] .Prose1 .example-content--highlight {
+  background-color: #2774ae;
+}
+[dir=ltr] .Prose1 .ucla-doc-tabpanel {
+  outline-color: transparent;
 }
 
 .Status-label {
@@ -126,6 +194,69 @@ code {
   outline-offset: 1px;
 }
 
+.ucla-doc-tabslist {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.ucla-doc-tablink {
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00598c;
+  padding: 0.75rem 1.5rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+}
+.ucla-doc-tablink.is-active {
+  border-bottom: 4px solid #ffd100;
+  color: #333;
+}
+.ucla-doc-tablink:hover {
+  border-bottom: 4px solid #0079bf;
+}
+.ucla-doc-tablink:active {
+  border-bottom: 4px solid #003b5c;
+}
+
+.ucla-doc-tabpanels {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.splide.ucla-carousel.doc-slider-is-overflow .splide__pagination {
+  display: flex;
+}
+
+a {
+  color: unset;
+}
+
+.ucla-card.icon-docs > .ucla-card__body > .ucla-card__description {
+  margin-block-end: 0;
+}
+
+.ucla-table.docs-table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.docs-color-swatch {
+  border-radius: 2px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  height: 24px;
+  margin-right: 8px;
+  width: 24px;
+  float: left;
+}
+
+.docs-example-margin-padding {
+  display: flow-root;
+  background-image: linear-gradient(135deg, #ccc 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, #ccc 0, #ccc 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+  background-size: 7.07px 7.07px;
+}
+
 /***************** STOP!!! READ THIS!! *****************/
 .Header {
   background-color: #2774ae;
@@ -139,12 +270,9 @@ body {
   background: #00598c;
 }
 
-a {
-  color: #00598c;
-}
-
 a.Tree-entityLink {
   font-weight: bold;
+  color: #00598c;
 }
 
 .hljs-number,

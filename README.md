@@ -31,7 +31,6 @@ Our goal is to provide flexible resources and tools for any person or team who c
 
 ## For Consumers
 - [How To Navigate the Website](./help/consumers/navigatingSite.md)
-- [Components Status](./help/consumers/componentStatus.md)
 - [Component Design, Code Documentation and Example Usage (Website)](#)
 - [How To Include Library in Your Web Project (Website)](#)
 
@@ -39,7 +38,7 @@ Our goal is to provide flexible resources and tools for any person or team who c
 
 ### Have questions on how to consume or contribute to this library? Please reach out to one of our developers:
 - [Post an Issue](https://github.com/ucla/UCLA-Design-Systems/issues)
-- [Join the Slack Discussion](#)
+- [Join the Slack Discussion](https://ucla.slack.com/archives/C01TW0HVB0Q)
 - [Internal Project Maintainer](./help/internal/tableofcontents.md)
 
 ---

@@ -1,0 +1,9 @@
+<link rel="manifest" href="/theme-assets/manifest.webmanifest">
+<link rel="icon" href="{{ path(frctl.theme.get('favicon')) }}" type="image/ico">
+<link rel="icon" href="/theme-assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{% include 'partials/stylesheets.nunj' %}
+<title>
+  {% if page.title %}{{ page.title }}
+    |
+  {% endif %}{{ frctl.get('project.title') }}</title>
