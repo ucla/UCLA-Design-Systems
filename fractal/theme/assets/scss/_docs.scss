@@ -270,3 +270,18 @@ a {
   width: 24px;
   float: left;
 }
+
+.docs-example-margin-padding {
+  display: flow-root;
+  background-image: linear-gradient(
+    135deg,
+    #ccc 10%,
+    #0000 0,
+    #0000 50%,
+    #ccc 0,
+    #ccc 60%,
+    #0000 0,
+    #0000
+  );
+  background-size: 7.07px 7.07px;
+}

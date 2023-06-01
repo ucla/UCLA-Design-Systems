@@ -251,6 +251,12 @@ a {
   float: left;
 }
 
+.docs-example-margin-padding {
+  display: flow-root;
+  background-image: linear-gradient(135deg, #ccc 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, #ccc 0, #ccc 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+  background-size: 7.07px 7.07px;
+}
+
 /***************** STOP!!! READ THIS!! *****************/
 .Header {
   background-color: #2774ae;
