@@ -1,8 +1,8 @@
-@use "../utilities/colors";
+@use "../utilities/variables";
 
 .ucla-tabslist {
   display: flex;
-  border-bottom: 1px solid colors.$grey-20;
+  border-bottom: 1px solid variables.$grey-20;
 }
 
 .ucla-tablink {
@@ -10,21 +10,21 @@
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
-  color: colors.$default-state;
+  color: variables.$default-state;
   padding: 0.75rem 1.5rem 0.5rem;
   cursor: pointer;
   border-bottom: 4px solid transparent;
 
   &.is-active {
-    border-bottom: 4px solid colors.$ucla-gold;
-    color: colors.$grey-80;
+    border-bottom: 4px solid variables.$ucla-gold;
+    color: variables.$grey-80;
   }
 
   &:hover {
-    border-bottom: 4px solid colors.$hover-state;
+    border-bottom: 4px solid variables.$hover-state;
   }
   &:active {
-    border-bottom: 4px solid colors.$active-state;
+    border-bottom: 4px solid variables.$active-state;
   }
 }
 

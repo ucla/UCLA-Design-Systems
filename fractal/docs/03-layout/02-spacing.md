@@ -15,13 +15,10 @@
 {{> @spacing-design}}
 
 </article>
-    <article id="tab-spacing-development" tabindex="0" role="tabpanel" aria-labelledby="spacing-development" class="ucla-doc-tabpanel" hidden>
-      <p>Panel 2: Tenured</p>
-      <p>Include content about your department's tenured faculty here.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sem neque, pulvinar ac bibendum eget, hendrerit a dolor. Nulla nec ex nulla.</p>
-      <p>
-          <a href="#">Example of inline link</a>.
-      </p>
-    </article>
+<article id="tab-spacing-development" tabindex="0" role="tabpanel" aria-labelledby="spacing-development" class="ucla-doc-tabpanel ucla-prose" hidden>
+  
+{{> @spacing-development}}  
+
+</article>
   </section>
 </div>

@@ -1,67 +1,67 @@
-@use "../../utilities/colors";
+@use "../../utilities/variables";
 
 .ucla-field__input {
-    background-color: colors.$grey-05;
-    border: 1px solid colors.$grey-60;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 100%;
-    padding: 0.563rem 1rem;
+  background-color: variables.$grey-05;
+  border: 1px solid variables.$grey-60;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.563rem 1rem;
 
-    &::placeholder {
-        color: colors.$grey-60;
-    }
+  &::placeholder {
+    color: variables.$grey-60;
+  }
 
-    &:focus {
-        outline: 2px solid colors.$focus-state;
-    }
+  &:focus {
+    outline: 2px solid variables.$focus-state;
+  }
 
-    .ucla-is-warning &,
-    &.ucla-is-warning {
-        border-color: colors.$warning-orange;
-        color: colors.$warning-orange;
-    }
+  .ucla-is-warning &,
+  &.ucla-is-warning {
+    border-color: variables.$warning-orange;
+    color: variables.$warning-orange;
+  }
 
-    .ucla-is-error &,
-    &.ucla-is-error {
-        border-color: colors.$error-red;
-        color: colors.$error-red;
-    }
+  .ucla-is-error &,
+  &.ucla-is-error {
+    border-color: variables.$error-red;
+    color: variables.$error-red;
+  }
 
-    .ucla-has-left-icon & {
-        padding-left: 3em;
-    }
-    .ucla-has-right-icon & {
-        padding-right: 3em;
-    }
+  .ucla-has-left-icon & {
+    padding-left: 3em;
+  }
+  .ucla-has-right-icon & {
+    padding-right: 3em;
+  }
 
-    &:disabled {
-        color: colors.$grey-20;
-        border-color: colors.$grey-05;
-        cursor: not-allowed;
-    }
+  &:disabled {
+    color: variables.$grey-20;
+    border-color: variables.$grey-05;
+    cursor: not-allowed;
+  }
 }
 
 .ucla-field__icon-left,
 .ucla-field__icon-right {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 3.5em;
-    height: 2.4em;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.5em;
+  height: 2.4em;
 
-    & > svg {
-        width: 20px;
-        height: 16px;
-    }
+  & > svg {
+    width: 20px;
+    height: 16px;
+  }
 }
 .ucla-field__icon-left {
-    left: 0;
+  left: 0;
 }
 .ucla-field__icon-right {
-    right: 0;
+  right: 0;
 }
