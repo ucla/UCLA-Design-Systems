@@ -1,42 +1,42 @@
-@use "../../utilities/colors";
+@use "../../utilities/variables";
 
 .ucla-field__textarea {
-    display: block;
-    max-width: 100%;
-    min-width: 100%;
-    padding: 1rem;
-    resize: vertical;
-    background-color: colors.$grey-05;
-    border: 1px solid colors.$grey-60;
-    border-radius: 4px;
+  display: block;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 1rem;
+  resize: vertical;
+  background-color: variables.$grey-05;
+  border: 1px solid variables.$grey-60;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: variables.$grey-60;
+  }
+
+  &:focus {
+    outline: 2px solid variables.$focus-state;
+  }
+
+  &:disabled {
+    color: variables.$grey-40;
+    border: variables.$grey-05;
+    cursor: not-allowed;
 
     &::placeholder {
-        color: colors.$grey-60;
+      color: variables.$grey-20;
     }
+  }
 
-    &:focus {
-        outline: 2px solid colors.$focus-state;
-    }
+  .ucla-is-warning &,
+  &.ucla-is-warning {
+    border-color: variables.$warning-orange;
+    color: variables.$warning-orange;
+  }
 
-    &:disabled {
-        color: colors.$grey-40;
-        border: colors.$grey-05;
-        cursor: not-allowed;
-
-        &::placeholder {
-            color: colors.$grey-20;
-        }
-    }
-
-    .ucla-is-warning &,
-    &.ucla-is-warning {
-        border-color: colors.$warning-orange;
-        color: colors.$warning-orange;
-    }
-
-    .ucla-is-error &,
-    &.ucla-is-error {
-        border-color: colors.$error-red;
-        color: colors.$error-red;
-    }
+  .ucla-is-error &,
+  &.ucla-is-error {
+    border-color: variables.$error-red;
+    color: variables.$error-red;
+  }
 }
