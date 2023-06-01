@@ -1,4 +1,4 @@
-@use "../../utilities/colors";
+@use "../../utilities/variables";
 @use "../../utilities/mixins";
 
 body {
@@ -10,7 +10,7 @@ body {
 }
 
 .ucla-header--college {
-  border-bottom: 1px solid colors.$grey-20;
+  border-bottom: 1px solid variables.$grey-20;
 }
 
 .ucla-header__logo {
@@ -24,7 +24,7 @@ body {
   margin: 0 auto;
 
   &-container {
-    background-color: colors.$ucla-blue;
+    background-color: variables.$ucla-blue;
   }
 
   & > a {
@@ -53,7 +53,7 @@ body {
       font-size: 1.75rem;
       font-weight: bold;
       text-decoration: none;
-      color: colors.$grey-80;
+      color: variables.$grey-80;
       @include mixins.for-size(desktop-up) {
         font-size: 2.25rem;
       }
@@ -61,7 +61,7 @@ body {
       &:hover,
       &:focus {
         background-color: transparent;
-        color: colors.$grey-80;
+        color: variables.$grey-80;
       }
     }
   }

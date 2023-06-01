@@ -1,5 +1,5 @@
 @use "../utilities/mixins";
-@use "../utilities/colors";
+@use "../utilities/variables";
 
 .ucla-breadcrumb {
   font-size: 1rem;
@@ -7,7 +7,7 @@
 
   .ucla-breadcrumb__link {
     align-items: center;
-    color: colors.$default-state;
+    color: variables.$default-state;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -15,18 +15,18 @@
     padding: 0 8px;
 
     &:hover {
-      background-color: colors.$hover-state;
-      color: colors.$white;
+      background-color: variables.$hover-state;
+      color: variables.$white;
     }
 
     &:active {
-      background-color: colors.$active-state;
-      color: colors.$white;
+      background-color: variables.$active-state;
+      color: variables.$white;
     }
 
     &:focus {
-      outline: 1px solid colors.$focus-state;
-      color: colors.$focus-state;
+      outline: 1px solid variables.$focus-state;
+      color: variables.$focus-state;
     }
   }
 
@@ -42,7 +42,7 @@
       margin-top: 0;
 
       &::before {
-        color: colors.$grey-40;
+        color: variables.$grey-40;
         content: "/";
       }
     }

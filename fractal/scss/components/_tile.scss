@@ -1,9 +1,9 @@
-@use "../utilities/colors";
+@use "../utilities/variables";
 @use "../utilities/mixins";
 
 .ucla-tile {
-  background-color: colors.$default-state;
-  color: colors.$white;
+  background-color: variables.$default-state;
+  color: variables.$white;
   display: inline-block;
   position: relative;
   padding: 1.5rem;
@@ -16,7 +16,7 @@
     content: "";
     width: 2.5rem;
     height: 4px;
-    background-color: colors.$ucla-gold;
+    background-color: variables.$ucla-gold;
     display: block;
     margin-bottom: 1rem;
     @include mixins.for-size(desktop-up) {
@@ -38,14 +38,14 @@
   }
 
   &:hover {
-    background-color: colors.$hover-state;
+    background-color: variables.$hover-state;
   }
   &:focus {
-    background-color: colors.$focus-state;
-    outline: 1px solid colors.$focus-state;
+    background-color: variables.$focus-state;
+    outline: 1px solid variables.$focus-state;
     outline-offset: 1px;
   }
   &:active {
-    background-color: colors.$active-state;
+    background-color: variables.$active-state;
   }
 }

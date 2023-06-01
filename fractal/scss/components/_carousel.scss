@@ -1,27 +1,27 @@
-@use "../utilities/colors";
+@use "../utilities/variables";
 
 .ucla-carousel {
   .ucla-carousel__pagination {
     position: unset;
   }
   .ucla-carousel__page {
-    background: colors.$grey-20;
+    background: variables.$grey-20;
     width: 10px;
     height: 10px;
     opacity: unset;
 
     &.is-active {
-      background: colors.$active-state;
+      background: variables.$active-state;
       scale: unset;
       transform: unset;
     }
 
     &:hover {
-      background: colors.$hover-state;
+      background: variables.$hover-state;
     }
 
     &:focus {
-      outline: 1px solid colors.$focus-state;
+      outline: 1px solid variables.$focus-state;
       outline-offset: 1px;
     }
   }
