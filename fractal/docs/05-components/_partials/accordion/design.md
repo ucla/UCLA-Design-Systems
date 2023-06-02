@@ -35,7 +35,7 @@ Accordions can accommodate of variety of content types. make sure interactive el
 </select>
 
 <iframe id="docIframe" class="docs-iframe mt-5"
-  src="../../components/preview/accordion"
+  src=""
 ></iframe>
 
 <div id="accordion" class="design-code-examples">
@@ -52,3 +52,11 @@ Accordions can accommodate of variety of content types. make sure interactive el
 ```
 
 </div>
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../components/preview/accordion.html"
+  } else {
+  document.getElementById("docIframe").src = "../../components/preview/accordion"
+  }
+</script>
