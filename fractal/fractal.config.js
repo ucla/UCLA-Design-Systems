@@ -123,7 +123,6 @@ myCustomisedTheme.addStatic(__dirname + "/theme/assets", "/theme-assets");
 
 fractal.web.theme(myCustomisedTheme);
 fractal.web.set("static.path", __dirname + "/public");
-fractal.web.set("builder.urls.ext", null); // default is '.html'
 
 //fractal.web.set('static.mount', '/public');
 // https://github.com/jwir3/fractal-status-helper
