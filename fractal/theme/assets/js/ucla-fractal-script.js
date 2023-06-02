@@ -78,9 +78,10 @@ async function copySvg(e, text, changeTextBackTo) {
 }
 
 function changeIframe(value) {
+  let ext = window.frctl.env === "static" ? ".html" : "";
   document.getElementById(
     "docIframe"
-  ).src = `../../components/preview/${value}`;
+  ).src = `../../components/preview/${value}${ext}`;
   let codeExamples = document.getElementsByClassName("design-code-examples");
   codeExamples.forEach((example) => {
     example.hidden = true;
