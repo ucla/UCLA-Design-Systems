@@ -76,3 +76,12 @@ async function copySvg(e, text, changeTextBackTo) {
     e.srcElement.textContent = e.srcElement.textContent = changeTextBackTo;
   }, 1500);
 }
+
+function changeIframe(value) {
+  document.getElementById("docIframe").src = `/components/preview/${value}`;
+  let codeExamples = document.getElementsByClassName("design-code-examples");
+  codeExamples.forEach((example) => {
+    example.hidden = true;
+  });
+  document.getElementById(value).hidden = false;
+}

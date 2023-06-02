@@ -38,6 +38,8 @@ code {
     border-radius: 10px;
     white-space: pre-wrap;
     margin: 1rem 0;
+    max-height: 250px;
+    overflow-y: scroll;
 
     // style scroll bars for long blocks of code
     &::-webkit-scrollbar {
@@ -284,4 +286,12 @@ a {
     #0000
   );
   background-size: 7.07px 7.07px;
+}
+
+.docs-iframe {
+  width: 100%;
+  resize: both;
+  display: block;
+  min-height: 20rem;
+  border: 1px solid #ccc;
 }

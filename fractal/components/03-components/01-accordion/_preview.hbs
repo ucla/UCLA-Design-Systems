@@ -1,22 +1,19 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="{{ path '/css/ucla-lib.css' }}">
-  <title>Preview</title>
-  <style>
-    .review-width {
-      max-width: 776px;
-    }
-  </style>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{path '/css/ucla-lib.css'}}" />
+    <title>Preview</title>
+    <style>
+      .review-width { max-width: 776px; margin: 0 auto; padding: 2rem; }
+    </style>
+  </head>
 
-<body>
-  <div class="review-width">
-  {{{ yield }}}
-  </div>
-  <script src="{{ path '/js/ucla-lib-scripts.js' }}"></script>
-</body>
+  <body>
+    <div class="review-width">
+      {{{yield}}}
+    </div>
+    <script src="{{path '/js/ucla-lib-scripts.js'}}"></script>
+  </body>
 
 </html>
