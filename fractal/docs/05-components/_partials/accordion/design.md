@@ -28,7 +28,7 @@ Accordions can accommodate of variety of content types. make sure interactive el
 
 #### Example
 
-<select class="ucla-field__select" onChange="changeIframe(value)">
+<select class="ucla-field__select my-5" onChange="changeIframe(value)">
   <option value="accordion">Default Accordion</option>
   <option value="accordion--multi">Multi-Open Accordion</option>
 </select>
