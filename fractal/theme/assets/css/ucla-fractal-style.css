@@ -61,6 +61,8 @@ code {
   border-radius: 10px;
   white-space: pre-wrap;
   margin: 1rem 0;
+  max-height: 250px;
+  overflow-y: scroll;
 }
 [dir=ltr] .Prose1 pre::-webkit-scrollbar {
   width: 10px;
@@ -255,6 +257,14 @@ a {
   display: flow-root;
   background-image: linear-gradient(135deg, #ccc 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, #ccc 0, #ccc 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
   background-size: 7.07px 7.07px;
+}
+
+.docs-iframe {
+  width: 100%;
+  resize: both;
+  display: block;
+  min-height: 20rem;
+  border: 1px solid #ccc;
 }
 
 /***************** STOP!!! READ THIS!! *****************/

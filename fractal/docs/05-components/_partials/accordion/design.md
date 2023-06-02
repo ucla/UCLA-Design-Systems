@@ -26,6 +26,28 @@ Use accordions to a greater extent on mobile devices to help reduce scrolling.
 
 Accordions can accommodate of variety of content types. make sure interactive elements within the collapsible region are far enough from the headers that users don't accidentally trigger a collapse. (The exact distance depends on the device.)
 
-#### States
+#### Example
 
-![Accordion States](/theme-assets/img/docs/components/accordion/states.svg)
+<select class="ucla-field__select my-5" onChange="changeIframe(value)">
+  <option value="accordion">Default Accordion</option>
+  <option value="accordion--multi">Multi-Open Accordion</option>
+</select>
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src="/components/preview/accordion"
+></iframe>
+
+<div id="accordion" class="design-code-examples">
+
+```html
+{{view '@accordion'}}
+```
+
+</div>
+<div id="accordion--multi" hidden class="design-code-examples">
+
+```html
+{{view '@accordion--multi'}}
+```
+
+</div>
