@@ -49,8 +49,8 @@ Checkboxes also visibly show users what's been selected and makes it easy for th
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/forms--checkbox.html"
+  document.getElementById("docIframe").src = "../../components/preview/forms--checkbox.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/forms--checkbox"
+  document.getElementById("docIframe").src = "../../components/preview/forms--checkbox"
   }
 </script>
