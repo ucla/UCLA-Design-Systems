@@ -28,9 +28,9 @@ Radio buttons are a common way to allow users to make a single selection from a 
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/forms--radio.html"
+  document.getElementById("docIframe").src = "../../components/preview/forms--radio.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/forms--radio"
+  document.getElementById("docIframe").src = "../../components/preview/forms--radio"
   }
 </script>
 

@@ -33,8 +33,8 @@ It's important to use a carousel sparingly and with purpose. Avoid using it for 
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/carousel.html"
+  document.getElementById("docIframe").src = "../../components/preview/carousel.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/carousel"
+  document.getElementById("docIframe").src = "../../components/preview/carousel"
   }
 </script>

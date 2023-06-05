@@ -39,9 +39,9 @@ The entire element has the same link or action - elements within are not indepen
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/chips.html"
+  document.getElementById("docIframe").src = "../../components/preview/chips.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/chips"
+  document.getElementById("docIframe").src = "../../components/preview/chips"
   }
 </script>
 

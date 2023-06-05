@@ -51,9 +51,9 @@ Links to the last known page in the sequence.
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/button--pagination.html"
+  document.getElementById("docIframe").src = "../../components/preview/button--pagination.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/button--pagination"
+  document.getElementById("docIframe").src = "../../components/preview/button--pagination"
   }
 </script>
 
