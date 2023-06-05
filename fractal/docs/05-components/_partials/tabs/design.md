@@ -19,12 +19,24 @@ Use tabs to group related information into different categories, helping to redu
 
 **4. Gray Border - Inactive (required)**
 
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@tabs'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../components/preview/tabs.html"
+  } else {
+  document.getElementById("docIframe").src = "../../components/preview/tabs"
+  }
+</script>
+
 #### Best Practices
 
 Limit to 2-6 tabs within each page or section.
 
 Tabs should never be used for primary navigation. If tabs become too complex, consider using a standard navigation pattern.
-
-#### States
-
-![Tabs States](/theme-assets/img/docs/components/tabs/states.svg)

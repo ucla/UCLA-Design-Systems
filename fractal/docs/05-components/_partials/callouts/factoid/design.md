@@ -28,3 +28,21 @@ When using factoids, limit use to one per section
 All three variations are designed to be responsive &mdash; they will stack on mobile.
 
 Provide a source if the data or ranking comes from another program or institution.
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@callouts'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/callouts.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/callouts"
+  }
+</script>

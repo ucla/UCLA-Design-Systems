@@ -12,7 +12,7 @@
 <section class="ucla-doc-tabpanels">
 <article id="tab-tertiary-button-design" tabindex="0" role="tabpanel" aria-labelledby="tertiary-button-design" class="ucla-doc-tabpanel ucla-prose">
 
-{{> @primary-button-design}}
+{{> @tertiary-button-design}}
 
 </article>
 <article id="tab-tertiary-button-development" tabindex="0" role="tabpanel" aria-labelledby="tertiary-button-development" class="ucla-doc-tabpanel ucla-prose" hidden>

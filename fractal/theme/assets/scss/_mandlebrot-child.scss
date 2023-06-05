@@ -35,7 +35,8 @@ a.Tree-entityLink {
 
 // Sidebar Nav
 .Frame {
-  .Header-navToggleIcon--open {
+  .Header-navToggleIcon--open,
+  .Header-navToggleIcon--closed {
     text-align: center;
   }
   &-body {

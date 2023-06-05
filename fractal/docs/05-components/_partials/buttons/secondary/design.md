@@ -1,5 +1,5 @@
 ---
-handle: primary-button-design
+handle: secondary-button-design
 ---
 Buttons draw attention to important actions, content or next steps. Button tags `<button>` are used for internal page actions. Links, or `<a>` tags, are used for linking to an external page.
 
@@ -7,11 +7,7 @@ Buttons draw attention to important actions, content or next steps. Button tags 
 
 **Important actions.** Use buttons for the most important actions you want users to take on your site, such as Download, Sign up or Log out.
 
-**Primary buttons** are styled as solid buttons and open important content, such as calls-to-action (CTAs) or initiates functionality. Icons are used to the right or left to clarify the content or action type. Type + icon are centered.
-
 **Secondary buttons** are styled as outline buttons and encourage content exploration.
-
-**Tertiary buttons** are styled without a box and are similar in style and priority to inline links but stand out from copy.
 
 #### Anatomy
 
@@ -39,6 +35,36 @@ Do use the button color scheme provided. It is ADA compliant.
 
 Link headlines in Store Cards or Event Cards rather than adding buttons with generic text.
 
-#### States
+#### Examples
 
-![Button States](/theme-assets/img/docs/components/buttons/states.svg)
+<select class="ucla-field__select my-5" onChange="changeIframe(value)">
+  <option value="button--secondary">Default</option>
+  <option value="button--secondary-dark">Dark Background</option>
+</select>
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+<div id="button--secondary" class="design-code-examples">
+
+```html
+{{render '@button--secondary'}}
+```
+
+</div>
+<div id="button--secondary-dark" class="design-code-examples">
+
+```html
+{{render '@button--secondary-dark'}}
+```
+
+</div>
+
+<script>
+  if (window.frctl.env === "static") {
+    document.getElementById("docIframe").src = "../../../components/preview/button--secondary.html"
+  } else {
+    document.getElementById("docIframe").src = "../../../components/preview/button--secondary"
+  }
+</script>

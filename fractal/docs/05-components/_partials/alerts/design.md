@@ -38,3 +38,21 @@ Alert will disappear on click.
 **Allow a user to dismiss a notification wherever appropriate.**
 
 **Understand the user's context.** Don't include notifications that aren't related to the user's current goal.
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@alerts'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../components/preview/alerts.html"
+  } else {
+  document.getElementById("docIframe").src = "../../components/preview/alerts"
+  }
+</script>

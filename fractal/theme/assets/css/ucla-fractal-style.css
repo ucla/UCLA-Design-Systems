@@ -159,6 +159,20 @@ code {
 [dir=ltr] .Prose1 .ucla-doc-tabpanel {
   outline-color: transparent;
 }
+[dir=ltr] .Prose1 table:not([class]) {
+  border: 1px solid #ccc;
+}
+[dir=ltr] .Prose1 table:not([class]) td,
+[dir=ltr] .Prose1 table:not([class]) th {
+  border: 1px solid #ccc;
+  padding: 0.875rem 1rem;
+  vertical-align: top;
+  font-size: 0.8rem;
+}
+[dir=ltr] .Prose1 table:not([class]) th {
+  background-color: #daebfe;
+  font-weight: bold;
+}
 
 .Status-label {
   text-transform: none;
@@ -294,7 +308,8 @@ a.Tree-entityLink {
   color: #636363 !important;
 }
 
-.Frame .Header-navToggleIcon--open {
+.Frame .Header-navToggleIcon--open,
+.Frame .Header-navToggleIcon--closed {
   text-align: center;
 }
 .Frame-body {

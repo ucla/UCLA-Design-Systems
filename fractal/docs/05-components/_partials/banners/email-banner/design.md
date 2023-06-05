@@ -30,3 +30,22 @@ If fields are used, this button submits information and an inline confirmation m
 **5. Detailed text**
 
 Supplementary or secondary system use information.
+
+#### Examples
+
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@banners--email'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/banners--email.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/banners--email"
+  }
+</script>

@@ -39,6 +39,24 @@ Links to the page after the page user is currently on.
 
 Links to the last known page in the sequence.
 
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@button--pagination'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/button--pagination.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/button--pagination"
+  }
+</script>
+
 #### Best Practices
 
 **Highlight the current page.** Pagination shows the current page the user is on in relation to the entire collection of pages.

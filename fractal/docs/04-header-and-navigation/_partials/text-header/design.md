@@ -43,3 +43,21 @@ The text header can be used when the department does not require a signature, or
 **4. Container (required)**
 
 **5. Border (required)**
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@navigation'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/navigation.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/navigation"
+  }
+</script>

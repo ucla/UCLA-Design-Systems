@@ -13,6 +13,24 @@ Image banners are often used to display a hero image or other visually striking 
 
 **1. Image container (required)**
 
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@banners'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/banners.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/banners"
+  }
+</script>
+
 #### Best practices
 
 Use high-quality images that are visually striking and engaging. This will help grab the user's attention and set the tone for the page.

@@ -24,6 +24,25 @@ When you need to receive brief text-based input from a user.
 
 **6. Trailing Icon**
 
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@forms'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/forms.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/forms"
+  }
+</script>
+
 #### Best practices
 
 Tell people why you’re collecting their information and what you’re going to do with it.
@@ -31,7 +50,3 @@ Tell people why you’re collecting their information and what you’re going to
 Use placeholders or contextual tips in form fields to help people provide the right data.
 
 Clearly state if and when users can expect a response from your department.
-
-#### States
-
-![Text Field States](/theme-assets/img/docs/components/forms/text-field-states.svg)
