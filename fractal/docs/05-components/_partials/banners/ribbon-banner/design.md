@@ -15,6 +15,19 @@ Used to convey additional information or context to the user, and can help grab 
 
 **2. Image container (required)**
 
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+<div id="banners--ribbon" class="design-code-examples">
+
+```html
+{{render '@banners--ribbon'}}
+```
+
+</div>
+
 #### Best practices
 
 Use high-quality images that are visually striking and engaging. This will help grab the user's attention and set the tone for the page.
@@ -24,3 +37,11 @@ Choose images that are relevant to the page's content and help communicate the m
 Limit 1 - 2 ribbons per page and focus on your most  important message.
 
 Keep ribbon length between 25 - 30 characters and between 3 - 5 lines.
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/banners--ribbon.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/banners--ribbon"
+  }
+</script>

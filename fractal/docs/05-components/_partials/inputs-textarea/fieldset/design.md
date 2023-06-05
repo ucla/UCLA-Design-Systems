@@ -11,6 +11,25 @@ The fieldset element is useful for organizing and labeling groups of form contro
 
 ![Fieldset Anatomy](/theme-assets/img/docs/components/forms/fieldset-anatomy.svg)
 
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@forms--fieldset-legend'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--fieldset-legend.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--fieldset-legend"
+  }
+</script>
+
 #### Best Practices
 
 Use fieldset elements to group together related form controls, such as radio buttons or checkboxes. This will help users understand the relationships between different form elements and the purpose of the form.

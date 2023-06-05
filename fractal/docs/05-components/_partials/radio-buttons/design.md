@@ -15,6 +15,25 @@ Radio buttons are a common way to allow users to make a single selection from a 
 
 **2. Label (required)**
 
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@forms--radio'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--radio.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--radio"
+  }
+</script>
+
 #### Best Practices
 
 **Use the label as a target.** Users should be able to select either the text label or the radio button to select or deselect an option.
@@ -28,7 +47,3 @@ Radio buttons are a common way to allow users to make a single selection from a 
 **Don’t mix default and tile variants.** Pick one implementation and stick with it. When mixed, tiles can appear to indicate a bias or preference toward that option.
 
 **Use a logical order.** Make sure the selection options are organized in a meaningful way, like alphabetical or most-frequent to least-frequent. This helps users easily find the option they’re looking for.
-
-#### State
-
-![Radio Button States](/theme-assets/img/docs/components/forms/radio-buttons-states.svg)

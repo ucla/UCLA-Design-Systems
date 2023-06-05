@@ -10,3 +10,22 @@ Quote banners can be used to highlight a quote of someone notable that is relate
 #### Anatomy
 
 ![Quote Banner Anatomy](/theme-assets/img/docs/components/banners/quote-banner-anatomy.svg)
+
+#### Examples
+
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@banners--quote'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/banners--quote.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/banners--quote"
+  }
+</script>

@@ -33,6 +33,56 @@ This interactive element can be next to any column label in the header to indica
 
 **5. Total / Yellow Highlight Row**
 
+#### Examples
+
+<select class="ucla-field__select my-5" onChange="changeIframe(value)">
+  <option value="table">Default Table</option>
+  <option value="table--bordered">Bordered Table</option>
+  <option value="table--sort">Sorting Table</option>
+  <option value="table--responsive">Responsive Table</option>
+</select>
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+<div id="table" class="design-code-examples">
+
+```html
+{{render '@table'}}
+```
+
+</div>
+<div id="table--bordered" hidden class="design-code-examples">
+
+```html
+{{render '@table--bordered'}}
+```
+
+</div>
+<div id="table--sort" hidden class="design-code-examples">
+
+```html
+{{render '@table--sort'}}
+```
+
+</div>
+<div id="table--responsive" hidden class="design-code-examples">
+
+```html
+{{render '@table--responsive'}}
+```
+
+</div>
+
+<script>
+  if (window.frctl.env === "static") {
+    document.getElementById("docIframe").src = "../../../components/preview/table.html"
+  } else {
+    document.getElementById("docIframe").src = "../../../components/preview/table"
+  }
+</script>
+
+
 #### Best Practices
 
 Left-align table content like text and dates for easy readability.

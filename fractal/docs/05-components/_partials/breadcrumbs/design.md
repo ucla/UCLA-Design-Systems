@@ -17,6 +17,20 @@ Use breadcrumbs on your website if you have a hierarchical structure of pages, s
 **2. Separator**
   - Static "/" used to separate breadcrumb items
 
-#### States
+#### Examples
 
-![Breadcrumbs States](/theme-assets/img/docs/components/breadcrumbs/states.svg)
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@breadcrumbs'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/breadcrumbs.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/breadcrumbs"
+  }
+</script>

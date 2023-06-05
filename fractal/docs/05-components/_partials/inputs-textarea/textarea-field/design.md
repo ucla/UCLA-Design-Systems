@@ -19,6 +19,25 @@ A user needs to input text-based information that is longer or cannot be divided
 
 **4. Container (required)**
 
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@forms--textarea'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--textarea.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--textarea"
+  }
+</script>
+
 #### Best Practices
 
 Tell people why you’re collecting their information and what you’re going to do with it.
@@ -26,7 +45,3 @@ Tell people why you’re collecting their information and what you’re going to
 Use placeholders or contextual tips in form fields to help people provide the right data.
 
 Clearly state if and when users can expect a response from your department.
-
-#### States
-
-![Textarea Field States](/theme-assets/img/docs/components/forms/textbox-field-states.svg)

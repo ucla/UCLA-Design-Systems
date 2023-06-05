@@ -26,3 +26,21 @@ Alternative horizontal format to story card with less emphasis on photo.
 **6. Byline**
 
 **7. Supporting Text**
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@cards--secondary-story'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/cards--secondary-story.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/cards--secondary-story"
+  }
+</script>

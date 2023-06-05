@@ -22,3 +22,21 @@ For browsing articles, news, blog posts, or other editorial content.
 **5. Text Container (required)**
 
 **6. Image Link (required)**
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@cards--story'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/cards--story.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/cards--story"
+  }
+</script>

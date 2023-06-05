@@ -21,6 +21,24 @@ For longer inline text links, use descriptive language in place of generic links
 
 **3. Container (required)**
 
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@button--related-links'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/button--related-links.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/button--related-links"
+  }
+</script>
+
 #### Best Practices
 
 <div class="ucla">
@@ -50,7 +68,3 @@ For longer inline text links, use descriptive language in place of generic links
 
 </div>
 </div>
-
-#### States
-
-![Related Links States](/theme-assets/img/docs/components/buttons/related-links-states.svg)

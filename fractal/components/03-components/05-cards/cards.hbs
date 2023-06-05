@@ -1,32 +1,37 @@
-
 <div style="max-width: 376px">
-<article class="ucla-card">
-  <img class="ucla-card__image" src="{{path '/theme-assets/img/examples/event-card-example-1.jpg'}}"
-    alt="Two children on their phones under the blankets">
-  <div class="ucla-card__body">
-    <h1 class="ucla-card__title">{{ title }}</h1>
-    <p class="ucla-card__description">{{ description }}</p>
+  <article class="ucla-card">
+    <img
+      class="ucla-card__image"
+      src="{{path '/theme-assets/img/examples/event-card-example-1.jpg'}}"
+      alt="Two children on their phones under the blankets"
+    />
+    <div class="ucla-card__body">
+      <h1 class="ucla-card__title">{{title}}</h1>
+      <p class="ucla-card__description">{{description}}</p>
       {{#each button}}
-      <button class="ucla-btn ucla-btn--primary">
-        {{ cta-title }}
-      </button>
+        <button class="ucla-btn ucla-btn--primary">
+          {{cta-title}}
+        </button>
       {{/each}}
-  </div>
-</article>
+    </div>
+  </article>
 </div>
 <div style="max-width: 376px">
-<article class="ucla-card">
-  <img class="ucla-card__image" src="{{path '/theme-assets/img/examples/event-card-example-1.jpg'}}"
-    alt="Two children on their phones under the blankets">
-  <div class="ucla-card__body">
-    <h1 class="ucla-card__title"><span>{{ title }}</span></h1>
-    <p class="ucla-card__description">{{ description }}</p>
-    
+  <article class="ucla-card">
+    <img
+      class="ucla-card__image"
+      src="{{path '/theme-assets/img/examples/event-card-example-1.jpg'}}"
+      alt="Two children on their phones under the blankets"
+    />
+    <div class="ucla-card__body">
+      <h1 class="ucla-card__title"><span>{{title}}</span></h1>
+      <p class="ucla-card__description">{{description}}</p>
+
       {{#each button}}
-      <a href="#" class="ucla-card__link">
-        {{ cta-title }}
-      </a>
+        <a href="#" class="ucla-card__link">
+          {{cta-title}}
+        </a>
       {{/each}}
-    
-  </div>
-</article></div>
+
+    </div>
+  </article></div>

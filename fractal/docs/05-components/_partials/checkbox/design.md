@@ -37,6 +37,20 @@ Checkboxes also visibly show users what's been selected and makes it easy for th
 
 **Use a logical order.** Make sure the selection options are organized in a meaningful way, like alphabetical or most-frequent to least-frequent. This helps users easily find the option they're looking for.
 
-#### States
+#### Examples
 
-![Checkbox States](/theme-assets/img/docs/components/forms/checkbox-states.svg)
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@forms--checkbox'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--checkbox.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--checkbox"
+  }
+</script>
