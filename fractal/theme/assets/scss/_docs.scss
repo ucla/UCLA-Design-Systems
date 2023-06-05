@@ -170,6 +170,23 @@ code {
   .ucla-doc-tabpanel {
     outline-color: transparent;
   }
+
+  table:not([class]) {
+    border: 1px solid #ccc;
+
+    td,
+    th {
+      border: 1px solid #ccc;
+      padding: 0.875rem 1rem;
+      vertical-align: top;
+      font-size: 0.8rem;
+    }
+
+    th {
+      background-color: #daebfe;
+      font-weight: bold;
+    }
+  }
 }
 
 .Status {
@@ -292,6 +309,6 @@ a {
   width: 100%;
   resize: both;
   display: block;
-  min-height: 20rem;
+  min-height: 30rem;
   border: 1px solid #ccc;
 }

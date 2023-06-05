@@ -26,3 +26,21 @@ Statistics can highlight information about the performance and characteristics o
 When using rankings or statistics touts, limit use to three across per section.
 
 Provide a source if the data or ranking comes from another program or institution.
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@callouts--statistics'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/callouts--statistics.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/callouts--statistics"
+  }
+</script>

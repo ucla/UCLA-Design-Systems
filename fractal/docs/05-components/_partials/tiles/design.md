@@ -23,6 +23,18 @@ Additional description or contextual text if needed.
 
 The entire element is clickable to a single link.
 
-#### States
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
 
-![Tiles States](/theme-assets/img/docs/components/tiles/states.svg)
+```html
+{{render '@tile'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../components/preview/tile.html"
+  } else {
+  document.getElementById("docIframe").src = "../../components/preview/tile"
+  }
+</script>

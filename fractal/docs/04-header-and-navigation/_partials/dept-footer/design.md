@@ -28,3 +28,21 @@ All website pages should have a department footer.
   - These can be shortcuts to often-used interior pages, secondary/tertiary audience pages, or external related links
   - DO not repeat main navigation items
   - See variants by number of columns
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@footer--department'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/footer--department.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/footer--department"
+  }
+</script>

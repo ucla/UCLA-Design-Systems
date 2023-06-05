@@ -16,6 +16,25 @@ home page or prominent landing page. Do not overuse on interior level informatio
 
 **2. Background color (required)**
 
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@ribbons'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/ribbons.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/ribbons"
+  }
+</script>
+
 #### Best Practices
 
 Limit 1-2 ribbons per page and focus on your most important message.

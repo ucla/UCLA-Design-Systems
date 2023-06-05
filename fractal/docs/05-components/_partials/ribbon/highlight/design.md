@@ -16,6 +16,25 @@ main content being communicated as opposed to Stat Bars or Factiod components th
 
 **2. Background color (required)**
 
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@ribbons--highlight'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/ribbons--highlight.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/ribbons--highlight"
+  }
+</script>
+
 #### Best Practices
 
 Limit 1-2 ribbons per page and focus on your most important message.

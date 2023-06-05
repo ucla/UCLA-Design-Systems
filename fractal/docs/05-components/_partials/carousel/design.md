@@ -21,6 +21,20 @@ A carousel component can be used in various situations where you want to showcas
 
 It's important to use a carousel sparingly and with purpose. Avoid using it for critical information or essential navigation as it can be easily overlooked or missed by users.
 
-#### States
+#### Examples
 
-![Carousel States](/theme-assets/img/docs/components/carousel/states.svg)
+<iframe id="docIframe" style="min-height: 35rem" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@carousel'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/carousel.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/carousel"
+  }
+</script>

@@ -28,13 +28,14 @@ Accordions can accommodate of variety of content types. make sure interactive el
 
 #### Example
 
-<select class="ucla-field__select" onChange="changeIframe(value)">
+
+<select class="ucla-field__select my-5" onChange="changeIframe(value)">
   <option value="accordion">Default Accordion</option>
   <option value="accordion--multi">Multi-Open Accordion</option>
 </select>
 
 <iframe id="docIframe" class="docs-iframe mt-5"
-  src="/components/preview/accordion"
+  src=""
 ></iframe>
 
 <div id="accordion" class="design-code-examples">
@@ -51,3 +52,11 @@ Accordions can accommodate of variety of content types. make sure interactive el
 ```
 
 </div>
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../components/preview/accordion.html"
+  } else {
+  document.getElementById("docIframe").src = "../../components/preview/accordion"
+  }
+</script>
