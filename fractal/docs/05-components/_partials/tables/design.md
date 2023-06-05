@@ -76,9 +76,9 @@ This interactive element can be next to any column label in the header to indica
 
 <script>
   if (window.frctl.env === "static") {
-    document.getElementById("docIframe").src = "../../../components/preview/table.html"
+    document.getElementById("docIframe").src = "../../components/preview/table.html"
   } else {
-    document.getElementById("docIframe").src = "../../../components/preview/table"
+    document.getElementById("docIframe").src = "../../components/preview/table"
   }
 </script>
 

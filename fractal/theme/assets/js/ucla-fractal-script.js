@@ -82,7 +82,7 @@ function changeIframe(value) {
   let pathArray = window.location.pathname.split("/");
   let relativeUrlArray =
     window.frctl.env === "static"
-      ? pathArray.slice(0, 2)
+      ? pathArray.slice(0, 3)
       : pathArray.slice(0, 1);
   let relativeUrl = "";
   for (i = 0; i < relativeUrlArray.length; i++) {

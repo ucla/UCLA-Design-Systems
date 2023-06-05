@@ -33,9 +33,9 @@ Use the dropdown component to filter or sort content on a page.
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/forms--select-menu.html"
+  document.getElementById("docIframe").src = "../../components/preview/forms--select-menu.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/forms--select-menu"
+  document.getElementById("docIframe").src = "../../components/preview/forms--select-menu"
   }
 </script>
 
