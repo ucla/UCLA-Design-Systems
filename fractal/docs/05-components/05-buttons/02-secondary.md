@@ -1,3 +1,6 @@
+---
+title: Secondary Button
+---
 <div class="ucla-doc-tabs">
   <!-- .tablist is the container for tabs only -->
   <nav class="ucla-doc-tabslist" role="tablist" aria-label="content-tabs">
@@ -12,7 +15,7 @@
 <section class="ucla-doc-tabpanels">
 <article id="tab-secondary-button-design" tabindex="0" role="tabpanel" aria-labelledby="secondary-button-design" class="ucla-doc-tabpanel ucla-prose">
 
-{{> @primary-button-design}}
+{{> @secondary-button-design}}
 
 </article>
 <article id="tab-secondary-button-development" tabindex="0" role="tabpanel" aria-labelledby="secondary-button-development" class="ucla-doc-tabpanel ucla-prose" hidden>

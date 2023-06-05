@@ -22,3 +22,22 @@ Profile cards are a visual way to display informational listings of people that 
 **7. Photo Credit**
 
 **8. Container**
+
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@cards--person'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/cards--person.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/cards--person"
+  }
+</script>

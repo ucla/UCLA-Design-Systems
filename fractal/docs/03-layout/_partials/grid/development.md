@@ -25,7 +25,7 @@ Using the grid is simple.
 </div>
 
 ```html
-<div class="ucla campus">
+<div class="ucla">
     <div class="col">
         <p class="example-content example-content--highlight">Auto</p>
     </div>
@@ -41,6 +41,18 @@ Using the grid is simple.
     <div class="col">
         <p class="example-content example-content--highlight">Auto</p>
     </div>
+</div>
+```
+
+#### Container
+
+Using the `.container` class will give your content some `padding` on the edge of your viewport and a set `max-width` of `1176px`. Simply wrap your `.ucla` grid with the `.container`.
+
+```html
+<div class="container">
+	<div class="ucla">
+		<!-- ... -->
+	</div>
 </div>
 ```
 
@@ -61,7 +73,7 @@ If you want to change the size of a single (or multiple) column(s), you can use 
 * `span_11_of_12`
 * `span_12_of_12`
 
-<div class="ucla campus">
+<div class="ucla">
   <div class="col span_1_of_12-md">
     <p class="example-content example-content--highlight">1 of 12</p>
   </div>
@@ -111,14 +123,14 @@ _By default, auto columns stack on top of each other on **mobile**. A column mus
 
 To nest your content, add a new `.ucla` and a set of `.col` columns inside of an existing `.col` element.
 
-<div class="ucla campus example">
+<div class="ucla example">
   <div class="col span_9_of_12-md" style="background-color:#8bb8e8; border-radius: 4px">
-    <div class="ucla campus">
+    <div class="ucla">
       <div class="col span_12_of_12-md">
         <p class="example-content">Body Content 12 of 12</p>
       </div>
     </div>
-    <div class="ucla campus">
+    <div class="ucla">
       <div class="col span_6_of_12-md">
         <p class="example-content">Body Content 6 of 6</p>
       </div>
@@ -133,14 +145,14 @@ To nest your content, add a new `.ucla` and a set of `.col` columns inside of an
 </div>
 
 ```html
-<div class="ucla campus example">
+<div class="ucla example">
   <div class="col span_9_of_12-md" style="background-color:#8bb8e8; border-radius: 4px">
-    <div class="ucla campus">
+    <div class="ucla">
       <div class="col span_12_of_12-md">
         <p class="example-content">Body Content 12 of 12</p>
       </div>
     </div>
-    <div class="ucla campus">
+    <div class="ucla">
       <div class="col span_6_of_12-md">
         <p class="example-content">Body Content 6 of 6</p>
       </div>

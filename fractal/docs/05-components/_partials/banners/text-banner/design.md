@@ -19,8 +19,26 @@ Text banners are used when you want to grab the user's attention and provide the
 
 **4. Text (required)**
 
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@banners--text'}}
+```
+
 #### Best practices
 
 Use clear, concise text that is easy to read and understand. This will help grab the user's attention and make it easy for them to understand the message of the banner.
 
 Keep the text short and to the point. A text banner with too much text can be overwhelming for the user and make it difficult for them to understand the message.
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/banners--text.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/banners--text"
+  }
+</script>

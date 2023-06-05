@@ -33,3 +33,21 @@ The global footer ends a page and is placed below the department footer.
 - https://www.youtube.com/user/UCLA
 - https://www.tiktok.com/@ucla?lang=en
 - https://story.snapchat.com/@uclaofficial
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@footer--global'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/footer--global.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/footer--global"
+  }
+</script>

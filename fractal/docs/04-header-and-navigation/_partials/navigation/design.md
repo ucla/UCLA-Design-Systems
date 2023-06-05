@@ -75,32 +75,24 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
 
 **11. Call to action**
 
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@navigation--primary-nav'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/navigation--primary-nav.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/navigation--primary-nav"
+  }
+</script>
+
 #### Best Practices
 
 Navigation in general should have less than 10 items and can include a search button.
-
-#### States
-
-**Desktop**
-
-Primary:
-
-![Navigation Desktop Primary State](/theme-assets/img/docs/navigation/navigation-desktop-primary-state.svg)
-
-Secondary:
-
-![Navigation Desktop Secondary State](/theme-assets/img/docs/navigation/navigation-desktop-secondary-state.svg)
-
-Dropdown:
-
-![Navigation Dropdown State](/theme-assets/img/docs/navigation/navigation-dropdown-state.svg)
-
-**Mobile**
-
-Primary:
-
-![Navigation Mobile Primary State](/theme-assets/img/docs/navigation/navigation-mobile-primary-state.svg)
-
-Secondary:
-
-![Navigation Mobile Secondary State](/theme-assets/img/docs/navigation/navigation-mobile-secondary-state.svg)

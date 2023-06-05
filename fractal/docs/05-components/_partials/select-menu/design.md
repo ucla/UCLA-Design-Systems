@@ -21,12 +21,26 @@ Use the dropdown component to filter or sort content on a page.
 
 **4. Down arrow (required)**
 
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@forms--select-menu'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--select-menu.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/forms--select-menu"
+  }
+</script>
+
 #### Best Practices
 
 **Labels.** Labels are essential to the usability of forms. Do not place a label inside a select element. Use sentence case and no more than three words.
 
 **Order.** The order of the select list should be based on the frequency of use. If applicable, the list should be in increasing order relative to the content. In cases of forms, alternative orders such as alphabetical may be more fitting. A horizontal rule can be used to group similar items together.
-
-#### States
-
-![Select Field States](/theme-assets/img/docs/components/forms/select-field-states.svg)

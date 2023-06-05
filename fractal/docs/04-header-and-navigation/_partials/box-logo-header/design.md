@@ -46,3 +46,21 @@ The Box Logo header can be used when the department has a signature, or logo loc
 **4. Container (required)**
 
 **5. Border (required)**
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@navigation--school'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/navigation--school.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/navigation--school"
+  }
+</script>

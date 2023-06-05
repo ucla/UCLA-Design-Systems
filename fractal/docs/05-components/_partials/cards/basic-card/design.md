@@ -34,3 +34,21 @@ To shorten pages and reduce scrolling when content is not crucial to read in ful
 Include information that is pertinent to user's interest and helps them understand what kind of content they're looking at quickly.
 
 Color contrast is very important for legibility. To meet current accessibility standards, use only approved color combinations. Use 80% grey for text on white background to reduce eye strain.
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@cards'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/cards.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/cards"
+  }
+</script>

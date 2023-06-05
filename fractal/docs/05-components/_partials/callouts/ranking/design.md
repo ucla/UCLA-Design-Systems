@@ -26,3 +26,21 @@ School rankings are typically published by organizations or publications that sp
 When using rankings or statistacs touts, limit use to three across per section.
 
 Provide a source if the data or ranking comes from another program or institution.
+
+#### Examples
+
+<iframe id="docIframe" class="docs-iframe mt-5"
+  src=""
+></iframe>
+
+```html
+{{render '@callouts--ranking'}}
+```
+
+<script>
+  if (window.frctl.env === "static") {
+  document.getElementById("docIframe").src = "../../../components/preview/callouts--ranking.html"
+  } else {
+  document.getElementById("docIframe").src = "../../../components/preview/callouts--ranking"
+  }
+</script>
