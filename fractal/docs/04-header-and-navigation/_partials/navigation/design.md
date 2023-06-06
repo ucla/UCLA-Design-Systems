@@ -87,9 +87,9 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/navigation--primary-nav.html"
+  document.getElementById("docIframe").src = "../../components/preview/navigation--primary-nav.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/navigation--primary-nav"
+  document.getElementById("docIframe").src = "../../components/preview/navigation--primary-nav"
   }
 </script>
 
