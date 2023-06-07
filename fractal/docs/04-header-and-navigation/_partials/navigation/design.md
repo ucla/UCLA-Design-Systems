@@ -33,7 +33,7 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
   - A dropdown menu is comprised of 2nd tier sub-navigation pages. 3rd-tier and 4th-tier are avaiable on mobile but go into the Side Navigation on desktop (see specs)
 
 **5. Search**
-  - Click opens search overlay (see specs)
+  - Click opens search overlay (see Search specs)
 
 **Mobile**
 
@@ -43,7 +43,7 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
   - opens main navigation slide-out menu and toggles to a close icon
 
 **2. Search**
-  - Tapping anywhere on the search bar would activiate keyboard/text entry input
+  - Tapping anywhere on the search bar would activiate keyboard/text entry input (See Search specs)
 
 **3. Tier 1 Navigation/Menu Link (required)**
   - Try to limit menu to 7 choices or less
@@ -59,7 +59,7 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
   - Similar to 3 but note indent and shading
 
 **6. Tier 2 Dropdown Item**
-  - Similar to 4 but note indent
+  - Similar to 4 but note indent and shading
 
 **7. Tier 3 Navigation Item**
   - Similar to 3 but note indent and shading

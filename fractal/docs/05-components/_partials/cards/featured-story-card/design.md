@@ -15,7 +15,7 @@ To highlight a discrete piece of content outside of a row or series.
 
 **2. Title Link (required)**
 
-**3. Byline (required)**
+**3. Byline**
 
 **4. Supporting Text**
 

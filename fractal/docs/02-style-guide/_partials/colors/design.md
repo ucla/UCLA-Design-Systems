@@ -7,14 +7,6 @@ Colors are also the building blocks of accessibility. After a long exploration, 
 
 Follow the specifications on this page to use the colors as a required brand element. Do not use other shades of blue and gold in publications or online.
 
-#### How to use
-
-You can apply colors to your designs from Color area of the design panel on the right of your Figma UI.
-
-Existing components already utilize these colors and are designed to work with our color palette.
-
-The UCLA Components library needs to be enabled to access all the styles.
-
 #### Best Practices
 
 We’ve developed a system of colors that plays off the new brand colors, maximizes ADA compliancy, and creates a consistent link color-strategy. The system is broken down into four main palettes that are meant for unique uses:
