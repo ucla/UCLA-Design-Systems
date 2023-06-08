@@ -9,6 +9,8 @@ Use the select component inside a form where users are making a single selection
 
 Use the dropdown component to filter or sort content on a page.
 
+For when to use a select menu rather than a radio button, see the following article for considerations: [7 Rules of Using Radio Buttons vs Drop-Down Menus](https://blog.prototypr.io/7-rules-of-using-radio-buttons-vs-drop-down-menus-fddf50d312d1)
+
 #### Anatomy
 
 ![Select Field Anatomy](/theme-assets/img/docs/components/forms/select-field-anatomy.svg)
@@ -44,3 +46,5 @@ Use the dropdown component to filter or sort content on a page.
 **Labels.** Labels are essential to the usability of forms. Do not place a label inside a select element. Use sentence case and no more than three words.
 
 **Order.** The order of the select list should be based on the frequency of use. If applicable, the list should be in increasing order relative to the content. In cases of forms, alternative orders such as alphabetical may be more fitting. A horizontal rule can be used to group similar items together.
+
+**Default Selection.** You can set a default choice if one is recommended or you don’t expect users to change it. If you don’t want to influence their selection you can start it with the phrase “Make a selection” or similar that is not selectable once they change it.
