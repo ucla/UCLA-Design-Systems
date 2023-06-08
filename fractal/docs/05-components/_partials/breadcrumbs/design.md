@@ -13,6 +13,7 @@ Use breadcrumbs on your website if you have a hierarchical structure of pages, s
 
 **1. Breadcrumb**
   - Includes link to home page and every subsequent tier up to 4 that leads to current
+  - Do not include current page in the breadcrumbs.
 
 **2. Separator**
   - Static "/" used to separate breadcrumb items
@@ -29,8 +30,8 @@ Use breadcrumbs on your website if you have a hierarchical structure of pages, s
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/breadcrumbs.html"
+  document.getElementById("docIframe").src = "../../components/preview/breadcrumbs.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/breadcrumbs"
+  document.getElementById("docIframe").src = "../../components/preview/breadcrumbs"
   }
 </script>

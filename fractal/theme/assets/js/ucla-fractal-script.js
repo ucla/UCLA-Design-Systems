@@ -82,15 +82,15 @@ function changeIframe(value) {
   let pathArray = window.location.pathname.split("/");
   let relativeUrlArray =
     window.frctl.env === "static"
-      ? pathArray.slice(0, 2)
+      ? pathArray.slice(0, 3)
       : pathArray.slice(0, 1);
   let relativeUrl = "";
   for (i = 0; i < relativeUrlArray.length; i++) {
-    relativeUrl += relativeUrlArray[i];
+    relativeUrl += `${relativeUrlArray[i]}/`;
   }
   document.getElementById(
     "docIframe"
-  ).src = `${relativeUrl}/components/preview/${value}${ext}`;
+  ).src = `${relativeUrl}components/preview/${value}${ext}`;
   let codeExamples = document.getElementsByClassName("design-code-examples");
   codeExamples.forEach((example) => {
     example.hidden = true;

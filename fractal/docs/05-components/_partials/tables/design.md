@@ -3,7 +3,7 @@ handle: tables-design
 ---
 A table shows information in columns and rows.
 
-Tables help logically organize information and group like things together, and they make it easier to understand complex content, as explained on plainlanguage.gov. They’re especially useful for showing long lists of sequential or structured content. Users read tables one row or column at a time, making it easy to digest and compare information.
+Tables help logically organize information and group like things together, and they make it easier to understand complex content, as explained on [plainlanguage.gov](https://www.plainlanguage.gov/guidelines/design/use-tables-to-make-complex-material-easier-to-understand/). They’re especially useful for showing long lists of sequential or structured content. Users read tables one row or column at a time, making it easy to digest and compare information.
 
 Tables also help users find specific information within a large data set. For example, if someone is looking for how much their tax is based on their income for a particular year, it’s much easier to find the intersection of that year and income range than to scan or read an entire paragraph of text.
 
@@ -76,9 +76,9 @@ This interactive element can be next to any column label in the header to indica
 
 <script>
   if (window.frctl.env === "static") {
-    document.getElementById("docIframe").src = "../../../components/preview/table.html"
+    document.getElementById("docIframe").src = "../../components/preview/table.html"
   } else {
-    document.getElementById("docIframe").src = "../../../components/preview/table"
+    document.getElementById("docIframe").src = "../../components/preview/table"
   }
 </script>
 

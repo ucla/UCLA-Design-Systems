@@ -5,7 +5,7 @@ Typography is the art and technique of arranging type to make written language l
 
 #### Typefaces
 
-Helvetica is a standard font on Apple computers. On the PC platform, Arial is the preferred equivalent. For Android OS, the Roboto is the preferred equivalent. For all other operating systems, please use the default sans serif font family. When used in a web safe font stack consisting of Helvetica, Arial, Roboto, and sans-serif system fonts, this choice removes any licensing costs that are barrier of use for smaller departments and pairs well with the typeface used in our new department logo systems. We have limited our use to two weights, regular and bold, to maintain a consistent look across all devices.
+Helvetica is a standard font on Apple computers. On the PC platform, Arial is the preferred equivalent. For Android OS, Roboto is the preferred equivalent. For all other operating systems, please use the default sans serif font family. When used in a web safe font stack consisting of Helvetica, Arial, Roboto, and sans-serif system fonts, this choice removes any licensing costs that are barrier of use for smaller departments and pairs well with the typeface used in our new department logo systems. We have limited our use to two weights, regular and bold, to maintain a consistent look across all devices.
 
 ![Typefaces](/theme-assets/img/docs/style-guide/typography/typeface.svg)
 

@@ -2,6 +2,7 @@
 @use "../utilities/mixins";
 
 .ucla-table {
+  width: 100%;
   td,
   th {
     border: 1px solid variables.$grey-20;

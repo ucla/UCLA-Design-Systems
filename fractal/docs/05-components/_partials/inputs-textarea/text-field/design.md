@@ -45,8 +45,4 @@ When you need to receive brief text-based input from a user.
 
 #### Best practices
 
-Tell people why you’re collecting their information and what you’re going to do with it.
-
 Use placeholders or contextual tips in form fields to help people provide the right data.
-
-Clearly state if and when users can expect a response from your department.

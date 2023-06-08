@@ -19,7 +19,7 @@ Paginated content is any content split into multiple pages determined only by a 
 
 Links to the first page in the sequence
 
-**2. Single Arrow Prvious Button (required)**
+**2. Single Arrow Previous Button (required)**
 
 Links to the page previous to the page user is currently on.
 
@@ -29,7 +29,7 @@ Page user is currently on has a hover-style state permenantly applied.
 
 **4. Page Number Button (required)**
 
-Default page number links. Initially, 1-10 is displayed. Upon moving to page 11 or higher, the next set of 10 are displayed (11-20), and so on.
+Default page number links. Initially, 1-10 is displayed. Upon moving to page 11 or higher, the next set of 10 are displayed (11-20), and so on. On mobile, 1-5 is displayed (or whatever fits on smallest viewport). If there are less than 10 pages, only the number of pages are displayed. 
 
 **5. Single Arrow Next Button (required)**
 
@@ -51,9 +51,9 @@ Links to the last known page in the sequence.
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/button--pagination.html"
+  document.getElementById("docIframe").src = "../../components/preview/button--pagination.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/button--pagination"
+  document.getElementById("docIframe").src = "../../components/preview/button--pagination"
   }
 </script>
 
