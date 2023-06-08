@@ -13,15 +13,15 @@ For browsing articles, news, blog posts, or other editorial content.
 
 **1. Image (required)**
 
-**2. Title Link (required)**
+**2. Date**
 
-**3. Byline (required)**
+**3. Title (required)**
 
-**4. Supporting Text**
+**4. Byline**
 
-**5. Text Container (required)**
+**5. Supporting Text**
 
-**6. Image Link (required)**
+**6. Container (required)**
 
 #### Examples
 

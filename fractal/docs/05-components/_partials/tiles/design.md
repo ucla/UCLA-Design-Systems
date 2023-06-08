@@ -1,11 +1,11 @@
 ---
 handle: tiles-design
 ---
-A tile is a component similar buttons but larger and can contain more information.
+A tile is a link component similar to buttons but larger and can contain contextual information on the link. It is also similar to card but not as complex.
 
 #### When to use
 
-Tiles are flexible components that can be used for displaying additional information to a link. It is similar to card but not as complex.
+Use to feature a small number of link destinations more prominently as core content.
 
 #### Anatomy
 

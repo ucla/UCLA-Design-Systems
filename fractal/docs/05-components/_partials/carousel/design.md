@@ -1,7 +1,7 @@
 ---
 handle: carousel-design
 ---
-A carousel component is a user interface element that allows you to display multiple items, such as images, content, or cards, in a rotating or sliding manner.
+A carousel refers to content that’s navigable in a horizontal orientation with an indicator that tells a user where they are in a sequence and accounts for the number of additional content elements accessible to the left or right. It is often used with a sequence of banners or cards.
 
 #### When to use
 

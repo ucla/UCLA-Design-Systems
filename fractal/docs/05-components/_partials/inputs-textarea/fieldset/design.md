@@ -32,8 +32,8 @@ The fieldset element is useful for organizing and labeling groups of form contro
 
 #### Best Practices
 
-Use fieldset elements to group together related form controls, such as radio buttons or checkboxes. This will help users understand the relationships between different form elements and the purpose of the form.
+Tell people why you’re collecting their information and what you’re going to do with it.
 
-Include a legend element within the fieldset to provide a brief description of the form controls within the fieldset. The legend should be concise and descriptive, and should clearly indicate the purpose of the fieldset.
+If fieldset includes a submission button, include an alert or new page that indicates to the user if form was submitted successfully.
 
-Use fieldset and legend elements to create a logical and intuitive structure for the form. This will make it easier for users to understand and navigate the form.
+Clearly state if and when users can expect a response from your department.

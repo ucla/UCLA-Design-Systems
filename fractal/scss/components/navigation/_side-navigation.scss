@@ -3,6 +3,10 @@
 
 .ucla-side-navigation {
   border-bottom: 1px solid variables.$grey-20;
+
+  @include mixins.for-size(up-to-tablet) {
+    display: none;
+  }
 }
 
 .ucla-side-navigation {
