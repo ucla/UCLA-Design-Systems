@@ -15,7 +15,7 @@ Use alerts to validate steps taken by users or denote a system change. Use alert
 
 #### Anatomy
 
-![Alerts Anatomy](/theme-assets/img/docs/components/alerts/anatomy.svg)
+<img alt="Alerts Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/alerts/anatomy.svg" />
 
 **1. Title (required)**
 

@@ -1,5 +1,5 @@
 ---
-title: Primary Button
+title: Buttons
 ---
 <div class="ucla-doc-tabs">
   <!-- .tablist is the container for tabs only -->

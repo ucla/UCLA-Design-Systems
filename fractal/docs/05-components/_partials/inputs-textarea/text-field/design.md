@@ -10,7 +10,7 @@ When you need to receive brief text-based input from a user.
 
 #### Anatomy
 
-![Text Field Anatomy](/theme-assets/img/docs/components/forms/text-field-anatomy.svg)
+<img alt="Text Field Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/text-field-anatomy.svg" />
 
 **1. Label**
 

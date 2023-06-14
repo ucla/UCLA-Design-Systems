@@ -9,7 +9,7 @@ Image banners are often used to display a hero image or other visually striking 
 
 #### Anatomy
 
-![Alerts Anatomy](/theme-assets/img/docs/components/banners/img-banner-anatomy.svg)
+<img alt="Image Banner Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/banners/img-banner-anatomy.svg" />
 
 **1. Image container (required)**
 

@@ -9,7 +9,7 @@ All website pages should have a department footer.
 
 #### Anatomy
 
-![Department Footer Anatomy](/theme-assets/img/docs/navigation/dept-footer-anatomy.svg)
+<img alt="Department Footer Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/dept-footer-anatomy.svg" />
 
 **1. UCLA logo(required)**
 

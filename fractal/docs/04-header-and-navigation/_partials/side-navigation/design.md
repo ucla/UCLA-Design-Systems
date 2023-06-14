@@ -9,7 +9,7 @@ Use with large, complex sites that have many pages and multiple levels of hierar
 
 #### Anatomy
 
-![Side Navigation Anatomy](/theme-assets/img/docs/navigation/side-navigation-anatomy.svg)
+<img alt="Side Navigation Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/side-navigation-anatomy.svg" />
 
 **1. Tier 2 Navigation/Menu Link (required)**
 

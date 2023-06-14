@@ -9,7 +9,7 @@ The ribbon text banner is used on the home page or landing page of the website.
 
 #### Anatomy
 
-![Ribbon Text Banner Anatomy](/theme-assets/img/docs/components/banners/ribbon-text-banner-anatomy.svg)
+<img alt="Ribbon Text Banner Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/banners/ribbon-text-banner-anatomy.svg" />
 
 **1. Ribbon (required)**
 

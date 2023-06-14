@@ -9,9 +9,9 @@ We are using a soft 8-point grid to define our spacing. This means we use multip
 
 You should follow these spacing guidelines to any new component design. Existing components already utilize these spacings and are designed to work with our layout grid. 
 
-![Component Spacing](/theme-assets/img/docs/layout/spacing/how-to-use-1.svg)
+<img class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/how-to-use-1.svg" alt="Component Spacing" />
 
-![Layout Spacing](/theme-assets/img/docs/layout/spacing/how-to-use-2.svg)
+<img class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/how-to-use-2.svg" alt="Layout Spacing" />
 
 #### Best Practices
 
@@ -24,27 +24,27 @@ A grid is a guide that helps us set the base while designing. Here's a list of a
 
 Equal spacing within an element
 
-![Inset Example](/theme-assets/img/docs/layout/spacing/inset.svg)
+<img alt="Inset Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/inset.svg" />
 
 #### Inset Squish
 
-![Inset Squish Example](/theme-assets/img/docs/layout/spacing/inset-squish.svg)
+<img alt="Inset Squish Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/inset-squish.svg" />
 
 #### Inset Stretch
 
-![Inset Stretch Example](/theme-assets/img/docs/layout/spacing/inset-stretch.svg)
+<img alt="Inset Stretch Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/inset-stretch.svg" />
 
 #### Stack
 
 Horizontal spacing between components.
 
-![Stack Example](/theme-assets/img/docs/layout/spacing/stack.svg)
+<img alt="Stack Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/stack.svg" />
 
 #### Inline
 
 Vertical spacing between components.
 
-![Inline Example](/theme-assets/img/docs/layout/spacing/inline.svg)
+<img alt="Inline Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/inline.svg" />
 
 #### Section/Component Minimum Spacing
 
@@ -54,12 +54,12 @@ We are using a soft 8-point grid to define our spacing. This means we use multip
 
 ##### Desktop
 
-![Desktop Example](/theme-assets/img/docs/layout/spacing/desktop.svg)
+<img alt="Desktop Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/desktop.svg" />
 
 ##### Tablet
 
-![Tablet Example](/theme-assets/img/docs/layout/spacing/tablet.svg)
+<img alt="Tablet Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/tablet.svg" />
 
 ##### Mobile
 
-![Mobile Example](/theme-assets/img/docs/layout/spacing/mobile.svg)
+<img alt="Mobile Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/mobile.svg" />"

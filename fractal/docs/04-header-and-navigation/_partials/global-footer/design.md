@@ -9,7 +9,7 @@ The global footer ends a page and is placed below the department footer.
 
 #### Anatomy
 
-![Global Footer Anatomy](/theme-assets/img/docs/navigation/global-footer-anatomy.svg)
+<img alt="Global Footer Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/global-footer-anatomy.svg" />
 
 **1. Copyright (required)**
 
