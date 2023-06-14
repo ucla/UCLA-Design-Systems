@@ -10,7 +10,7 @@ Use accordions to a greater extent on mobile devices to help reduce scrolling.
 
 #### Anatomy
 
-![Accordion Anatomy](/theme-assets/img/docs/components/accordion/anatomy.svg)
+<img alt="Accordion Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/accordion/anatomy.svg" />
 
 **1. Title (required)**
 

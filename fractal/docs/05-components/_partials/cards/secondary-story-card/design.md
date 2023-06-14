@@ -11,7 +11,7 @@ Alternative horizontal format to story card with less emphasis on photo.
 
 #### Anatomy
 
-![Basic Card Anatomy](/theme-assets/img/docs/components/cards/secondary-story-card-anatomy.svg)
+<img alt="Secondary Story Card Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/cards/secondary-story-card-anatomy.svg" />
 
 **1. Border (required)**
 

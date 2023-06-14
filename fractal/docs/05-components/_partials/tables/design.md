@@ -15,7 +15,7 @@ Tables also help users find specific information within a large data set. For ex
 
 #### Anatomy
 
-![Tables Anatomy](/theme-assets/img/docs/components/tables/anatomy.svg)
+<img alt="Table Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/tables/anatomy.svg" />
 
 **1. Table Header (required)**
 

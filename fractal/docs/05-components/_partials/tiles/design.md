@@ -9,7 +9,7 @@ Use to feature a small number of link destinations more prominently as core cont
 
 #### Anatomy
 
-![Tiles Anatomy](/theme-assets/img/docs/components/tiles/anatomy.svg)
+<img alt="Tiles Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/tiles/anatomy.svg" />
 
 **1. Yellow Border (required)**
 

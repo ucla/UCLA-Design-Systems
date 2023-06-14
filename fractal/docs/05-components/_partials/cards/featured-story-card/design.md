@@ -9,7 +9,7 @@ To highlight a discrete piece of content outside of a row or series.
 
 #### Anatomy
 
-![Basic Card Anatomy](/theme-assets/img/docs/components/cards/featured-story-card-anatomy.svg)
+<img alt="Featured Story Card Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/cards/featured-story-card-anatomy.svg" />
 
 **1. Date**
 

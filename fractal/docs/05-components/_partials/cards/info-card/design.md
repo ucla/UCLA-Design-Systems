@@ -9,7 +9,7 @@ This card provides a brief snipped of information. Heading and either a summary 
 
 #### Anatomy
 
-![Basic Card Anatomy](/theme-assets/img/docs/components/cards/info-card-anatomy.svg)
+<img alt="Info Card Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/cards/info-card-anatomy.svg" />
 
 **1. Title (required)**
 

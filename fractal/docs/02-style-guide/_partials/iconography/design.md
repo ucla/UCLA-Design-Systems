@@ -13,7 +13,7 @@ Icons are a simple, easily graspable way to add visual emphasis or interest, sig
 
 #### Anatomy
 
-![Images Anatomy](/theme-assets/img/docs/style-guide/iconography/anatomy.svg)
+<img src="/theme-assets/img/docs/style-guide/iconography/anatomy.svg" class="ucla-break-container" alt="Images Anatomy" />
 
 **1. Stroke Terminal**
 

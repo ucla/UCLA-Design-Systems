@@ -10,7 +10,7 @@ main content being communicated as opposed to Stat Bars or Factiod components th
 
 #### Anatomy
 
-![Ribbon Highlight Anatomy](/theme-assets/img/docs/components/ribbon/ribbon-highlight-anatomy.svg)
+<img alt="Image Banner Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/ribbon/ribbon-highlight-anatomy.svg" />
 
 **1. Text (required)**
 

@@ -5,7 +5,7 @@ Profile cards are a visual way to display informational listings of people that 
 
 #### Anatomy
 
-![Person Card Anatomy](/theme-assets/img/docs/components/cards/person-card-anatomy.svg)
+<img alt="Person Card Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/cards/person-card-anatomy.svg" />
 
 **1. Image**
 

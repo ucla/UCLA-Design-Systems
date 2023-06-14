@@ -11,7 +11,7 @@
   border-radius: 4px;
 
   &::placeholder {
-    color: variables.$grey-60;
+    color: variables.$grey-40;
   }
 
   &:focus {
@@ -31,12 +31,10 @@
   .ucla-is-warning &,
   &.ucla-is-warning {
     border-color: variables.$warning-orange;
-    color: variables.$warning-orange;
   }
 
   .ucla-is-error &,
   &.ucla-is-error {
     border-color: variables.$error-red;
-    color: variables.$error-red;
   }
 }
