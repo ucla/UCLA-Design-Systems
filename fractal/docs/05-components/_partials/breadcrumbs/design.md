@@ -8,8 +8,7 @@ A breadcrumb provides a trail of links indicating the user's current location wi
 Use breadcrumbs on your website if you have a hierarchical structure of pages, such as categories and subcategories.
 
 #### Anatomy
-
-![Breadcrumbs Anatomy](/theme-assets/img/docs/components/breadcrumbs/anatomy.svg)
+<img alt="Breadcrumbs Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/breadcrumbs/anatomy.svg" />
 
 **1. Breadcrumb**
   - Includes link to home page and every subsequent tier up to 4 that leads to current

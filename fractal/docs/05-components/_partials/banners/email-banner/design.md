@@ -9,7 +9,7 @@ Email banners can be used to encourage email subscriptions to a list your depart
 
 #### Anatomy
 
-![Email Banner Anatomy](/theme-assets/img/docs/components/banners/email-banner-anatomy.svg)
+<img alt="Email Banner Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/banners/email-banner-anatomy.svg" />
 
 **1. CTA Title (required)**
 

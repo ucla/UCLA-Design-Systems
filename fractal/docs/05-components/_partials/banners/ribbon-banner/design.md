@@ -9,7 +9,7 @@ Used to convey additional information or context to the user, and can help grab 
 
 #### Anatomy
 
-![Ribbon Banner Anatomy](/theme-assets/img/docs/components/banners/ribbon-banner-anatomy.svg)
+<img alt="Ribbon Banner Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/banners/ribbon-banner-anatomy.svg" />
 
 **1. Ribbon (required)**
 

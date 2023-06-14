@@ -13,7 +13,7 @@ For when to use a select menu rather than a radio button, see the following arti
 
 #### Anatomy
 
-![Select Field Anatomy](/theme-assets/img/docs/components/forms/select-field-anatomy.svg)
+<img alt="Select Menu Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/select-field-anatomy.svg" />
 
 **1. Label**
 

@@ -43,16 +43,32 @@ code {
 }
 
 [dir=ltr] .Prose1 {
-  max-width: 48.5rem;
+  max-width: 100%;
 }
 @media (min-width: 1024px) {
   [dir=ltr] .Prose1 {
-    max-width: 62rem;
+    max-width: 48.5rem;
   }
 }
 [dir=ltr] .Prose1 p.ucla-field__help {
   margin-top: 6px;
   margin-block-end: unset;
+}
+[dir=ltr] .Prose1 .ucla-break-container {
+  max-width: 100%;
+}
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 .ucla-break-container {
+    max-width: 996px;
+  }
+}
+[dir=ltr] .Prose1 .ucla-field__select {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 .ucla-field__select {
+    max-width: 50%;
+  }
 }
 [dir=ltr] .Prose1 pre {
   width: 100%;
@@ -63,6 +79,11 @@ code {
   margin: 1rem 0;
   max-height: 250px;
   overflow-y: scroll;
+}
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 pre {
+    width: 996px;
+  }
 }
 [dir=ltr] .Prose1 pre::-webkit-scrollbar {
   width: 10px;
@@ -107,6 +128,12 @@ code {
   margin: 0;
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+}
+[dir=ltr] .Prose1 h4 {
+  margin-top: 2rem;
+}
+[dir=ltr] .Prose1 img {
+  margin-top: 1rem;
 }
 [dir=ltr] .Prose1 blockquote {
   padding-left: unset;
@@ -274,11 +301,16 @@ a {
 }
 
 .docs-iframe {
-  width: 100%;
   resize: both;
   display: block;
   min-height: 30rem;
   border: 1px solid #ccc;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .docs-iframe {
+    width: 996px;
+  }
 }
 
 /***************** STOP!!! READ THIS!! *****************/

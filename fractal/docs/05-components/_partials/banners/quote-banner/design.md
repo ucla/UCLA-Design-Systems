@@ -9,7 +9,7 @@ Quote banners can be used to highlight a quote of someone notable that is relate
 
 #### Anatomy
 
-![Quote Banner Anatomy](/theme-assets/img/docs/components/banners/quote-banner-anatomy.svg)
+<img alt="Quote Banner Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/banners/quote-banner-anatomy.svg" />
 
 #### Examples
 

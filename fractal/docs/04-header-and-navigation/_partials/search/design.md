@@ -9,7 +9,7 @@ Use once the scale and type of content on your site is conducive to searching.
 
 #### Anatomy
 
-![Search Anatomy](/theme-assets/img/docs/navigation/search-anatomy.svg)
+<img alt="Search Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/search-anatomy.svg" />
 
 **1. Close Button**
   - Search Icon toggles to close button, clicking again with close entire overlay

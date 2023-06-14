@@ -13,7 +13,7 @@ Paginated content is any content split into multiple pages determined only by a 
 
 #### Anatomy
 
-![Pagination Anatomy](/theme-assets/img/docs/components/pagination/anatomy.svg)
+<img alt="Pagination Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/pagination/anatomy.svg" />
 
 **1. Double Arrow Previous Button (required)**
 

@@ -13,7 +13,7 @@ For longer inline text links, use descriptive language in place of generic links
 
 #### Anatomy
 
-![Related Links Anatomy](/theme-assets/img/docs/components/buttons/related-links-anatomy.svg)
+<img alt="Related Links Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/buttons/related-links-anatomy.svg" />
 
 **1. Title (required)**
 

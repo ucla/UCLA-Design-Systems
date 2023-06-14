@@ -9,7 +9,7 @@ A carousel component can be used in various situations where you want to showcas
 
 #### Anatomy
 
-![Carousel Anatomy](/theme-assets/img/docs/components/carousel/anatomy.svg)
+<img alt="Carousel Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/carousel/anatomy.svg" />
 
 **1. Carousel Indicator**
 - The indicators are the little dots at the bottom of each slide (which indicates how many slides there are in the carousel, and which slide the user is currently viewing).

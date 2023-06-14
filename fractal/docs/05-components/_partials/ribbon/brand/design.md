@@ -10,7 +10,7 @@ home page or prominent landing page. Do not overuse on interior level informatio
 
 #### Anatomy
 
-![Ribbon Brand Anatomy](/theme-assets/img/docs/components/ribbon/ribbon-brand-anatomy.svg)
+<img alt="Image Banner Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/ribbon/ribbon-brand-anatomy.svg" />
 
 **1. Text (required)**
 

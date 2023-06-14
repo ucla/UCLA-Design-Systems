@@ -9,7 +9,7 @@ School rankings are typically published by organizations or publications that sp
 
 #### Anatomy
 
-![Ranking Anatomy](/theme-assets/img/docs/components/callouts/ranking-anatomy.svg)
+<img alt="Ranking Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/callouts/ranking-anatomy.svg" />
 
 **1. Border (required)**
 

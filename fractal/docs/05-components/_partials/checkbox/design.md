@@ -15,7 +15,7 @@ Checkboxes also visibly show users what's been selected and makes it easy for th
 
 #### Anatomy
 
-![Checkbox Anatomy](/theme-assets/img/docs/components/forms/checkbox-anatomy.svg)
+<img alt="Checkbox Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/checkbox-anatomy.svg" />
 
 **1. Checkbox (required)**
 

@@ -11,7 +11,7 @@ A factoid should be used for something that is particularly relevant, interestin
 
 #### Anatomy
 
-![Buttons Anatomy](/theme-assets/img/docs/components/callouts/factoid-anatomy.svg)
+<img alt="Factoid Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/callouts/factoid-anatomy.svg" />
 
 **1. Border (required)**
 
@@ -20,8 +20,6 @@ A factoid should be used for something that is particularly relevant, interestin
 **3. Container (required)**
 
 #### Best practices
-
-When using rankings or statistacs touts, limit use to three across per section.
 
 When using factoids, limit use to one per section
 
