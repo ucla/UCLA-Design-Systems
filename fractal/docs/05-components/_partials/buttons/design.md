@@ -9,9 +9,15 @@ Buttons draw attention to important actions, content or next steps. Button tags 
 
 **Primary buttons** are styled as solid buttons and open important content, such as calls-to-action (CTAs) or initiates functionality. Icons are used to the right or left to clarify the content or action type. Type + icon are centered.
 
+**Secondary buttons** are styled as outline buttons and encourage content
+exploration.
+
+**Tertiary buttons** are styled without a box and are similar in style and priority to
+inline links but stand out from copy.
+
 #### Anatomy
 
-![Buttons Anatomy](/theme-assets/img/docs/components/buttons/anatomy.svg)
+<img alt="Breadcrumbs Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/buttons/anatomy.svg" />
 
 **1. Container (required)**
 
@@ -38,8 +44,12 @@ Link headlines in Store Cards or Event Cards rather than adding buttons with gen
 #### Examples
 
 <select class="ucla-field__select my-5" onChange="changeIframe(value)">
-  <option value="button">Default</option>
-  <option value="button--dark">Dark Background</option>
+  <option value="button">Primary Light</option>
+  <option value="button--secondary">Secondary Light</option>
+  <option value="button--tertiary">Tertiary Light</option>
+  <option value="button--dark">Primary Dark</option>
+  <option value="button--secondary-dark">Secondary Dark</option>
+  <option value="button--tertiary-dark">Tertiary Dark</option>
 </select>
 
 <iframe id="docIframe" class="docs-iframe mt-5"
@@ -57,6 +67,34 @@ Link headlines in Store Cards or Event Cards rather than adding buttons with gen
 
 ```html
 {{render '@button--dark'}}
+```
+
+</div>
+<div id="button--secondary" class="design-code-examples" hidden>
+
+```html
+{{render '@button--secondary'}}
+```
+
+</div>
+<div id="button--secondary-dark" class="design-code-examples" hidden>
+
+```html
+{{render '@button--secondary-dark'}}
+```
+
+</div>
+<div id="button--tertiary" class="design-code-examples" hidden>
+
+```html
+{{render '@button--tertiary'}}
+```
+
+</div>
+<div id="button--tertiary-dark" class="design-code-examples" hidden>
+
+```html
+{{render '@button--tertiary-dark'}}
 ```
 
 </div>

@@ -9,7 +9,7 @@ The fieldset element is useful for organizing and labeling groups of form contro
 
 #### Anatomy
 
-![Fieldset Anatomy](/theme-assets/img/docs/components/forms/fieldset-anatomy.svg)
+<img alt="Fieldset Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/fieldset-anatomy.svg" />
 
 
 #### Examples

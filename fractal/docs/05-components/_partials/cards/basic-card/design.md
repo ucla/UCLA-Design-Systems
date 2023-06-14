@@ -17,7 +17,7 @@ To shorten pages and reduce scrolling when content is not crucial to read in ful
 
 #### Anatomy
 
-![Basic Card Anatomy](/theme-assets/img/docs/components/cards/basic-card-anatomy.svg)
+<img alt="Basic Card Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/cards/basic-card-anatomy.svg" />
 
 **1. Image**
 

@@ -7,7 +7,7 @@ Image container offers preset image aspect ratios for use in UI design. An aspec
 
 To maintain consistency in your layout, use a consistent aspect ratio on elements like images, surfaces, and screen size.
 
-![Images Anatomy](/theme-assets/img/docs/style-guide/images/anatomy.svg)
+<img src="/theme-assets/img/docs/style-guide/images/anatomy.svg" class="ucla-break-container" alt="Images Anatomy" />
 
 **1. Container (required)**
 
@@ -19,4 +19,19 @@ Images must have text alternatives that describe the information or function rep
 
 #### States
 
-![Images States](/theme-assets/img/docs/style-guide/images/states.svg)
+<div class="ucla">
+  <div class="col span_6_of_12 span_4_of_12-lg">
+  
+![Image Default States](/theme-assets/img/docs/style-guide/images/states-default.svg)
+
+Default
+
+  </div>
+  <div class="col span_6_of_12 span_4_of_12-lg">
+  
+![Image Focus States](/theme-assets/img/docs/style-guide/images/states-focus.svg)
+
+Focus
+  
+  </div>
+</div>

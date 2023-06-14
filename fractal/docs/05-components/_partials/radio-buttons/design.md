@@ -9,7 +9,7 @@ Radio buttons are a common way to allow users to make a single selection from a 
 
 #### Anatomy
 
-![Radio Button Anatomy](/theme-assets/img/docs/components/forms/radio-buttons-anatomy.svg)
+<img alt="Radio Buttons Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/radio-buttons-anatomy.svg" />
 
 **1. Radio Button (required)**
 

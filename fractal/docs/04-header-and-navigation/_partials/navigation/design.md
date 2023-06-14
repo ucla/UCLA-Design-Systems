@@ -15,7 +15,7 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
 
 **Desktop**
 
-![Desktop Navigation Anatomy](/theme-assets/img/docs/navigation/navigation-anatomy.svg)
+<img alt="Desktop Navigation Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/navigation-anatomy.svg" />
 
 **1. Tier 1 Navigation/Menu Link (required)**
 
@@ -37,7 +37,7 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
 
 **Mobile**
 
-![Mobile Navigation Anatomy](/theme-assets/img/docs/navigation/navigation-dropdown-mobile-anatomy.svg)
+<img alt="Mobile Navigation Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/navigation-dropdown-mobile-anatomy.svg" />
 
 **1. Navigation Menu (or Hamburger Menu)**
   - opens main navigation slide-out menu and toggles to a close icon

@@ -27,12 +27,10 @@
   .ucla-is-warning &,
   &.ucla-is-warning {
     border-color: variables.$warning-orange;
-    color: variables.$warning-orange;
   }
 
   .ucla-is-error &,
   &.ucla-is-error {
     border-color: variables.$error-red;
-    color: variables.$error-red;
   }
 }

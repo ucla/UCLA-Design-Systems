@@ -9,7 +9,7 @@ For browsing articles, news, blog posts, or other editorial content.
 
 #### Anatomy
 
-![Basic Card Anatomy](/theme-assets/img/docs/components/cards/story-card-anatomy.svg)
+<img alt="Story Card Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/cards/story-card-anatomy.svg" />
 
 **1. Image (required)**
 

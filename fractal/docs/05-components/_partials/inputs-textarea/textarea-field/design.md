@@ -9,7 +9,7 @@ A user needs to input text-based information that is longer or cannot be divided
 
 #### Anatomy
 
-![Textarea Field Anatomy](/theme-assets/img/docs/components/forms/textbox-field-anatomy.svg)
+<img alt="Textarea Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/textbox-field-anatomy.svg" />
 
 **1. Label**
 

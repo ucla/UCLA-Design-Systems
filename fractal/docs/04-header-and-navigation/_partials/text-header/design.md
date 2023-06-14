@@ -9,7 +9,7 @@ The text header can be used when the department does not require a signature, or
 
 #### Anatomy
 
-![Text Header Anatomy](/theme-assets/img/docs/navigation/text-header-anatomy.svg)
+<img alt="Text Header Anatomy" src="/theme-assets/img/docs/navigation/text-header-anatomy.svg" class="ucla-break-container" />
 
 **1. Blue Border (required)**
 
@@ -27,7 +27,7 @@ The text header can be used when the department does not require a signature, or
 
 **5. Border (required)**
 
-![Text Header Mobile Anatomy](/theme-assets/img/docs/navigation/text-header-mobile-anatomy.svg)
+<img alt="Text Header Mobile Anatomy" src="/theme-assets/img/docs/navigation/text-header-mobile-anatomy.svg" class="ucla-break-container" />
 
 **1. Blue Border (required)**
 - May container visual device or functional code to incorporate global emergency messaging

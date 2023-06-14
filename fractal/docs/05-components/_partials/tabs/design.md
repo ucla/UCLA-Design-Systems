@@ -9,7 +9,7 @@ Use tabs to group related information into different categories, helping to redu
 
 #### Anatomy
 
-![Tabs Anatomy](/theme-assets/img/docs/components/tabs/anatomy.svg)
+<img alt="Tabs Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/tabs/anatomy.svg" />
 
 **1. Title (required)**
 

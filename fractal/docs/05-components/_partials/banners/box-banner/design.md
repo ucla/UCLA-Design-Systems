@@ -9,7 +9,7 @@ Less emphasis on the image or when using a smaller, less horizontal image.
 
 #### Anatomy
 
-![Box Banner Anatomy](/theme-assets/img/docs/components/banners/box-banner-anatomy.svg)
+<img alt="Box Banner Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/banners/box-banner-anatomy.svg" />
 
 **1. Title (required)**
 

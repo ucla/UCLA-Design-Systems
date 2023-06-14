@@ -9,7 +9,7 @@ Chips are like buttons but contextual to a piece of content. They communicate re
 
 #### Anatomy
 
-![Chips Anatomy](/theme-assets/img/docs/components/chips/anatomy.svg)
+<img alt="Chips Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/chips/anatomy.svg" />
 
 **1. Leading Icon**
 

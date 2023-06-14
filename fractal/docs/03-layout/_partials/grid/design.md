@@ -13,7 +13,7 @@ Margins are the spaces between the:
 
 (We do not use top and bottom margins for our grids.) Margins define the content area from within the viewable area.
 
-![Grid Anatomy](/theme-assets/img/docs/layout/grid/anatomy.svg)
+<img alt="Grid Anatomy" src="/theme-assets/img/docs/layout/grid/anatomy.svg" class="ucla-break-container" />
 
 #### Best Practices
 
