@@ -42,7 +42,11 @@ body {
   padding-bottom: 1.5rem;
 
   &:has(.ucla-main-nav) {
-    padding-bottom: 0;
+    padding-bottom: 1rem;
+
+    @include mixins.for-size(desktop-up) {
+      padding-bottom: 0;
+    }
   }
 
   .ucla-header__site-name {
