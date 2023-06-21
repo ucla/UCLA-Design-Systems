@@ -57,7 +57,7 @@ async function copySvg(e, text, changeTextBackTo) {
     await navigator.clipboard.writeText(svgStr);
   } else {
     const textArea = document.createElement("textarea");
-    textArea.value = svg;
+    textArea.value = svgStr;
     textArea.style.position = "absolute";
     textArea.style.opacity = "0";
     document.body.prepend(textArea);
@@ -70,7 +70,6 @@ async function copySvg(e, text, changeTextBackTo) {
       textArea.remove();
     }
   }
-  // console.log(e.srcElement.innerText);
   e.srcElement.textContent = text;
   setTimeout(function () {
     e.srcElement.textContent = e.srcElement.textContent = changeTextBackTo;
