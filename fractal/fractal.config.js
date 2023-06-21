@@ -77,16 +77,13 @@ fractal.components.set("statuses", {
 
 fractal.docs.set("statuses", {
   // docs
-  ready: {
-    label: "Ready",
-    description:
-      "Documentation for corresponding component is ready for referencing.",
-    color: "#007339",
+  has_js: {
+    label: "JS",
+    description: "This component uses JavaScript",
+    color: "#ffd100",
   },
-  in_progress: {
-    label: "In Progress",
-    description: "Documentation for corresponding component is underway.",
-    color: "#812990",
+  hide_title: {
+    label: "hide-title",
   },
 });
 

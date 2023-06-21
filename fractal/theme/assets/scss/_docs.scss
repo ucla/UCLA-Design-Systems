@@ -11,6 +11,14 @@
   line-height: 1.125;
 }
 
+.Document-header {
+  border-bottom: 0;
+}
+
+.hide-title {
+  display: none;
+}
+
 code {
   background: rgba(83, 83, 99, 0.075);
   color: #d14;
@@ -34,7 +42,7 @@ code {
   .ucla-break-container {
     max-width: 100%;
     @media (min-width: 1024px) {
-      max-width: 996px;
+      max-width: 976px;
     }
   }
   .ucla-field__select {
@@ -127,7 +135,7 @@ code {
   }
 
   h4 {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   img {
@@ -339,4 +347,13 @@ a {
   @media (min-width: 1024px) {
     width: 996px;
   }
+}
+
+.Tree-entityLink > .Status.Status--unlabelled {
+  display: none;
+}
+.ucla-prose > .docs-lead > h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: normal;
 }
