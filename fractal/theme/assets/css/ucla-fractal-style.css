@@ -35,6 +35,14 @@
   line-height: 1.125;
 }
 
+.Document-header {
+  border-bottom: 0;
+}
+
+.hide-title {
+  display: none;
+}
+
 code {
   background: rgba(83, 83, 99, 0.075);
   color: #d14;
@@ -59,7 +67,7 @@ code {
 }
 @media (min-width: 1024px) {
   [dir=ltr] .Prose1 .ucla-break-container {
-    max-width: 996px;
+    max-width: 976px;
   }
 }
 [dir=ltr] .Prose1 .ucla-field__select {
@@ -130,7 +138,7 @@ code {
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
 }
 [dir=ltr] .Prose1 h4 {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 [dir=ltr] .Prose1 img {
   margin-top: 1rem;
@@ -311,6 +319,16 @@ a {
   .docs-iframe {
     width: 996px;
   }
+}
+
+.Tree-entityLink > .Status.Status--unlabelled {
+  display: none;
+}
+
+.ucla-prose > .docs-lead > h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: normal;
 }
 
 /***************** STOP!!! READ THIS!! *****************/
