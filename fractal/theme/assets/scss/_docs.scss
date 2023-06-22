@@ -3,12 +3,23 @@
 // https://fractal.build/guide/web/default-theme.html#default-theme-mandelbrot
 
 .Document {
-  padding: 40px 90px;
+  padding: 20px 24px;
+  @media (min-width: 1024px) {
+    padding: 40px 90px;
+  }
 }
 
 .Document-title {
   font-size: 5.063rem;
   line-height: 1.125;
+}
+
+.Document-header {
+  border-bottom: 0;
+}
+
+.hide-title {
+  display: none;
 }
 
 code {
@@ -18,11 +29,30 @@ code {
   border-radius: 2px;
 }
 
-[dir="ltr"] .Prose {
-  max-width: 48.5rem;
+[dir="ltr"] .Prose1 {
+  max-width: 100%;
 
   @media (min-width: 1024px) {
-    max-width: 62rem;
+    max-width: 48.5rem;
+  }
+
+  p.ucla-field__help {
+    margin-top: 6px;
+
+    margin-block-end: unset;
+  }
+
+  .ucla-break-container {
+    max-width: 100%;
+    @media (min-width: 1024px) {
+      max-width: 976px;
+    }
+  }
+  .ucla-field__select {
+    width: 100%;
+    @media (min-width: 1024px) {
+      max-width: 50%;
+    }
   }
 
   pre {
@@ -31,6 +61,13 @@ code {
     padding: 20px 0;
     border-radius: 10px;
     white-space: pre-wrap;
+    margin: 1rem 0;
+    max-height: 250px;
+    overflow-y: scroll;
+
+    @media (min-width: 1024px) {
+      width: 996px;
+    }
 
     // style scroll bars for long blocks of code
     &::-webkit-scrollbar {
@@ -69,12 +106,12 @@ code {
 
   // Override "black" theme header sizing with our own
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1:not([class]),
+  h2:not([class]),
+  h3:not([class]),
+  h4:not([class]),
+  h5:not([class]),
+  h6:not([class]) {
     color: unset;
     opacity: 1;
   }
@@ -100,6 +137,14 @@ code {
     font-family: "Helvetica", "Roboto", "Arial", sans-serif;
   }
 
+  h4 {
+    margin-top: 3rem;
+  }
+
+  img {
+    margin-top: 1rem;
+  }
+
   blockquote {
     padding-left: unset;
     border-left: unset;
@@ -118,6 +163,12 @@ code {
     padding-left: unset;
     li {
       list-style: none;
+    }
+  }
+
+  a.ucla-tile {
+    &:hover {
+      color: white;
     }
   }
 
@@ -154,6 +205,23 @@ code {
 
   .ucla-doc-tabpanel {
     outline-color: transparent;
+  }
+
+  table:not([class]) {
+    border: 1px solid #ccc;
+
+    td,
+    th {
+      border: 1px solid #ccc;
+      padding: 0.875rem 1rem;
+      vertical-align: top;
+      font-size: 0.8rem;
+    }
+
+    th {
+      background-color: #daebfe;
+      font-weight: bold;
+    }
   }
 }
 
@@ -230,4 +298,65 @@ code {
 .ucla-doc-tabpanels {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.splide.ucla-carousel.doc-slider-is-overflow .splide__pagination {
+  display: flex;
+}
+
+a {
+  color: unset;
+}
+
+.ucla-card.icon-docs > .ucla-card__body > .ucla-card__description {
+  margin-block-end: 0;
+}
+
+.ucla-table.docs-table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.docs-color-swatch {
+  border-radius: 2px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  height: 24px;
+  margin-right: 8px;
+  width: 24px;
+  float: left;
+}
+
+.docs-example-margin-padding {
+  display: flow-root;
+  background-image: linear-gradient(
+    135deg,
+    #ccc 10%,
+    #0000 0,
+    #0000 50%,
+    #ccc 0,
+    #ccc 60%,
+    #0000 0,
+    #0000
+  );
+  background-size: 7.07px 7.07px;
+}
+
+.docs-iframe {
+  resize: both;
+  display: block;
+  min-height: 30rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  @media (min-width: 1024px) {
+    width: 996px;
+  }
+}
+
+.Tree-entityLink > .Status.Status--unlabelled {
+  display: none;
+}
+.ucla-prose > .docs-lead > h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: normal;
 }

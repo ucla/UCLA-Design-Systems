@@ -1,0 +1,21 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{path '/css/ucla-lib.css'}}" />
+    <title>Preview</title>
+    <style>
+      .review-width { margin: 0 auto; padding: 2rem 0 0; display: flex;
+      justify-content: center; gap: 1.5rem;} body:has(.ucla-btn--primary-light),
+      body:has(.ucla-btn--secondary-light), body:has(.ucla-btn--tertiary-light)
+      { background-color: #2774ae; }
+    </style>
+  </head>
+
+  <body>
+    <div class="review-width">
+      {{{yield}}}
+    </div>
+  </body>
+
+</html>

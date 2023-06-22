@@ -1,32 +1,34 @@
-<h2>Carousel Text</h2>
-<div id="example-text" class="splide">
-  <div class="splide__slider"> <!-- relative -->
-    <div class="splide__track">
-      <ul class="splide__list">
-        <li class="splide__slide">
-          <h3>Title One Example</h3>
-          <p>Carousels dont have to be images, they can be words. There is no limit to how many words you an use. It is
-            reccommended that you try to match the amount of content in each slide.</p>
-        </li>
-        <li class="splide__slide">
-          <div class="ribbon">
-            <h2>Ribbon Title Two Example</h2>
-          </div>
-          <p>Carousels dont have to be images, they can be words. There is no limit to how many words you an use. It is
-            reccommended that you try to match the amount of content in each slide.</p>
-        </li>
-        <li class="splide__slide">
-          <div class="ribbon">
-            <h2>Ribbon Title Three Example</h2>
-          </div>
-          <p>Carousels dont have to be images, they can be words. There is no limit to how many words you an use. It is
-            reccommended that you try to match the amount of content in each slide.</p>
-        </li>
-      </ul>
-    </div>
+<section
+  class="ucla-carousel splide"
+  role="group"
+  data-per-page="1"
+  data-per-page-md="2"
+  data-per-page-lg="3"
+  aria-label="Basic UCLA Slider"
+>
+  <div class="splide__track">
+    <ul class="splide__list">
+      <li class="splide__slide">
+        {{render "@cards--event"}}
+      </li>
+      <li class="splide__slide">
+        {{render "@cards--event"}}
+      </li>
+      <li class="splide__slide">
+        {{render "@cards--event"}}
+      </li>
+      <li class="splide__slide">
+        {{render "@cards--event"}}
+      </li>
+      <li class="splide__slide">
+        {{render "@cards--event"}}
+      </li>
+      <li class="splide__slide">
+        {{render "@cards--event"}}
+      </li>
+      <li class="splide__slide">
+        {{render "@cards--event"}}
+      </li>
+    </ul>
   </div>
-</div>
-
-<script>
-  new Splide("#example-text").mount();
-</script>
+</section>

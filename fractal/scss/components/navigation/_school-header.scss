@@ -1,9 +1,9 @@
-@use "../../utilities/colors";
+@use "../../utilities/variables";
 @use "../../utilities/mixins";
 
 .ucla-header--school {
-  border-top: 11px solid colors.$ucla-blue;
-  border-bottom: 1px solid colors.$grey-20;
+  border-top: 11px solid variables.$ucla-blue;
+  border-bottom: 1px solid variables.$grey-20;
 
   &__logo-link {
     line-height: 0;
@@ -28,14 +28,14 @@
     font-size: 1.188rem;
     font-weight: bold;
     overflow-wrap: break-word;
-    color: colors.$grey-80;
+    color: variables.$grey-80;
 
     &:hover {
-      color: colors.$hover-state;
+      color: variables.$hover-state;
     }
 
     &:focus {
-      color: colors.$focus-state;
+      color: variables.$focus-state;
     }
 
     @include mixins.for-size(phone-only) {
