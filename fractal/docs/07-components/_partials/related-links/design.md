@@ -33,9 +33,9 @@ For longer inline text links, use descriptive language in place of generic links
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../../components/preview/button--related-links.html"
+  document.getElementById("docIframe").src = "../../components/preview/button--related-links.html"
   } else {
-  document.getElementById("docIframe").src = "../../../components/preview/button--related-links"
+  document.getElementById("docIframe").src = "../../components/preview/button--related-links"
   }
 </script>
 
