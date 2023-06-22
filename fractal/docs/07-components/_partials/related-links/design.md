@@ -28,14 +28,14 @@ For longer inline text links, use descriptive language in place of generic links
 ></iframe>
 
 ```html
-{{render '@button--related-links'}}
+{{render '@related-links'}}
 ```
 
 <script>
   if (window.frctl.env === "static") {
-  document.getElementById("docIframe").src = "../../components/preview/button--related-links.html"
+  document.getElementById("docIframe").src = "../../components/preview/related-links.html"
   } else {
-  document.getElementById("docIframe").src = "../../components/preview/button--related-links"
+  document.getElementById("docIframe").src = "../../components/preview/related-links"
   }
 </script>
 
