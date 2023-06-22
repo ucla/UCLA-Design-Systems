@@ -3,7 +3,10 @@
 // https://fractal.build/guide/web/default-theme.html#default-theme-mandelbrot
 
 .Document {
-  padding: 40px 90px;
+  padding: 20px 24px;
+  @media (min-width: 1024px) {
+    padding: 40px 90px;
+  }
 }
 
 .Document-title {
