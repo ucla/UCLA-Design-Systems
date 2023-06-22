@@ -3,7 +3,7 @@ name: Deploy Production
 on:
   push:
     branches:
-      [ automation, prod-deploy ]
+      [ prod-deploy ]
 
 jobs:
   build:
