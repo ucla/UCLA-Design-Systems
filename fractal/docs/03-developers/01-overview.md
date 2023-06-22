@@ -15,7 +15,7 @@ Each component provides semantically correct and accessible markup and documenta
       <div class="ucla-card__body ucla-has-background-grey-05">
         <h2 class="ucla-card__title">Installation</h2>
         <p class="ucla-card__description">Start using UCLA's Design System in your project.</p>
-        <a href="{{path '/docs/developers/getting-started'}}" class="ucla-card__link">
+        <a href="{{path '/docs/developers/installation'}}" class="ucla-card__link">
           Read more
         </a>
       </div>

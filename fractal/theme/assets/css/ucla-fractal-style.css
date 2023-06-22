@@ -27,7 +27,12 @@
 
 /***************** STOP!!! READ THIS!! *****************/
 .Document {
-  padding: 40px 90px;
+  padding: 20px 24px;
+}
+@media (min-width: 1024px) {
+  .Document {
+    padding: 40px 90px;
+  }
 }
 
 .Document-title {
@@ -345,7 +350,6 @@ body {
 }
 
 a.Tree-entityLink {
-  font-weight: bold;
   color: #00598c;
 }
 
@@ -385,22 +389,26 @@ a.Tree-entityLink {
 }
 .Navigation .Tree-title {
   color: #000;
-  font-size: 26px;
+  font-size: 20px;
   letter-spacing: 0.1px;
   text-transform: capitalize;
 }
 .Navigation .Tree-item {
-  border-bottom: 1px solid #ccc;
   background-color: white;
 }
-.Navigation .Tree-item:last-of-type {
-  border-bottom: 0;
+.Navigation .Tree-item > .Tree-collectionLabel {
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
 }
 .Navigation .Tree-item.is-closed {
   background-color: white;
 }
 .Navigation .Tree-item + .Tree-item {
   margin: 0;
+}
+.Navigation .Tree-item > .Tree-collectionItems .Tree-collectionLabel {
+  font-weight: normal;
 }
 
 @media (max-width: 47.49em) {
