@@ -3,7 +3,7 @@ name: Deploy Production
 on:
   push:
     branches:
-      [ automation, prod-deploy ]
+      [ prod-deploy, automation ]
 
 jobs:
   build:
@@ -35,6 +35,9 @@ jobs:
         uses: WyriHaximus/github-action-get-previous-tag@v1
         with:
           fallback: 1.0.0 #Optional fallback tag to use when no tag can be found
+      - name: Update Build version
+        run: sed -i 's/%!CurrentVersion%!/${{ steps.previoustag.outputs.tag }}/g' installation.html
+        working-directory: fractal/build/docs/developers
       - name: Deploy
         run: aws s3 sync ./fractal/build s3://designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
       - name: Upload Assets
