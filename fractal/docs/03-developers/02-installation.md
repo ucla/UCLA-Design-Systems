@@ -8,7 +8,7 @@ Copy and paste this in the `<head>` of your document before any other stylesheet
 
 ```html
 
-<link rel="stylesheet" href="https://cdn.designsystem.brand.ucla.edu/build/[[semantic-version]]/css/ucla-lib.min.css" />
+<link rel="stylesheet" href="https://cdn.designsystem.brand.ucla.edu/build/%!CurrentVersion%!/css/ucla-lib.min.css" />
 
 ```
 
@@ -18,7 +18,7 @@ Copy and paste this before the closing `</body>` tag.
 
 ```html
 
-<script type="text/javascript" src="https://cdn.designsystem.brand.ucla.edu/build/[[semantic-version]]/js/ucla-lib-scripts.min.js" />
+<script type="text/javascript" src="https://cdn.designsystem.brand.ucla.edu/build/%!CurrentVersion%!/js/ucla-lib-scripts.min.js" />
 
 ```
 
@@ -26,7 +26,7 @@ Copy and paste this before the closing `</body>` tag.
 
 If you would like to host the assets yourself, you can download the compiled version here.
 
-<a class="ucla-btn ucla-btn--primary" href="https://cdn.designsystem.brand.ucla.edu/build/[[semantic-version]]/dist.zip">Download</a>
+<a class="ucla-btn ucla-btn--primary" href="https://cdn.designsystem.brand.ucla.edu/build/%!CurrentVersion%!/dist.zip">Download</a>
 
 
 </div>
