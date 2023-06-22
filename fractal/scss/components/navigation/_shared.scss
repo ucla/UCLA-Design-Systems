@@ -405,7 +405,14 @@
     top: 100%;
     background-color: variables.$white;
     min-width: 227px;
+    width: min-content;
     border: 1px solid variables.$grey-20;
+  }
+
+  .ucla-main-nav__item:nth-last-of-type(-n + 2) & {
+    @include mixins.for-size(desktop-up) {
+      right: 0;
+    }
   }
 
   .ucla-main-nav__link {
