@@ -1,7 +1,10 @@
 ---
 handle: icons-development
 ---
-#### Navigation Icons
+
+#### Icon Library
+
+<h5 class="mt-8">Navigation Icons</h5>
 
 <div class="ucla mt-5">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
@@ -149,7 +152,7 @@ handle: icons-development
   </div>
 </div>
 
-#### Social Icons
+##### Social Icons
 
 <div class="ucla mt-5">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
@@ -181,17 +184,6 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">linkedin</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
-      </div>
-    </article>
-  </div>
-  <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
-    <article class="ucla-card icon-docs">
-      <div style="display: block; text-align: center">
-      {{render '@social-icons--snapchat'}}
-      </div>
-      <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">snapchat</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
       </div>
     </article>
@@ -231,7 +223,7 @@ handle: icons-development
   </div>
 </div>
 
-#### Communication Icons
+##### Communication Icons
 
 <div class="ucla mt-5">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
@@ -313,7 +305,7 @@ handle: icons-development
   </div>
 </div>
 
-#### Content Icons
+##### Content Icons
 
 <div class="ucla mt-5">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
@@ -450,7 +442,7 @@ handle: icons-development
   </div>
 </div>
 
-#### Weather
+##### Weather
 
 <div class="ucla mt-5">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
@@ -554,7 +546,7 @@ handle: icons-development
   </div>
 </div>
 
-#### Date &amp; Time Icons
+##### Date &amp; Time Icons
 
 <div class="ucla mt-5">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
@@ -581,7 +573,7 @@ handle: icons-development
   </div>
 </div>
 
-#### Alert Icons
+##### Alert Icons
 
 <div class="ucla mt-5">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">

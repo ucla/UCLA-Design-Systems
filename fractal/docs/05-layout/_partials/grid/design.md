@@ -37,3 +37,39 @@ Each breakpoint range determines the number of columns, and recommended margins 
 | **SM (Phones)**<br />320px - 767px | 4 | 24 | Collapsed |
 | **MD (Tablets)**<br />768px - 1223px | 8 | 24 | Collapsed |
 | **LG (Desktops)**<br />1224+ | 12 | 24 | Visible |
+
+#### Desktop
+
+<img alt="Desktop Grid" src="/theme-assets/img/docs/layout/grid/desktop.svg" class="ucla-break-container" />
+<ul class="ucla-list__plain">
+<li>12 columns</li>
+<li>1224px viewport or larger</li>
+<li>1176px content (max)</li>
+<li>76px columns (max)</li>
+<li>24px gutters (12px) each side</li>
+<li>24px margins</li>
+</ul>
+
+#### Tablet
+
+<img alt="Tablet Grid" src="/theme-assets/img/docs/layout/grid/tablet.svg" class="ucla-break-container" />
+<ul class="ucla-list__plain">
+<li>8 columns</li>
+<li>768px - 1223px viewport</li>
+<li>720px - 1175px content</li>
+<li>69px - 126px columns</li>
+<li>24px gutters (12px) each side</li>
+<li>24px margins</li>
+</ul>
+
+#### Mobile
+
+<img alt="Mobile Grid" src="/theme-assets/img/docs/layout/grid/mobile.svg" class="ucla-break-container" />
+<ul class="ucla-list__plain">
+<li>4 columns</li>
+<li>320px - 767px viewport</li>
+<li>272px - 719px content</li>
+<li>50px - 162px columns</li>
+<li>24px gutters (12px) each side</li>
+<li>24px margins</li>
+</ul>

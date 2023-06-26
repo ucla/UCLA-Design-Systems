@@ -11,16 +11,18 @@ The designer tools on this site includes styles, components, and detailed specif
 
 <div class="ucla">
   <div class="col">
+
+  <a class="docs-link" href="{{path '/docs/designers/design-kit'}}">
     <img src="/theme-assets/img/docs/designer/overview-design-kit.svg" />
 
 ##### Design Kit
 
+  </a>
+
   </div>
   <div class="col">
 
-<img src="/theme-assets/img/docs/designer/overview-web-page-templates.svg" />
 
-##### Web Page Templates
 
   </div>
 </div>
