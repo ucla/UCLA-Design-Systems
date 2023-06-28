@@ -27,24 +27,6 @@ handle: typography-development
 {{render '@typography--headline-small'}}
 ```
 
-{{render '@typography--title-large'}}
-
-```html
-{{render '@typography--title-large'}}
-```
-
-{{render '@typography--title-medium'}}
-
-```html
-{{render '@typography--title-medium'}}
-```
-
-{{render '@typography--title-small'}}
-
-```html
-{{render '@typography--title-small'}}
-```
-
 #### Body Copy
 
 {{render '@typography--paragraph'}}
@@ -64,6 +46,86 @@ handle: typography-development
 ```html
 {{render '@typography--paragraph-small'}}
 ```
+
+#### Unordered Lists
+
+<ul>
+  <li>Unordered List Item</li>
+  <li>Unordered List Item</li>
+  <li>Nested Unordered List Item
+    <ul>
+      <li>Unordered List Item</li>
+      <li>Unordered List Item</li>
+      <li>Unordered List Item</li>
+    </ul> 
+  </li>
+</ul>
+
+```html
+<ul>
+  <li>Unordered List Item</li>
+  <li>Unordered List Item</li>
+  <li>Nested Unordered List Item
+    <ul>
+      <li>Unordered List Item</li>
+      <li>Unordered List Item</li>
+      <li>Unordered List Item</li>
+    </ul> 
+  </li>
+</ul>
+```
+
+#### Unstyled List
+
+{{ render '@lists--unordered-lists-plain' }}
+
+```html
+{{ render '@lists--unordered-lists-plain' }}
+```
+
+#### Inline List
+{{ render '@lists--unordered-lists-inline' }}
+
+```html
+{{ render '@lists--unordered-lists-inline' }}
+```
+
+#### Ordered Lists
+
+<ol>
+  <li>Ordered List Item</li>
+  <li>Ordered List Item</li>
+  <li>Nested Ordered List Item
+    <ol>
+      <li>Ordered List Item</li>
+      <li>Ordered List Item</li>
+      <li>Ordered List Item</li>
+    </ol>
+  </li>
+</ol>
+
+```html
+<ol>
+  <li>Ordered List Item</li>
+  <li>Ordered List Item</li>
+  <li>Nested Ordered List Item
+    <ol>
+      <li>Ordered List Item</li>
+      <li>Ordered List Item</li>
+      <li>Ordered List Item</li>
+    </ol>
+  </li>
+</ol>
+```
+
+#### Descriptive List
+
+{{ render '@lists--description-list' }}
+
+```html
+{{ render '@lists--description-list' }}
+```
+
 
 #### Inline Styles
 

@@ -25,7 +25,7 @@ Icons are a simple, easily graspable way to add visual emphasis or interest, sig
 
 **5. Stroke**
 
-#### Design Priniciples
+#### Design Principles
 
 Use established icons. Icons that have been used for a long time worldwide have a higher chance of being recognized and understood quickly. We follow the Google Material icon set. If a specific icon is not available by that set, you may create a custom icon or request for a new icon to be developed.
 
