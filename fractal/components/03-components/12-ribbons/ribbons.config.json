@@ -1,0 +1,16 @@
+{
+	"title": "Ribbons",
+  "status": "ready",
+  "variants": [
+    {
+      "name": "default",
+      "label": "Brand"
+    },
+    {
+      "name": "highlight",
+      "context": {
+        "order": 2
+      }
+    }
+  ]
+}

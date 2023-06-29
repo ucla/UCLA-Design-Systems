@@ -1,0 +1,17 @@
+{
+  "title": "Social",
+  "status": "ready",
+  "hidden": true,
+  "variants": [
+    {
+      "name": "default",
+      "label": "Links"
+    },
+    {
+      "name": "post-tiles",
+      "context": {
+        "order": 2
+      }
+    }
+  ]
+}

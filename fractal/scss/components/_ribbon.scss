@@ -1,0 +1,53 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+.ucla-ribbon--brand .ucla-ribbon__text,
+.ucla-ribbon--highlight .ucla-ribbon__text {
+  font-weight: bold;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  display: inline;
+}
+
+.ucla-ribbon--brand {
+  font-size: 1.5rem;
+  line-height: 1.35;
+  max-width: 15ch;
+
+  @include mixins.for-size(tablet-up) {
+    font-size: 3rem;
+    line-height: 1.33;
+  }
+
+  .ucla-ribbon__text {
+    color: variables.$white;
+    font-size: inherit;
+    line-height: inherit;
+    background-color: variables.$ucla-blue;
+    box-shadow: 8px 0 0 variables.$ucla-blue;
+    padding: 1px 0 1px 8px;
+
+    @include mixins.for-size(tablet-up) {
+      box-shadow: 10px 0 0 variables.$ucla-blue;
+      padding: 2px 0 2px 12px;
+    }
+  }
+}
+
+.ucla-ribbon--highlight {
+  font-size: 1.125rem;
+  line-height: 2.2;
+  max-width: 25ch;
+
+  @include mixins.for-size(desktop-up) {
+    font-size: 1.5rem;
+    line-height: 2;
+  }
+  .ucla-ribbon__text {
+    font-size: inherit;
+    line-height: inherit;
+    padding: 8px 0 8px 12px;
+    background-color: variables.$ucla-gold;
+    box-shadow: 10px 0 0 variables.$ucla-gold;
+  }
+}

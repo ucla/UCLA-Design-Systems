@@ -1,0 +1,128 @@
+{
+  "title": "colors",
+  "hidden": true,
+  "status": "in_progress",
+  "context": {
+    "layout": [{
+        "name": "UCLA Blue",
+        "variable": "$ucla-blue",
+        "hex": "#2774AE"
+      }, {
+        "name": "UCLA Gold",
+        "variable": "$ucla-gold",
+        "hex": "#FFD100"
+      }, {
+        "name": "Darkest Blue",
+        "variable": "$darkest-blue",
+        "hex": "#003B5C"
+      }, {
+        "name": "Darker Blue",
+        "variable": "$darker-blue",
+        "hex": "#005587"
+      }, {
+        "name": "White",
+        "variable": "$white",
+        "hex": "#FFFFFF"
+      }, {
+        "name": "Grey-5",
+        "variable": "$grey-5",
+        "hex": "#F2F2F2"
+      }, {
+        "name": "Grey-8",
+        "variable": "$grey-8",
+        "hex": "#EBEBEB"
+    }],
+    "text": [{
+        "name": "White",
+        "variable": "$white",
+        "hex": "#FFFFFF"
+      }, {
+        "name": "Grey-10",
+        "variable": "$grey-10",
+        "hex": "#E5E5E5"
+      }, {
+        "name": "Grey-40",
+        "variable": "$grey-40",
+        "hex": "#999"
+      }, {
+        "name": "Grey-60",
+        "variable": "$grey-60",
+        "hex": "#666"
+      }, {
+        "name": "Grey-80",
+        "variable": "$grey-80",
+        "hex": "#333"
+      }],
+    "interactive-light": [{
+        "name": "Default",
+        "variable": "$default-state",
+        "hex": "#00598C"
+      }, {
+        "name": "Hover",
+        "variable": "$hover-state",
+        "hex": "#0079BF"
+      }, {
+        "name": "Active",
+        "variable": "$active-state",
+        "hex": "#003B5C"
+      }, {
+        "name": "Focus",
+        "variable": "$focus-state",
+        "hex": "#0079BF"
+      }, {
+        "name": "Disabled",
+        "variable": "$disabled-state",
+        "hex": "#757575"
+      }, {
+        "name": "Visited",
+        "variable": "$visited-state",
+        "hex": "#5223B0"
+    }],
+    "interactive-dark": [{
+        "name": "Default",
+        "variable": "$default-state-dark",
+        "hex": "#FFD100"
+      }, {
+        "name": "Hover",
+        "variable": "$hover-state-dark",
+        "hex": "#FFE500"
+      }, {
+        "name": "Active",
+        "variable": "$active-state-dark",
+        "hex": "#FFBF0F"
+      }, {
+        "name": "Focus",
+        "variable": "$focus-state-dark",
+        "hex": "#FFE500"
+      }, {
+        "name": "Disabled",
+        "variable": "$disabled-state-dark",
+        "hex": "#E5E5E5"
+      }, {
+        "name": "Visited",
+        "variable": "$visited-state-dark",
+        "hex": "#FFFFFF"
+    }],
+    "denotive": [{
+        "name": "Error",
+        "variable": "$error-red",
+        "hex": "#D60000"
+      }, {
+        "name": "Success",
+        "variable": "$success-green",
+        "hex": "#007339"
+      }, {
+        "name": "Warning",
+        "variable": "$warning-orange",
+        "hex": "#F57F17"
+      }, {
+        "name": "Primary Alert",
+        "variable": "$primary-alert-blue",
+        "hex": "#8BB8E8"
+      }, {
+        "name": "Secondary Alert",
+        "variable": "$secondary-alert-grey",
+        "hex": "#999"
+      }]
+  }
+}

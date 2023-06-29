@@ -1,0 +1,47 @@
+{
+	"title": "Grid",
+	"collated": "true",
+	"status": "ready",
+	"variants": [
+		{
+			"name": "default",
+			"label": "One"
+		},
+		{
+			"name": "two"
+		},
+		{
+			"name": "three"
+		},
+		{
+			"name": "four"
+		},
+		{
+			"name": "five"
+		},
+		{
+			"name": "six"
+		},
+		{
+			"name": "seven"
+		},
+		{
+			"name": "eight"
+		},
+		{
+			"name": "nine"
+		},
+		{
+			"name": "ten"
+		},
+		{
+			"name": "eleven"
+		},
+		{
+			"name": "twelve"
+		},
+		{
+			"name": "nested-columns"
+		}
+	]
+}

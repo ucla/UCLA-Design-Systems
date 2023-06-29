@@ -1,0 +1,73 @@
+@use "../../utilities/variables";
+
+.ucla-field__radio-label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  line-height: 1.5;
+
+  & + .ucla-field__radio-label {
+    margin-left: 0.5em;
+  }
+
+  &[disabled] {
+    color: variables.$disabled-state;
+    cursor: not-allowed;
+  }
+
+  .ucla-field__radio {
+    cursor: pointer;
+    margin-right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid variables.$grey-60;
+    border-radius: 50%;
+
+    &:disabled {
+      background-color: variables.$grey-05;
+      border-color: variables.$disabled-state;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+      border: 2px solid variables.$hover-state;
+    }
+
+    &:focus {
+      border: 2px solid variables.$focus-state;
+    }
+
+    &:not(:disabled):active {
+      background-color: variables.$active-state;
+      border: 2px solid variables.$active-state;
+    }
+
+    &:checked::after {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      visibility: visible;
+      top: 2px;
+      left: 2px;
+      border-radius: 100%;
+      border: 5px solid white;
+      content: "";
+    }
+
+    &:checked::after,
+    &:checked::before {
+      background-color: variables.$ucla-blue;
+    }
+
+    .ucla-is-warning &,
+    &.ucla-is-warning {
+      border: 2px solid variables.$warning-orange;
+    }
+
+    .ucla-is-error &,
+    &.ucla-is-error {
+      border: 2px solid variables.$error-red;
+    }
+  }
+}

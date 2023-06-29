@@ -1,0 +1,7 @@
+{
+	"title": "Tile",
+	"status": "ready",
+  "context": {
+       "title": "Basic tile, 32 char. max suggested"
+  }
+}

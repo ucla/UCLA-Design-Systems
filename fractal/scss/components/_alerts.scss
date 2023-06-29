@@ -1,0 +1,63 @@
+@use "../utilities/variables";
+
+.ucla-alert {
+  /* Default Alerts Styling */
+  padding: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+
+  .ucla-alert--icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  .ucla-alert--close {
+    display: inherit;
+    cursor: pointer;
+    margin-left: auto;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  /* Specific Alert Styles */
+  &--primary {
+    border-color: variables.$primary-alert-blue;
+    svg path {
+      fill: variables.$primary-alert-blue;
+    }
+  }
+
+  &--secondary {
+    border-color: variables.$secondary-alert-grey;
+    svg path {
+      fill: variables.$secondary-alert-grey;
+    }
+  }
+
+  &--success {
+    border-color: variables.$success-green;
+    svg path {
+      fill: variables.$success-green;
+    }
+  }
+
+  &--error {
+    border-color: variables.$error-red;
+    svg path {
+      fill: variables.$error-red;
+    }
+  }
+
+  &--warning {
+    border-color: variables.$warning-orange;
+    svg path {
+      fill: variables.$warning-orange;
+    }
+  }
+}

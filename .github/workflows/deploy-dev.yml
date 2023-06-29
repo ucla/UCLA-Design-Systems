@@ -1,0 +1,49 @@
+name: Deploy Development
+
+on:
+  push:
+    branches:
+      [ dev-deploy ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+        working-directory: fractal
+      - name: Fractal Build
+        run: npm run build
+        working-directory: fractal
+      - run: ls -al
+        working-directory: fractal/build
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with: 
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+      - name: Get Latest Version
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+        with:
+          fallback: 1.0.0 #Optional fallback tag to use when no tag can be found
+      - name: Update Build version
+        run: sed -i 's/%!CurrentVersion%!/${{ steps.previoustag.outputs.tag }}/g' installation.html
+        working-directory: fractal/build/docs/developers
+      - name: Deploy
+        run: aws s3 sync ./fractal/build s3://dev.designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
+      - name: Update Redirection
+        run: |
+          mkdir redirection
+          touch ./redirection/index.html
+          aws s3 sync ./redirection s3://dev.designsystem.brand.ucla.edu/ --website-redirect http://dev.designsystem.brand.ucla.edu.s3-website-us-west-2.amazonaws.com/build/${{ steps.previoustag.outputs.tag }}/
+      - name: Upload Assets
+        run: aws s3 sync ./fractal/build/theme-assets/ s3://dev.designsystem.brand.ucla.edu/theme-assets

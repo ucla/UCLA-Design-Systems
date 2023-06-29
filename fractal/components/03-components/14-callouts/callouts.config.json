@@ -1,0 +1,17 @@
+{
+	"label": "Callouts",
+	"title": "Callouts",
+	"status": "ready",
+	"variants": [
+		{
+			"name": "default",
+			"label": "Factoid"
+		},
+		{
+			"name": "ranking"
+		},
+		{
+			"name": "statistics"
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+	"title": "Links",
+	"status": "ready",
+	"hidden": true,
+	"variants": [
+		{
+			"name": "default",
+			"label": "Inline"
+		},
+		{
+			"name": "links-in-list",
+			"context": {
+				"order": 2
+			}
+		},
+		{
+			"name": "related-links",
+			"context": {
+				"order": 3
+			}
+		},
+		{
+			"name": "resource-links",
+			"context": {
+				"order": 4
+			}
+		},
+		{
+			"name": "tags",
+			"context": {
+				"order": 5
+			}
+		}
+	]
+}

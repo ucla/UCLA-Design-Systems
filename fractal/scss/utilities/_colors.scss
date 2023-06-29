@@ -1,0 +1,81 @@
+@use "./variables";
+
+.ucla-text-color {
+  &-ucla-blue {
+    color: variables.$ucla-blue !important;
+  }
+  &-ucla-gold {
+    color: variables.$ucla-gold !important;
+  }
+  &-error {
+    color: variables.$error-red !important;
+  }
+  &-success {
+    color: variables.$success-green !important;
+  }
+  &-warning {
+    color: variables.$warning-orange !important;
+  }
+  &-info {
+    color: variables.$primary-alert-blue !important;
+  }
+  &-black {
+    color: variables.$black !important;
+  }
+  &-white {
+    color: variables.$white !important;
+  }
+}
+.ucla-has-background {
+  &-ucla-blue {
+    background-color: variables.$ucla-blue !important;
+  }
+  &-ucla-gold {
+    background-color: variables.$ucla-gold !important;
+  }
+  &-grey-80 {
+    background-color: variables.$grey-80 !important;
+  }
+  &-grey-60 {
+    background-color: variables.$grey-60 !important;
+  }
+  &-grey-40 {
+    background-color: variables.$grey-40 !important;
+  }
+  &-grey-20 {
+    background-color: variables.$grey-20 !important;
+  }
+  &-grey-15 {
+    background-color: variables.$grey-15 !important;
+  }
+  &-grey-10 {
+    background-color: variables.$grey-10 !important;
+  }
+  &-grey-08 {
+    background-color: variables.$grey-08 !important;
+  }
+  &-grey-05 {
+    background-color: variables.$grey-05 !important;
+  }
+  &-grey-03 {
+    background-color: variables.$grey-03 !important;
+  }
+  &-error {
+    background-color: variables.$error-red !important;
+  }
+  &-success {
+    background-color: variables.$success-green !important;
+  }
+  &-warning {
+    background-color: variables.$warning-orange !important;
+  }
+  &-info {
+    background-color: variables.$primary-alert-blue !important;
+  }
+  &-black {
+    background-color: variables.$black !important;
+  }
+  &-white {
+    background-color: variables.$white !important;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "title": "Buttons",
+  "status": "ready",
+  "variants": [
+    {
+      "name": "default",
+      "label": "Primary"
+    },
+    {
+      "name": "secondary",
+      "context": {
+        "order": 2
+      }
+    },
+    {
+      "name": "tertiary"
+    },
+    {
+      "name": "pagination"
+    },
+    {
+      "name": "related-links"
+    }
+  ]
+}

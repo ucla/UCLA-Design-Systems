@@ -1,0 +1,49 @@
+@use "./variables";
+@use "./colors";
+
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+body {
+  /* Footer will be hidden on iOS Safari because of bottom panel */
+  min-height: 100vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* The hack for Safari */
+    min-height: -webkit-fill-available;
+  }
+}
+
+.visuallyhidden {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+  position: absolute;
+}
+
+button:not([disabled]):focus,
+input:not([disabled]):focus,
+select:not([disabled]):focus,
+textarea:not([disabled]):focus {
+  outline: 2px solid variables.$focus-state;
+  outline-offset: -2px;
+}
+
+[contentEditable="true"]:focus,
+[href]:focus,
+[tabindex]:focus,
+iframe:focus {
+  outline: 2px solid variables.$focus-state;
+  outline-offset: -2px;
+}

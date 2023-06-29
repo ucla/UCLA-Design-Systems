@@ -1,0 +1,16 @@
+{
+	"title": "Spacing",
+	"status": "ready",
+	"variants": [
+		{
+			"name": "default",
+			"label": "Margin"
+		},
+		{
+			"name": "padding",
+			"context": {
+				"order": 2
+			}
+		}
+	]
+}

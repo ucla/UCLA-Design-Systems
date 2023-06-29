@@ -1,0 +1,15 @@
+{
+  "title": "Navigation",
+  "hidden": false,
+  "status": "ready",
+  "variants": [
+    {
+      "name": "default",
+      "label": "College"
+    },
+    {
+      "name": "school",
+      "label": "School"
+    }
+  ]
+}

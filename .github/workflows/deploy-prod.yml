@@ -1,0 +1,66 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      [ prod-deploy, automation ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+        working-directory: fractal
+      - name: Fractal Build
+        run: npm run build
+        working-directory: fractal
+      - run: ls -al
+        working-directory: fractal/build
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with: 
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+      - name: Get Latest Version
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+        with:
+          fallback: 1.0.0 #Optional fallback tag to use when no tag can be found
+      - name: Update Build version
+        run: sed -i 's/%!CurrentVersion%!/${{ steps.previoustag.outputs.tag }}/g' installation.html
+        working-directory: fractal/build/docs/developers
+      - name: Deploy
+        run: aws s3 sync ./fractal/build s3://designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
+      - name: Upload Assets
+        run: aws s3 sync ./fractal/build/theme-assets/ s3://designsystem.brand.ucla.edu/theme-assets
+      - name: Invalidate Cloudfront Cache
+        run: aws cloudfront create-invalidation --distribution-id E2C84XNMA5K34D --paths '/*';
+      - name: Update Redirection
+        run: |
+          mkdir redirection
+          touch ./redirection/index.html
+          aws s3 sync ./redirection s3://designsystem.brand.ucla.edu/ --website-redirect https://designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}/
+      - name: Install zip
+        uses: montudor/action-zip@v1
+      - name: Zip Public Directory
+        run: zip -qq -r dist.zip css icons js
+        working-directory: fractal/public
+      - name: Test 
+        run: |
+          ls fractal/public
+      - name: Deploy to CDN
+        run: aws s3 sync ./fractal/public s3://cdn.designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
+      - name: Invalidate Cloudfront CDN Cache
+        run: aws cloudfront create-invalidation --distribution-id E2DQ5F0P62DAQN --paths '/*';
+      - name: Make a Redirection to Design System
+        run: aws s3 sync ./redirection s3://cdn.designsystem.brand.ucla.edu/ --website-redirect https://designsystem.brand.ucla.edu/
+

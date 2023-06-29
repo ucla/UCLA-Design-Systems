@@ -1,0 +1,446 @@
+.documentation-colors__description {
+  margin-bottom: 16px;
+}
+.documentation-colors__list {
+  padding-left: 0 !important;
+}
+.documentation-colors__color {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  margin-bottom: 24px !important;
+}
+@media (min-width: 768px) {
+  .documentation-colors__color {
+    width: 20%;
+    margin-right: 12px;
+  }
+}
+.documentation-colors__color-swatch {
+  height: 128px;
+  border-radius: 4px;
+  transition: box-shadow 0.2s cubic-bezier(0.2, 0.91, 0.85, 0.96) 0s;
+}
+.documentation-colors__color-name {
+  font-weight: bold;
+}
+
+/***************** STOP!!! READ THIS!! *****************/
+.Document {
+  padding: 20px 24px;
+}
+@media (min-width: 1024px) {
+  .Document {
+    padding: 40px 90px;
+  }
+}
+
+.Document-title {
+  font-size: 5.063rem;
+  line-height: 1.125;
+}
+
+.Document-header {
+  border-bottom: 0;
+}
+
+.hide-title {
+  display: none;
+}
+
+code {
+  background: rgba(83, 83, 99, 0.075);
+  color: #d14;
+  padding: 2px 3px;
+  border-radius: 2px;
+}
+
+[dir=ltr] .Prose1 {
+  max-width: 100%;
+}
+[dir=ltr] .Prose1 p:has(img) {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+  line-height: 0;
+}
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 {
+    max-width: 48.5rem;
+  }
+}
+[dir=ltr] .Prose1 p.ucla-field__help {
+  margin-top: 6px;
+  margin-block-end: unset;
+}
+[dir=ltr] .Prose1 .ucla-break-container {
+  max-width: 100%;
+}
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 .ucla-break-container {
+    max-width: 976px;
+  }
+}
+[dir=ltr] .Prose1 .ucla-field__select {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 .ucla-field__select {
+    max-width: 50%;
+  }
+}
+[dir=ltr] .Prose1 pre {
+  width: 100%;
+  background: rgba(83, 83, 99, 0.075);
+  padding: 20px 0;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  margin: 1rem 0;
+  max-height: 250px;
+  overflow-y: scroll;
+}
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 pre {
+    width: 996px;
+  }
+}
+[dir=ltr] .Prose1 pre::-webkit-scrollbar {
+  width: 10px;
+}
+[dir=ltr] .Prose1 pre::-webkit-scrollbar-track {
+  background-color: #e5e5e5;
+}
+[dir=ltr] .Prose1 pre::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #2774ae;
+}
+[dir=ltr] .Prose1 pre:first-child {
+  margin-top: 0;
+}
+[dir=ltr] .Prose1 pre code {
+  background: rgba(83, 83, 99, 0);
+}
+[dir=ltr] .Prose1 pre code.active {
+  background: #3399ff;
+}
+[dir=ltr] .Prose1 table {
+  margin: 0;
+}
+[dir=ltr] .Prose1 th,
+[dir=ltr] .Prose1 tr {
+  background-color: unset;
+}
+[dir=ltr] .Prose1 h1:not([class]),
+[dir=ltr] .Prose1 h2:not([class]),
+[dir=ltr] .Prose1 h3:not([class]),
+[dir=ltr] .Prose1 h4:not([class]),
+[dir=ltr] .Prose1 h5:not([class]),
+[dir=ltr] .Prose1 h6:not([class]) {
+  color: unset;
+  opacity: 1;
+}
+[dir=ltr] .Prose1 > h1:not([class]), [dir=ltr] .Prose1 > h2:not([class]), [dir=ltr] .Prose1 > h3:not([class]), [dir=ltr] .Prose1 > h4:not([class]), [dir=ltr] .Prose1 > h5:not([class]), [dir=ltr] .Prose1 > h6:not([class]) {
+  font-family: "Helvetica", "Arial", sans-serif;
+  opacity: 1;
+}
+[dir=ltr] .Prose1 > h1:not([class]), [dir=ltr] .Prose1 > h2:not([class]), [dir=ltr] .Prose1 > h3:not([class]), [dir=ltr] .Prose1 > h4:not([class]), [dir=ltr] .Prose1 > h5:not([class]), [dir=ltr] .Prose1 > h6:not([class]) {
+  margin: 0;
+  font-weight: bold;
+  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+}
+[dir=ltr] .Prose1 h4:not(.accordion__heading) {
+  margin-top: 3rem;
+}
+[dir=ltr] .Prose1 img {
+  margin-top: 1rem;
+}
+[dir=ltr] .Prose1 blockquote {
+  padding-left: unset;
+  border-left: unset;
+  opacity: 1;
+}
+[dir=ltr] .Prose1 ul.ucla-main-nav__sublist {
+  padding-left: 0;
+}
+[dir=ltr] .Prose1 .ucla-main-nav__toggle > svg {
+  vertical-align: unset;
+}
+[dir=ltr] .Prose1 ul.ucla-social {
+  padding-left: unset;
+}
+[dir=ltr] .Prose1 ul.ucla-social li {
+  list-style: none;
+}
+[dir=ltr] .Prose1 a.ucla-tile:hover {
+  color: white;
+}
+[dir=ltr] .Prose1 .doc-list {
+  margin-top: 0;
+}
+[dir=ltr] .Prose1 .doc-list li:not([class]) + li:not([class]) {
+  margin-top: 0;
+}
+[dir=ltr] .Prose1 .doc-list li {
+  margin-bottom: 0;
+}
+[dir=ltr] .Prose1 .example-content {
+  background-color: #757575;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  padding: 1.25rem 0;
+  margin: 0;
+}
+[dir=ltr] .Prose1 .example-content--highlight {
+  background-color: #2774ae;
+}
+[dir=ltr] .Prose1 .ucla-doc-tabpanel {
+  outline-color: transparent;
+}
+[dir=ltr] .Prose1 table:not([class]) {
+  border: 1px solid #ccc;
+}
+[dir=ltr] .Prose1 table:not([class]) td,
+[dir=ltr] .Prose1 table:not([class]) th {
+  border: 1px solid #ccc;
+  padding: 0.875rem 1rem;
+  vertical-align: top;
+  font-size: 0.8rem;
+}
+[dir=ltr] .Prose1 table:not([class]) th {
+  background-color: #daebfe;
+  font-weight: bold;
+}
+
+.Status-label {
+  text-transform: none;
+}
+
+.create-button {
+  background-color: #006298;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+  padding: 12px 16px;
+  text-decoration: none;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+}
+.create-button.small {
+  font-size: 0.875rem;
+  padding: 8px 10px;
+}
+.create-button.small img {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+.create-button:hover {
+  color: #ffffff;
+  background: #0079bf;
+}
+.create-button:focus {
+  outline: 1px dotted #00568c;
+  outline-offset: 1px;
+}
+
+.ucla-doc-tabslist {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.ucla-doc-tablink {
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00598c;
+  padding: 0.75rem 1.5rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+}
+.ucla-doc-tablink.is-active {
+  border-bottom: 4px solid #ffd100;
+  color: #333;
+}
+.ucla-doc-tablink:hover {
+  border-bottom: 4px solid #0079bf;
+}
+.ucla-doc-tablink:active {
+  border-bottom: 4px solid #003b5c;
+}
+
+.ucla-doc-tabpanels {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.splide.ucla-carousel.doc-slider-is-overflow .splide__pagination {
+  display: flex;
+}
+
+a {
+  color: unset;
+}
+
+.ucla-card.icon-docs > .ucla-card__body > .ucla-card__description {
+  margin-block-end: 0;
+}
+
+.ucla-table.docs-table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.docs-color-swatch {
+  border-radius: 2px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  height: 24px;
+  margin-right: 8px;
+  width: 24px;
+  float: left;
+}
+
+.docs-example-margin-padding {
+  display: flow-root;
+  background-image: linear-gradient(135deg, #ccc 10%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, #ccc 0, #ccc 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0));
+  background-size: 7.07px 7.07px;
+}
+
+.docs-iframe {
+  resize: both;
+  display: block;
+  min-height: 30rem;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .docs-iframe {
+    width: 996px;
+  }
+}
+
+.Tree-entityLink > .Status.Status--unlabelled {
+  display: none;
+}
+
+.ucla-prose > .docs-lead > h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: normal;
+}
+
+/***************** STOP!!! READ THIS!! *****************/
+.Header {
+  background-color: #2774ae;
+}
+
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.Header-button {
+  background: #00598c;
+}
+
+a.Tree-entityLink {
+  color: #00598c;
+}
+
+.hljs-number,
+.hljs-attr {
+  color: #1d832f !important;
+}
+
+.hljs-comment {
+  color: #636363 !important;
+}
+
+.Frame .Header-navToggleIcon--open,
+.Frame .Header-navToggleIcon--closed {
+  text-align: center;
+}
+.Frame-body {
+  margin-right: 0;
+}
+.Frame-panel--sidebar {
+  background-color: white;
+}
+
+.Navigation {
+  background-color: white;
+}
+.Navigation .Tree a:hover {
+  color: #333;
+}
+.Navigation .Tree-items {
+  margin: 0;
+  list-style: none;
+}
+.Navigation .Tree-items ul {
+  margin: 0;
+  list-style: none;
+}
+.Navigation .Tree-title {
+  color: #000;
+  font-size: 20px;
+  letter-spacing: 0.1px;
+  text-transform: capitalize;
+}
+.Navigation .Tree-item {
+  background-color: white;
+}
+.Navigation .Tree-item > .Tree-collectionLabel {
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+.Navigation .Tree-item.is-closed {
+  background-color: white;
+}
+.Navigation .Tree-item + .Tree-item {
+  margin: 0;
+}
+.Navigation .Tree-item > .Tree-collectionItems .Tree-collectionLabel {
+  font-weight: normal;
+}
+
+@media (max-width: 47.49em) {
+  [dir=ltr] .Frame-body {
+    margin-right: -240px;
+  }
+}
+
+.Frame-panel--sidebar .Navigation .Navigation-group:nth-of-type(4) .Tree-header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.Frame-panel--sidebar .Navigation .Navigation-group:nth-of-type(4) .Tree-title {
+  font-size: 14px;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.Status-dot[title=Ready] {
+  background-color: #007339;
+}
+.Status-dot[title="In Review"] {
+  background-color: #0077c0;
+}
+.Status-dot[title="In Progress"] {
+  background-color: #812990;
+}
+.Status-dot[title=Submitted] {
+  background-color: #e10786;
+}
+.Status-dot[title=Deprecated] {
+  background-color: #d60000;
+}
+
+/***************** STOP!!! READ THIS!! *****************/
+
+/*# sourceMappingURL=ucla-fractal-style.css.map */

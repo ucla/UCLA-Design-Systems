@@ -1,0 +1,40 @@
+{
+	"title": "forms",
+  "status": "ready",
+  "variants": [
+    {
+      "name": "default",
+      "label": "Text"
+    },
+    {
+      "name": "textarea",
+      "context": {
+        "order": 2
+      }
+    },
+    {
+      "name": "fieldset-legend",
+      "context": {
+        "order": 3
+      }
+    },
+    {
+      "name": "select-menu",
+      "context": {
+        "order": 4
+      }
+    },
+    {
+      "name": "radio",
+      "context": {
+        "order": 5
+      }
+    },
+    {
+      "name": "checkbox",
+      "context": {
+        "order": 6
+      }
+    }
+  ]
+}
