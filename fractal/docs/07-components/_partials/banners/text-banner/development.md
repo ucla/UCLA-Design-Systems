@@ -91,7 +91,7 @@ If you prefer the text banner to have the same width as your content, just apply
 If you are in a container, you are able to add in a full-width text banner without closing the container with the `.ucla-banner__text-full-width`.
 
 
-[Preview Example]({{path 'components/preview/banners--text-full-width'}})
+[Preview Example]({{path '/components/preview/banners--text-full-width'}})
 
 ```html
 <div class="container">
