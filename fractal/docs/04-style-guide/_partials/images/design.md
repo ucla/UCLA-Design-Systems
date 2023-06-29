@@ -7,9 +7,30 @@ Image container offers preset image aspect ratios for use in UI design. An aspec
 
 To maintain consistency in your layout, use a consistent aspect ratio on elements like images, surfaces, and screen size.
 
-<img src="/theme-assets/img/docs/style-guide/images/anatomy.svg" class="ucla-break-container" alt="Images Anatomy" />
 
-**1. Container (required)**
+<p class="mb-0"><strong>1:1</strong></p>
+
+![Image Default States](/theme-assets/img/docs/style-guide/images/1-1.svg)
+
+<p class="mb-0 mt-7"><strong>3:2</strong></p>
+
+![Image Default States](/theme-assets/img/docs/style-guide/images/3-2.svg)
+
+<p class="mb-0 mt-7"><strong>4:3</strong></p>
+
+![Image Default States](/theme-assets/img/docs/style-guide/images/4-3.svg)
+
+<p class="mb-0 mt-7"><strong>2:3</strong></p>
+
+![Image Default States](/theme-assets/img/docs/style-guide/images/2-3.svg)
+
+<p class="mb-0 mt-7"><strong>3:4</strong></p>
+
+![Image Default States](/theme-assets/img/docs/style-guide/images/3-4.svg)
+
+<p class="mb-0 mt-7"><strong>16:9</strong></p>
+
+![Image Default States](/theme-assets/img/docs/style-guide/images/16-9.svg)
 
 #### Best Practices
 

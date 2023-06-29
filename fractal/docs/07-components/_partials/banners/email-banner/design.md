@@ -23,13 +23,13 @@ Description text can explain the content and frequency they can expect after sig
 
 If fields are used, email is required. Use the least amount of fields you need for your list, asking or requiring too much may hinder sign-ups
 
-**4. Button (required)**
-
-If fields are used, this button submits information and an inline confirmation message is displayed. If there are no fields and a separate or 3rd-party sign-up is required, this can link to another page.
-
-**5. Detailed text**
+**4. Detailed text**
 
 Supplementary or secondary system use information.
+
+**5. Button (required)**
+
+If fields are used, this button submits information and an inline confirmation message is displayed. If there are no fields and a separate or 3rd-party sign-up is required, this can link to another page.
 
 #### Examples
 

@@ -22,10 +22,13 @@ The global footer ends a page and is placed below the department footer.
 **4. Accessibility Link (required)**
   - Links to https://www.ucla.eru/accessibility
 
-**5. Privacy &amp; Terms of Use Link (required)**
+**5. Report Misconduct Link (required)**
+  - Links to https://ucla-gme-advocate.symplicity.com/public_report/index.php/pid586592?
+
+**6. Privacy &amp; Terms of Use Link (required)**
   - Links to https://www.ucla.edu/terms-of-use
 
-**6. Campus Wide Social Media Links**
+**7. Campus Wide Social Media Links**
 - https://www.facebook.com/UCLA/
 - https://www.instagram.com/ucla/
 - https://www.linkedin.com/school/ucla

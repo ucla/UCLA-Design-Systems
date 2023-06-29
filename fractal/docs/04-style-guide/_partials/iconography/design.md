@@ -25,7 +25,7 @@ Icons are a simple, easily graspable way to add visual emphasis or interest, sig
 
 **5. Stroke**
 
-#### Design Priniciples
+#### Design Principles
 
 Use established icons. Icons that have been used for a long time worldwide have a higher chance of being recognized and understood quickly. We follow the Google Material icon set. If a specific icon is not available by that set, you may create a custom icon or request for a new icon to be developed.
 
@@ -56,7 +56,19 @@ Icon is limited to a 20 x 20px live area with a 2px padding around the perimeter
 
 To ensure that users can easily interact with icons on a website or app, the touch targets for these icons should be 44 pixels or larger. Developers can use padding to increase the size of a touch target and meet this requirement.
 
+<div class="ucla">
+  <div class="col">
+
 ![Icon Target Size](/theme-assets/img/docs/style-guide/iconography/target-size.svg)
+
+ </div>
+  <div class="col">
+  
+![Icon Target Size](/theme-assets/img/docs/style-guide/iconography/target-size2.svg)
+
+  </div>
+</div>
+
 
 A 24px icon centered in a 44px touch target.
 

@@ -34,3 +34,112 @@ Line spacing follows a 4px base unit when spacing text. Measure the distance bet
 <img alt="Body Copy Width" src="/theme-assets/img/docs/style-guide/typography/body-copy-width.svg" class="ucla-break-container" />
 
 <img alt="Heading Leading" src="/theme-assets/img/docs/style-guide/typography/line-height.svg" class="ucla-break-container" />
+
+
+#### Headline
+
+<!-- h1 -->
+![h1 Heading](/theme-assets/img/docs/style-guide/typography/heading/h1-desktop.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 48px<br />
+Line-height: 54px</p>
+
+<!-- h1 mobile -->
+![h1 Heading Mobile](/theme-assets/img/docs/style-guide/typography/heading/h1-mobile.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 36px<br />
+Line-height: 40.5px</p>
+
+<!-- h2 -->
+![h2 Heading](/theme-assets/img/docs/style-guide/typography/heading/h2-desktop.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 36px<br />
+Line-height: 40.5px</p>
+
+<!-- h2 mobile -->
+![h2 Heading Mobile](/theme-assets/img/docs/style-guide/typography/heading/h2-mobile.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 28px<br />
+Line-height: 32px</p>
+
+<!-- h3 -->
+![h3 Heading](/theme-assets/img/docs/style-guide/typography/heading/h3-desktop.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 24px<br />
+Line-height: 28px</p>
+
+<!-- h3 mobile -->
+![h3 Heading Mobile](/theme-assets/img/docs/style-guide/typography/heading/h3-mobile.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 20px<br />
+Line-height: 24px</p>
+
+<!-- h4 -->
+![h4 Heading Desktop](/theme-assets/img/docs/style-guide/typography/heading/h4-desktop.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 20px<br />
+Line-height: 22.5px</p>
+
+<!-- h4 mobile -->
+![h4 Heading Mobile](/theme-assets/img/docs/style-guide/typography/heading/h4-mobile.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 18px<br />
+Line-height: 20px</p>
+
+<!-- h5 -->
+![h5 Heading](/theme-assets/img/docs/style-guide/typography/heading/h5.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 20px</p>
+
+<!-- h6 -->
+![h6 Heading](/theme-assets/img/docs/style-guide/typography/heading/h6.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 14px<br />
+Line-height: 16px</p>
+
+#### Body
+
+![Lead Body Copy](/theme-assets/img/docs/style-guide/typography/body/lead-desktop.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 24px<br />
+Line-height: 30px<br />
+Text-align: Left</p>
+
+![Lead Body Copy Mobile](/theme-assets/img/docs/style-guide/typography/body/lead-mobile.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 20px<br />
+Line-height: 24px<br />
+Text-align: Left</p>
+
+![Body Copy](/theme-assets/img/docs/style-guide/typography/body/body.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 24px<br />
+Text-align: Left</p>
+
+![Body Copy Small](/theme-assets/img/docs/style-guide/typography/body/body-small.svg)
+<p class="mt-0">Font: Helvetica, Arial, Roboto<br />
+Size: 14px<br />
+Line-height: 24px<br />
+Text-align: Left</p>
+
+#### Editorial
+
+![Editorial](/theme-assets/img/docs/style-guide/typography/editorial.svg)
+<p class="mt-0">Byline<br />
+Font: Helvetica Bold, Arial Bold, Roboto Bold<br />
+Size: 14px<br />
+Line-height: 24px</p>
+
+#### Blockquote
+
+![Blockquote](/theme-assets/img/docs/style-guide/typography/blockquote.svg)
+<p class="mt-0">Blockquote<br />
+Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 24px</p>
+
+<p>Vertical Rule<br />
+Stroke: 8px<br />
+Color: #2774AE</p>
