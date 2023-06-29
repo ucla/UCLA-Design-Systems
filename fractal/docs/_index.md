@@ -13,6 +13,17 @@ status: hide_title
 
 By using the UCLA design system, your website will share design, navigation, ADA compliance, and structural elements with other UCLA branded websites. However, your content and messaging will always make your website distinct. With the use of the UCLA design system, your organization will be free to focus on developing relevant, valuable and actionable content rather than the framework and delivery of the user experience.
 
+#### Why Use a Design System?
+
+_As outlined in “[Design Systems 101](https://www.nngroup.com/articles/design-systems-101/)” by Therese Fessenden, Nielsen Norman Group_
+
+- Design and development can be created quickly and at scale.
+- It frees design resources to focus on larger, more complex problems.
+- It creates a unified language within and between crossfunctional teams.
+- It creates visual consistency across products, channels and siloed departments.
+- It can help education junior designers and content contributors.
+
+
 <a class="ucla-btn ucla-btn--tertiary ucla-btn--icon-trail" href="{{path '/docs/getting-started/principles'}}">Learn more about our principles <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M9.41 6L8 7.41L12.58 12L8 16.59L9.41 18L15.41 12L9.41 6Z" fill="#333333"/>
 </svg></a>

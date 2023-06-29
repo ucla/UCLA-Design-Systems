@@ -29,4 +29,12 @@ Adequate space should surround system icons to allow legibility and touch.
 
 ![Icon Padding](/theme-assets/img/docs/style-guide/accessibility/access2.svg "Add padding around icons for touch devices")
 
+#### Resources
+
+- [UCLA ADA/504 Compliance Office](https://equity.ucla.edu/civil-rights/ada-504/)
+- [UCLA Accessibility](https://www.ucla.edu/accessibility)
+- [UCLA Disabilites & Computing Program](https://dcp.ucla.edu/)
+- [Wave Accessibility Checker](https://wave.webaim.org/)
+- [How to get Accessibility Compliant](https://content-guide.18f.gov/)
+
 </div>
