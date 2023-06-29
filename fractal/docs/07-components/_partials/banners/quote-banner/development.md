@@ -67,7 +67,7 @@ The quote banner uses a solid-color background with a contained width content. Y
 
 If you are in a container, you are able to add in a full-width quote banner without closing the container with the `.ucla-banner__quote-full-width`.
 
-[Preview Example](../../../components/preview/banners--quote-full-width.html)
+[Preview Example]({{path '/components/preview/banners--quote-full-width'}})
 
 ```html
 <div class="container">

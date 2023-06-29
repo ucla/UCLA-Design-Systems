@@ -75,4 +75,4 @@ This is built with the following structure:
 Put it all together and you should have something like this:
 
 
-[Preview Example](/components/preview/footer--global)
+[Preview Example]({{path '/components/preview/footer--global'}})

@@ -61,4 +61,4 @@ _Note: The id of the `.ucla-tabpanel` must match the `aria-controls` in order fo
 </div>
 ```
 
-[Preview Example](/components/preview/tabs)
+[Preview Example]({{path '/components/preview/tabs'}})
