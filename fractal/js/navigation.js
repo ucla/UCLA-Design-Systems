@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     const hamburger = document.getElementById("primary-ham");
     const header = document.getElementById("header-wrap");
-    const $navPrimaryHasChildren = getAll(".nav-primary__link--has-children");
-    const $subNavPrimaryToggles = getAll(".nav-primary__toggle");
+    const $navPrimaryHasChildren = getAll(".ucla-main-nav__item--has-children");
+    const $navPrimaryToggles = getAll(".ucla-main-nav__toggle");
     const searchButton = document.getElementById("search-button");
     const primaryNavSearch = document.getElementById("primary-nav-search");
 
@@ -17,12 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
     if (hamburger) {
         hamburger.addEventListener("click", (e) => {
             e.stopPropagation();
+            if (header.classList.contains("is-open")) {
+                hamburger.setAttribute("aria-expanded", "false");
+            } else {
+                hamburger.setAttribute("aria-expanded", "true");
+            }
             header.classList.toggle("is-open");
         });
     }
     if (searchButton) {
         searchButton.addEventListener("click", (e) => {
             e.stopPropagation();
+            if (primaryNavSearch.classList.contains("is-open")) {
+                searchButton.setAttribute("aria-expanded", "false");
+            } else {
+                searchButton.setAttribute("aria-expanded", "true");
+            }
             primaryNavSearch.classList.toggle("is-open");
         });
     }
@@ -33,12 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
             primaryNavSearch.classList.remove("is-open");
+            searchButton.setAttribute("aria-expanded", "false");
         });
     }
     if (document.getElementById("nav-main")) {
         document.addEventListener("click", (e) => {
             if (!document.getElementById("nav-main").contains(e.target)) {
                 header.classList.remove("is-open");
+                hamburger.setAttribute("aria-expanded", "false");
             }
         });
     }
@@ -51,11 +63,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.stopPropagation();
                 if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
                     $el.classList.add("is-open");
+                    $el.setAttribute("aria-expanded", "true");
                 }
             });
 
+            $el.addEventListener("mouseover", () => {
+                $el.setAttribute("aria-expanded", "true");
+            });
+            $el.addEventListener("mouseout", () => {
+                $el.setAttribute("aria-expanded", "false");
+            });
+
             // Hide dropdown when tab out
-            $el.querySelector(".nav-primary__sublist").addEventListener(
+            $el.querySelector(".ucla-main-nav__sublist").addEventListener(
                 "focusout",
                 (e) => {
                     e.stopPropagation();
@@ -63,16 +83,25 @@ document.addEventListener("DOMContentLoaded", function () {
                         return;
                     }
                     $el.classList.remove("is-open");
+                    $el.querySelector(".ucla-main-nav__toggle").setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
                 }
             );
         });
     }
 
     // Down arrow click triggers dropdown
-    if ($subNavPrimaryToggles.length > 0) {
-        $subNavPrimaryToggles.forEach(($el) => {
+    if ($navPrimaryToggles.length > 0) {
+        $navPrimaryToggles.forEach(($el) => {
             $el.addEventListener("click", (e) => {
                 e.stopPropagation();
+                if ($el.closest("li").classList.contains("is-open")) {
+                    $el.setAttribute("aria-expanded", "false");
+                } else {
+                    $el.setAttribute("aria-expanded", "true");
+                }
                 $el.closest("li").classList.toggle("is-open");
             });
         });

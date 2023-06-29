@@ -87,3 +87,5 @@ You can read more about it here: [conventional commits](https://www.conventional
 [conventional commits cheat sheet](https://cheatography.com/albelop/cheat-sheets/conventional-commits/)
 
 ---
+
+:arrow_left: [Go Back to Main README](../../README.md)

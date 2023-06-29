@@ -23,17 +23,22 @@ document.addEventListener("DOMContentLoaded", function () {
                         e.currentTarget
                             .closest(".accordion-item")
                             .classList.toggle("is-open");
+                        e.currentTarget.setAttribute("aria-expanded", "false");
                         return;
+                    } else {
+                        e.currentTarget.setAttribute("aria-expanded", "true");
                     }
                     // Checks if accordion is multi select
                     if (!accordion[i].classList.contains("is-multiselect")) {
                         $accordionItems.forEach((item) => {
                             if (item.classList.contains("is-open")) {
                                 item.classList.remove("is-open");
+                                item.querySelector(
+                                    ".accordion__heading-button[aria-expanded]"
+                                ).setAttribute("aria-expanded", "false");
                             }
                         });
                     }
-
                     $el.closest(".accordion-item").classList.toggle("is-open");
                 });
             });

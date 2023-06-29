@@ -1,158 +1,361 @@
-@use "../../../scss_OLD/utilities/_mixins/breakpoints";
-@use "../../../scss_OLD/utilities/colors";
-@use "../../../scss_OLD/utilities/variables";
-
 /***************** STOP!!! READ THIS!! *****************/
 // These are Fractal documentation specific styles here only. DO NOT put component related styles here. Those belong in ./src/scss
 // https://fractal.build/guide/web/default-theme.html#default-theme-mandelbrot
 
+.Document {
+  padding: 20px 24px;
+  @media (min-width: 1024px) {
+    padding: 40px 90px;
+  }
+}
+
 .Document-title {
-    font-size: variables.$ucla-font-size-xxx-large;
-    line-height: 1.125;
+  font-size: 5.063rem;
+  line-height: 1.125;
+}
+
+.Document-header {
+  border-bottom: 0;
+}
+
+.hide-title {
+  display: none;
 }
 
 code {
-    background: rgba(83, 83, 99, 0.075);
-    padding: 2px 3px;
-    border-radius: 2px;
+  background: rgba(83, 83, 99, 0.075);
+  color: #d14;
+  padding: 2px 3px;
+  border-radius: 2px;
 }
 
-.Prose {
-    max-width: 44em;
+[dir="ltr"] .Prose1 {
+  max-width: 100%;
 
-    pre {
-        width: 100%;
-        background: rgba(83, 83, 99, 0.075);
-        padding: 20px;
-        border-radius: 10px;
-        overflow-y: scroll;
+  p:has(img) {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0;
+    line-height: 0;
+  }
 
-        // style scroll bars for long blocks of code
-        &::-webkit-scrollbar {
-            width: 10px;
+  @media (min-width: 1024px) {
+    max-width: 48.5rem;
+  }
 
-            &-track {
-                background-color: colors.$grey-10;
-            }
+  p.ucla-field__help {
+    margin-top: 6px;
 
-            &-thumb {
-                border-radius: 5px;
-                background-color: colors.$ucla-blue;
-            }
-        }
+    margin-block-end: unset;
+  }
 
-        code {
-            background: rgba(83, 83, 99, 0);
+  .ucla-break-container {
+    max-width: 100%;
+    @media (min-width: 1024px) {
+      max-width: 976px;
+    }
+  }
+  .ucla-field__select {
+    width: 100%;
+    @media (min-width: 1024px) {
+      max-width: 50%;
+    }
+  }
 
-            &.active {
-                background: #3399ff;
-            }
-        }
+  pre {
+    width: 100%;
+    background: rgba(83, 83, 99, 0.075);
+    padding: 20px 0;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    margin: 1rem 0;
+    max-height: 250px;
+    overflow-y: scroll;
+
+    @media (min-width: 1024px) {
+      width: 996px;
     }
 
-    table {
-        margin: 0;
+    // style scroll bars for long blocks of code
+    &::-webkit-scrollbar {
+      width: 10px;
+
+      &-track {
+        background-color: #e5e5e5;
+      }
+
+      &-thumb {
+        border-radius: 5px;
+        background-color: #2774ae;
+      }
     }
 
-    // Override "black" theme header sizing with our own
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Helvetica", "Arial", sans-serif;
+    &:first-child {
+      margin-top: 0;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: colors.$grey-80;
-        font-weight: bold;
-        font-family: variables.$font;
+    code {
+      background: rgba(83, 83, 99, 0);
+
+      &.active {
+        background: #3399ff;
+      }
+    }
+  }
+
+  table {
+    margin: 0;
+  }
+  th,
+  tr {
+    background-color: unset;
+  }
+
+  // Override "black" theme header sizing with our own
+
+  h1:not([class]),
+  h2:not([class]),
+  h3:not([class]),
+  h4:not([class]),
+  h5:not([class]),
+  h6:not([class]) {
+    color: unset;
+    opacity: 1;
+  }
+
+  & > h1:not([class]),
+  & > h2:not([class]),
+  & > h3:not([class]),
+  & > h4:not([class]),
+  & > h5:not([class]),
+  & > h6:not([class]) {
+    font-family: "Helvetica", "Arial", sans-serif;
+    opacity: 1;
+  }
+
+  & > h1:not([class]),
+  & > h2:not([class]),
+  & > h3:not([class]),
+  & > h4:not([class]),
+  & > h5:not([class]),
+  & > h6:not([class]) {
+    margin: 0;
+    font-weight: bold;
+    font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+  }
+
+  h4:not(.accordion__heading) {
+    margin-top: 3rem;
+  }
+
+  img {
+    margin-top: 1rem;
+  }
+
+  blockquote {
+    padding-left: unset;
+    border-left: unset;
+    opacity: 1;
+  }
+
+  ul.ucla-main-nav__sublist {
+    padding-left: 0;
+  }
+
+  .ucla-main-nav__toggle > svg {
+    vertical-align: unset;
+  }
+
+  ul.ucla-social {
+    padding-left: unset;
+    li {
+      list-style: none;
+    }
+  }
+
+  a.ucla-tile {
+    &:hover {
+      color: white;
+    }
+  }
+
+  .doc-list {
+    margin-top: 0;
+    li:not([class]) + li:not([class]) {
+      margin-top: 0;
     }
 
-    h1 {
-        font-size: variables.$ucla-font-size-display;
-        line-height: 1.125;
+    li {
+      margin-bottom: 0;
+    }
+  }
 
-        @media (min-width: breakpoints.breakpoint-min(md)) {
-            font-size: variables.$ucla-font-size-xxx-large;
-        }
+  .example-content {
+    background-color: #757575;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    padding: 1.25rem 0;
+    margin: 0;
+  }
+  .example-content--highlight {
+    background-color: #2774ae;
+  }
+
+  .ucla-doc-tabpanel {
+    outline-color: transparent;
+  }
+
+  table:not([class]) {
+    border: 1px solid #ccc;
+
+    td,
+    th {
+      border: 1px solid #ccc;
+      padding: 0.875rem 1rem;
+      vertical-align: top;
+      font-size: 0.8rem;
     }
 
-    h2 {
-        font-size: variables.$ucla-font-size-x-large;
-        line-height: 1.125;
-
-        @media (min-width: breakpoints.breakpoint-min(md)) {
-            font-size: variables.$ucla-font-size-display;
-        }
+    th {
+      background-color: #daebfe;
+      font-weight: bold;
     }
-
-    h3 {
-        font-size: variables.$ucla-font-size-large;
-        line-height: 1.125;
-    }
-
-    h4 {
-        font-size: variables.$ucla-font-size-medium;
-        line-height: 1.125;
-    }
-
-    h5 {
-        font-size: variables.$ucla-font-size-default;
-        line-height: 1.125;
-    }
-
-    h6 {
-        font-size: variables.$ucla-font-size-small;
-        line-height: 1.125;
-    }
+  }
 }
 
 .Status {
-    &-label {
-        text-transform: none;
-    }
+  &-label {
+    text-transform: none;
+  }
 }
 
 .create-button {
-    background-color: #006298;
-    border-radius: 6px;
-    color: colors.$white;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
-    line-height: 1;
-    text-decoration: none;
-    padding: 12px 16px;
-    text-decoration: none;
-    vertical-align: middle;
-    margin-bottom: 1rem;
+  background-color: #006298;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+  padding: 12px 16px;
+  text-decoration: none;
+  vertical-align: middle;
+  margin-bottom: 1rem;
 
-    &.small {
-        font-size: variables.$ucla-font-size-x-small;
-        padding: 8px 10px;
+  &.small {
+    font-size: 0.875rem;
+    padding: 8px 10px;
 
-        img {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-        }
+    img {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
     }
+  }
 
-    &:hover {
-        color: colors.$white;
-        background: colors.$hover-state;
-    }
+  &:hover {
+    color: #ffffff;
+    background: #0079bf;
+  }
 
-    &:focus {
-        outline: 1px dotted colors.$focus-state;
-        outline-offset: 1px;
-    }
+  &:focus {
+    outline: 1px dotted #00568c;
+    outline-offset: 1px;
+  }
+}
+
+.ucla-doc-tabslist {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.ucla-doc-tablink {
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00598c;
+  padding: 0.75rem 1.5rem 0.5rem;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+
+  &.is-active {
+    border-bottom: 4px solid #ffd100;
+    color: #333;
+  }
+
+  &:hover {
+    border-bottom: 4px solid #0079bf;
+  }
+  &:active {
+    border-bottom: 4px solid #003b5c;
+  }
+}
+
+.ucla-doc-tabpanels {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.splide.ucla-carousel.doc-slider-is-overflow .splide__pagination {
+  display: flex;
+}
+
+a {
+  color: unset;
+}
+
+.ucla-card.icon-docs > .ucla-card__body > .ucla-card__description {
+  margin-block-end: 0;
+}
+
+.ucla-table.docs-table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.docs-color-swatch {
+  border-radius: 2px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  height: 24px;
+  margin-right: 8px;
+  width: 24px;
+  float: left;
+}
+
+.docs-example-margin-padding {
+  display: flow-root;
+  background-image: linear-gradient(
+    135deg,
+    #ccc 10%,
+    #0000 0,
+    #0000 50%,
+    #ccc 0,
+    #ccc 60%,
+    #0000 0,
+    #0000
+  );
+  background-size: 7.07px 7.07px;
+}
+
+.docs-iframe {
+  resize: both;
+  display: block;
+  min-height: 30rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  @media (min-width: 1024px) {
+    width: 996px;
+  }
+}
+
+.Tree-entityLink > .Status.Status--unlabelled {
+  display: none;
+}
+.ucla-prose > .docs-lead > h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: normal;
 }

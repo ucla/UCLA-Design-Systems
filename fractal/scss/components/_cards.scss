@@ -1,60 +1,310 @@
-@use "../utilities/colors";
+@use "../utilities/variables";
+@use "../utilities/mixins";
 
 .ucla-card {
-    display: flex;
-    flex-direction: column;
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .ucla-card__body {
-    padding: 1.5rem 1.5rem 2.25rem;
-    .ucla-card__title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
+  padding: 1.5rem 1.5rem 2.25rem;
+  .ucla-card__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .ucla-card__link {
+    margin-top: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: variables.$default-state;
+    display: inline-block;
+
+    &:hover {
+      color: variables.$hover-state;
     }
-    .ucla-card__description {
-        margin-bottom: 1.25rem;
+    &:active {
+      color: variables.$active-state;
     }
 
-    .ucla-card__link {
-        text-decoration: none;
-        font-weight: bold;
-        color: colors.$default-state;
-
-        &:hover {
-            text-decoration: underline;
-        }
-
-        & + .ucla-card__link {
-            margin-left: 0.75rem;
-        }
+    & + .ucla-card__link {
+      margin-left: 0.75rem;
     }
+  }
+
+  .ucla-btn {
+    margin-top: 1rem;
+  }
 }
 
 .ucla-card__event {
-    &-body {
-        display: flex;
-        gap: 1rem;
-        padding: 1.5rem;
+  &-body {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
 
-        .ucla-card__event-date {
-            color: colors.$default-state;
-            font-weight: bold;
-            text-align: center;
+    .ucla-card__event-date {
+      font-weight: bold;
+      text-align: center;
 
-            .ucla-card__event-month {
-                font-size: 1.25rem;
-            }
-            .ucla-card__event-day {
-                font-size: 2.25rem;
-            }
-        }
-
-        .ucla-card__title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: colors.$default-state;
-        }
+      .ucla-card__event-month {
+        font-size: 1.25rem;
+        display: block;
+      }
+      .ucla-card__event-day {
+        font-size: 2.25rem;
+        display: block;
+      }
     }
+
+    .ucla-card__title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: variables.$default-state;
+      margin-bottom: 1rem;
+
+      &:hover,
+      &:focus {
+        color: variables.$hover-state;
+      }
+      &:active {
+        color: variables.$active-state;
+      }
+    }
+
+    .ucla-card__event-time,
+    .ucla-card__event-location {
+      display: flex;
+      align-items: center;
+    }
+
+    .ucla-card__event-time span,
+    .ucla-card__event-location span {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: variables.$grey-60;
+    }
+
+    .ucla-card__event-time svg,
+    .ucla-card__event-location svg {
+      margin-right: 10px;
+    }
+
+    .ucla-card__event-time {
+      margin-bottom: 6px;
+    }
+    .ucla-card__event-location {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.ucla-card__story-featured {
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.for-size(desktop-up) {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  & > a {
+    display: inherit;
+  }
+  .ucla-card__story-featured-body {
+    width: calc(100% - 48px);
+    padding: 1.5rem;
+    margin: -1.5rem auto 0;
+    background-color: variables.$white;
+    z-index: 1;
+
+    @include mixins.for-size(desktop-up) {
+      margin: 0 -6.875rem 0 0;
+    }
+  }
+
+  .ucla-card__story-featured-title {
+    margin-bottom: 0.5rem;
+    a {
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: variables.$default-state;
+      &:hover {
+        color: variables.$hover-state;
+      }
+      &:active {
+        color: variables.$active-state;
+      }
+    }
+  }
+  .ucla-card__story-author {
+    color: variables.$grey-60;
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .ucla-card__story-featured-source {
+    margin-top: 1rem;
+  }
+}
+
+.ucla-card__story {
+  .story-card-image-link {
+    line-height: 0;
+    display: inline-block;
+  }
+  .ucla-card__body {
+    .ucla-card__date {
+      color: variables.$grey-60;
+      font-size: 0.875rem;
+      font-weight: bold;
+    }
+    .ucla-card__title {
+      margin-bottom: 0.5rem;
+      & > .ucla-card__title-link {
+        color: variables.$default-state;
+        &:hover {
+          color: variables.$hover-state;
+        }
+        &:active {
+          color: variables.$active-state;
+        }
+      }
+    }
+    .ucla-card__author {
+      color: variables.$grey-60;
+      font-size: 0.875rem;
+      font-weight: bold;
+    }
+    .ucla-card__description {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.ucla-card__story-secondary {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid variables.$grey-20;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  &:first-child {
+    border-top: 1px solid variables.$grey-20;
+  }
+
+  .story-card-image-link {
+    line-height: 0;
+    display: inline-block;
+    align-self: start;
+  }
+
+  .ucla-card__body {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .ucla-card__date {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: variables.$grey-60;
+    margin-bottom: 4px;
+  }
+
+  .ucla-card__title {
+    margin-bottom: 4px;
+  }
+
+  .ucla-card__title-link {
+    color: variables.$default-state;
+    &:hover {
+      color: variables.$hover-state;
+    }
+    &:active {
+      color: variables.$active-state;
+    }
+  }
+
+  .ucla-card__author {
+    color: variables.$grey-60;
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}
+
+.ucla-card__info {
+  background-color: variables.$grey-08;
+  border-top: 4px solid variables.$ucla-gold;
+}
+
+.ucla-card__person {
+  .ucla-card__image-link {
+    display: inline-block;
+    line-height: 0;
+    margin-left: 1.5rem;
+
+    & > .ucla-card__image {
+      margin-left: 0;
+    }
+  }
+  .ucla-card__image {
+    max-width: 160px;
+    margin-left: 1.5rem;
+  }
+  .ucla-card__body {
+    padding-top: 4rem;
+    margin-top: -2.5rem;
+    background-color: variables.$grey-05;
+  }
+
+  .ucla-card__title {
+    margin-bottom: 0;
+  }
+
+  .ucla-card__name-link {
+    &:hover {
+      color: variables.$hover-state;
+    }
+    &:active {
+      color: variables.$active-state;
+    }
+  }
+
+  .ucla-card__person-pronouns,
+  .ucla-card__person-department {
+    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+    color: variables.$grey-60;
+  }
+  .ucla-card__person-pronouns {
+    font-weight: normal;
+  }
+  .ucla-card__person-department {
+    font-weight: bold;
+  }
+  .ucla-card__description {
+    margin-top: 1rem;
+  }
+  .ucla-card__person-contact {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    margin-top: 1rem;
+    dt {
+      font-weight: bold;
+      margin-right: 1.5rem;
+    }
+    dt,
+    dd {
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  }
+
+  .ucla-card__person-credit {
+    margin-top: 1rem;
+    display: block;
+    font-size: 0.75rem;
+  }
 }

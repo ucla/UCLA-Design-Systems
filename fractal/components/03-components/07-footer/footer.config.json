@@ -1,0 +1,9 @@
+{
+	"title": "Footer",
+  "status": "ready",
+  "variants": [
+    {
+      "name": "default"
+    }
+  ]
+}

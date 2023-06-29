@@ -1,45 +1,81 @@
-// PRIMARY COLORS
-$ucla-blue: #2774ae;
-$ucla-gold: #ffd100;
-$white: #fff;
+@use "./variables";
 
-// SECONDARY COLORS
-$darkest-blue: #003b5c;
-$darker-blue: #005587;
-$lighter-blue: #8bb8e8;
-$lightest-blue: #daebfe;
-$darkest-gold: #ffb81c;
-$darker-gold: #ffc72c;
-
-// GRAYSCALE
-$black: #000;
-$grey-80: #333;
-$grey-60: #666;
-$grey-40: #999;
-$grey-20: #ccc;
-$grey-10: #e5e5e5;
-$grey-08: #ebebeb;
-$grey-05: #f2f2f2;
-
-// INTERACTIVE
-$default-state: #00598c;
-$hover-state: #0079bf;
-$active-state: $darkest-blue;
-$focus-state: #00568c;
-$disabled-state: $grey-40;
-$visited-state: #5223b0;
-
-// INTERACTIVE LIGHT
-$default-state-light: $ucla-gold;
-$hover-state-light: #ffe500;
-$active-state-light: #ffbf0f;
-$focus-state-light: #ffe500;
-$disabled-state-light: $grey-10;
-$visited-state-light: $white;
-
-// DENOTIVE COLORS
-$error-red: #d60000;
-$success-green: #007339;
-$warning-orange: #f57f17;
-$primary-alert-blue: #8bb8e8;
-$secondary-alert-grey: $grey-40;
+.ucla-text-color {
+  &-ucla-blue {
+    color: variables.$ucla-blue !important;
+  }
+  &-ucla-gold {
+    color: variables.$ucla-gold !important;
+  }
+  &-error {
+    color: variables.$error-red !important;
+  }
+  &-success {
+    color: variables.$success-green !important;
+  }
+  &-warning {
+    color: variables.$warning-orange !important;
+  }
+  &-info {
+    color: variables.$primary-alert-blue !important;
+  }
+  &-black {
+    color: variables.$black !important;
+  }
+  &-white {
+    color: variables.$white !important;
+  }
+}
+.ucla-has-background {
+  &-ucla-blue {
+    background-color: variables.$ucla-blue !important;
+  }
+  &-ucla-gold {
+    background-color: variables.$ucla-gold !important;
+  }
+  &-grey-80 {
+    background-color: variables.$grey-80 !important;
+  }
+  &-grey-60 {
+    background-color: variables.$grey-60 !important;
+  }
+  &-grey-40 {
+    background-color: variables.$grey-40 !important;
+  }
+  &-grey-20 {
+    background-color: variables.$grey-20 !important;
+  }
+  &-grey-15 {
+    background-color: variables.$grey-15 !important;
+  }
+  &-grey-10 {
+    background-color: variables.$grey-10 !important;
+  }
+  &-grey-08 {
+    background-color: variables.$grey-08 !important;
+  }
+  &-grey-05 {
+    background-color: variables.$grey-05 !important;
+  }
+  &-grey-03 {
+    background-color: variables.$grey-03 !important;
+  }
+  &-error {
+    background-color: variables.$error-red !important;
+  }
+  &-success {
+    background-color: variables.$success-green !important;
+  }
+  &-warning {
+    background-color: variables.$warning-orange !important;
+  }
+  &-info {
+    background-color: variables.$primary-alert-blue !important;
+  }
+  &-black {
+    background-color: variables.$black !important;
+  }
+  &-white {
+    background-color: variables.$white !important;
+  }
+}
