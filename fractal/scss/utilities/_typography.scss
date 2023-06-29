@@ -24,19 +24,19 @@ body {
     font-size: variables.$text-xl;
   }
   h2 {
-    font-size: variables.$text-xl;
-  }
-  h3 {
     font-size: variables.$text-lg;
   }
-  h4 {
+  h3 {
     font-size: variables.$text-md;
+  }
+  h4 {
+    font-size: variables.$text-sm;
   }
   h5 {
     font-size: variables.$text-base;
   }
   h6 {
-    font-size: variables.$text-sm;
+    font-size: variables.$text-xs;
   }
 
   h1,
