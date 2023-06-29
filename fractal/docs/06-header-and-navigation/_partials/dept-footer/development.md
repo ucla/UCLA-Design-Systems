@@ -166,4 +166,4 @@ The footer has space for a tertiary navigation. This navigation separates lists 
 ```
 
 #### Live Preview
-[Preview Example](/components/preview/footer--department)
+[Preview Example]({{path '/components/preview/footer--department'}})
