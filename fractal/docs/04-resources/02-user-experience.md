@@ -54,4 +54,13 @@ benefit from your content.
 - Consider upkeep committment or a definitive ending for new
 initiatives - don’t abandon content.
 
+#### Resources
+
+- [Usability Guidelines](https://blog.hubspot.com/blog/tabid/6307/bid/30557/6-guidelines-for-exceptional-website-design-and-usability.aspx)
+- [Usability Checklist](https://stayintech.com/UX)
+- [Usability.gov](https://www.usability.gov/)
+- [User Experience Basics](https://www.usability.gov/what-and-why/user-experience.html)
+- [Is Your Page Mobile Friendly?](https://search.google.com/test/mobile-friendly)
+- [18F’s Content Guide](https://content-guide.18f.gov/)
+
 </div>
