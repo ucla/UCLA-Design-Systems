@@ -56,7 +56,19 @@ Icon is limited to a 20 x 20px live area with a 2px padding around the perimeter
 
 To ensure that users can easily interact with icons on a website or app, the touch targets for these icons should be 44 pixels or larger. Developers can use padding to increase the size of a touch target and meet this requirement.
 
+<div class="ucla">
+  <div class="col">
+
 ![Icon Target Size](/theme-assets/img/docs/style-guide/iconography/target-size.svg)
+
+ </div>
+  <div class="col">
+  
+![Icon Target Size](/theme-assets/img/docs/style-guide/iconography/target-size2.svg)
+
+  </div>
+</div>
+
 
 A 24px icon centered in a 44px touch target.
 

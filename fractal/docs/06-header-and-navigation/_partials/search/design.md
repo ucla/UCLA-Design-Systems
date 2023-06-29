@@ -9,7 +9,7 @@ Use once the scale and type of content on your site is conducive to searching.
 
 #### Anatomy
 
-<img alt="Search Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/search-anatomy.svg" />
+<img alt="Search Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/search-anatomy.png" />
 
 **1. Close Button**
   - Search Icon toggles to close button, clicking again with close entire overlay
@@ -17,15 +17,17 @@ Use once the scale and type of content on your site is conducive to searching.
 **2. Overlay**
   - White background overlay extends below navigation and covers top of page content
 
-**3. Text Field**
+**3. Search Entry Icon**
 
-**4. Search Entry Icon**
+**4. Search Text**
 
-**5. Search Text**
+**5. Text Field**
   - Appears as it's entered by user
 
 **6. Clear Text Button**
   - Clears any search text entered in the field
+
+**7. Search Button**
 
 #### Tablet &amp; Mobile
 

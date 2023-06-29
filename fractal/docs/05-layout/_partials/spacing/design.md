@@ -54,12 +54,12 @@ We are using a soft 8-point grid to define our spacing. This means we use multip
 
 ##### Desktop
 
-<img alt="Desktop Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/desktop.svg" />
+<img alt="Desktop Example" class="ucla-break-container mb-10 mt-0" src="/theme-assets/img/docs/layout/spacing/desktop.svg" />
 
 ##### Tablet
 
-<img alt="Tablet Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/tablet.svg" />
+<img alt="Tablet Example" class="ucla-break-container mb-10 mt-0" src="/theme-assets/img/docs/layout/spacing/tablet.svg" />
 
 ##### Mobile
 
-<img alt="Mobile Example" class="ucla-break-container" src="/theme-assets/img/docs/layout/spacing/mobile.svg" />"
+<img alt="Mobile Example" class="ucla-break-container mt-0" src="/theme-assets/img/docs/layout/spacing/mobile.svg" />"

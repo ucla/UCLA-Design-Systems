@@ -23,6 +23,8 @@ For when to use a select menu rather than a radio button, see the following arti
 
 **4. Down arrow (required)**
 
+**5. Up arrow (required)**
+
 #### Examples
 
 <iframe id="docIframe" class="docs-iframe mt-5"

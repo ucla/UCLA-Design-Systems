@@ -13,9 +13,9 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
 
 #### Anatomy
 
-**Desktop**
+#### Desktop
 
-<img alt="Desktop Navigation Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/navigation-anatomy.svg" />
+<img alt="Desktop Navigation Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/navigation-anatomy.png" />
 
 **1. Tier 1 Navigation/Menu Link (required)**
 
@@ -35,7 +35,7 @@ At screen sizes under 1040 wide, the menu reduces to a “hamburger” menu butt
 **5. Search**
   - Click opens search overlay (see Search specs)
 
-**Mobile**
+#### Mobile
 
 <img alt="Mobile Navigation Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/navigation-dropdown-mobile-anatomy.svg" />
 
