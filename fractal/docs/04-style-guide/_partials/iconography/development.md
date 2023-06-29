@@ -14,7 +14,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">menu</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -25,7 +25,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">close</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -36,7 +36,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">search</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -47,7 +47,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">chevron up</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -58,7 +58,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">chevron down</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -69,7 +69,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">chevron left</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -80,7 +80,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">chevron right</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -91,7 +91,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">chevrons left</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -102,7 +102,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">chevrons right</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -113,7 +113,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">arrow up</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -124,7 +124,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">arrow down</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -135,7 +135,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">arrow left</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -146,7 +146,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">arrow right</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -162,7 +162,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">facebook</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -173,7 +173,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">instagram</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -184,7 +184,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">linkedin</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -195,7 +195,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">tiktok</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -206,7 +206,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">twitter</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -217,7 +217,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">youtube</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -233,7 +233,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">chat</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -244,7 +244,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">comment</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -255,7 +255,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">envelope</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -266,7 +266,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">location</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -277,7 +277,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">user circle solid</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -288,7 +288,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">user</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -299,7 +299,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">video camera</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -315,7 +315,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">check</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -326,7 +326,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">close circle solid</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -337,7 +337,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">copy</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -348,7 +348,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">download</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -359,7 +359,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">image gallery</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -370,7 +370,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">image</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -381,7 +381,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">link external</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -392,7 +392,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">minus</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -403,7 +403,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">pause circle</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -414,7 +414,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">play circle</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -425,7 +425,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">plus</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -436,7 +436,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">sort</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -452,7 +452,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">sunny</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -463,7 +463,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">cloudy</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -474,7 +474,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">partly cloudy</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -485,7 +485,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">fog</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -496,7 +496,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">windy</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -507,7 +507,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">rain</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -518,7 +518,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">thunderstorm</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -529,7 +529,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">moon</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -540,7 +540,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">full moon</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -556,7 +556,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">calendar</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -567,7 +567,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">calendar</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -583,7 +583,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">error</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -594,7 +594,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">information</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -605,7 +605,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">success</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>
@@ -616,7 +616,7 @@ handle: icons-development
       </div>
       <div class="ucla-card__body" style="text-align: center">
         <p class="ucla-card__description">warning</p>
-        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--primary">Copy SVG</button>
+        <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
   </div>

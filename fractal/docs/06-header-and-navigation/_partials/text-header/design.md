@@ -9,7 +9,7 @@ The text header can be used when the department does not require a signature, or
 
 #### Anatomy
 
-<img alt="Text Header Anatomy" src="/theme-assets/img/docs/navigation/text-header-anatomy.svg" class="ucla-break-container" />
+<img alt="Text Header Anatomy" src="/theme-assets/img/docs/navigation/text-header-anatomy.png" class="ucla-break-container" />
 
 **1. Blue Border (required)**
 

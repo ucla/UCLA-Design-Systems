@@ -9,13 +9,13 @@ Text banners are used when you want to grab the user's attention and provide the
 
 #### Anatomy
 
-![Text Banner Anatomy](/theme-assets/img/docs/components/banners/text-banner-anatomy.svg)
+<img alt="Text Banner Anatomy" src="/theme-assets/img/docs/components/banners/text-banner-anatomy.svg" class="ucla-break-container" />
 
-**1. Title (required)**
+**1. Text Container (required)**
 
-**2. Button**
+**2. Title (required)**
 
-**3. Text Container (required)**
+**3. Button**
 
 **4. Text (required)**
 

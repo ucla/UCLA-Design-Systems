@@ -9,14 +9,15 @@ The Box Logo header can be used when the school has a signature, or logo lockup.
 
 #### Anatomy
 
-**Desktop**
+#### Desktop
 
-<img alt="Box Header Logo Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/box-logo-header-anatomy.svg" />
+<img alt="Box Header Logo Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/box-logo-header-anatomy.png" />
 
 **1. Blue Border (required)**
-
-- Adds visual consistency with full bar version
-- May container visual device or functional code to incorporate global emergency messaging
+<ul class="doc-list">
+  <li>Adds visual consistency with full bar version</li>
+  <li>May container visual device or functional code to incorporate global emergency messaging</li>
+</ul>
 
 **2. Department Signature (required)**
 
@@ -30,7 +31,7 @@ The Box Logo header can be used when the school has a signature, or logo lockup.
 
 **5. Border (required)**
 
-**Mobile**
+#### Mobile
 
 <img alt="Box Header Logo Mobile Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/box-logo-header-mobile-anatomy.svg" />
 

@@ -7,7 +7,7 @@ You should use a favicon when you have a website or web page that you want to br
 
 #### Anatomy
 
-<img alt="Favicon Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/favicon/anatomy.svg" />
+<img alt="Favicon Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/favicon/anatomy.png" />
 
 #### Best Practices
 
