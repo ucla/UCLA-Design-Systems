@@ -33,7 +33,7 @@ Once connected, you can apply style presets in the categories below from the Tea
 
 Select the object(s) you'd like to apply a Style to.
 
-<p class="docs-inline-image">In the right side panel, click the <img style="margin:0;vertical-align:bottom;" src="/theme-assets/img/docs/designer/style-library.png" /> Style icon next to the property you want to add or the name of the current style if you want to edit.</p>
+<p class="has-inline-image">In the right side panel, click the <img style="margin:0;vertical-align:bottom;" src="/theme-assets/img/docs/designer/style-library.png" /> Style icon next to the property you want to add or the name of the current style if you want to edit.</p>
 
 #### Layout Grid
 
