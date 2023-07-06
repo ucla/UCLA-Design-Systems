@@ -3,17 +3,27 @@ handle: person-card-development
 ---
 The Event Card component has several elements nested in this format:
 
-- `.ucla-card__person` - The main card container
-  - `.ucla-card__image--link` - Image link to the person's detail page
-    - `.ucla-card__image` - An image or avatar of the person
-  - `.ucla-card__body` - A content container that holds the person's information
-    - `.ucla-card__title` - Left-aligned bolded text
-        - `.ucla-card__name-link` - Title link to the person's detail page
-    - `.ucla-card__person-pronouns` - Text for person's selected pronouns
-    - `.ucla-card__person-department` - Bolded text of the department the person is in
-    - `.ucla-card__description` - Short summary of the person
-    - `.ucla-card__person-contact` - Description list of person's contact information
-    - `.ucla-card__person-credit` - Photo credit of person's image/photo
+<ul class="docs-list">
+<li><code>.ucla-card__person</code> - The main card container<ul>
+<li><code>.ucla-card__image--link</code> - Image link to the person’s detail page<ul>
+<li><code>.ucla-card__image</code> - An image or avatar of the person</li>
+</ul>
+</li>
+<li><code>.ucla-card__body</code> - A content container that holds the person’s information<ul>
+<li><code>.ucla-card__title</code> - Left-aligned bolded text<ul>
+<li><code>.ucla-card__name-link</code> - Title link to the person’s detail page</li>
+</ul>
+</li>
+<li><code>.ucla-card__person-pronouns</code> - Text for person’s selected pronouns</li>
+<li><code>.ucla-card__person-department</code> - Bolded text of the department the person is in</li>
+<li><code>.ucla-card__description</code> - Short summary of the person</li>
+<li><code>.ucla-card__person-contact</code> - Description list of person’s contact information</li>
+<li><code>.ucla-card__person-credit</code> - Photo credit of person’s image/photo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 <div style="max-width: 376px" class="mx-auto">
     <article class="ucla-card ucla-card__person">

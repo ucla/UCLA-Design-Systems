@@ -3,9 +3,11 @@ handle: primary-button-development
 ---
 A button can be one of three elements depending on what your application needs are:
 
-- `<a>`
-- `<button>`
-- `<input>`
+<ul class="docs-list">
+<li><code>&lt;a&gt;</code></li>
+<li><code>&lt;button&gt;</code></li>
+<li><code>&lt;input&gt;</code></li>
+</ul>
 
 To style them to look and have interaction, the following class must be applied:
 

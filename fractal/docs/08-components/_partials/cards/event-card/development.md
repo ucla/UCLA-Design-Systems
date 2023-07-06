@@ -3,19 +3,33 @@ handle: event-card-development
 ---
 The Event Card component has several elements nested in this format:
 
-- `.ucla-card__event` - The main card container
-  - `.ucla-card__event-image-link` - Image link to the event page
-    - `.ucla-card__image` - An featured image relating to the event
-  - `.ucla-card__event-body` - A body container for the event
-    - `.ucla-card__event-date` - Date of the event
-      - `.ucla-card__event-month` - Month of the event
-      - `.ucla-card__event-day` - Day of the event
-    - `.ucla-card__event-content`- A content container for event details
-      - `.ucla-card__title` - Left-aligned bolded text linking to an article
-          - `.ucla-card__title-link` - Title link to the article
-      - `.ucla-card__event-time` - Shows the start and end time of the event
-      -  `.ucla-card__event-location` - Shows the location of the event
-      - `.ucla-card__description` - Summary of the event
+<ul class="docs-list">
+<li><code>.ucla-card__event</code> - The main card container<ul>
+<li><code>.ucla-card__event-image-link</code> - Image link to the event page<ul>
+<li><code>.ucla-card__image</code> - An featured image relating to the event</li>
+</ul>
+</li>
+<li><code>.ucla-card__event-body</code> - A body container for the event<ul>
+<li><code>.ucla-card__event-date</code> - Date of the event<ul>
+<li><code>.ucla-card__event-month</code> - Month of the event</li>
+<li><code>.ucla-card__event-day</code> - Day of the event</li>
+</ul>
+</li>
+<li><code>.ucla-card__event-content</code>- A content container for event details<ul>
+<li><code>.ucla-card__title</code> - Left-aligned bolded text linking to an article<ul>
+<li><code>.ucla-card__title-link</code> - Title link to the article</li>
+</ul>
+</li>
+<li><code>.ucla-card__event-time</code> - Shows the start and end time of the event</li>
+<li> <code>.ucla-card__event-location</code> - Shows the location of the event</li>
+<li><code>.ucla-card__description</code> - Summary of the event</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 <div style="max-width: 376px" class="mx-auto">
     <article class="ucla-card ucla-card__event">

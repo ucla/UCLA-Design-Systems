@@ -3,15 +3,25 @@ handle: story-card-development
 ---
 The story card component has several elements nested in this format:
 
-- `.ucla-card__story` - The main card container
-  - `.story-card-image-link` - Image link to the article
-    - `.ucla-card__story-image` - An image that spans half the width of the container
-  - `.ucla-card__body` - A content container that overlaps the image
-    - `.ucla-card__date` - Source of the article
-    - `.ucla-card__title` - Left-aligned bolded text linking to an article
-        - `.ucla-card__title-link` - Title link to the article
-    - `.ucla-card__author` - Author of the article
-    - `.ucla-card__description` - Summary of the article
+<ul class="docs-list">
+<li><code>.ucla-card__story</code> - The main card container<ul>
+<li><code>.story-card-image-link</code> - Image link to the article<ul>
+<li><code>.ucla-card__story-image</code> - An image that spans half the width of the container</li>
+</ul>
+</li>
+<li><code>.ucla-card__body</code> - A content container that overlaps the image<ul>
+<li><code>.ucla-card__date</code> - Source of the article</li>
+<li><code>.ucla-card__title</code> - Left-aligned bolded text linking to an article<ul>
+<li><code>.ucla-card__title-link</code> - Title link to the article</li>
+</ul>
+</li>
+<li><code>.ucla-card__author</code> - Author of the article</li>
+<li><code>.ucla-card__description</code> - Summary of the article</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 <div style="max-width: 376px;" class="mx-auto">
 <article class="ucla-card ucla-card__story">
