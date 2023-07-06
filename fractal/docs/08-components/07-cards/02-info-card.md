@@ -15,7 +15,7 @@
 {{> @info-card-design}}
 
 </article>
-<article id="tab-info-card-development" tabindex="0" role="tabpanel" aria-labelledby="info-card-development" class="ucla-doc-tabpanel" hidden>
+<article id="tab-info-card-development" tabindex="0" role="tabpanel" aria-labelledby="info-card-development" class="ucla-doc-tabpanel ucla-prose" hidden>
 
 {{> @info-card-development}}
 

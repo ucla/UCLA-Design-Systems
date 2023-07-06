@@ -1,16 +1,24 @@
 ---
 handle: image-banner-development
 ---
+
 The image banner can be used as a full-width banner or inside a container. This requires the following structure:
 
-- `<figure>`
-  - `.ucla-banner`
+<ul class="docs-list">
+  <li><code>&lt;figure&gt;</code>
+    <ul>
+      <li><code>.ucla-banner</code></li>
+    </ul>
+  </li>
+</ul>
 
+<div class="ucla-dev-example-break-container">
 {{render '@banners'}}
+</div>
 
 ```html
 <figure>
-    <img class="ucla-banner" src="image.jpg" alt="Description of the image" />
+  <img class="ucla-banner" src="image.jpg" alt="Description of the image" />
 </figure>
 ```
 

@@ -29,6 +29,8 @@ is easy to use on all devices.
 
 #### Content Strategy
 
+Content strategy refers to the planning, creation, distribution, and management of content to achieve specific business objectives. It involves developing a strategic approach to content that aligns with the target audience's needs, organizational goals, and brand values. A content strategy aims to guide content development and ensure that it effectively engages and meets the needs of the intended audience.
+
 - When planning and organizing content for your site consider organizational goals, the unique value your organization provides, your audiences needs, and how to best reach and retain those audiences.
 
 - Speak to an identifiable audience, consider their needs and goals and

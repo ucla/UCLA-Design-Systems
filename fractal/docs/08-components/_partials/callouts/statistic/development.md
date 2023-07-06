@@ -3,9 +3,13 @@ handle: callout-statistic-development
 ---
 The Statistic callout is built with the following structure:
 
-- `.ucla-callout__statistics` - Main container
-  - `.ucla-callout__number` - Bolded number that is vertically align with the body
-  - `.ucla-callout__body` - Small bolded text
+<ul class="docs-list">
+<li><code>.ucla-callout__statistics</code> - Main container<ul>
+<li><code>.ucla-callout__number</code> - Bolded number that is vertically align with the body</li>
+<li><code>.ucla-callout__body</code> - Small bolded text</li>
+</ul>
+</li>
+</ul>
 
 <div style="max-width: 558px" class="mx-auto">
     <aside class="ucla-callout ucla-callout__statistics">
