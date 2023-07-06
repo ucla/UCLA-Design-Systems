@@ -15,7 +15,7 @@
 {{> @box-banner-design}}
 
 </article>
-<article id="tab-box-banner-development" tabindex="0" role="tabpanel" aria-labelledby="box-banner-development" style="overflow-x:hidden" class="ucla-doc-tabpanel ucla-prose" hidden>
+<article id="tab-box-banner-development" tabindex="0" role="tabpanel" aria-labelledby="box-banner-development" class="ucla-doc-tabpanel ucla-prose" hidden>
   
 {{> @box-banner-development}}
 

@@ -15,7 +15,7 @@
 {{> @featured-story-card-design}}
 
 </article>
-<article id="tab-featured-story-card-development" tabindex="0" role="tabpanel" aria-labelledby="featured-story-card-development" class="ucla-doc-tabpanel" hidden>
+<article id="tab-featured-story-card-development" tabindex="0" role="tabpanel" aria-labelledby="featured-story-card-development" class="ucla-doc-tabpanel ucla-prose" hidden>
   
 {{> @featured-story-card-development}}
 

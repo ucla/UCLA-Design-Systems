@@ -3,11 +3,17 @@ handle: info-card-development
 ---
 The info card component has several elements nested in this format:
 
-- `.ucla-card__info` - The main card container
-  - `.ucla-card__body` - A content container that house any element and/or content
-    - `.ucla-card__title` - Left-aligned bolded text
-    - `.ucla-card__description` - Text for content
-    - `.ucla-card__link` - Link to content or article
+<ul class="docs-list">
+<li><code>.ucla-card__info</code> - The main card container<ul>
+<li><code>.ucla-card__body</code> - A content container that house any element and/or content<ul>
+<li><code>.ucla-card__title</code> - Left-aligned bolded text</li>
+<li><code>.ucla-card__description</code> - Text for content</li>
+<li><code>.ucla-card__link</code> - Link to content or article</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 <div style="max-width: 376px; margin: 0 auto;">
     <article class="ucla-card ucla-card__info">

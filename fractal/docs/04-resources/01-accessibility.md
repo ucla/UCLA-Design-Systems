@@ -1,7 +1,6 @@
 <div class="ucla-prose">
 
-As a public institution, UCLA is required to make our public web content
-accessible to all. Below are some web accessibility basics; for more information, check out the Accessibility section of Brand Guidelines as well as the Tools and Resources section, below.
+As a public institution, UCLA is required to make our public web content accessible to all. Below are some web accessibility basics; for more information, check out the Resources section, below.
 
 - Use HTML headings to structure content so non-sighted users can navigate the page.
 
