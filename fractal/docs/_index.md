@@ -7,15 +7,14 @@ status: hide_title
 
 <div class="docs-lead">
 
-### The UCLA Design System is a set of front-end user interface components. It provides designers and developers with tools and support to create on-brand, accessible, and usable digital products.
+### The UCLA Design System is a set of front-end user interface styles and  components. It provides designers and developers with tools and support to create on-brand, accessible, and usable digital products.
 
 </div>
 
-By using the UCLA design system, your website will share design, navigation, ADA compliance, and structural elements with other UCLA branded websites. However, your content and messaging will always make your website distinct. With the use of the UCLA design system, your organization will be free to focus on developing relevant, valuable and actionable content rather than the framework and delivery of the user experience.
+By using the UCLA design system, your website will share design, navigation, ADA compliance, and structural elements with other UCLA branded websites. However, your content and messaging will always make your website distinct. By leveraging the UCLA design system, your organization can direct its efforts towards creating meaningful, valuable, and actionable content, rather than investing time and resources into the framework and implementation of the user experience.
 
-#### Why Use a Design System?
-
-_As outlined in “[Design Systems 101](https://www.nngroup.com/articles/design-systems-101/)” by Therese Fessenden, Nielsen Norman Group_
+<h4 class="mb-0">Why use a design system?</h4>
+A design system serves as a single source of truth for design and development teams, providing them with a common language and a shared set of tools. This provides benefits to teams as outlined in "<a href="https://www.nngroup.com/articles/design-systems-101/">Design Systems 101</a>" by Therese Fessenden, Nielsen Norman Group.
 
 - Design and development can be created quickly and at scale.
 - It frees design resources to focus on larger, more complex problems.
@@ -32,7 +31,7 @@ _As outlined in “[Design Systems 101](https://www.nngroup.com/articles/design-
   <div class="col">
     <article class="ucla-card">
       <div class="ucla-card__body ucla-has-background-grey-05">
-        <h2 class="ucla-card__title">Designers</h2>
+        <h2 class="ucla-card__title">For Designers</h2>
         <p class="ucla-card__description">UI design styles, components, and page template examples.</p>
         <a href="{{path '/docs/designers/overview'}}" class="ucla-card__link">
           Read more
@@ -43,7 +42,7 @@ _As outlined in “[Design Systems 101](https://www.nngroup.com/articles/design-
   <div class="col">
     <article class="ucla-card">
       <div class="ucla-card__body ucla-has-background-grey-05">
-        <h2 class="ucla-card__title">Developers</h2>
+        <h2 class="ucla-card__title">For Developers</h2>
         <p class="ucla-card__description">The codebase for the UCLA Design System styles and components.</p>
         <a href="{{path '/docs/developers/overview'}}" class="ucla-card__link">
           Read more

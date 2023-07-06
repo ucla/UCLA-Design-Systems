@@ -15,7 +15,7 @@
 {{> @event-card-design }}
 
 </article>
-<article id="tab-event-card-development" tabindex="0" role="tabpanel" aria-labelledby="event-card-development" class="ucla-doc-tabpanel" hidden>
+<article id="tab-event-card-development" tabindex="0" role="tabpanel" aria-labelledby="event-card-development" class="ucla-doc-tabpanel ucla-prose" hidden>
       
 {{> @event-card-development}}
 

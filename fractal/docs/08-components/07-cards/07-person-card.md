@@ -15,7 +15,7 @@
 {{> @person-card-design}}
 
 </article>
-<article id="tab-person-card-development" tabindex="0" role="tabpanel" aria-labelledby="person-card-development" class="ucla-doc-tabpanel" hidden>
+<article id="tab-person-card-development" tabindex="0" role="tabpanel" aria-labelledby="person-card-development" class="ucla-doc-tabpanel ucla-prose" hidden>
   
 {{> @person-card-development}}
 

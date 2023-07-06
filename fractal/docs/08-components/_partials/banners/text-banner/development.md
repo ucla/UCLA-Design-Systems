@@ -3,25 +3,38 @@ handle: text-banner-development
 ---
 The text banner is a solid-color background that's typically full-width but can be in a container if need be. Building the banner requires the following structure:
 
-- `.ucla-banner__text` - Container for the banner
-  - `.container` - Container to keep the width of the content
-    - `.ucla` - Start of the grid column system
-      - `.col.span_10_of_12.ucla-prose.mx-auto` - Sets the width and the typography for the content. Below is the breakdown of each class:
+<ul class="docs-list">
+<li><code>.ucla-banner__text</code> - Container for the banner<ul>
+<li><code>.container</code> - Container to keep the width of the content<ul>
+<li><code>.ucla</code> - Start of the grid column system<ul>
+<li><code>.col.span_10_of_12.ucla-prose.mx-auto</code> - Sets the width and the typography for the content. Below is the breakdown of each class:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 **Content class breakdown:**
 
-- `.col` - Defines the element as a column
-- `.span_10_of_12` - Defines the width of the column
-- `.ucla-prose` - Sets the styles to all headers and paragraphs in this element. This is so you don't have to apply typography classes to each heading and paragraph.
-- `.mx-auto` - Aligns the element to the middle of the page.
+<ul class="docs-list">
+<li><code>.col</code> - Defines the element as a column</li>
+<li><code>.span_10_of_12</code> - Defines the width of the column</li>
+<li><code>.ucla-prose</code> - Sets the styles to all headers and paragraphs in this element. This is so you don’t have to apply typography classes to each heading and paragraph.</li>
+<li><code>.mx-auto</code> - Aligns the element to the middle of the page.</li>
+</ul>
 
-<div class="ucla-banner__text">
-    <div class="container">
-        <div class="ucla">
-            <div class="col span_10_of_12 ucla-prose" style="margin: 0 auto;">
-                <h3>Text banner to call your attention</h3>
-                <p>This text banner helps focus people's attention on a single call to action. Limit copy in this banner to 200 characters or less. Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
-                <a href="#" class="ucla-btn ucla-btn--primary-light">Button</a>
+
+<div class="ucla-dev-example-break-container">
+    <div class="ucla-banner__text">
+        <div class="container">
+            <div class="ucla">
+                <div class="col span_10_of_12 ucla-prose" style="margin: 0 auto;">
+                    <h3>Text banner to call your attention</h3>
+                    <p>This text banner helps focus people's attention on a single call to action. Limit copy in this banner to 200 characters or less. Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+                    <a href="#" class="ucla-btn ucla-btn--primary-light">Button</a>
+                </div>
             </div>
         </div>
     </div>
@@ -45,23 +58,26 @@ The text banner is a solid-color background that's typically full-width but can 
 
 If you prefer the text banner to have the same width as your content, just apply it in the same column.
 
-<div class="ucla campus mt-6">
-    <div class="col span_9_of_12">
-        <p class="example-content mb-3">Auto</p>
-        <div class="ucla-banner__text">
-            <div class="container">
-                <div class="ucla">
-                    <div class="col span_10_of_12 ucla-prose mx-auto">
-                        <h3>Text banner to call your attention</h3>
-                        <p>This text banner helps focus people's attention on a single call to action. Limit copy in this banner to 200 characters or less. Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
-                        <a href="#" class="ucla-btn ucla-btn--primary-light">Button</a>
+
+<div class="ucla-dev-example-break-container">
+    <div class="ucla campus mt-6">
+        <div class="col span_9_of_12">
+            <p class="example-content mb-3">Auto</p>
+            <div class="ucla-banner__text">
+                <div class="container">
+                    <div class="ucla">
+                        <div class="col span_10_of_12 ucla-prose mx-auto">
+                            <h3>Text banner to call your attention</h3>
+                            <p>This text banner helps focus people's attention on a single call to action. Limit copy in this banner to 200 characters or less. Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+                            <a href="#" class="ucla-btn ucla-btn--primary-light">Button</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col">
-        <p class="example-content">Auto</p>
+        <div class="col">
+            <p class="example-content">Auto</p>
+        </div>
     </div>
 </div>
 

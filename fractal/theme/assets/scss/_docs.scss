@@ -42,7 +42,11 @@ code {
   @media (min-width: 1024px) {
     max-width: 48.5rem;
   }
-
+  p.has-inline-image:has(img) {
+    line-height: 1.5;
+    margin-block-end: 1rem;
+    margin-block-start: 1rem;
+  }
   p.ucla-field__help {
     margin-top: 6px;
 
@@ -59,6 +63,14 @@ code {
     width: 100%;
     @media (min-width: 1024px) {
       max-width: 50%;
+    }
+  }
+
+  .ucla-dev-example-break-container {
+    width: 100%;
+
+    @media (min-width: 1024px) {
+      width: 996px;
     }
   }
 
@@ -144,7 +156,7 @@ code {
     font-family: "Helvetica", "Roboto", "Arial", sans-serif;
   }
 
-  h4:not(.accordion__heading) {
+  h4:not([class]) {
     margin-top: 3rem;
   }
 
@@ -358,4 +370,16 @@ a {
   font-size: 24px;
   line-height: 32px;
   font-weight: normal;
+}
+
+.ucla-prose > .docs-list {
+  margin-bottom: 1.5rem;
+
+  ul {
+    margin-top: 0;
+  }
+
+  li + li {
+    margin-top: 0;
+  }
 }

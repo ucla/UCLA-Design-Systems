@@ -69,6 +69,11 @@ code {
     max-width: 48.5rem;
   }
 }
+[dir=ltr] .Prose1 p.has-inline-image:has(img) {
+  line-height: 1.5;
+  margin-block-end: 1rem;
+  margin-block-start: 1rem;
+}
 [dir=ltr] .Prose1 p.ucla-field__help {
   margin-top: 6px;
   margin-block-end: unset;
@@ -87,6 +92,14 @@ code {
 @media (min-width: 1024px) {
   [dir=ltr] .Prose1 .ucla-field__select {
     max-width: 50%;
+  }
+}
+[dir=ltr] .Prose1 .ucla-dev-example-break-container {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  [dir=ltr] .Prose1 .ucla-dev-example-break-container {
+    width: 996px;
   }
 }
 [dir=ltr] .Prose1 pre {
@@ -148,7 +161,7 @@ code {
   font-weight: bold;
   font-family: "Helvetica", "Roboto", "Arial", sans-serif;
 }
-[dir=ltr] .Prose1 h4:not(.accordion__heading) {
+[dir=ltr] .Prose1 h4:not([class]) {
   margin-top: 3rem;
 }
 [dir=ltr] .Prose1 img {
@@ -332,6 +345,16 @@ a {
   font-size: 24px;
   line-height: 32px;
   font-weight: normal;
+}
+
+.ucla-prose > .docs-list {
+  margin-bottom: 1.5rem;
+}
+.ucla-prose > .docs-list ul {
+  margin-top: 0;
+}
+.ucla-prose > .docs-list li + li {
+  margin-top: 0;
 }
 
 /***************** STOP!!! READ THIS!! *****************/

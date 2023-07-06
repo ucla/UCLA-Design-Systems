@@ -3,10 +3,18 @@ handle: breadcrumbs-development
 ---
 The breadcrumb is a simple navigation component that's built using the following structure:
 
-- `.ucla-breadcrumb` - Main container
-  - `.ucla-breadcrumb__list` - Start of breadcrumb list
-    - `.ucla-breadcrumb__list-itme` - Breadcrumb Item
-      - `.ucla-breadcrumb__link` - Breadcrumb Link
+<ul class="docs-list">
+<li><code>.ucla-breadcrumb</code> - Main container<ul>
+<li><code>.ucla-breadcrumb__list</code> - Start of breadcrumb list<ul>
+<li><code>.ucla-breadcrumb__list-itme</code> - Breadcrumb Item<ul>
+<li><code>.ucla-breadcrumb__link</code> - Breadcrumb Link</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 <nav class="ucla-breadcrumb">
     <ul class="ucla-breadcrumb__list">

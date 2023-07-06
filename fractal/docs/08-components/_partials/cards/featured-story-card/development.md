@@ -3,13 +3,19 @@ handle: featured-story-card-development
 ---
 The featured story card component has several elements nested in this format:
 
-- `.ucla-card__story-featured` - The main card container
-  - `.ucla-card__story-featured-image` - An image that spans half the width of the container
-  - `.ucla-card__story-featured-body` - A content container that overlaps the image
-    - `.ucla-card__story-featured-title` - Left-aligned bolded text linking to an article
-    - `.ucla-card__story-author` - Author of the article
-    - `.ucla-card__story-featured-summary` - Summary of the article
-    - `.ucla-card__story-featured-source` - Source of the article
+<ul class="docs-list">
+<li><code>.ucla-card__story-featured</code> - The main card container<ul>
+<li><code>.ucla-card__story-featured-image</code> - An image that spans half the width of the container</li>
+<li><code>.ucla-card__story-featured-body</code> - A content container that overlaps the image<ul>
+<li><code>.ucla-card__story-featured-title</code> - Left-aligned bolded text linking to an article</li>
+<li><code>.ucla-card__story-author</code> - Author of the article</li>
+<li><code>.ucla-card__story-featured-summary</code> - Summary of the article</li>
+<li><code>.ucla-card__story-featured-source</code> - Source of the article</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 <div style="max-width: 1176px" class="mx-auto">
     <article class="ucla-card ucla-card__story-featured">
