@@ -69,6 +69,11 @@ code {
     max-width: 48.5rem;
   }
 }
+[dir=ltr] .Prose1 p.has-inline-image:has(img) {
+  line-height: 1.5;
+  margin-block-end: 1rem;
+  margin-block-start: 1rem;
+}
 [dir=ltr] .Prose1 p.ucla-field__help {
   margin-top: 6px;
   margin-block-end: unset;
