@@ -1,7 +1,7 @@
 ---
 handle: ribbon-banner-design
 ---
-A ribbon banner is an image banner that has a text ribbon overlaid on top of it. THe text ribbon typically contains a short message or tagline that is related to the image, and is positioned in a prominent location on the banner.
+A ribbon banner is an image banner that has a text ribbon overlaid on top of it. The text ribbon typically contains a short message or tagline that is related to the image, and is positioned in a prominent location on the banner.
 
 #### When to use
 
