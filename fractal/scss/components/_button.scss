@@ -133,6 +133,7 @@
     &:active {
       background-color: variables.$active-state;
       border-color: variables.$active-state;
+      color: variables.$white;
     }
 
     &:disabled {
