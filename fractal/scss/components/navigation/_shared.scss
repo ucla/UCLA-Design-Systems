@@ -3,7 +3,7 @@
 
 .ucla-header__container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   padding-top: 1.5rem;
   max-width: 76.5rem;
@@ -16,6 +16,7 @@
   }
 
   @include mixins.for-size(desktop-up) {
+    flex-wrap: wrap;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
