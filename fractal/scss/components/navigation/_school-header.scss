@@ -6,6 +6,7 @@
   border-bottom: 1px solid variables.$grey-20;
 
   &__logo-link {
+    text-decoration: none;
     line-height: 0;
 
     @include mixins.for-size(up-to-tablet) {
@@ -28,6 +29,7 @@
     font-size: 1.188rem;
     font-weight: bold;
     overflow-wrap: break-word;
+    text-decoration: none;
     color: variables.$grey-80;
 
     &:hover {

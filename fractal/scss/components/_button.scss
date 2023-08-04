@@ -119,7 +119,7 @@
     }
   }
   &--tertiary {
-    border: 2px solid variables.$white;
+    border: 2px solid transparent;
     color: variables.$default-state;
     &:hover {
       background-color: variables.$hover-state;
@@ -133,6 +133,7 @@
     &:active {
       background-color: variables.$active-state;
       border-color: variables.$active-state;
+      color: variables.$white;
     }
 
     &:disabled {
