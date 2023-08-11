@@ -8,7 +8,7 @@ Copy and paste this in the `<head>` of your document before any other stylesheet
 
 ```html
 
-<link rel="stylesheet" integrity="sha384-%!CSSHash%!" href="https://cdn.designsystem.brand.ucla.edu/build/%!CurrentVersion%!/css/ucla-lib.min.css" />
+<link rel="stylesheet" crossorigin="anonymous" integrity="sha384-%!CSSHash%!" href="https://cdn.designsystem.brand.ucla.edu/build/%!CurrentVersion%!/css/ucla-lib.min.css" />
 
 ```
 
@@ -18,7 +18,7 @@ Copy and paste this before the closing `</body>` tag.
 
 ```html
 
-<script type="text/javascript" integrity="sha384-%!JSHash%!" src="https://cdn.designsystem.brand.ucla.edu/build/%!CurrentVersion%!/js/ucla-lib-scripts.min.js" />
+<script type="text/javascript" crossorigin="anonymous" integrity="sha384-%!JSHash%!" src="https://cdn.designsystem.brand.ucla.edu/build/%!CurrentVersion%!/js/ucla-lib-scripts.min.js" />
 
 ```
 
