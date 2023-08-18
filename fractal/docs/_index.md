@@ -20,7 +20,7 @@ A design system serves as a single source of truth for design and development te
 - It frees design resources to focus on larger, more complex problems.
 - It creates a unified language within and between crossfunctional teams.
 - It creates visual consistency across products, channels and siloed departments.
-- It can help education junior designers and content contributors.
+- It can help educate junior designers and content contributors.
 
 
 <a class="ucla-btn ucla-btn--tertiary ucla-btn--icon-trail" href="{{path '/docs/getting-started/principles'}}">Learn more about our principles <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
