@@ -26,21 +26,11 @@ Using the grid is simple.
 
 ```html
 <div class="ucla">
-    <div class="col">
-        <p class="example-content example-content--highlight">Auto</p>
-    </div>
-    <div class="col">
-        <p class="example-content example-content--highlight">Auto</p>
-    </div>
-    <div class="col">
-        <p class="example-content example-content--highlight">Auto</p>
-    </div>
-    <div class="col">
-        <p class="example-content example-content--highlight">Auto</p>
-    </div>
-    <div class="col">
-        <p class="example-content example-content--highlight">Auto</p>
-    </div>
+    <div class="col">Auto</div>
+    <div class="col">Auto</div>
+    <div class="col">Auto</div>
+    <div class="col">Auto</div>
+    <div class="col">Auto</div>
 </div>
 ```
 
@@ -111,11 +101,45 @@ _By default, auto columns stack on top of each other on **mobile**. A column mus
 ```html
 <div class="ucla">
     <div class="col span_6_of_12 span_12_of_12-md span_3_of_12-lg">
-        <p class="example-content example-content--highlight">6 of 12 Mobile<br />12 of 12 Tablet<br />3 of 12 Desktop</p>
+        6 of 12 Mobile
+        12 of 12 Tablet
+        3 of 12 Desktop
     </div>
-    <div class="col">
-        <p class="example-content">Auto</p>
-    </div>
+    <div class="col">Auto</div>
+</div>
+```
+
+#### Offset
+
+You can offset columns to create horizontal space between or before a `.col` element. To offset columns, use the `.offset_{num}_of_12` class in your `.col` element. You can also add the `-md` and/or `-lg` suffix if you need the offset to be responsive.
+
+<div class="ucla">
+  <div class="col span_1_of_12">
+    <p class="example-content">1 of 12</p>
+  </div>
+  <div class="col span_4_of_12 offset_2_of_12">
+    <p class="example-content example-content--highlight">4 of 12<br />Offset 2 columns</p>
+  </div>
+</div>
+<div class="ucla">
+  <div class="col span_4_of_12 offset_4_of_12">
+    <p class="example-content example-content--highlight">4 of 12<br />Offset 4 columns</p>
+  </div>
+</div>
+
+```html
+<div class="ucla">
+  <div class="col span_1_of_12">1 of 12</div>
+  <div class="col span_4_of_12 offset_2_of_12">
+    4 of 12
+    Offset 2 columns
+  </div>
+</div>
+<div class="ucla">
+  <div class="col span_4_of_12 offset_4_of_12">
+    4 of 12
+    Offset 4 columns
+  </div>
 </div>
 ```
 
@@ -148,22 +172,14 @@ To nest your content, add a new `.ucla` and a set of `.col` columns inside of an
 <div class="ucla example">
   <div class="col span_9_of_12-md" style="background-color:#8bb8e8; border-radius: 4px">
     <div class="ucla">
-      <div class="col span_12_of_12-md">
-        <p class="example-content">Body Content 12 of 12</p>
-      </div>
+      <div class="col span_12_of_12-md">Body Content 12 of 12</div>
     </div>
     <div class="ucla">
-      <div class="col span_6_of_12-md">
-        <p class="example-content">Body Content 6 of 6</p>
-      </div>
-      <div class="col span_6_of_12-md">
-        <p class="example-content">Body Content 6 of 6</p>
-      </div>
+      <div class="col span_6_of_12-md">Body Content 6 of 6</div>
+      <div class="col span_6_of_12-md">Body Content 6 of 6</div>
     </div>
   </div>
-  <div class="col span_3_of_12-md" style="background-color:#2774ae; border-radius: 4px">
-    <p class="example-content">Menu content</p>
-  </div>
+  <div class="col span_3_of_12-md" style="background-color:#2774ae; border-radius: 4px">Menu content</div>
 </div>
 ```
 
@@ -233,50 +249,22 @@ Grid Set to 5 Columns
 ```html
 <p>Grid set to 3 Columns</p>
 <div class="ucla-grid cols-3">
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
-    <div class="ucla-grid_span-2">
-        <p class="example-content">Span 2 Columns</p>
-    </div>
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
-    <div class="ucla-grid_span-3">
-        <p class="example-content">Span 3 Columns</p>
-    </div>
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
+    <div>Auto<</div>
+    <div class="ucla-grid_span-2">Span 2 Columns</div>
+    <div>Auto</div>
+    <div>Auto</div>
+    <div>Auto</div>
+    <div class="ucla-grid_span-3">Span 3 Columns</div>
+    <div>Auto</div>
 </div>
 <p>Grid set to 5 Columns</p>
 <div class="ucla-grid cols-5">
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
-    <div class="ucla-grid_span-2">
-        <p class="example-content">Span 2 Columns</p>
-    </div>
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
-    <div class="ucla-grid_span-3">
-        <p class="example-content">Span 3 Columns</p>
-    </div>
-    <div>
-        <p class="example-content">Auto</p>
-    </div>
+    <div>Auto</div>
+    <div class="ucla-grid_span-2">Span 2 Columns</div>
+    <div>Auto</div>
+    <div>Auto</div>
+    <div>Auto</div>
+    <div class="ucla-grid_span-3">Span 3 Columns</div>
+    <div>Auto</div>
 </div>
 ```
