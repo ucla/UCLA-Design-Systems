@@ -19,12 +19,18 @@ $column-gap: 0.75rem;
       flex: none;
       width: math.percentage(math.div($i, 12));
     }
+    &.offset_#{$i}_of_12 {
+      margin-left: math.percentage(math.div($i, 12));
+    }
   }
   @include mixins.for-size(tablet-up) {
     @for $i from 1 through 12 {
       &.span_#{$i}_of_12-md {
         flex: none;
         width: math.percentage(math.div($i, 12));
+      }
+      &.offset_#{$i}_of_12-md {
+        margin-left: math.percentage(math.div($i, 12));
       }
     }
   }
@@ -33,6 +39,9 @@ $column-gap: 0.75rem;
       &.span_#{$i}_of_12-lg {
         flex: none;
         width: math.percentage(math.div($i, 12));
+      }
+      &.offset_#{$i}_of_12-lg {
+        margin-left: math.percentage(math.div($i, 12));
       }
     }
   }
