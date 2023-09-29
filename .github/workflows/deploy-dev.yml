@@ -38,8 +38,9 @@ jobs:
       - name: Get file hashes
         id: get-filehashes
         run: |
-          echo "css_hash=$(openssl dgst -sha384 -binary ./fractal/build/${{ steps.previoustag.outputs.tag }}/css/ucla-lib.min.css | openssl base64 -A)" >> "$GITHUB_OUTPUT"
-          echo "js_hash=$(openssl dgst -sha384 -binary ./fractal/build/${{ steps.previoustag.outputs.tag }}/js/ucla-lib-scripts.min.js | openssl base64 -A)" >> "$GITHUB_OUTPUT"
+          echo "css_hash=$(openssl dgst -sha384 -binary css/ucla-lib.min.css | openssl base64 -A)" >> "$GITHUB_OUTPUT"
+          echo "js_hash=$(openssl dgst -sha384 -binary js/ucla-lib-scripts.min.js | openssl base64 -A)" >> "$GITHUB_OUTPUT"
+        working-directory: fractal/build
       - name: Update Build information
         run: |
           sed -i 's/%!CurrentVersion%!/${{ steps.previoustag.outputs.tag }}/g' installation.html
