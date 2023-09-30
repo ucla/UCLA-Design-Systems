@@ -44,8 +44,11 @@ jobs:
       - name: Update Build information
         run: |
           sed -i 's/%!CurrentVersion%!/${{ steps.previoustag.outputs.tag }}/g' installation.html
-          sed -i 's/%!CSSHash%!/${{ steps.get-filehashes.outputs.css_hash }}/g' installation.html
-          sed -i 's/%!JSHash%!/${{ steps.get-filehashes.outputs.js_hash }}/g' installation.html
+
+          escaped_css_hash=$(echo '${{ steps.get-filehashes.outputs.css_hash }}' | sed 's/\//\\\//g')
+          escaped_js_hash=$(echo '${{ steps.get-filehashes.outputs.js_hash }}' | sed 's/\//\\\//g')
+          sed -i "s/%!CSSHash%!/$escaped_css_hash/g" installation.html
+          sed -i "s/%!JSHash%!/$escaped_js_hash/g" installation.html
         working-directory: fractal/build/docs/developers
       - name: Deploy
         run: aws s3 sync ./fractal/build s3://designsystem.brand.ucla.edu/build/${{ steps.previoustag.outputs.tag }}
