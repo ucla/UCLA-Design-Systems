@@ -1,6 +1,6 @@
-# UCLA Design System Library
+# UCLA Design System
 
-Welcome to the UCLA Design System Library.
+Welcome to the UCLA Design System.
 
 The digital application of UCLA's brand can be found here. We've developed a library of components, along with thoughtfully articulated guidelines, documentation, and code to assist campus partners in designing and developing robust and accessible experiences across all UCLA websites and applications.
 
