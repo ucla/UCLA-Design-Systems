@@ -129,6 +129,11 @@
         fill: variables.$black;
       }
     }
+
+    &:focus {
+      outline: 1px solid variables.$focus-state-light;
+      outline-offset: -2px;
+    }
   }
 }
 
