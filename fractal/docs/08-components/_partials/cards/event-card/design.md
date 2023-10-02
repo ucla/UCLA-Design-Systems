@@ -27,7 +27,7 @@ For event listings, event cards can create a row. Example shown has 4 across wit
 
 #### Best practices
 
-Image can be a placeholder or event category if photos are not evailable. A variant can have no images if there are never/rarely images available. Tags or categories can be added below description but must have a destination page if linked.
+Image can be a placeholder or event category if photos are not available. A variant can have no images if there are never/rarely images available. Tags or categories can be added below description but must have a destination page if linked.
 
 #### Examples
 
