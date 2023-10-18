@@ -9,7 +9,7 @@ The Design Kit is made in Figma, a cloud-based design tool used for user interfa
 
 For access to the UCLA Design Kit in Figma, you must have a Figma user account. If you don’t have an account, you can sign up at [figma.com](https://www.figma.com).
 
-Anyone may access the [Design Kit Figma file](https://www.figma.com/file/OgAcY27PbncSwY33zvASwp/UCLA-Design-Kit). However, you must request access to the Strategic Communications Team to have access to the library feature. Request access via email at [designsystem@stratcomm.ucla.edu](mailto:designsystem@stratcomm.ucla.edu).
+Once you have a Figma account, you must request file access to use the library feature. Request access via email at [designsystem@stratcomm.ucla.edu](mailto:designsystem@stratcomm.ucla.edu).
 
 For details on what’s new, check the release notes below. For how to get the most out of Figma library features, see the documentation within the Figma file. All updates are pushed to the file automatically.
 
