@@ -107,7 +107,7 @@ To indicate the current page a user is on, simply add a `.ucla-pagination--page-
         </li>
         <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">1</a></li>
         <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">2</a></li>
-        <li class="ucla-pagination--list-item"><a class="ucla-pagination--page ucla-pagination--page--current" href="#">3</a></li>
+        <li class="ucla-pagination--list-item" aria-current="page"><a class="ucla-pagination--page ucla-pagination--page--current" href="#">3</a></li>
         <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#">4</a></li>
         <li class="ucla-pagination--list-item"><a class="ucla-pagination--page" href="#" aria-label="Next">
                 <svg viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +127,7 @@ To indicate the current page a user is on, simply add a `.ucla-pagination--page-
 
 ```html
 <!-- ... -->
-  <li class="ucla-pagination--list-item"><a class="ucla-pagination--page ucla-pagination--page--current" href="#">3</a></li>
+  <li class="ucla-pagination--list-item" aria-current="page"><a class="ucla-pagination--page ucla-pagination--page--current" href="#">3</a></li>
 <!-- ... -->
 ```
 
