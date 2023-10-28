@@ -63,61 +63,61 @@ To add different states to the select menu, a contextual class must be added dep
 
 ##### Warning
 
-Add the `.ucla-is-warning` to the `.ucla-field` element.
+Add the `.ucla-is-warning` to the `.ucla-field` element. For accessibility, it is recommended to provide a helper text with an ID and have the `<select>` element target it with the `aria-describedby` attribute.
 
 <div class="ucla-field ucla-is-warning">
     <label class="ucla-field__label" for="exampleSelectionWarning">Label</label>
-    <select class="ucla-field__select" id="exampleSelectionWarning">
+    <select class="ucla-field__select" id="exampleSelectionWarning" aria-describedby="exampleSelectHelperWarning">
         <option disabled selected>Make a selection</option>
         <option value="Epsum">Epsum factorial non deposit quid</option>
         <option value="Pro">Pro quo hic escorol olypian</option>
         <option value="Et">Et gorilla congolium sic</option>
         <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
     </select>
-    <p class="ucla-field__help">Warning helper text.</p>
+    <p class="ucla-field__help" id="exampleSelectHelperWarning">Warning helper text.</p>
 </div>
 
 ```html
 <div class="ucla-field ucla-is-warning">
     <label class="ucla-field__label" for="exampleSelectionWarning">Label</label>
-    <select class="ucla-field__select" id="exampleSelectionWarning">
+    <select class="ucla-field__select" id="exampleSelectionWarning" aria-describedby="exampleSelectHelperWarning">
         <option disabled selected>Make a selection</option>
         <option value="Epsum">Epsum factorial non deposit quid</option>
         <option value="Pro">Pro quo hic escorol olypian</option>
         <option value="Et">Et gorilla congolium sic</option>
         <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
     </select>
-    <p class="ucla-field__help">Warning helper text.</p>
+    <p class="ucla-field__help" id="exampleSelectHelperWarning">Warning helper text.</p>
 </div>
 ```
 
 ##### Error
 
-Add the `.ucla-is-error` to the `.ucla-field` element.
+Add the `.ucla-is-error` to the `.ucla-field` element. For accessibility, it is recommended to provide a helper text with an ID and have the `<select>` element target it with the `aria-describedby` attribute.
 
 <div class="ucla-field ucla-is-error">
     <label class="ucla-field__label" for="exampleSelectionError">Label</label>
-    <select class="ucla-field__select" id="exampleSelectionError">
+    <select class="ucla-field__select" id="exampleSelectionError" aria-describedby="exampleSelectHelperError">
         <option disabled selected>Make a selection</option>
         <option value="Epsum">Epsum factorial non deposit quid</option>
         <option value="Pro">Pro quo hic escorol olypian</option>
         <option value="Et">Et gorilla congolium sic</option>
         <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
     </select>
-    <p class="ucla-field__help">Error helper text.</p>
+    <p class="ucla-field__help" id="exampleSelectHelperError">Error helper text.</p>
 </div>
 
 ```html
 <div class="ucla-field ucla-is-error">
     <label class="ucla-field__label" for="exampleSelectionError">Label</label>
-    <select class="ucla-field__select" id="exampleSelectionError">
+    <select class="ucla-field__select" id="exampleSelectionError" aria-describedby="exampleSelectHelperError">
         <option disabled selected>Make a selection</option>
         <option value="Epsum">Epsum factorial non deposit quid</option>
         <option value="Pro">Pro quo hic escorol olypian</option>
         <option value="Et">Et gorilla congolium sic</option>
         <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
     </select>
-    <p class="ucla-field__help">Error helper text.</p>
+    <p class="ucla-field__help" id="exampleSelectHelperError">Error helper text.</p>
 </div>
 ```
 
