@@ -34,7 +34,7 @@ To add any validation or helper text, a `.ucla-field` wrapper is needed:
 
 #### States
 
-To add different states to the input, a contextual class must be added depending on the state:
+To add different states to the input, a contextual class must be added depending on the state.  For accessibility, it is recommended to provide a helper text with an ID and have the `<input>` element target it with the `aria-describedby` attribute.
 
 ##### Warning
 
@@ -42,8 +42,8 @@ Add the `.ucla-is-warning` to the `.ucla-field` element.
 
 <div class="ucla-field ucla-is-warning">
     <label class="ucla-field__label" for="exampleWarningField">Label</label>
-    <input class="ucla-field__input" id="exampleWarningField" type="text" placeholder="Text input">
-    <p class="ucla-field__help">Warning helper text</p>
+    <input class="ucla-field__input" id="exampleWarningField" type="text" placeholder="Text input" aria-describedby="exampleWarningHelper">
+    <p class="ucla-field__help" id="exampleWarningHelper">Warning helper text</p>
 </div>
 
 ##### Error
@@ -52,8 +52,8 @@ Add the `.ucla-is-error` to the `.ucla-field` element.
 
 <div class="ucla-field ucla-is-error">
     <label class="ucla-field__label" for="exampleErrorField">Label</label>
-        <input class="ucla-field__input" id="exampleErrorField" type="text" placeholder="Text input">
-    <p class="ucla-field__help">Error helper text</p>
+        <input class="ucla-field__input" id="exampleErrorField" type="text" placeholder="Text input" aria-describedby="exampleErrorHelper">
+    <p class="ucla-field__help" id="exampleErrorHelper">Error helper text</p>
 </div>
 
 ##### Disable
