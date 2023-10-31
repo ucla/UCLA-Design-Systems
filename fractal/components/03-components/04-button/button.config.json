@@ -1,7 +1,6 @@
 {
   "title": "Buttons",
   "status": "ready",
-  "collated": true,
   "variants": [
     {
       "name": "default",
@@ -17,10 +16,10 @@
       "name": "tertiary"
     },
     {
-      "name": "group"
+      "name": "pagination"
     },
     {
-      "name": "pagination"
+      "name": "related-links"
     }
   ]
 }

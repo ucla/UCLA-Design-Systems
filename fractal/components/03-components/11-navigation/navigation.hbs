@@ -1,118 +1,140 @@
-<header class="header">
+<header class="ucla-header ucla-header--college">
 
-  {{ render '@navigation--header-logo' }}
+  {{> @navigation--header-logo }}
 
-  <div class="header-wrap" id="header-wrap">
-    <div class="site-name">
+  <div class="ucla-header__container" id="header-wrap">
+    <div class="ucla-header__site-name">
       <a href="#" title="Department Name" rel="home">Department Name</a>
     </div>
-      {{ render '@navigation--secondary' }} 
-    {{ render '@navigation--hamburger' }}
+      {{> @navigation--secondary-nav }} 
+      {{> @navigation--hamburger }}
      
-      <nav id="nav-main" class="nav-primary" aria-label="Main Menu">
+      <nav aria-labelledby="primary-ham" id="nav-main" class="ucla-main-nav" aria-label="Main Menu">
         
-        <ul class="nav-primary__list">
+        <ul class="ucla-main-nav__list" role="menubar" data-menubar-item-expanded="true">
           
-          <li class="nav-primary__item nav-primary__link--has-children" aria-haspopup="true">
-            <a class="nav-primary__link nav-primary__link--current-page" href="#">Parent Item</a>
-            <button class="nav-primary__toggle" aria-label="toggle">
+          <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
+            <a class="ucla-main-nav__link ucla-main-nav__link--current-page" href="#">Parent Item</a>
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="nav-primary__sublist" aria-expanded="false">
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+            <ul class="ucla-main-nav__sublist">
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link nav-primary__link--current-page" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link ucla-main-nav__link--current-page" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
             </ul>
           </li>
-          <li class="nav-primary__item" aria-haspopup="true">
-            <a class="nav-primary__link" href="#">Nav Item</a>
+          <li class="ucla-main-nav__item" aria-haspopup="true">
+            <a class="ucla-main-nav__link" href="#">Nav Item</a>
           </li>
-          <li class="nav-primary__item nav-primary__link--has-children" aria-haspopup="true">
-            <a class="nav-primary__link" href="#">Parent Item</a>
-            <button class="nav-primary__toggle" aria-label="toggle">
+          <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
+            <a class="ucla-main-nav__link" href="#">Parent Item</a>
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="nav-primary__sublist" aria-expanded="false">
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+            <ul class="ucla-main-nav__sublist">
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item ucla-nav_sublist--has-children">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
+                <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
+                </button>
+                <ul class="ucla-main-nav__sublist" id="third-level">
+                  <li class="ucla-main-nav__item">
+                    <a class="ucla-main-nav__link" href="#">Nav Item</a>
+                  </li>
+                  <li class="ucla-main-nav__item ucla-nav_sublist--has-children">
+                    <a class="ucla-main-nav__link" href="#">Nav Item</a>
+                    <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
+                      <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
+                    </button>
+                    <ul class="ucla-main-nav__sublist" id="forth-level">
+                      <li class="ucla-main-nav__item">
+                        <a class="ucla-main-nav__link" href="#">Nav Item</a>
+                      </li>
+                      <li class="ucla-main-nav__item">
+                        <a class="ucla-main-nav__link" href="#">Nav Item</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
-          <li class="nav-primary__item nav-primary__link--has-children" aria-haspopup="true">
-            <a class="nav-primary__link" href="#">Parent Item</a>
-            <button class="nav-primary__toggle" aria-label="toggle">
+          <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
+            <a class="ucla-main-nav__link" href="#">Parent Item</a>
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="nav-primary__sublist" aria-expanded="false">
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+            <ul class="ucla-main-nav__sublist">
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
             </ul>
           </li>
-          <li class="nav-primary__item nav-primary__link--has-children" aria-haspopup="true">
-            <a class="nav-primary__link" href="#">Parent Item</a>
-            <button class="nav-primary__toggle" aria-label="toggle">
+          <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
+            <a class="ucla-main-nav__link" href="#">Parent Item</a>
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="nav-primary__sublist" aria-expanded="false">
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+            <ul class="ucla-main-nav__sublist">
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
             </ul>
           </li>
-          <li class="nav-primary__item nav-primary__link--has-children" aria-haspopup="true">
-            <a class="nav-primary__link" href="#">Parent Item</a>
-            <button class="nav-primary__toggle" aria-label="toggle">
+          <li class="ucla-main-nav__item ucla-main-nav__item--has-children" aria-haspopup="true">
+            <a class="ucla-main-nav__link" href="#">Parent Item</a>
+            <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
               <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
             </button>
-            <ul class="nav-primary__sublist" aria-expanded="false">
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+            <ul class="ucla-main-nav__sublist">
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
-              <li class="nav-primary__item">
-                <a class="nav-primary__link" href="#">Nav Item</a>
+              <li class="ucla-main-nav__item">
+                <a class="ucla-main-nav__link" href="#">Nav Item</a>
               </li>
             </ul>
           </li>
         </ul>
-        <ul class="nav-secondary__list">
-          <li class="nav-secondary__item">
-            <a class="nav-secondary__link" href="#">Nav Item</a>
+        <ul class="ucla-secondary-nav__list">
+          <li class="ucla-secondary-nav__item">
+            <a class="ucla-secondary-nav__link" href="#">Nav Item</a>
           </li>
-          <li class="nav-secondary__item">
-            <a class="nav-secondary__link" href="#">Nav Item</a>
+          <li class="ucla-secondary-nav__item">
+            <a class="ucla-secondary-nav__link" href="#">Nav Item</a>
           </li>
-          <li class="nav-secondary__item">
-            <a class="nav-secondary__link nav-secondary__link--active" href="#">Nav Item</a>
+          <li class="ucla-secondary-nav__item">
+            <a class="ucla-secondary-nav__link ucla-secondary-nav__link--active" href="#">Nav Item</a>
           </li>
         </ul>
-        <div class="nav-primary__search-desktop" id="primary-nav-search">
-        <button id="search-button" class="nav-primary__search-desktop-button">
-          <svg role="img" aria-label="Search Icon" class="nav-primary__search-icon" width="18px" height="18px"
+        <div class="ucla-main-nav__search-desktop" id="primary-nav-search">
+        <button id="search-button" aria-expanded="false" class="ucla-main-nav__search-desktop-button">
+          <svg role="img" aria-label="Search Icon" class="ucla-main-nav__search-icon" width="18px" height="18px"
             viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <title>Search Icon</title>
@@ -129,22 +151,18 @@
               </g>
             </g>
           </svg>
-          <svg class="nav-primary__search-close" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" xml:space="preserve" viewBox="10 10 28 28"><title>Close</title><path d="M38 12.8 35.2 10 24 21.2 12.8 10 10 12.8 21.2 24 10 35.2l2.8 2.8L24 26.8 35.2 38l2.8-2.8L26.8 24 38 12.8z" fill="#ffffff" fill-rule="evenodd"></path></svg>
+          <svg class="ucla-main-nav__search-close" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" xml:space="preserve" viewBox="10 10 28 28"><title>Close</title><path d="M38 12.8 35.2 10 24 21.2 12.8 10 10 12.8 21.2 24 10 35.2l2.8 2.8L24 26.8 35.2 38l2.8-2.8L26.8 24 38 12.8z" fill="#ffffff" fill-rule="evenodd"></path></svg>
         </button>
-        <div class="nav-primary__search-block-form search-mobile" id="block-search" role="search">
-          <form role="search" method="get" class="nav-primary__search-form" action="#" id="menu-search-desktop">
+        <div class="ucla-main-nav__search-block-form" id="block-search" role="search">
+          <form role="search" method="get" class="ucla-main-nav__search-form" action="#" id="menu-search-desktop">
             <label>
-              <span class="nav-primary__screen-reader-text visuallyhidden">Search for:</span>
-              <input type="search" class="nav-primary__search-field" placeholder="Search …" value="" name="s">
+              <span class="ucla-main-nav__screen-reader-text visuallyhidden">Search for:</span>
+              <input type="search" class="ucla-main-nav__search-field" placeholder="Search …" value="" name="s">
             </label>
-            <input type="submit" class="nav-primary__search-submit" value="Search">
+            <input type="submit" class="ucla-main-nav__search-submit" value="Search">
           </form>
         </div>
       </div>
       </nav>
   </div>
 </header>
-
-<div class="container">
-  {{ render '@grid--twelve' }}
-</div>

@@ -1,6 +1,5 @@
 {
 	"title": "Spacing",
-	"collated": "true",
 	"status": "ready",
 	"variants": [
 		{
@@ -11,12 +10,6 @@
 			"name": "padding",
 			"context": {
 				"order": 2
-			}
-		},
-		{
-			"name": "center",
-			"context": {
-				"order": 3
 			}
 		}
 	]

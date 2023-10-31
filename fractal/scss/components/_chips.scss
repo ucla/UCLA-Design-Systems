@@ -1,0 +1,85 @@
+@use "../utilities/variables";
+
+.ucla-chip {
+  font-size: 0.8rem;
+  line-height: 1.41;
+  font-weight: bold;
+  color: variables.$default-state;
+  border-radius: 20px;
+  border: 2px solid variables.$default-state;
+  padding: 0.375rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    color: variables.$white;
+    background-color: variables.$hover-state;
+    border-color: variables.$hover-state;
+
+    &.ucla-btn--icon-lead,
+    &.ucla-btn--icon-trail {
+      svg path {
+        fill: variables.$white;
+      }
+    }
+  }
+
+  &:not([disabled]):focus {
+    color: variables.$white;
+    background-color: variables.$focus-state;
+    border-color: variables.$focus-state;
+    outline: 1px solid variables.$focus-state;
+    outline-offset: 1px;
+
+    &.ucla-btn--icon-lead,
+    &.ucla-btn--icon-trail {
+      svg path {
+        fill: variables.$white;
+      }
+    }
+  }
+
+  &:active {
+    color: variables.$white;
+    background-color: variables.$active-state;
+    border-color: variables.$active-state;
+
+    &.ucla-btn--icon-lead,
+    &.ucla-btn--icon-trail {
+      svg path {
+        fill: variables.$white;
+      }
+    }
+  }
+
+  &__current {
+    background-color: variables.$lightest-blue;
+    color: variables.$grey-80;
+    border-color: variables.$lightest-blue;
+
+    &.ucla-btn--icon-lead,
+    &.ucla-btn--icon-trail {
+      svg path {
+        fill: variables.$grey-80;
+      }
+    }
+  }
+
+  &.ucla-btn--icon-lead,
+  &.ucla-btn--icon-trail {
+    svg path {
+      fill: variables.$default-state;
+    }
+  }
+  &.ucla-btn--icon-lead svg {
+    margin-right: 11px;
+  }
+  &.ucla-btn--icon-trail svg {
+    margin-left: 11px;
+  }
+
+  & + .ucla-chip {
+    margin-left: 0.75rem;
+  }
+}
