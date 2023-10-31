@@ -8,9 +8,10 @@
       id="exampleTextField"
       type="text"
       placeholder="Text input"
+      aria-describedby="uclaAssistiveText"
     />
   </div>
-  <p class="ucla-field__help">Assistive text goes here</p>
+  <p class="ucla-field__help" id="uclaAssistiveText">Assistive text goes here</p>
 </div>
 
 <h2 class="headline-text__md mb-3">Warning</h2>
@@ -24,11 +25,12 @@
       type="text"
       value="Warning State"
       placeholder="Text input"
+      aria-describedby="uclaWarningText"
     />
   </div>
-  <p class="ucla-field__help">Security is not strong, consider using a password
-    that is over 8 characters with a mix of letters, numbers, and special
-    characters</p>
+  <p class="ucla-field__help" id="uclaWarningText">Security is not strong,
+    consider using a password that is over 8 characters with a mix of letters,
+    numbers, and special characters</p>
 </div>
 
 <h2 class="headline-text__md mb-3">Error</h2>
@@ -42,9 +44,10 @@
       type="text"
       value="Error State"
       placeholder="Text input"
+      aria-describedby="uclaErrorText"
     />
   </div>
-  <p class="ucla-field__help">Your username is invalid.</p>
+  <p class="ucla-field__help" id="uclaErrorText">Your username is invalid.</p>
 </div>
 
 <h2 class="headline-text__md mb-3">Disabled</h2>

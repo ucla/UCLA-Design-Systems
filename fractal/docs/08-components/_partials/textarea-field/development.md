@@ -17,21 +17,21 @@ To add any validation or helper text, a `.ucla-field` wrapper is needed:
 
 <div class="ucla-field">
   <label class="ucla-field__label" for="exampleTextarea2">Label</label>
-  <textarea class="ucla-field__textarea" id="exampleTextarea2" placeholder="Textarea"></textarea>
-  <p class="ucla-field__help">Assistive text goes here</p>
+  <textarea class="ucla-field__textarea" id="exampleTextarea2" placeholder="Textarea" aria-describedby="exampleAssistHelper"></textarea>
+  <p class="ucla-field__help" id="exampleAssistHelper">Assistive text goes here</p>
 </div>
 
 ```html
 <div class="ucla-field">
   <label class="ucla-field__label" for="exampleTextarea">Label</label>
-  <textarea class="ucla-field__textarea" id="exampleTextarea" placeholder="Textarea"></textarea>
-  <p class="ucla-field__help">Assistive text goes here</p>
+  <textarea class="ucla-field__textarea" id="exampleTextarea" placeholder="Textarea" aria-describedby="exampleAssistHelper"></textarea>
+  <p class="ucla-field__help" id="exampleAssistHelper">Assistive text goes here</p>
 </div>
 ```
 
 #### States
 
-To add different states to the textarea, a contextual class must be added depending on the state:
+To add different states to the textarea, a contextual class must be added depending on the state. For accessibility, it is recommended to provide a helper text with an ID and have the `<textarea>` element target it with the `aria-describedby` attribute.
 
 ##### Warning
 
@@ -39,15 +39,15 @@ Add the `.ucla-is-warning` to the `.ucla-field` element.
 
 <div class="ucla-field ucla-is-warning">
   <label class="ucla-field__label" for="exampleWarningTextarea">Label</label>
-  <textarea class="ucla-field__textarea" id="exampleWarningTextarea" placeholder="Textarea"></textarea>
-  <p class="ucla-field__help">Warning helper text</p>
+  <textarea class="ucla-field__textarea" id="exampleWarningTextarea" placeholder="Textarea" aria-describedby="exampleWarningHelper"></textarea>
+  <p class="ucla-field__help" id="exampleWarningHelper">Warning helper text</p>
 </div>
 
 ```html
 <div class="ucla-field ucla-is-warning">
   <label class="ucla-field__label" for="exampleWarningTextarea">Label</label>
-  <textarea class="ucla-field__textarea" id="exampleWarningTextarea" placeholder="Textarea"></textarea>
-  <p class="ucla-field__help">Warning helper text</p>
+  <textarea class="ucla-field__textarea" id="exampleWarningTextarea" placeholder="Textarea" aria-describedby="exampleWarningHelper"></textarea>
+  <p class="ucla-field__help" id="exampleWarningHelper">Warning helper text</p>
 </div>
 ```
 
@@ -57,17 +57,17 @@ Add the `.ucla-is-error` to the `.ucla-field` element.
 
 <div class="ucla-field ucla-is-error">
   <label class="ucla-field__label" for="exampleErrorTextarea">Label</label>
-  <textarea class="ucla-field__textarea" id="exampleErrorTextarea" placeholder="Textarea"></textarea>
-  <p class="ucla-field__help">Error helper text</p>
+  <textarea class="ucla-field__textarea" id="exampleErrorTextarea" placeholder="Textarea" aria-describedby="exampleErrorHelper"></textarea>
+  <p class="ucla-field__help" id="exampleErrorHelper">Error helper text</p>
 </div>
 
 ```html
 <div class="ucla-field ucla-is-error">
   <label class="ucla-field__label" for="exampleErrorTextarea">Label</label>
   <div class="ucla-field__control">
-      <textarea class="ucla-field__textarea" id="exampleErrorTextarea" placeholder="Textarea"></textarea>
+      <textarea class="ucla-field__textarea" id="exampleErrorTextarea" placeholder="Textarea" aria-describedby="exampleErrorHelper"></textarea>
   </div>
-  <p class="ucla-field__help">Error helper text</p>
+  <p class="ucla-field__help" id="exampleErrorHelper">Error helper text</p>
 </div>
 ```
 

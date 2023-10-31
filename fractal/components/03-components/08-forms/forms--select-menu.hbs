@@ -3,7 +3,11 @@
 <div class="ucla-field">
   <label class="ucla-field__label" for="exampleSelection">Label</label>
   <div class="ucla-field__control">
-    <select class="ucla-field__select" id="exampleSelection">
+    <select
+      class="ucla-field__select"
+      id="exampleSelection"
+      aria-describedby="uclaAssistSelect"
+    >
       <option disabled selected>Make a selection</option>
       <option value="Epsum">Epsum factorial non deposit quid</option>
       <option value="Pro">Pro quo hic escorol olypian</option>
@@ -11,13 +15,17 @@
       <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
     </select>
   </div>
-  <p class="ucla-field__help">This is a help text.</p>
+  <p class="ucla-field__help" id="uclaAssistSelect">This is a help text.</p>
 </div>
 <h2 class="headline-text__md mb-3">Warning</h2>
 <div class="ucla-field ucla-is-warning">
   <label class="ucla-field__label" for="exampleSelectionWarning">Label</label>
   <div class="ucla-field__control">
-    <select class="ucla-field__select" id="exampleSelectionWarning">
+    <select
+      class="ucla-field__select"
+      id="exampleSelectionWarning"
+      aria-describedby="uclaWarningSelect"
+    >
       <option disabled selected>Make a selection</option>
       <option value="Epsum">Epsum factorial non deposit quid</option>
       <option value="Pro">Pro quo hic escorol olypian</option>
@@ -25,13 +33,17 @@
       <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
     </select>
   </div>
-  <p class="ucla-field__help">This is a help text.</p>
+  <p class="ucla-field__help" id="uclaWarningSelect">This is a help text.</p>
 </div>
 <h2 class="headline-text__md mb-3">Error</h2>
 <div class="ucla-field ucla-is-error">
   <label class="ucla-field__label" for="exampleSelectionError">Label</label>
   <div class="ucla-field__control">
-    <select class="ucla-field__select" id="exampleSelectionError">
+    <select
+      class="ucla-field__select"
+      id="exampleSelectionError"
+      aria-describedby="uclaErrorSelect"
+    >
       <option disabled selected>Make a selection</option>
       <option value="Epsum">Epsum factorial non deposit quid</option>
       <option value="Pro">Pro quo hic escorol olypian</option>
@@ -39,7 +51,7 @@
       <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
     </select>
   </div>
-  <p class="ucla-field__help">This is a help text.</p>
+  <p class="ucla-field__help" id="uclaErrorSelect">This is a help text.</p>
 </div>
 
 <h2 class="headline-text__md mb-3">Disabled</h2>

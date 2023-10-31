@@ -164,7 +164,7 @@ code {
 [dir=ltr] .Prose1 h4:not([class]) {
   margin-top: 3rem;
 }
-[dir=ltr] .Prose1 img {
+[dir=ltr] .Prose1 img:not(.ucla-alert--icon) {
   margin-top: 1rem;
 }
 [dir=ltr] .Prose1 blockquote {
