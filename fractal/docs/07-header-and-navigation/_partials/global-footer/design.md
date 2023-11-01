@@ -20,7 +20,7 @@ The global footer ends a page and is placed below the department footer.
   - Links to https://bso.ucla.edu
 
 **4. Accessibility Link (required)**
-  - Links to https://www.ucla.eru/accessibility
+  - Links to https://www.ucla.edu/accessibility
 
 **5. Report Misconduct Link (required)**
   - Links to https://ucla-gme-advocate.symplicity.com/public_report/index.php/pid586592?
