@@ -75,3 +75,15 @@ If you need an image to be a certain aspect ratio, you'll need to wrap the image
   <img src="image.jpg" alt="Description of the image" />
 </figure>
 ```
+
+The `.ucla-img-ratio` also works for embeds if a specific aspect ratio is needed.
+
+<figure class="ucla-img-ratio ucla-img-ratio-16x9">
+  <iframe src="https://www.youtube.com/embed/-WwgWBDBI0I?si=ZVhE_jGjHrwnjm5U" title="YouTube video player" frameborder="0"></iframe>
+</figure>
+
+```html
+<figure class="ucla-img-ratio ucla-img-ratio-16x9">
+  <iframe src="https://www.youtube.com/embed/-WwgWBDBI0I?si=ZVhE_jGjHrwnjm5U" title="YouTube video player" frameborder="0"></iframe>
+</figure>
+```
