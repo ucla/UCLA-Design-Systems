@@ -60,6 +60,7 @@
 
   & > svg {
     margin-left: auto;
+    min-width: 24px;
 
     & > path {
       fill: variables.$default-state;
