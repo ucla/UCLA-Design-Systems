@@ -30,7 +30,7 @@ The quote banner uses a solid-color background with a contained width content. Y
             <div class="ucla">
                 <div class="col span_10_of_12" style="margin: 0 auto;">
                     <div class="ucla-banner__quote-body">
-                        <img class="ucla-banner__quote-image" src="/theme-assets/img/examples/person-card-gene.jpg" />
+                        <img class="ucla-banner__quote-image" src="/theme-assets/img/examples/person-card-gene.jpg" alt="Gene Block" />
                         <div class="ucla-banner__quote-content">
                             <figure>
                                 <blockquote cite="https://www.ucla.edu">
@@ -57,7 +57,7 @@ The quote banner uses a solid-color background with a contained width content. Y
         <div class="ucla">
             <div class="col span_10_of_12" style="margin: 0 auto;">
                 <div class="ucla-banner__quote-body">
-                    <img class="ucla-banner__quote-image" src="image.jpg" />
+                    <img class="ucla-banner__quote-image" src="image.jpg" alt="John Doe" />
                     <div class="ucla-banner__quote-content">
                         <figure>
                             <blockquote cite="https://www.ucla.edu">
@@ -94,7 +94,7 @@ If you are in a container, you are able to add in a full-width quote banner with
             <div class="ucla">
                 <div class="col span_10_of_12" style="margin: 0 auto;">
                     <div class="ucla-banner__quote-body">
-                        <img class="ucla-banner__quote-image" src="image.jpg" />
+                        <img class="ucla-banner__quote-image" src="image.jpg" alt="John Doe" />
                         <div class="ucla-banner__quote-content">
                             <figure>
                                 <blockquote cite="https://www.ucla.edu">
