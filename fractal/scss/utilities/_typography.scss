@@ -21,16 +21,20 @@ body {
   line-height: 1.5;
 
   h1 {
-    font-size: variables.$text-xl;
+    font-size: clamp(
+      variables.$text-lg,
+      0.991rem + 2.626vw,
+      variables.$text-xl
+    );
   }
   h2 {
-    font-size: variables.$text-lg;
+    font-size: clamp(1.75rem, 0.911rem + 1.751vw, variables.$text-lg);
   }
   h3 {
-    font-size: variables.$text-md;
+    font-size: clamp(variables.$text-sm, 0.83rem + 0.875vw, variables.$text-md);
   }
   h4 {
-    font-size: variables.$text-sm;
+    font-size: clamp(1.125rem, 0.915rem + 0.438vw, variables.$text-sm);
   }
   h5 {
     font-size: variables.$text-base;
@@ -64,12 +68,8 @@ p {
   line-height: 1.5;
 
   &.lead {
-    font-size: 1.25rem;
+    font-size: clamp(variables.$text-sm, 0.83rem + 0.875vw, variables.$text-md);
     line-height: 1.2;
-
-    @include mixins.for-size(tablet-up) {
-      font-size: 1.5rem;
-    }
   }
 }
 
@@ -159,27 +159,33 @@ code {
 
 // Title & Headline
 
-.headline-text__xl {
-  font-size: variables.$text-xl;
+.headline-text__xl,
+h1 {
+  font-size: clamp(variables.$text-lg, 0.991rem + 2.626vw, variables.$text-xl);
 }
 
-.headline-text__lg {
-  font-size: variables.$text-lg;
+.headline-text__lg,
+h2 {
+  font-size: clamp(1.75rem, 0.911rem + 1.751vw, variables.$text-lg);
 }
 
-.headline-text__md {
-  font-size: variables.$text-md;
+.headline-text__md,
+h3 {
+  font-size: clamp(variables.$text-sm, 0.83rem + 0.875vw, variables.$text-md);
 }
 
-.headline-text {
+.headline-text,
+h5 {
   font-size: variables.$text-base;
 }
 
-.headline-text__sm {
-  font-size: variables.$text-sm;
+.headline-text__sm,
+h4 {
+  font-size: clamp(1.125rem, 0.915rem + 0.438vw, variables.$text-sm);
 }
 
-.headline-text__xs {
+.headline-text__xs,
+h6 {
   font-size: variables.$text-xs;
 }
 
@@ -188,7 +194,13 @@ code {
 .headline-text__md,
 .headline-text,
 .headline-text__sm,
-.headline-text__xs {
+.headline-text__xs,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
   line-height: 1.125;
 }

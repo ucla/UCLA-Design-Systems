@@ -1,30 +1,46 @@
 ---
 handle: typography-development
 ---
-**Note: For accessibility purposes, we recommend that you do not use heading tags (`<h1>`, `<h2>`, ... , `<h6>`) for changing font sizes. Instead, we are providing these classes for font sizes:**
+**Note: For accessibility purposes, we recommend that you follow the W3C standards (`<h1>`, `<h2>`, ... , `<h6>`) for heading ranks. CSS classes for heading font sizes are available if you need to match the font styling of a heading:**
 
 {{render '@typography--headline-extra-large'}}
 
 ```html
 {{render '@typography--headline-extra-large'}}
+
+<!-- or -->
+
+<h1>Headline Extra Large</h1>
 ```
 
 {{render '@typography--headline-large'}}
 
 ```html
 {{render '@typography--headline-large'}}
+
+<!-- or -->
+
+<h2>Headline Large</h2>
 ```
 
 {{render '@typography--headline-medium'}}
 
 ```html
 {{render '@typography--headline-medium'}}
+
+<!-- or -->
+
+<h3>Headline Medium</h3>
 ```
 
 {{render '@typography--headline-small'}}
 
 ```html
 {{render '@typography--headline-small'}}
+
+<!-- or -->
+
+<h4>Headline Small</h4>
 ```
 
 #### Body Copy
