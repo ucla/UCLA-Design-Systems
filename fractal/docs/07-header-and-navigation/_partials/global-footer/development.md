@@ -19,7 +19,7 @@ The copyright text is a `<p>` text with a link to http://www.universityofcalifor
 
 ```html
 <!-- ... -->
-<p class="ucla-global-footer__copyright">&copy; 2022 Regents of the <a class="copy__link-a dark" href="http://www.universityofcalifornia.edu/">University of California</a></p>
+<p class="ucla-global-footer__copyright">&copy; 2023 Regents of the <a class="copy__link-a dark" href="http://www.universityofcalifornia.edu/">University of California</a></p>
 <!-- ... -->
 ```
 
@@ -35,7 +35,7 @@ The emergency links is a simple inline navigation list. To build it, simply foll
 <!-- ... -->
 <ul class="ucla-global-footer__list">
     <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="https://www.bso.ucla.edu/">Emergency</a></li>
-    <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="/accessibility">Accessibility</a></li>
+    <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="https://www.ucla.edu/accessibility">Accessibility</a></li>
     <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="https://ucla-gme-advocate.symplicity.com/public_report/index.php/pid855869">Report Misconduct</a></li>
     <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="/terms-of-use/">Privacy &amp; Terms of Use</a></li>
 </ul>
