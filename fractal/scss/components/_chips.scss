@@ -29,8 +29,8 @@
     color: variables.$white;
     background-color: variables.$focus-state;
     border-color: variables.$focus-state;
-    outline: 1px solid variables.$focus-state;
-    outline-offset: 1px;
+    outline: 2px solid variables.$focus-state;
+    outline-offset: 2px;
 
     &.ucla-btn--icon-lead,
     &.ucla-btn--icon-trail {

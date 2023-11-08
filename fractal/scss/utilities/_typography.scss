@@ -86,7 +86,8 @@ a:not([class]) {
     background-color: variables.$hover-state;
   }
   &:focus {
-    outline: 1px solid variables.$focus-state;
+    outline: 2px solid variables.$focus-state;
+    outline-offset: 2px;
   }
   &:active {
     color: variables.$active-state;

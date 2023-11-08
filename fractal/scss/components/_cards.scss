@@ -63,8 +63,7 @@
       color: variables.$default-state;
       margin-bottom: 1rem;
 
-      &:hover,
-      &:focus {
+      &:hover {
         color: variables.$hover-state;
       }
       &:active {

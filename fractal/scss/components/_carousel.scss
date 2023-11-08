@@ -19,10 +19,9 @@
     &:hover {
       background: variables.$hover-state;
     }
-
-    &:focus {
-      outline: 1px solid variables.$focus-state;
-      outline-offset: 1px;
-    }
+  }
+  &.is-focus-in .ucla-carousel__page:focus {
+    outline: 2px solid variables.$focus-state;
+    outline-offset: 2px;
   }
 }
