@@ -1,14 +1,19 @@
 @use "../../utilities/variables";
+@use "../../utilities/mixins";
 
 .ucla-field__radio-label {
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
   position: relative;
   line-height: 1.5;
+  display: flex;
 
   & + .ucla-field__radio-label {
-    margin-left: 1.5rem;
+    margin-left: 0;
+    margin-top: 1.25rem;
+    @include mixins.for-size(tablet-up) {
+      margin-top: 0;
+      margin-left: 2rem;
+    }
   }
 
   &[disabled] {
@@ -69,6 +74,11 @@
     &.ucla-is-error {
       border: 2px solid variables.$error-red;
     }
+  }
+
+  @include mixins.for-size(tablet-up) {
+    display: inline-flex;
+    align-items: center;
   }
 }
 
