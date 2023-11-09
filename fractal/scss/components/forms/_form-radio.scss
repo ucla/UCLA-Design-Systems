@@ -8,7 +8,7 @@
   line-height: 1.5;
 
   & + .ucla-field__radio-label {
-    margin-left: 0.5em;
+    margin-left: 1.5rem;
   }
 
   &[disabled] {
@@ -69,5 +69,15 @@
     &.ucla-is-error {
       border: 2px solid variables.$error-red;
     }
+  }
+}
+
+.ucla-field__radio-vertical {
+  display: flex;
+  flex-direction: column;
+
+  .ucla-field__radio-label + .ucla-field__radio-label {
+    margin-left: 0;
+    margin-top: 1.25rem;
   }
 }
