@@ -17,7 +17,7 @@
       background-color: variables.$hover-state-light;
     }
     &:focus {
-      outline: 1px solid variables.$focus-state-light;
+      outline: 2px solid variables.$focus-state-light;
     }
     &:active {
       color: variables.$active-state-light;
@@ -131,8 +131,8 @@
     }
 
     &:focus {
-      outline: 1px solid variables.$focus-state-light;
-      outline-offset: -2px;
+      outline: 2px solid variables.$focus-state-light;
+      outline-offset: 2px;
     }
   }
 }
@@ -195,7 +195,7 @@
       background-color: variables.$hover-state-light;
     }
     &:focus {
-      outline: 1px solid variables.$focus-state-light;
+      outline: 2px solid variables.$focus-state-light;
     }
     &:active {
       color: variables.$active-state-light;

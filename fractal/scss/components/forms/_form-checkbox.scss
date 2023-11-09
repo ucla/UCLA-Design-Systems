@@ -1,11 +1,21 @@
 @use "../../utilities/variables";
+@use "../../utilities/mixins";
 
 .ucla-field__checkbox-label {
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   position: relative;
   line-height: 1.5;
+
+  & + .ucla-field__checkbox-label {
+    margin-left: 0;
+    margin-top: 1.25rem;
+    @include mixins.for-size(tablet-up) {
+      margin-top: 0;
+      margin-left: 2rem;
+    }
+  }
 
   &[disabled] {
     color: variables.$disabled-state;
@@ -67,5 +77,20 @@
     .ucla-field__checkbox {
       border: 2px solid variables.$warning-orange;
     }
+  }
+  
+  @include mixins.for-size(tablet-up) {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.ucla-field__checkbox-vertical {
+  display: flex;
+  flex-direction: column;
+
+  .ucla-field__checkbox-label + .ucla-field__checkbox-label {
+    margin-left: 0;
+    margin-top: 1.25rem;
   }
 }

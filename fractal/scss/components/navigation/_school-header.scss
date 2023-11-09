@@ -21,6 +21,11 @@
         height: 3.563rem;
       }
     }
+
+    &:focus {
+      outline: 2px solid variables.$focus-state;
+      outline-offset: 2px;
+    }
   }
 
   &__site-title-link {
@@ -31,6 +36,8 @@
     overflow-wrap: break-word;
     text-decoration: none;
     color: variables.$grey-80;
+    padding-top: 2px;
+    padding-bottom: 2px;
 
     &:hover {
       color: variables.$hover-state;
@@ -38,6 +45,8 @@
 
     &:focus {
       color: variables.$focus-state;
+      outline: 2px solid variables.$focus-state;
+      outline-offset: 2px;
     }
 
     @include mixins.for-size(phone-only) {
@@ -47,6 +56,8 @@
     @include mixins.for-size(tablet-up) {
       margin-left: 0.625rem;
       font-size: 2rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
     }
   }
 
