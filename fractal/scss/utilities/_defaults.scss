@@ -37,7 +37,7 @@ input:not([disabled]):focus,
 select:not([disabled]):focus,
 textarea:not([disabled]):focus {
   outline: 2px solid variables.$focus-state;
-  outline-offset: -2px;
+  outline-offset: 2px;
 }
 
 [contentEditable="true"]:focus,
@@ -45,5 +45,5 @@ textarea:not([disabled]):focus {
 [tabindex]:focus,
 iframe:focus {
   outline: 2px solid variables.$focus-state;
-  outline-offset: -2px;
+  outline-offset: 2px;
 }

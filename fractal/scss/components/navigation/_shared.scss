@@ -192,6 +192,10 @@
     }
   }
 
+  &:not([disabled]):focus {
+    outline-offset: 0;
+  }
+
   .ucla-main-nav__search-close {
     display: none;
   }
@@ -295,6 +299,10 @@
 
   &--current-page {
     border-color: variables.$ucla-gold;
+  }
+
+  &:focus {
+    outline-offset: 0px;
   }
 
   &:visited {

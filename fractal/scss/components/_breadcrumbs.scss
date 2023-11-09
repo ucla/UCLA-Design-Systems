@@ -25,7 +25,7 @@
     }
 
     &:focus {
-      outline: 1px solid variables.$focus-state;
+      outline: 2px solid variables.$focus-state;
       color: variables.$focus-state;
     }
   }
