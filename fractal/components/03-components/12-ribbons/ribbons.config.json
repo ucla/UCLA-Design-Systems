@@ -1,7 +1,6 @@
 {
 	"title": "Ribbons",
   "status": "ready",
-  "collated": true,
   "variants": [
     {
       "name": "default",

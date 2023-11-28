@@ -1,0 +1,27 @@
+@use "../utilities/variables";
+
+.ucla-carousel {
+  .ucla-carousel__pagination {
+    position: unset;
+  }
+  .ucla-carousel__page {
+    background: variables.$grey-20;
+    width: 10px;
+    height: 10px;
+    opacity: unset;
+
+    &.is-active {
+      background: variables.$active-state;
+      scale: unset;
+      transform: unset;
+    }
+
+    &:hover {
+      background: variables.$hover-state;
+    }
+  }
+  &.is-focus-in .ucla-carousel__page:focus {
+    outline: 2px solid variables.$focus-state;
+    outline-offset: 2px;
+  }
+}

@@ -1,41 +1,59 @@
-<div class="fixed-table">
-  <div class="fixed-table__scroller">
-      <table class="fixed-table__wrapper">
-          <thead>
-              <tr>
-                <th class="fixed-table__sticky-col">Column One Title</th>
-                <th>Column Two Title</th>
-                <th>Column Three Title</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td class="fixed-table__sticky-col">First Row Title</td>
-                <td>First row second column info.</td>
-                <td>First row third column info.</td>
-              </tr>
-              <tr>
-                <td class="fixed-table__sticky-col">Second Row Title</td>
-                <td>Second row second column info.</td>
-                <td>Second row third column info.</td>
-              </tr>
-              <tfoot>
-                <tr class="blue-total">
-                  <td class="fixed-table__sticky-col">Third Row Title - Blue Total Row</td>
-                  <td>Third row second column info + Blue Total Row</td>
-                  <td>Third row third column info + Blue Total Row</td>
-                </tr>
-                <tr class="yellow-total">
-                  <td class="fixed-table__sticky-col">Total Example - Yellow Total Row</td>
-                  <td>99,999 - Yellow Total Row</td>
-                  <td>99,999 - Yellow Total Row</td>
-                </tr>
-              </tfoot>
-          </tbody>
-      </table>
-  </div>
-</div>
-<h3 class="my-24">Right Aligned</h3>
-{{ render '@table--right' }}
-<h3 class="my-24">Sort</h3>
-{{ render '@table--sort' }}
+<table class="ucla-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Title</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Footer</th>
+      <th>Footer</th>
+      <th>Footer</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td><strong>Lorem Ipsum</strong></td>
+      <td>dolor sit amet</td>
+      <td>consectetur adipiscing elit</td>
+
+    </tr>
+    <tr>
+      <td>Nulla et malesuada</td>
+      <td>Proin eu mattis justo</td>
+      <td>Nulla cursus augue elementum</td>
+    </tr>
+    <tr class="ucla-is-gold">
+      <td>Lorem Ipsum</td>
+      <td>dolor sit amet</td>
+      <td>consectetur adipiscing elit</td>
+    </tr>
+    <tr class="ucla-is-blue">
+      <td>Nulla et malesuada</td>
+      <td>Proin eu mattis justo</td>
+      <td>Nulla cursus augue elementum</td>
+    </tr>
+    <tr>
+      <td>Lorem Ipsum</td>
+      <td>dolor sit amet</td>
+      <td>consectetur adipiscing elit</td>
+    </tr>
+    <tr>
+      <td>Nulla et malesuada</td>
+      <td>Proin eu mattis justo</td>
+      <td>Nulla cursus augue elementum</td>
+    </tr>
+    <tr>
+      <td>Lorem Ipsum</td>
+      <td>dolor sit amet</td>
+      <td>consectetur adipiscing elit</td>
+    </tr>
+    <tr>
+      <td>Nulla et malesuada</td>
+      <td>Proin eu mattis justo</td>
+      <td>Nulla cursus augue elementum</td>
+    </tr>
+  </tbody>
+</table>

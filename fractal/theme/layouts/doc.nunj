@@ -1,0 +1,28 @@
+{% extends "layouts/pjax.nunj" if request.isPjax else 
+    "layouts/frame.nunj" %}
+{% import "macros/status.nunj" as stupid %}
+
+{% set stupid = stupid.data(doc.status) %}
+
+{% block content %}
+
+    <div class="Document">
+
+        <div class="Document-header{% if stupid %}{{ stupid }}{% endif %}">
+
+            {% block docHeader %}
+                <h1 class="headline-text__lg">{{ page.title }}</h1>
+                {% if status %}{{ status }}
+                {% endif %}
+            {% endblock %}
+        </div>
+
+        <div class="Document-content ucla-content">
+
+            {% block docContent %}{% endblock %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

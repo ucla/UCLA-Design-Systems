@@ -1,0 +1,27 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{path '/css/ucla-lib.css'}}" />
+    <title>Preview</title>
+    <style>
+      .example-content { background-color: #757575; border-radius: 4px;
+      text-align: center; color: #fff; padding: 1.25rem 0; margin: 0; }
+      .example-content--highlight { background-color: #2774ae; }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="ucla">
+        <aside class="col span_12_of_12 span_3_of_12-lg">
+          {{{yield}}}
+        </aside>
+        <div class="col span_12_of_12 span_9_of_12-lg">
+          <p class="example-content">Auto</p>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,7 +1,6 @@
-require("./vendor/carousel.js");
 require("./navigation");
+require("./carousel");
+require("./alert.js");
 require("./accordion.js");
-require("./form.js");
-require("./grid.js");
 require("./table.js");
 require("./tabs.js");

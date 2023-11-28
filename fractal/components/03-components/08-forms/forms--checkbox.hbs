@@ -1,5 +1,118 @@
-<h2 class="mt-24">Checkbox Input</h2>
-<div class="checkbox" style="margin-left: 10px; margin-top: 10px;">
-  <input type="checkbox" class="checkbox__input" name="example_checkbox"/>
-  <label class="checkbox__label" for="example_checkbox">Textbox label</label>
+{{!-- <h2 class="headline-text__md mb-3">Default</h2>
+<div class="ucla-field">
+  <div class="ucla-field__control">
+    <label class="ucla-field__checkbox-label" for="exampleCheckbox">
+      <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckbox"/>
+      Remember Me
+    </label>
+  </div>
 </div>
+<h2 class="headline-text__md mb-3">Warning</h2>
+<div class="ucla-field ucla-is-warning">
+  <div class="ucla-field__control">
+    <label class="ucla-field__checkbox-label" for="exampleCheckboxWarning">
+      <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxWarning"/>
+      Remember Me
+    </label>
+  </div>
+</div>
+<h2 class="headline-text__md mb-3">Error</h2>
+<div class="ucla-field ucla-is-error">
+  <div class="ucla-field__control">
+    <label class="ucla-field__checkbox-label" for="exampleCheckboxError">
+      <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxError"/>
+      Remember Me
+    </label>
+  </div>
+</div>
+<h2 class="headline-text__md mb-3">Disabled</h2>
+<div class="ucla-field">
+  <div class="ucla-field__control">
+    <label class="ucla-field__checkbox-label" for="exampleCheckboxDisabled" disabled>
+      <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxDisabled" disabled/>
+      Remember Me
+    </label>
+  </div>
+</div> --}}
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Checkbox (default)</legend>
+    <div class="ucla-field">
+      <div class="ucla-field__control">
+        <label class="ucla-field__checkbox-label" for="exampleCheckbox">
+          <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckbox"/>
+          Remember Me
+        </label>
+      </div>
+    </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Checkbox (default horizontal)</legend>
+    <div class="ucla-field">
+      <div class="ucla-field__control">
+        <label class="ucla-field__checkbox-label" for="exampleCheckboxInline1">
+          <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxInline1"/>
+          Checkbox 1
+        </label>
+        <label class="ucla-field__checkbox-label" for="exampleCheckboxInline2">
+          <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxInline2"/>
+          Checkbox 2
+        </label>
+      </div>
+    </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Checkbox (default vertical)</legend>
+    <div class="ucla-field">
+      <div class="ucla-field__control ucla-field__checkbox-vertical">
+        <label class="ucla-field__checkbox-label" for="exampleCheckboxList1">
+          <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxList1"/>
+          Checkbox 1
+        </label>
+        <label class="ucla-field__checkbox-label" for="exampleCheckboxList2">
+          <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxList2"/>
+          Checkbox 2
+        </label>
+      </div>
+    </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Checkbox (warning)</legend>
+    <div class="ucla-field ucla-is-warning" aria-describedby="uclaCheckboxWarning">
+      <div class="ucla-field__control">
+        <label class="ucla-field__checkbox-label" for="exampleCheckboxWarning">
+          <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxWarning"/>
+          Remember Me
+        </label>
+      </div>
+      <p class="ucla-field__help ucla-field__radio-checkbox-help-has-icon" id="uclaCheckboxWarning">You must choose a selection</p>
+    </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Checkbox (error)</legend>
+    <div class="ucla-field ucla-is-error" aria-describedby="uclaCheckboxError">
+      <div class="ucla-field__control">
+        <label class="ucla-field__checkbox-label" for="exampleCheckboxError">
+          <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxError"/>
+          Remember Me
+        </label>
+      </div>
+      <p class="ucla-field__help ucla-field__radio-checkbox-help-has-icon" id="uclaCheckboxError">You must choose a selection</p>
+    </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Checkbox (disabled)</legend>
+    <div class="ucla-field">
+      <div class="ucla-field__control">
+        <label class="ucla-field__checkbox-label" for="exampleCheckboxDisabled" disabled>
+          <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxDisabled" disabled/>
+          Remember Me
+        </label>
+      </div>
+    </div> 
+</fieldset>

@@ -1,0 +1,51 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+.ucla-tile {
+  background-color: variables.$default-state;
+  color: variables.$white;
+  display: inline-block;
+  position: relative;
+  padding: 1.5rem;
+
+  @include mixins.for-size(desktop-up) {
+    padding: 2rem;
+  }
+
+  &::before {
+    content: "";
+    width: 2.5rem;
+    height: 4px;
+    background-color: variables.$ucla-gold;
+    display: block;
+    margin-bottom: 1rem;
+    @include mixins.for-size(desktop-up) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .ucla-tile__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    color: inherit;
+
+    @include mixins.for-size(desktop-up) {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &:hover {
+    background-color: variables.$hover-state;
+  }
+  &:focus {
+    background-color: variables.$focus-state;
+    outline: 2px solid variables.$focus-state;
+    outline-offset: 2px;
+  }
+  &:active {
+    background-color: variables.$active-state;
+  }
+}

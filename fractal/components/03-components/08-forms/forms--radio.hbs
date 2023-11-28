@@ -1,7 +1,134 @@
-<h2 class="mt-24">Radio Input</h2>
-<div class="radio" style="margin-left: 5px">
-  <input class="radio__input" type="radio" name="radio" value="radio1">
-  <label class="radio__label" for="">Radio 1</label>
-  <input class="radio__input" type="radio" name="radio" value="radio2">
-  <label class="radio__label" for="">Radio 2</label>
+{{!-- <h2 class="headline-text__md mb-3">Default</h2>
+<div class="ucla-field">
+  <div class="ucla-field__control">
+    <label class="ucla-field__radio-label" for="exampleRadio1">
+        <input id="exampleRadio1" class="ucla-field__radio" type="radio" name="radio" value="radio1">
+        Radio 1
+      </label>
+      <label class="ucla-field__radio-label" for="exampleRadio2">
+        <input id="exampleRadio2" class="ucla-field__radio" type="radio" name="radio" value="radio2">
+        Radio 2
+      </label>
+  </div>
 </div>
+<h2 class="headline-text__md mb-3">Warning</h2>
+<div class="ucla-field ucla-is-warning">
+  <div class="ucla-field__control">
+    <label class="ucla-field__radio-label" for="exampleRadioWarning1">
+        <input id="exampleRadioWarning1" class="ucla-field__radio" type="radio" name="radio-warning" value="radio1">
+        Radio 1
+      </label>
+      <label class="ucla-field__radio-label" for="exampleRadioWarning2">
+        <input id="exampleRadioWarning2" class="ucla-field__radio" type="radio" name="radio-warning" value="radio2">
+        Radio 2
+      </label>
+  </div>
+</div>
+<h2 class="headline-text__md mb-3">Error</h2>
+<div class="ucla-field ucla-is-error">
+  <div class="ucla-field__control">
+    <label class="ucla-field__radio-label" for="exampleRadioError1">
+        <input id="exampleRadioError1" class="ucla-field__radio" type="radio" name="radio-error" value="radio1">
+        Radio 1
+      </label>
+      <label class="ucla-field__radio-label" for="exampleRadioError2">
+        <input id="exampleRadioError2" class="ucla-field__radio" type="radio" name="radio-error" value="radio2">
+        Radio 2
+      </label>
+  </div>
+</div>
+<h2 class="headline-text__md mb-3">Disabled</h2>
+<div class="ucla-field">
+  <div class="ucla-field__control">
+    <label class="ucla-field__radio-label" for="exampleRadioDisabled1" disabled>
+        <input id="exampleRadioDisabled1" class="ucla-field__radio" type="radio" name="radio-disabled" value="radio1" disabled>
+        Radio 1
+      </label>
+      <label class="ucla-field__radio-label" for="exampleRadioDisabled2" disabled>
+        <input id="exampleRadioDisabled2" class="ucla-field__radio" type="radio" name="radio-disabled" value="radio2" disabled>
+        Radio 2
+      </label>
+  </div>
+</div> --}}
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Radio input (default)</legend>
+    <div class="ucla-field">
+      <div class="ucla-field__control">
+        <label class="ucla-field__radio-label" for="exampleRadio1">
+            <input id="exampleRadio1" class="ucla-field__radio" type="radio" name="radio" value="radio1">
+            Radio 1
+          </label>
+          <label class="ucla-field__radio-label" for="exampleRadio2">
+            <input id="exampleRadio2" class="ucla-field__radio" type="radio" name="radio" value="radio2">
+            Radio 2
+          </label>
+      </div>
+    </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Radio input (default vertical)</legend>
+    <div class="ucla-field">
+      <div class="ucla-field__control ucla-field__radio-vertical">
+        <label class="ucla-field__radio-label" for="exampleRadioVertical1">
+            <input id="exampleRadioVertical1" class="ucla-field__radio" type="radio" name="radio-vertical" value="radio1">
+            Radio 1
+          </label>
+          <label class="ucla-field__radio-label" for="exampleRadioVertical2">
+            <input id="exampleRadioVertical2" class="ucla-field__radio" type="radio" name="radio-vertical" value="radio2">
+            Radio 2
+          </label>
+      </div>
+    </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+    <legend class="ucla-fieldset__legend">Radio input (warning)</legend>
+    <div class="ucla-field ucla-is-warning" aria-describedby="uclaRadioWarning">
+      <div class="ucla-field__control">
+        <label class="ucla-field__radio-label" for="exampleRadioWarning1">
+            <input id="exampleRadioWarning1" class="ucla-field__radio" type="radio" name="radio-warning" value="radio1">
+            Radio 1
+          </label>
+          <label class="ucla-field__radio-label" for="exampleRadioWarning2">
+            <input id="exampleRadioWarning2" class="ucla-field__radio" type="radio" name="radio-warning" value="radio2">
+            Radio 2
+          </label>
+      </div>
+      <p class="ucla-field__help ucla-field__radio-checkbox-help-has-icon" id="uclaRadioWarning">You must choose a selection</p>
+    </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+  <legend class="ucla-fieldset__legend">Radio input (error)</legend>
+  <div class="ucla-field ucla-is-error" aria-describedby="uclaRadioError">
+    <div class="ucla-field__control">
+      <label class="ucla-field__radio-label" for="exampleRadioError1">
+          <input id="exampleRadioError1" class="ucla-field__radio" type="radio" name="radio-error" value="radio1">
+          Radio 1
+        </label>
+        <label class="ucla-field__radio-label" for="exampleRadioError2">
+          <input id="exampleRadioError2" class="ucla-field__radio" type="radio" name="radio-error" value="radio2">
+          Radio 2
+        </label>
+    </div>
+    <p class="ucla-field__help ucla-field__radio-checkbox-help-has-icon" id="uclaRadioError">You must choose a selection</p>
+  </div>
+</fieldset>
+
+<fieldset class="ucla-fieldset">
+  <legend class="ucla-fieldset__legend">Radio input (disabled)</legend>
+  <div class="ucla-field">
+    <div class="ucla-field__control">
+      <label class="ucla-field__radio-label" for="exampleRadioDisabled1" disabled>
+          <input id="exampleRadioDisabled1" class="ucla-field__radio" type="radio" name="radio-disabled" value="radio1" disabled>
+          Radio 1
+        </label>
+        <label class="ucla-field__radio-label" for="exampleRadioDisabled2" disabled>
+          <input id="exampleRadioDisabled2" class="ucla-field__radio" type="radio" name="radio-disabled" value="radio2" disabled>
+          Radio 2
+        </label>
+    </div>
+  </div>
+</fieldset>

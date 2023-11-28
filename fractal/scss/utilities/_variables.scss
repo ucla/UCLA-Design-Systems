@@ -1,25 +1,75 @@
+/* Colors */
+
+// PRIMARY COLORS
+$ucla-blue: #2774ae;
+$ucla-gold: #ffd100;
+$white: #fff !default;
+
+// SECONDARY COLORS
+$darkest-blue: #003b5c !default;
+$darker-blue: #005587 !default;
+$lighter-blue: #8bb8e8 !default;
+$lightest-blue: #daebfe !default;
+$darkest-gold: #ffb81c !default;
+$darker-gold: #ffc72c !default;
+
+// GRAYSCALE
+$black: #000 !default;
+$grey-80: #333 !default;
+$grey-60: #666 !default;
+$grey-40: #999 !default;
+$grey-20: #ccc !default;
+$grey-15: #d9d9d9 !default;
+$grey-10: #e5e5e5 !default;
+$grey-08: #ebebeb !default;
+$grey-05: #f2f2f2 !default;
+$grey-03: #f7f7f7 !default;
+
+// INTERACTIVE
+$default-state: #00598c !default;
+$hover-state: #0079bf !default;
+$active-state: $darkest-blue !default;
+$focus-state: #00568c !default;
+$disabled-state: $grey-40 !default;
+$visited-state: #5223b0 !default;
+
+// INTERACTIVE LIGHT
+$default-state-light: $ucla-gold !default;
+$hover-state-light: #ffe500 !default;
+$active-state-light: #ffbf0f !default;
+$focus-state-light: #ffe500 !default;
+$disabled-state-light: $grey-10 !default;
+$visited-state-light: $white !default;
+
+// DENOTIVE COLORS
+$error-red: #d60000 !default;
+$success-green: #007339 !default;
+$warning-orange: #f57f17 !default;
+$primary-alert-blue: #8bb8e8 !default;
+$secondary-alert-grey: $grey-40 !default;
+
 /* Typography */
-$font: "Helvetica", "Roboto", "Arial", sans-serif;
+$font: "Helvetica", "Roboto", "Arial", sans-serif !default;
 // $font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif;
 
 /* Heading */
-/* 81px */
-$text-xxl: 5.063rem;
-/* 54px */
-$text-xl: 3.375rem;
+/* 48px */
+$text-xl: 3rem !default;
 /* 36px */
-$text-lg: 2.25rem;
+$text-lg: 2.25rem !default;
 /* 24px */
-$text-md: 1.5rem;
+$text-md: 1.5rem !default;
+/* 20px */
+$text-sm: 1.25rem !default;
 /* 16px */
-$text-base: 1rem;
+$text-base: 1rem !default;
 /* 14px */
-$text-sm: 0.875rem;
+$text-xs: 0.875rem !default;
 
 /* Viewports */
-/* 768px */
-$tablet: 48rem;
-/* 960px */
-$desktop: 60rem;
-/* 1224px */
-$desktop-lg: 76.5rem;
+/* 768px 48rem */
+$tablet: 768px !default;
+/* 960px 60rem */
+$desktop: 960px !default;
+/* 1224px 76.5rem */
+$desktop-lg: 1224px !default;
