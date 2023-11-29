@@ -25,7 +25,7 @@ By using the UCLA design system, your website will share design, navigation, ADA
 <h4 class="mb-0 mt-7">News &amp; Contact</h4>
 <p style="margin-block-start: 0;">For up-to-date information on the Design System, please see the Design System section on the Brand Guidelines website.</p>
 
-<a class="ucla-btn ucla-btn--tertiary ucla-btn--icon-trail pl-0" href="https://brand.ucla.edu/application/web/designsystem">brand.ucla.edu/application/web/designsystem <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<a class="ucla-btn ucla-btn--tertiary ucla-btn--icon-trail pl-0" href="https://brand.ucla.edu/application/web/design-system">brand.ucla.edu/application/web/designsystem <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M9.41 6L8 7.41L12.58 12L8 16.59L9.41 18L15.41 12L9.41 6Z" fill="#333333"/>
 </svg></a>
 
