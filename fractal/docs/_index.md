@@ -13,8 +13,8 @@ status: hide_title
 
 By using the UCLA design system, your website will share design, navigation, ADA compliance, and structural elements with other UCLA branded websites. However, your content and messaging will always make your website distinct. By leveraging the UCLA design system, your organization can direct its efforts towards creating meaningful, valuable, and actionable content, rather than investing time and resources into the framework and implementation of the user experience.
 
-<h4 class="mb-0">Why use a design system?</h4>
-A design system serves as a single source of truth for design and development teams, providing them with a common language and a shared set of tools. This provides benefits to teams as outlined in "<a href="https://www.nngroup.com/articles/design-systems-101/">Design Systems 101</a>" by Therese Fessenden, Nielsen Norman Group.
+<h4 class="mb-0 mt-7">Why use a design system?</h4>
+<p style="margin-block-start: 0;">A design system serves as a single source of truth for design and development teams, providing them with a common language and a shared set of tools. This provides benefits to teams as outlined in "<a href="https://www.nngroup.com/articles/design-systems-101/">Design Systems 101</a>" by Therese Fessenden, Nielsen Norman Group.</p>
 
 - Design and development can be created quickly and at scale.
 - It frees design resources to focus on larger, more complex problems.
@@ -22,35 +22,13 @@ A design system serves as a single source of truth for design and development te
 - It creates visual consistency across products, channels and siloed departments.
 - It can help educate junior designers and content contributors.
 
+<h4 class="mb-0 mt-7">News &amp; Contact</h4>
+<p style="margin-block-start: 0;">For up-to-date information on the Design System, please see the Design System section on the Brand Guidelines website.</p>
 
-<a class="ucla-btn ucla-btn--tertiary ucla-btn--icon-trail" href="{{path '/docs/getting-started/principles'}}">Learn more about our principles <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<a class="ucla-btn ucla-btn--tertiary ucla-btn--icon-trail pl-0" href="https://brand.ucla.edu/application/web/designsystem">brand.ucla.edu/application/web/designsystem <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M9.41 6L8 7.41L12.58 12L8 16.59L9.41 18L15.41 12L9.41 6Z" fill="#333333"/>
 </svg></a>
 
-<div class="ucla">
-  <div class="col">
-    <article class="ucla-card">
-      <div class="ucla-card__body ucla-has-background-grey-05">
-        <h2 class="ucla-card__title">For Designers</h2>
-        <p class="ucla-card__description">UI design styles, components, and page template examples.</p>
-        <a href="{{path '/docs/designers/overview'}}" class="ucla-card__link">
-          Read more
-        </a>
-      </div>
-    </article>
-  </div>
-  <div class="col">
-    <article class="ucla-card">
-      <div class="ucla-card__body ucla-has-background-grey-05">
-        <h2 class="ucla-card__title">For Developers</h2>
-        <p class="ucla-card__description">The codebase for the UCLA Design System styles and components.</p>
-        <a href="{{path '/docs/developers/overview'}}" class="ucla-card__link">
-          Read more
-        </a>
-      </div>
-    </article>
-  </div>
-</div>
 
 <div class="accordion is-multiselect mt-10">
   <div class="accordion-item">

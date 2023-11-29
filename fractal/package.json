@@ -61,6 +61,10 @@
     "svgo": "^3.0.2",
     "terser": "^5.16.6"
   },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=14.19.2"
+  },
   "sass": "scss/ucla-lib.scss",
   "style": "public/css/ucla-lib.css",
   "files": [

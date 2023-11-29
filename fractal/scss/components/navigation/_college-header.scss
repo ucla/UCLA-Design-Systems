@@ -36,6 +36,11 @@ body {
     &:focus {
       background-color: transparent;
     }
+
+    &:focus {
+      outline: 2px solid variables.$white;
+      outline-offset: 2px;
+    }
   }
 }
 

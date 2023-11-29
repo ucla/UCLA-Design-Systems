@@ -20,8 +20,8 @@
       background-color: variables.$hover-state;
     }
     &:focus {
-      outline-offset: 1px;
-      outline: 1px solid variables.$focus-state;
+      outline-offset: 2px;
+      outline: 2px solid variables.$focus-state;
     }
     &:active {
       background-color: variables.$active-state;
@@ -43,8 +43,8 @@
       background-color: variables.$hover-state-light;
     }
     &:focus {
-      outline-offset: 1px;
-      outline: 1px solid variables.$focus-state-light;
+      outline-offset: 2px;
+      outline: 2px solid variables.$focus-state-light;
     }
     &:active {
       background-color: variables.$active-state-light;
@@ -66,8 +66,8 @@
       color: variables.$white;
     }
     &:focus {
-      outline-offset: 1px;
-      outline: 1px solid variables.$focus-state;
+      outline-offset: 2px;
+      outline: 2px solid variables.$focus-state;
     }
     &:active {
       background-color: variables.$active-state;
@@ -97,8 +97,8 @@
       color: #000;
     }
     &:focus {
-      outline-offset: 1px;
-      outline: 1px solid variables.$focus-state-light;
+      outline-offset: 2px;
+      outline: 2px solid variables.$focus-state-light;
     }
     &:active {
       background-color: variables.$active-state-light;
@@ -127,8 +127,8 @@
       color: variables.$white;
     }
     &:focus {
-      outline-offset: 1px;
-      outline: 1px solid variables.$focus-state;
+      outline-offset: 2px;
+      outline: 2px solid variables.$focus-state;
     }
     &:active {
       background-color: variables.$active-state;
@@ -158,8 +158,8 @@
       color: #000;
     }
     &:focus {
-      outline-offset: 1px;
-      outline: 1px solid variables.$focus-state-light;
+      outline-offset: 2px;
+      outline: 2px solid variables.$focus-state-light;
     }
     &:active {
       background-color: variables.$active-state-light;
@@ -252,8 +252,8 @@
   }
 
   &:focus {
-    outline: 1px solid variables.$focus-state;
-    outline-offset: 1px;
+    outline: 2px solid variables.$focus-state;
+    outline-offset: 2px;
   }
 }
 
