@@ -94,7 +94,7 @@
   .ucla-dept-footer & {
     margin-left: -0.75rem;
     margin-top: 1.375rem;
-    margin-bottom: 1.375rem;
+    // margin-bottom: 1.375rem;
 
     @include mixins.for-size(desktop-up) {
       margin-bottom: 0;
@@ -140,8 +140,10 @@
 .ucla-dept-footer__tertiary-nav {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1.375rem;
 
   @include mixins.for-size(desktop-up) {
+    margin-top: 0;
     flex-wrap: nowrap;
   }
 
