@@ -251,6 +251,9 @@ ol {
       list-style-type: upper-roman;
     }
   }
+  &> ul, &> ol {
+    margin-top: 1rem;
+  }
 }
 
 ul {
@@ -290,6 +293,9 @@ ul {
         margin-top: 0;
       }
     }
+  }
+  &> ul, &> ol {
+    margin-top: 1rem;
   }
 }
 
