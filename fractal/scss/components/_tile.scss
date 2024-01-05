@@ -7,6 +7,7 @@
   display: inline-block;
   position: relative;
   padding: 1.5rem;
+  text-decoration: none;
 
   @include mixins.for-size(desktop-up) {
     padding: 2rem;
@@ -28,13 +29,17 @@
     font-size: 1.25rem;
     font-weight: bold;
     line-height: 1.2;
-    margin-bottom: 4px;
+    margin: 0 0 4px;
     color: inherit;
 
     @include mixins.for-size(desktop-up) {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
     }
+  }
+
+  .ucla-tile__text {
+    margin-bottom: 0;
   }
 
   &:hover {

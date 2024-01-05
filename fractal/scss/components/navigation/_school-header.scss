@@ -4,6 +4,7 @@
 .ucla-header--school {
   border-top: 11px solid variables.$ucla-blue;
   border-bottom: 1px solid variables.$grey-20;
+  min-height: 0;
 
   &__logo-link {
     text-decoration: none;
@@ -69,16 +70,16 @@
       padding: 0.938rem 0;
     }
     @include mixins.for-size(desktop-up) {
-      padding: 0.938rem 1.5rem;
-
-      &:has(.ucla-main-nav) {
-        padding-bottom: 0;
-      }
+      padding: 0.938rem 1.5rem 0;
     }
   }
 
   .hamburger {
     margin-left: auto;
+  }
+
+  @include mixins.for-size(desktop-up) {
+    min-height: 6.188rem;
   }
 }
 
