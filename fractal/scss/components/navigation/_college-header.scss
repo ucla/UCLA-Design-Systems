@@ -11,6 +11,11 @@ body {
 
 .ucla-header--college {
   border-bottom: 1px solid variables.$grey-20;
+  min-height: 0;
+
+  @include mixins.for-size(desktop-up) {
+    min-height: 8.5rem;
+  }
 }
 
 .ucla-header__logo {
@@ -47,13 +52,18 @@ body {
 .ucla-header__container {
   padding-bottom: 1.5rem;
 
-  &:has(.ucla-main-nav) {
-    padding-bottom: 1rem;
-
-    @include mixins.for-size(desktop-up) {
-      padding-bottom: 0;
-    }
+  @include mixins.for-size(desktop-up) {
+    padding-bottom: 0;
   }
+  // padding-bottom: 1.5rem;
+
+  // &:has(.ucla-main-nav) {
+  //   padding-bottom: 1rem;
+
+  //   @include mixins.for-size(desktop-up) {
+  //     padding-bottom: 0;
+  //   }
+  // }
 
   .ucla-header__site-name {
     @include mixins.for-size(up-to-tablet) {
