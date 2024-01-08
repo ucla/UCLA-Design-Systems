@@ -2,9 +2,9 @@
 
 The UCLA Design System supports the latest and stable releases of all major browsers and platforms.
 
-### Mobile browsers
+### Earliest Mobile browser support
 
-The latest versions of each major browser platform's default browsers are supported.
+We recommend you use the latest versions of mobile browsers but here is a table of the legacy verions:
 
 <table class="ucla-table mb-9">
   <thead>
@@ -19,26 +19,26 @@ The latest versions of each major browser platform's default browsers are suppor
   <tbody>
     <tr>
       <td><strong>iOS</strong></td>
-      <td>Supported</td>
-      <td>Supported</td>
-      <td>Supported</td>
+      <td>>= 66</td>
+      <td>>= 61</td>
+      <td>>= 14.5</td>
       <td>&mdash;</td>
     </tr>
     <tr>
       <td><strong>Android</strong></td>
-      <td>Supported</td>
-      <td>Supported</td>
+      <td>>= 66</td>
+      <td>>= 61</td>
       <td>&mdash;</td>
-      <td>Supported</td>
+      <td>>= 84</td>
     </tr>
   </tbody>
 </table>
 
-### Desktop browsers
+### Earliest Desktop browsers support
 
-The latest version of most desktop browsers are supported.
+We recommend you use the latest versions of desktop browsers but here is a table of the legacy verions:
 
-<table class="ucla-table">
+<table class="ucla-table mb-9">
   <thead>
     <tr>
       <th></th>
@@ -52,22 +52,34 @@ The latest version of most desktop browsers are supported.
   <tbody>
     <tr>
       <td><strong>Mac</strong></td>
-      <td>Supported</td>
-      <td>Supported</td>
-      <td>Supported</td>
-      <td>Supported</td>
-      <td>Supported</td>
+      <td>>= 84</td>
+      <td>>= 63</td>
+      <td>>= 14.1</td>
+      <td>>= 84</td>
+      <td>>= 70</td>
     </tr>
     <tr>
       <td><strong>Windows</strong></td>
-      <td>Supported</td>
-      <td>Supported</td>
+      <td>>= 84</td>
+      <td>>= 63</td>
       <td>&mdash;</td>
-      <td>Supported</td>
-      <td>Supported</td>
+      <td>>= 84</td>
+      <td>>= 70</td>
     </tr>
   </tbody>
 </table>
+
+### Browserlist
+
+Last 1 Android versions.\
+Last 1 ChromeAndroid versions.\
+Last 2 Chrome versions.\
+Last 2 Firefox versions.\
+Last 2 Safari versions.\
+Last 2 iOS versions.\
+Last 2 Edge versions.\
+Last 2 Opera versions.\
+Browsers with > 1% usage based on [can I use browser usage table](https://caniuse.com/usage-table)
 
 #### Internet Explorer
 

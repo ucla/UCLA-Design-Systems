@@ -232,8 +232,16 @@ li + li {
 
 ol {
   list-style-position: outside;
-  margin-left: 2rem;
-  margin-top: 1.5rem;
+  padding: 0;
+  margin: 2rem 0 0 1.5rem;
+
+  ol {
+    margin-top: 1rem;
+  }
+
+  ul {
+    margin-top: 1rem;
+  }
 
   &:not([type]) {
     list-style-type: decimal;
@@ -255,15 +263,19 @@ ol {
 
 ul {
   list-style: disc outside;
-  margin-left: 2rem;
-  margin-top: 1.5rem;
+  padding: 0;
+  margin: 2rem 0 0 1.5rem;
 
   ul {
+    margin-top: 1rem;
     list-style-type: circle;
 
     ul {
       list-style-type: square;
     }
+  }
+  ol {
+    margin-top: 1rem;
   }
 
   & > li::marker {
@@ -299,7 +311,7 @@ dt {
 }
 
 dd {
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   line-height: 1.5;
 }
 

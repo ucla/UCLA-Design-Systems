@@ -185,6 +185,7 @@
     }
     blockquote {
       position: relative;
+      margin: 0;
     }
     blockquote,
     q {
@@ -201,7 +202,7 @@
       font-size: 1.25rem;
       font-weight: bold;
       line-height: 1.12;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem;
 
       @include mixins.for-size(tablet-up) {
         font-size: 1.75rem;
@@ -227,7 +228,7 @@
     }
 
     figure:not(:last-child) {
-      margin-bottom: 2rem;
+      margin: 0 0 2rem;
     }
   }
 
