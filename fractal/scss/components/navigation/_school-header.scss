@@ -8,57 +8,49 @@
 
   &__logo-link {
     text-decoration: none;
-    line-height: 0;
+    line-height: 1;
+    // margin-left: 0.375rem;
+    font-size: 1.188rem;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    color: variables.$grey-80;
+    display: flex;
+    align-items: center;
+
+    @include mixins.for-size(phone-only) {
+    
+
+      inline-size: 208px;
+    }
 
     @include mixins.for-size(up-to-tablet) {
       margin-left: 1.5rem;
     }
+
+    @include mixins.for-size(tablet-up) {
+      font-size: 2rem;
+    }
     & > svg {
       width: 6rem;
       height: 2.75rem;
+      margin-right: 0.375rem;
+      flex-shrink: 0;
 
       @include mixins.for-size(tablet-up) {
         width: 7.688rem;
         height: 3.563rem;
+        margin-right: 0.625rem;
       }
     }
-
-    &:focus {
-      outline: 2px solid variables.$focus-state;
-      outline-offset: 2px;
-    }
-  }
-
-  &__site-title-link {
-    line-height: 20px;
-    margin-left: 0.375rem;
-    font-size: 1.188rem;
-    font-weight: bold;
-    overflow-wrap: break-word;
-    text-decoration: none;
-    color: variables.$grey-80;
-    padding-top: 2px;
-    padding-bottom: 2px;
 
     &:hover {
       color: variables.$hover-state;
     }
 
     &:focus {
-      color: variables.$focus-state;
       outline: 2px solid variables.$focus-state;
       outline-offset: 2px;
-    }
-
-    @include mixins.for-size(phone-only) {
-      inline-size: 106px;
-    }
-
-    @include mixins.for-size(tablet-up) {
-      margin-left: 0.625rem;
-      font-size: 2rem;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      color: variables.$focus-state;
     }
   }
 
@@ -80,23 +72,5 @@
 
   @include mixins.for-size(desktop-up) {
     min-height: 6.188rem;
-  }
-}
-
-// SVG Logo
-.ucla-header--school__site-title-link > svg {
-  max-height: 2.5rem;
-  margin-top: 7px;
-
-  @include mixins.for-size(phone-only) {
-    &.ucla-header--school__site-title-link-desktop {
-      display: none;
-    }
-  }
-
-  @include mixins.for-size(tablet-up) {
-    &.ucla-header--school__site-title-link-mobile {
-      display: none;
-    }
   }
 }

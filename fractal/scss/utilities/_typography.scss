@@ -123,6 +123,16 @@ code {
   background-color: rgba(83, 83, 99, 0.075);
 }
 
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
 .blockquote {
   padding-left: 1.75rem;
   border-left: 8px solid variables.$ucla-blue;
