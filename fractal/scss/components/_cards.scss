@@ -10,7 +10,11 @@
   .ucla-card__title {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem;
+  }
+
+  .ucla-card__description {
+    margin: 0;
   }
 
   .ucla-card__link {
@@ -60,14 +64,18 @@
     .ucla-card__title {
       font-size: 1.5rem;
       font-weight: bold;
-      color: variables.$default-state;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem;
 
-      &:hover {
-        color: variables.$hover-state;
-      }
-      &:active {
-        color: variables.$active-state;
+      &-link {
+        color: variables.$default-state;
+        text-decoration: none;
+
+        &:hover {
+          color: variables.$hover-state;
+        }
+        &:active {
+          color: variables.$active-state;
+        }
       }
     }
 
@@ -123,11 +131,13 @@
   }
 
   .ucla-card__story-featured-title {
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.5rem;
     a {
       font-size: 1.75rem;
       font-weight: bold;
       color: variables.$default-state;
+      text-decoration: none;
+
       &:hover {
         color: variables.$hover-state;
       }
@@ -145,6 +155,10 @@
 
   .ucla-card__story-featured-source {
     margin-top: 1rem;
+
+    a {
+      text-decoration: none;
+    }
   }
 }
 
@@ -158,11 +172,13 @@
       color: variables.$grey-60;
       font-size: 0.875rem;
       font-weight: bold;
+      margin: 0;
     }
     .ucla-card__title {
-      margin-bottom: 0.5rem;
+      margin: 0 0 0.5rem;
       & > .ucla-card__title-link {
         color: variables.$default-state;
+        text-decoration: none;
         &:hover {
           color: variables.$hover-state;
         }
@@ -208,7 +224,7 @@
     font-size: 0.875rem;
     font-weight: bold;
     color: variables.$grey-60;
-    margin-bottom: 4px;
+    margin: 0 0 4px;
   }
 
   .ucla-card__title {
@@ -217,6 +233,8 @@
 
   .ucla-card__title-link {
     color: variables.$default-state;
+    text-decoration: none;
+
     &:hover {
       color: variables.$hover-state;
     }
@@ -229,7 +247,7 @@
     color: variables.$grey-60;
     font-size: 0.875rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem;
   }
 }
 
@@ -263,6 +281,9 @@
   }
 
   .ucla-card__name-link {
+    text-decoration: none;
+    color: inherit;
+
     &:hover {
       color: variables.$hover-state;
     }
