@@ -6,14 +6,26 @@
     <link rel="stylesheet" href="{{path '/css/ucla-lib.css'}}" />
     <title>Preview</title>
     <style>
-      .review-width { max-width: 576px; margin: 0 auto; padding: 2rem;}
+      .review-width {
+        margin: 0 auto;
+        padding: 2rem 1.5rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      @media (min-width: 768px) {
+        .review-width {
+          justify-content: center;
+          flex-wrap:nowrap;
+        }
+      }
     </style>
   </head>
+
   <body>
     <div class="review-width">
       {{{yield}}}
     </div>
-    <script src="{{path '/js/ucla-lib-scripts.js'}}"></script>
   </body>
 
 </html>
