@@ -108,7 +108,11 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
               // check if in sublist
               if (currentFocusedEl.parentElement.parentElement.classList.contains('ucla-main-nav__sublist')) {
-                currentFocusedEl.closest('.ucla-main-nav__item--has-children').nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+                if (currentFocusedEl.closest('.ucla-main-nav__item--has-children').nextElementSibling) {
+                  currentFocusedEl.closest('.ucla-main-nav__item--has-children').nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+                } else {
+                  return;
+                }
               } else {
                 return;
               }
