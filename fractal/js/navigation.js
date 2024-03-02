@@ -167,12 +167,12 @@ document.addEventListener("DOMContentLoaded", function () {
           if (navItemHasChildren) {
             return;
           } else {
-            if (previousListItem) {
+           
               currentFocusedEl.closest('.ucla-main-nav__item--has-children').classList.remove("is-open");
               currentFocusedEl.closest('.ucla-main-nav__item--has-children').setAttribute("aria-expanded", "false");
               // focus parent link
               currentFocusedEl.closest('.ucla-main-nav__item--has-children').querySelector('.ucla-main-nav__link').focus();
-            }
+            
           }
         }
       });
