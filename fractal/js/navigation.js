@@ -162,6 +162,19 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           
         }
+        if (e.keyCode === "Escape" || e.keyCode === 27) {
+          e.preventDefault();
+          if (navItemHasChildren) {
+            return;
+          } else {
+           
+              currentFocusedEl.closest('.ucla-main-nav__item--has-children').classList.remove("is-open");
+              currentFocusedEl.closest('.ucla-main-nav__item--has-children').setAttribute("aria-expanded", "false");
+              // focus parent link
+              currentFocusedEl.closest('.ucla-main-nav__item--has-children').querySelector('.ucla-main-nav__link').focus();
+            
+          }
+        }
       });
     });
   }
