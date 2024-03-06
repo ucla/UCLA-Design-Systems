@@ -204,6 +204,7 @@
 
 .ucla-pagination--list {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
   margin: 0;
   list-style: none;
