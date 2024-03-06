@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mediaQuery: "min",
       arrows: showArrows,
       gap: "1.5rem",
+      autoHeight: true,
       breakpoints: {
         768: {
           perPage: tabletPerPage,
