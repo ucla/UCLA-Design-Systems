@@ -80,11 +80,11 @@
   "sass": "scss/ucla-lib.scss",
   "style": "public/css/ucla-lib.css",
   "files": [
-    "build/css/**/*",
-    "build/js/**/*",
-    "build/icons/**/*",
-    "js/**/*",
-    "icons/**/*",
-    "scss/**/*"
+    "build/css/**/*.{css,map}",
+    "build/js/**/*.{js,map}",
+    "build/icons/**/*.svg",
+    "js/**/*.js",
+    "icons/**/*.svg",
+    "scss/**/*.scss"
   ]
 }
