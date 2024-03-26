@@ -85,6 +85,7 @@
     "build/icons/**/*.svg",
     "js/**/*.js",
     "icons/**/*.svg",
-    "scss/**/*.scss"
+    "scss/**/*.scss",
+    "README.md"
   ]
 }
