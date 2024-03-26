@@ -14,3 +14,7 @@ To Describe the step to get the package into npmjs.
 1. Test what will be published with the package by running `npm publish --dry-run`. This will give a listing of all files that will be sent to the repository of npm packages.
 1. If everything looks good then your local environment must be logged into the account that manages the Design System Package. Currently John Kim is the account owner, if authorized to do so, he may be able to help setup your local to login to npmjs.com. The command is `npm login`
 1. finally run `npm publish`. This will now push all the files to npmjs.
+
+---
+
+Sometimes there is a need to overwrite a version. In that case you need to unpublish that version and republish. e.g. `npm unpublish ucla-design-systems@2.0.0`.
