@@ -1,47 +1,105 @@
-"use strict";
+export function Accordion() {
+  // static get methods () {
+  //   return {
+  //     init () {
+  //       console.log('Accordion initialized');
+  //     }
+  //   }
+  // }
+  // static init () {
+  //   console.log('Accordion initialized');
+  // }
+  let eventsAttached = false;
+  const core = {
+    init() {
+      console.log('Accordion initialized')
+      const defaults = {
+        multiSelect: false, // show multiple elements at the same time {boolean}
+        containerClass: 'accordion',
+        triggerClass: 'accordion__heading-button',
+        panelClass: 'accordion-item',
+        activeClass: 'is-open',
+        beforeOpen: () => {},
+        onOpen: () => {},
+        beforeClose: () => {},
+        onClose: () => {}
+      }
+      this.options = Object.assign(defaults);
+      this.createDefinitions();
+      attachEvents();
+    },
+    createDefinitions() {
+      const { containerClass, panelClass } = this.options;
+      this.children = document.querySelector(cn(containerClass)).querySelectorAll(cn(panelClass));
+      
+      // console.log(getChildren);
+    },
 
-document.addEventListener("DOMContentLoaded", function () {
-    const accordion = document.querySelectorAll(".accordion");
+    toggleAccordion(el) {
+      const { activeClass } = this.options;
+      const isActive = children.classList.contains(activeClass);
+      if (isActive) return;
+      return isActive ? this.closeElement(el) : this.openElement(el)
+    },
 
-    for (let i = 0; i < accordion.length; i++) {
-        const $accordionButtons = accordion[i].querySelectorAll(
-            ".accordion__heading-button"
-        );
-        const $accordionItems =
-            accordion[i].querySelectorAll(".accordion-item");
-        if ($accordionButtons.length > 0) {
-            $accordionButtons.forEach(($el) => {
-                $el.addEventListener("click", (e) => {
-                    e.stopPropagation();
+    closeElement(el) {
+      const { panelClass, activeClass, beforeClose } = this.options;
+      // const panel = el.querySelector(cn(panelClass));
+      // const isActive = children.classList.contains(activeClass);
+      el.classList.remove(activeClass)
+      // if (!isActive) {
+      //   beforeClose(el);
+      // }
+    },
 
-                    // Checks if clicked element is current element
-                    if (
-                        e.currentTarget
-                            .closest(".accordion-item")
-                            .classList.contains("is-open")
-                    ) {
-                        e.currentTarget
-                            .closest(".accordion-item")
-                            .classList.toggle("is-open");
-                        e.currentTarget.setAttribute("aria-expanded", "false");
-                        return;
-                    } else {
-                        e.currentTarget.setAttribute("aria-expanded", "true");
-                    }
-                    // Checks if accordion is multi select
-                    if (!accordion[i].classList.contains("is-multiselect")) {
-                        $accordionItems.forEach((item) => {
-                            if (item.classList.contains("is-open")) {
-                                item.classList.remove("is-open");
-                                item.querySelector(
-                                    ".accordion__heading-button[aria-expanded]"
-                                ).setAttribute("aria-expanded", "false");
-                            }
-                        });
-                    }
-                    $el.closest(".accordion-item").classList.toggle("is-open");
-                });
-            });
-        }
+    openElement(el) {
+      el.classList.add(activeClass)
+    },
+
+    handleClick(event) {
+      console.log('clicked');
+      const target = event.currentTarget;
+      this.children.forEach((child, index) => {
+        this.currentFocusedIndex = index;
+        this.toggleAccordion(child);
+      })
     }
-});
+  }
+
+  attachEvents = () => {
+    if (eventsAttached) return;
+    const { triggerClass, panelClass } = core.options;
+    core.handleClick = core.handleClick.bind(core);
+    core.children.forEach((element) => {
+      const trigger = element.querySelector(cn(triggerClass));
+      const panel = element.querySelector(cn(panelClass));
+
+      trigger.addEventListener('click', core.handleClick);
+    })
+    eventsAttached = true;
+  }
+  // this.init = () => {
+  //   console.log('Accordion initialized')
+  //   const defaults = {
+  //     multiSelect: false, // show multiple elements at the same time {boolean}
+  //     containerClass: 'accordion',
+  //     triggerClass: 'accordion__heading-button',
+  //     panelClass: 'accordion-item',
+  //     activeClass: 'is-open',
+  //     beforeOpen: () => {},
+  //     onOpen: () => {},
+  //     beforeClose: () => {},
+  //     onClose: () => {}
+  //   }
+  //   this.options = Object.assign(defaults);
+  //   createDefinitions();
+  // },
+  const cn = (className) => `.${CSS.escape(className)}`;
+  core.init();  
+}
+
+// Accordion.prototype = {
+//   init:function() {
+//     console.log('Accordion initialized');
+//   }
+// }

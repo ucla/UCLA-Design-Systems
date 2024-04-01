@@ -31,7 +31,7 @@
     "css-lint-stylelint": "stylelint \"scss/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
     "css-lint-vars": "fusv scss/**/",
     "js": "npm-run-all js-compile js-minify",
-    "js-compile": "esbuild js/ucla-lib-scripts.js --bundle --outdir=public/js --allow-overwrite --target=esnext",
+    "js-compile": "esbuild js/ucla-lib-scripts.js --bundle --format=cjs --outdir=public/js --allow-overwrite",
     "js-minify": "terser public/js/ucla-lib-scripts.js -o public/js/ucla-lib-scripts.min.js -c --source-map \"root='js'\"",
     "js-lint": "eslint --cache --cache-location .cache/.eslintcache --report-unused-disable-directives --ext js/*.js",
     "svg": "npm-run-all svg-compile-*",
