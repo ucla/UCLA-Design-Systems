@@ -1,6 +1,18 @@
 {
   "name": "ucla-design-systems",
-  "version": "0.1.0",
+  "description": "Official UCLA Design Systems",
+  "homepage": "https://designsystem.brand.ucla.edu/",
+  "version": "2.0.1",
+  "author": "UCLA Strategic Communications",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ucla/UCLA-Design-Systems"
+  },
+  "bugs": {
+    "url": "https://github.com/ucla/UCLA-Design-Systems/issues",
+    "email": "DesignSystem@stratcomm.ucla.edu"
+  },
   "dependencies": {
     "@frctl/fractal": "^1.5.15",
     "@frctl/mandelbrot": "^1.10.3",
@@ -68,6 +80,12 @@
   "sass": "scss/ucla-lib.scss",
   "style": "public/css/ucla-lib.css",
   "files": [
-    "public/{css,js}/*.{css,js,map}"
+    "build/css/**/*.{css,map}",
+    "build/js/**/*.{js,map}",
+    "build/icons/**/*.svg",
+    "js/**/*.js",
+    "icons/**/*.svg",
+    "scss/**/*.scss",
+    "README.md"
   ]
 }
