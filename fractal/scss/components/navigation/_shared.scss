@@ -106,6 +106,7 @@
   &__list {
     order: 2;
     margin: 0;
+    padding: 0;
 
     @include mixins.for-size(up-to-tablet) {
       border-bottom: 1px solid variables.$grey-20;
@@ -184,6 +185,9 @@
   height: 44px;
   width: 56px;
   text-align: center;
+  background-color: transparent;
+  border: none;
+
   &:hover {
     background-color: variables.$hover-state;
 
@@ -264,6 +268,7 @@
     1.5rem center / 1.5rem no-repeat variables.$grey-05;
   width: 100%;
   border-bottom: 1px solid variables.$grey-20;
+  font-size: 1rem;
 
   &::placeholder {
     color: variables.$grey-60;
@@ -284,6 +289,8 @@
   background-color: variables.$default-state;
   color: variables.$white;
   border-radius: 4px;
+  border: none;
+  font-size: 1rem;
 }
 
 .ucla-main-nav__link {
@@ -346,6 +353,9 @@
 .ucla-main-nav__toggle {
   // padding: 0.75rem 1rem;
   cursor: pointer;
+  width: 0.75rem;
+  border: 0;
+  background: transparent;
 
   svg {
     fill: variables.$default-state;
@@ -404,6 +414,7 @@
   width: 100%;
   background-color: variables.$grey-05;
   margin: 0;
+  padding: 0;
 
   @include mixins.for-size(up-to-tablet) {
     border-top: 1px solid variables.$grey-20;

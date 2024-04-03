@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    text-decoration: none;
     padding: 0 8px;
 
     &:hover {
@@ -26,7 +27,6 @@
 
     &:focus {
       outline: 2px solid variables.$focus-state;
-      color: variables.$focus-state;
     }
   }
 

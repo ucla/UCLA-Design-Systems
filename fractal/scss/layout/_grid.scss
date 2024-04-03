@@ -70,14 +70,38 @@ $column-gap: 0.75rem;
 .ucla-grid {
   display: grid;
   gap: $column-gap * 2;
-
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  
   @for $i from 1 through 12 {
     &.cols-#{$i} {
-      grid-template-columns: repeat($i, minmax(0, 1fr));
+      grid-template-columns: repeat($i, minmax(min-content, 1fr));
     }
 
     & > .ucla-grid_span-#{$i} {
       grid-column: auto/span $i;
+    }
+  }
+
+  @include mixins.for-size(tablet-up) {
+    @for $i from 1 through 12 {
+      &.cols-#{$i}-md {
+        grid-template-columns: repeat($i, minmax(min-content, 1fr));
+      }
+
+      & > .ucla-grid_span-#{$i}-md {
+        grid-column: auto/span $i;
+      }
+    }
+  }
+  @include mixins.for-size(desktop-up) {
+    @for $i from 1 through 12 {
+      &.cols-#{$i}-lg {
+        grid-template-columns: repeat($i, minmax(min-content, 1fr));
+      }
+
+      & > .ucla-grid_span-#{$i}-lg {
+        grid-column: auto/span $i;
+      }
     }
   }
 }

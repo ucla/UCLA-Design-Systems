@@ -2,6 +2,7 @@
 
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="{{path '/css/ucla-lib.css'}}" />
     <title>Preview</title>
     <style>
@@ -12,12 +13,8 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="ucla">
-        <div class="col span_12_of_12">
-          {{{yield}}}
-        </div>
-      </div>
+    <div class="container ucla-grid">
+        {{{yield}}}
     </div>
     <script src="{{path '/js/ucla-lib-scripts.js'}}"></script>
   </body>

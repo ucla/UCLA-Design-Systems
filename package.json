@@ -1,22 +1,26 @@
 {
   "name": "ucla-design-systems",
-  "version": "1.0.0",
   "description": "Official UCLA Design Systems",
-  "main": "index.js",
+  "homepage": "https://designsystem.brand.ucla.edu/",
+  "version": "2.0.0",
+  "author": "UCLA Strategic Communications",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ucla/UCLA-Design-Systems"
+  },
+  "bugs": {
+    "url": "https://github.com/ucla/UCLA-Design-Systems/issues",
+    "email": "DesignSystem@stratcomm.ucla.edu"
+  },
+  "main": "",
   "scripts": {
     "test": "echo \"This is a test\"",
     "prepare": "husky install"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ucla/UCLA-Design-Systems.git"
-  },
-  "author": "UCLA Strategic Communications",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ucla/UCLA-Design-Systems/issues"
-  },
-  "homepage": "https://github.com/ucla/UCLA-Design-Systems#readme",
+  "files": [
+    "fractal"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^16.3.0",
     "@commitlint/config-conventional": "^16.2.4",

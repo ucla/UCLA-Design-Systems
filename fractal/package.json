@@ -1,21 +1,33 @@
 {
   "name": "ucla-design-systems",
-  "version": "0.1.0",
+  "description": "Official UCLA Design Systems",
+  "homepage": "https://designsystem.brand.ucla.edu/",
+  "version": "2.0.1",
+  "author": "UCLA Strategic Communications",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ucla/UCLA-Design-Systems"
+  },
+  "bugs": {
+    "url": "https://github.com/ucla/UCLA-Design-Systems/issues",
+    "email": "DesignSystem@stratcomm.ucla.edu"
+  },
   "dependencies": {
     "@frctl/fractal": "^1.5.15",
     "@frctl/mandelbrot": "^1.10.3",
     "fractal-status-helper": "^1.0.0"
   },
   "browserslist": [
-    "last 2 version",
-    ">= 0.5%",
-    "not dead",
-    "Chrome >= 60",
-    "Firefox >= 60",
-    "Firefox ESR",
-    "iOS >= 12",
-    "Safari >= 12",
-    "not Explorer <= 11"
+    "> 1%",
+    "last 1 Android versions",
+    "last 1 ChromeAndroid versions",
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 iOS versions",
+    "last 2 Edge versions",
+    "last 2 Opera versions"
   ],
   "scripts": {
     "start": "fractal start --sync --watch",
@@ -68,6 +80,12 @@
   "sass": "scss/ucla-lib.scss",
   "style": "public/css/ucla-lib.css",
   "files": [
-    "public/{css,js}/*.{css,js,map}"
+    "build/css/**/*.{css,map}",
+    "build/js/**/*.{js,map}",
+    "build/icons/**/*.svg",
+    "js/**/*.js",
+    "icons/**/*.svg",
+    "scss/**/*.scss",
+    "README.md"
   ]
 }
