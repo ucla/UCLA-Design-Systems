@@ -1,8 +1,10 @@
+@use "../utilities/mixins";
 @use "../utilities/variables";
 
 .ucla-chip {
   font-size: 0.8rem;
   line-height: 1.41;
+  background-color: transparent;
   font-weight: bold;
   color: variables.$default-state;
   border-radius: 20px;
@@ -77,9 +79,5 @@
   }
   &.ucla-btn--icon-trail svg {
     margin-left: 11px;
-  }
-
-  & + .ucla-chip {
-    margin-left: 0.75rem;
   }
 }

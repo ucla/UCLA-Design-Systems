@@ -18,6 +18,7 @@
   font-weight: bold;
   color: variables.$default-state;
   display: block;
+  margin: 0;
 
   @include mixins.for-size(desktop-up) {
     font-size: 1.25rem;
@@ -34,10 +35,11 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  // background-image: url("/icons/denotive/down--blue.svg");
-  // background-repeat: no-repeat;
-  // background-position: right 1.25rem center;
-  // background-size: 1.5rem;
+  border: 0;
+  background-color: transparent;
+  font-size:  inherit;
+  font-weight: inherit;
+  color: inherit;
 
   @include mixins.for-size(desktop-up) {
     padding: 1.125rem 1rem;

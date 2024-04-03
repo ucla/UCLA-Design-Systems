@@ -1,0 +1,95 @@
+{{render "@navigation"}}
+<div class="container ucla-grid cols-1 cols-3-lg">
+  <main class="ucla-grid_span-2-lg pt-7 pb-9">
+    {{render "@alerts--warning"}}
+    <h2 class="headline-text__sm mt-8 mb-6">Field Set</h2>
+    <div class="ucla-field">
+      <label class="ucla-field__label" for="exampleTextField">Text Field</label>
+      <div class="ucla-field__control">
+        <input
+          class="ucla-field__input"
+          id="exampleTextField"
+          type="text"
+          placeholder="Placeholder"
+        />
+      </div>
+    </div>
+
+    <div class="ucla-field">
+      <label class="ucla-field__label" for="exampleSelection">Select Menu</label>
+      <div class="ucla-field__control">
+        <select
+          class="ucla-field__select"
+          id="exampleSelection"
+        >
+          <option disabled selected>Make a selection</option>
+          <option value="Epsum">Epsum factorial non deposit quid</option>
+          <option value="Pro">Pro quo hic escorol olypian</option>
+          <option value="Et">Et gorilla congolium sic</option>
+          <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="ucla-field">
+      <label class="ucla-field__label" for="exampleTextarea">Textarea</label>
+      <div class="ucla-field__control">
+        <textarea
+          class="ucla-field__textarea"
+          id="exampleTextarea"
+          placeholder="Placeholder"
+        ></textarea>
+      </div>
+    </div>
+
+    <hr class="my-9" />
+
+    <fieldset class="ucla-fieldset">
+        <legend class="ucla-fieldset__legend">Radio Buttons</legend>
+        <div class="ucla-field">
+          <div class="ucla-field__control">
+            <label class="ucla-field__radio-label" for="exampleRadio1">
+                <input id="exampleRadio1" class="ucla-field__radio" type="radio" name="radio" value="radio1">
+                Radio 1
+              </label>
+              <label class="ucla-field__radio-label" for="exampleRadio2">
+                <input id="exampleRadio2" class="ucla-field__radio" type="radio" name="radio" value="radio2">
+                Radio 2
+              </label>
+              <label class="ucla-field__radio-label" for="exampleRadio3">
+                <input id="exampleRadio3" class="ucla-field__radio" type="radio" name="radio" value="radio2">
+                Radio 3
+              </label>
+          </div>
+        </div>
+    </fieldset>
+
+    <hr class="my-9" />
+
+    <fieldset class="ucla-fieldset">
+        <legend class="ucla-fieldset__legend">Checkbox</legend>
+        <div class="ucla-field">
+          <div class="ucla-field__control ucla-field__checkbox-vertical">
+            <label class="ucla-field__checkbox-label" for="exampleCheckboxList1">
+              <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxList1"/>
+              Checkbox 1
+            </label>
+            <label class="ucla-field__checkbox-label" for="exampleCheckboxList2">
+              <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxList2"/>
+              Checkbox 2
+            </label>
+            <label class="ucla-field__checkbox-label" for="exampleCheckboxList3">
+              <input type="checkbox" class="ucla-field__checkbox" id="exampleCheckboxList3"/>
+              Checkbox 3
+            </label>
+          </div>
+        </div>
+    </fieldset>
+
+    <hr class="my-9" />
+
+    <button class="ucla-btn ucla-btn--primary">Submit</button>
+    <button class="ucla-btn ucla-btn--tertiary">Cancel</button>
+  </main>
+</div>
+{{ render '@footer' }}
