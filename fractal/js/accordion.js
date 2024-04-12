@@ -1,105 +1,106 @@
-export function Accordion() {
-  // static get methods () {
-  //   return {
-  //     init () {
-  //       console.log('Accordion initialized');
-  //     }
-  //   }
-  // }
-  // static init () {
-  //   console.log('Accordion initialized');
-  // }
+export function Accordion(selector, userOptions) {
   let eventsAttached = false;
+
+  if (Array.isArray(selector)) {
+    if (selector.length) {
+      return selector.map(single => new Accordion(single, userOptions));
+    }
+  }
+
   const core = {
     init() {
-      console.log('Accordion initialized')
       const defaults = {
         multiSelect: false, // show multiple elements at the same time {boolean}
         containerClass: 'accordion',
         triggerClass: 'accordion__heading-button',
-        panelClass: 'accordion-item',
         activeClass: 'is-open',
-        beforeOpen: () => {},
+        panelClass: 'accordion-item',
+        collapse: true,
         onOpen: () => {},
-        beforeClose: () => {},
         onClose: () => {}
       }
-      this.options = Object.assign(defaults);
+      this.options = Object.assign(defaults, userOptions);
+
+      const isString = (typeof selector === 'string');
+
+      this.container = isString ? document.querySelector(selector) : selector;
+
       this.createDefinitions();
       attachEvents();
     },
     createDefinitions() {
       const { containerClass, panelClass } = this.options;
+      const getAllAccordions = document.querySelectorAll(cn(containerClass));
+      // https://github.com/michu2k/Accordion/blob/master/src/accordion.js
       this.children = document.querySelector(cn(containerClass)).querySelectorAll(cn(panelClass));
       
-      // console.log(getChildren);
     },
 
     toggleAccordion(el) {
-      const { activeClass } = this.options;
-      const isActive = children.classList.contains(activeClass);
-      if (isActive) return;
+      const { activeClass, collapse } = this.options;
+      const isActive = el.classList.contains(activeClass);
+      if (isActive && !collapse) return;
       return isActive ? this.closeElement(el) : this.openElement(el)
     },
 
     closeElement(el) {
-      const { panelClass, activeClass, beforeClose } = this.options;
-      // const panel = el.querySelector(cn(panelClass));
-      // const isActive = children.classList.contains(activeClass);
+      const { activeClass, onClose } = this.options;
       el.classList.remove(activeClass)
-      // if (!isActive) {
-      //   beforeClose(el);
-      // }
+      onClose(el);
+    },
+
+    closeAllElements() {
+      const { activeClass, multiSelect } = this.options;
+      if (multiSelect) return;
+
+      this.children.forEach((child, index) => {
+        const isActive = child.classList.contains(activeClass);
+        if (isActive && index !== this.currentFocusedIndex) {
+          this.closeElement(child);
+        }
+      })
     },
 
     openElement(el) {
-      el.classList.add(activeClass)
+      const { activeClass, onOpen } = this.options;
+      el.classList.add(activeClass);
+      onOpen(el);
     },
 
     handleClick(event) {
-      console.log('clicked');
       const target = event.currentTarget;
       this.children.forEach((child, index) => {
-        this.currentFocusedIndex = index;
-        this.toggleAccordion(child);
+        if (child.contains(target)) {
+          this.currentFocusedIndex = index;
+          this.closeAllElements();
+          this.toggleAccordion(child);
+        }
       })
     }
   }
 
   attachEvents = () => {
     if (eventsAttached) return;
-    const { triggerClass, panelClass } = core.options;
+    const { triggerClass } = core.options;
     core.handleClick = core.handleClick.bind(core);
     core.children.forEach((element) => {
       const trigger = element.querySelector(cn(triggerClass));
-      const panel = element.querySelector(cn(panelClass));
-
       trigger.addEventListener('click', core.handleClick);
     })
     eventsAttached = true;
   }
-  // this.init = () => {
-  //   console.log('Accordion initialized')
-  //   const defaults = {
-  //     multiSelect: false, // show multiple elements at the same time {boolean}
-  //     containerClass: 'accordion',
-  //     triggerClass: 'accordion__heading-button',
-  //     panelClass: 'accordion-item',
-  //     activeClass: 'is-open',
-  //     beforeOpen: () => {},
-  //     onOpen: () => {},
-  //     beforeClose: () => {},
-  //     onClose: () => {}
-  //   }
-  //   this.options = Object.assign(defaults);
-  //   createDefinitions();
-  // },
+
+  detachEvents = () => {
+    if (!eventsAttached) return;
+    const { triggerClass } = core.options;
+
+    core.children.forEach((element) => {
+      const trigger = element.querySelector(cn(triggerClass));
+      trigger.removeEventListener('click', core.handleClick);
+    })
+    eventsAttached = false;
+  }
+  
   const cn = (className) => `.${CSS.escape(className)}`;
   core.init();  
 }
-
-// Accordion.prototype = {
-//   init:function() {
-//     console.log('Accordion initialized');
-//   }
-// }
