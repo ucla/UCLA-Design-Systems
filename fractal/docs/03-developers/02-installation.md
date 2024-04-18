@@ -22,6 +22,17 @@ Copy and paste this before the closing `</body>` tag.
 
 ```
 
+#### Package Managers
+Make your you have the latest Node.js installed and your current working directory is where you want to install the UCLA Design System. Run the following command in your command line:
+
+##### Install with npm
+
+`npm install ucla-design-systems`
+
+##### Install with yarn
+
+`yarn add ucla-design-systems`
+
 #### Download source
 
 If you would like to host the assets yourself, you can download the compiled version here.
