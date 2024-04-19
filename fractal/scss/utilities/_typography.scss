@@ -61,6 +61,10 @@ body {
       margin-block-start: 0;
     }
   }
+
+  ul:not(:last-child), ol:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }
 
 p {
