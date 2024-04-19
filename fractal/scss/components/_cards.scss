@@ -133,7 +133,7 @@
   .ucla-card__story-featured-title {
     margin: 0 0 0.5rem;
     a {
-      font-size: 1.75rem;
+      font-size: clamp(1.75rem, 0.911rem + 1.751vw, variables.$text-lg);
       font-weight: bold;
       color: variables.$default-state;
       text-decoration: none;
