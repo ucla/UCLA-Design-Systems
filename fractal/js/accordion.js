@@ -38,14 +38,16 @@ class Accordion {
   }
 
   openAccordion(item) {
-    const { openClass, onOpen, accordionItem } = this.options;
-    item.closest(accordionItem).classList.add(openClass);
+    const { openClass, onOpen, accordionButton } = this.options;
+    item.querySelector(accordionButton).setAttribute('aria-expanded', 'true');
+    item.classList.add(openClass);
     onOpen(item);
   }
 
   closeAccordion(item) {
-    const { openClass, onClose, accordionItem } = this.options;
-    item.closest(accordionItem).classList.remove(openClass)
+    const { openClass, onClose, accordionButton } = this.options;
+    item.querySelector(accordionButton).setAttribute('aria-expanded', 'false');
+    item.classList.remove(openClass)
     onClose(item);
   }
 
