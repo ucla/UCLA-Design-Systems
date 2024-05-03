@@ -3,3 +3,4 @@
 
 // export {Accordion}
 const Accordion = require('./accordion');
+const Tabs = require('./tabs');
