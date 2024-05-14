@@ -19,34 +19,27 @@ The Box Logo header can be used when the school has a signature, or logo lockup.
   <li>May container visual device or functional code to incorporate global emergency messaging</li>
 </ul>
 
-**2. Department Signature (required)**
+**2. UCLA Box Logo (required)**
 
 - Text links to department home page
 
 **3. Container (required)**
 
-**4. UCLA Box Logo (required)**
-
-- Logo links to ucla.edu
-
-**5. Border (required)**
+**4. Border (required)**
 
 #### Mobile
 
-<img alt="Box Header Logo Mobile Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/box-logo-header-mobile-anatomy.svg" />
+<img alt="Box Header Logo Mobile Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/navigation/box-logo-header-mobile-anatomy.png" />
 
 **1. Blue Border (required)**
 - May container visual device or functional code to incorporate global emergency messaging
 
 **2. UCLA Box Logo (required)**
-- Logo links to ucla.edu
+- Logo links to department home page
 
-**3. Department Signature (required)**
-- Text links to department home page
+**3. Container (required)**
 
-**4. Container (required)**
-
-**5. Border (required)**
+**4. Border (required)**
 
 #### Examples
 
