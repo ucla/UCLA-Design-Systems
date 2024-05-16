@@ -45,6 +45,15 @@
     padding: 1.125rem 1rem;
   }
 
+  &:not([disabled]):focus {
+    outline: none;
+  }
+
+  &:not([disabled]):focus-visible {
+    outline: 2px solid variables.$focus-state;
+    outline-offset: 2px;
+  }
+
   &:hover,
   &:active {
     color: variables.$white;
