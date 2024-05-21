@@ -57,25 +57,101 @@ class Navigation {
   }
 
   eventKey(e) {
-    if ([ 13, 37, 38, 39, 40 ].includes(e.keyCode)) {
+    if ([ 13, 37, 38, 39, 40 ].includes(e.keyCode) || ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(e.key)) {
 			e.preventDefault();
+      let parentListItem = e.target.parentElement;
+      let firstTierListItem = e.target.closest('.ucla-main-nav__item--has-children');
+
       if (e.keyCode === 40 || e.key === 'ArrowDown') {
-        if (e.target.parentElement.classList.contains('ucla-main-nav__item--has-children')) {
+        if (parentListItem.classList.contains('ucla-main-nav__item--has-children')) {
           this.openSubMenu(e.target);
-          e.target.parentElement.querySelector('.ucla-main-nav__sublist > li > a').focus();
-          //console.log(e.target)
-        } else {
-          // e.target.parentElement.nextElementSibling.querySelector('.ucla-main-nav__link') ? e.target.parentElement.nextElementSibling.querySelector('.ucla-main-nav__link').focus() : e.target.closest('.ucla-main-nav__item--has-children').nextElementSibling.querySelector('.ucla-main-nav__link').focus();
-          console.log(e.target.parentElement)
-          if (e.target.parentElement.classList.contains('ucla-main-nav__sublist')) {
-            console.log('contains ucla-main-nav__sublist')
-            e.target.parentElement.nextElementSibling.querySelector('.ucla-main-nav__link').focus()
+          parentListItem.querySelector('.ucla-main-nav__sublist > li > a').focus();
+        } else if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
+          if (parentListItem.nextElementSibling === null) {
+            if (firstTierListItem.nextElementSibling !== null) {
+              firstTierListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+            } else {
+              document.getElementById('search-button').focus();
+            }
+            this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
           } else {
-            e.target.closest('.ucla-main-nav__item--has-children').nextElementSibling.querySelector('.ucla-main-nav__link').focus()
+            parentListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+          }
+        } else {
+          if (parentListItem.nextElementSibling !== null) {
+            parentListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+          } else {
+            document.getElementById('search-button').focus();
           }
         }
       }
-      
+
+      if (e.keyCode === 39 || e.key === 'ArrowRight') {
+        if (parentListItem.classList.contains('ucla-main-nav__item--has-children')) {
+          if (parentListItem.nextElementSibling === null) {
+            document.getElementById('search-button').focus();
+          } else {
+            parentListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+          }
+        } else if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
+          if (firstTierListItem.nextElementSibling !== null) {
+            firstTierListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+          } else {
+            document.getElementById('search-button').focus();
+          }
+          this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
+        } else {
+          if (parentListItem.nextElementSibling === null) {
+            document.getElementById('search-button').focus();
+          } else {
+            parentListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+          }
+        }
+      }
+      if (e.keyCode === 38 || e.key === 'ArrowUp') {
+        if (parentListItem.classList.contains('ucla-main-nav__item--has-children')) {
+          if (parentListItem.previousElementSibling !== null) {
+            if (parentListItem.previousElementSibling.classList.contains('ucla-main-nav__item--has-children')) {
+              this.openSubMenu(parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link'))
+              parentListItem.previousElementSibling.querySelector('.ucla-main-nav__sublist > li:last-of-type > a').focus();
+            } else {
+              parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
+            }
+          } else {return;}
+        } else if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
+          if (parentListItem.previousElementSibling === null) {
+            firstTierListItem.querySelector('.ucla-main-nav__link').focus();
+            this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
+          } else {
+            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
+          }
+        } else {
+          if (parentListItem.previousElementSibling.classList.contains('ucla-main-nav__item--has-children')) {
+            this.openSubMenu(parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link'))
+            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__sublist > li:last-of-type > a').focus();
+          } else {
+            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
+          }
+        }
+      }
+      if (e.keyCode === 37 || e.key === 'ArrowLeft') {
+        if (parentListItem.classList.contains('ucla-main-nav__item--has-children')) {
+          if (parentListItem.previousElementSibling === null) {
+            return;
+          } else {
+            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
+          }
+        } else if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
+          if (firstTierListItem.previousElementSibling !== null) {
+            firstTierListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
+            this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
+          } else {
+            return;
+          }
+        } else {
+          parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
+        }
+      }
 		}
   }
 
@@ -90,7 +166,11 @@ class Navigation {
     menuListItem.setAttribute('aria-expanded', 'true');
   }
 
-  closeSubMenu(el) {console.log('close', el)}
+  closeSubMenu(el) {
+    let menuListItem = el.parentElement;
+    menuListItem.classList.remove('is-open');
+    menuListItem.setAttribute('aria-expanded', 'false');
+  }
 
   _getAll(selector) {
     let parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
