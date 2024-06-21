@@ -4,12 +4,14 @@ const Navigation = require('./navigation');
 const Table = require('./table');
 const Carousel = require('./carousel');
 
-function init() {
-  new Accordion().init();
-  new Tabs().init();
-  new Navigation().init();
-  new Table().init();
-  new Carousel().init();
+const Bruin = {
+  initAll: function() {
+    new Accordion().init();
+    new Tabs().init();
+    new Navigation().init();
+    new Table().init();
+    new Carousel().init();
+  }
 }
 
-init();
+Bruin.initAll();
