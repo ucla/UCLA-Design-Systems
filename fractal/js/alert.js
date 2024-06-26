@@ -14,14 +14,15 @@ class Alert {
   }
 
   dismissAlert(event) {
-    const { onClose } = this.options;
+    const { alertContainer, onClose } = this.options;
     event.stopPropagation();
-    event.currentTarget.closest('.ucla-alert').style.display = 'none';
+    event.currentTarget.closest(alertContainer).style.display = 'none';
     onClose(event);
   }
 
   defaults() {
     return {
+      alertContainer: '.ucla-alert',
       closeButton: '.ucla-alert--close',
       onClose: () => {}
     }
