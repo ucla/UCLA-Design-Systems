@@ -57,19 +57,19 @@ class Table {
     }
     siblings.forEach((e) => {
       if (e.querySelector("svg.asc") || e.querySelector("svg.desc")) {
-        e.removeAttribute("aria-sort");
+        e.setAttribute('aria-sort', 'none');
         e.querySelector("svg").classList.replace("asc", "sort-default");
         e.querySelector("svg").classList.replace("desc", "sort-default");
       }
     });
     if (order.contains("sort-default")) {
-      order.replace("sort-default", "desc");
-      el.setAttribute("aria-sort", "descending");
+      order.replace("sort-default", "asc");
+      el.setAttribute("aria-sort", "ascending");
     } else if (order.contains("desc")) {
-      obj_key.reverse();
       order.replace("desc", "asc");
       el.setAttribute("aria-sort", "ascending");
     } else {
+      obj_key.reverse();
       order.replace("asc", "desc");
       el.setAttribute("aria-sort", "descending");
     }
@@ -80,7 +80,6 @@ class Table {
     });
     table.getElementsByTagName("tbody")[0].innerHTML = html;
   }
-
 }
 
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
