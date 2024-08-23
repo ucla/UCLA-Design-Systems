@@ -1,90 +1,221 @@
-class Accordion {
-  init(options) {
-    this.accordionOptions(options);
-    this.setup();
+import Component from './component';
+export default class Accordion extends Component {
+  /**
+   * Gets the accordion CSS class
+   *
+   * @static
+   * @returns {string}
+   */
+
+  static get selector() {
+    return '.accordion';
   }
 
-  setup() {
-    const accordionContainer = document.querySelectorAll(this.options.accordionContainer);
+  /**
+   * Gets an object containing methods attached to the DOM element.
+   *
+   * @static
+   * @returns {Object}
+   */
 
-    for (let i = 0; i < accordionContainer.length; i++) {
-      const accordionItems = accordionContainer[i].querySelectorAll(this.options.accordionItem);
-      accordionItems.forEach((item, index) => {
-
-        const accordionButtons = item.querySelector(this.options.accordionButton);
-        accordionButtons.addEventListener('click', event => {
-          this.handleClick(event);
-        })
-      });
-    }
-  }
-
-  toggleAccordion(item) {
-    const {openClass, collapse, accordionItem} = this.options;
-    const isActive = item.closest(accordionItem).classList.contains(openClass);
-    if (isActive && !collapse) return;
-    return isActive ? this.closeAccordion(item) : this.openAccordion(item)
-  }
-
-  closeAllAccordions(accordion) {
-    const { openClass, multiSelect } = this.options;
-    if (multiSelect) return;
-    [...accordion.children].forEach((child, index) => {
-      const isActive = child.classList.contains(openClass);
-        if (isActive && index !== this.currentFocusedIndex) {
-        this.closeAccordion(child);
-      }
-    });
-  }
-
-  openAccordion(item) {
-    const { openClass, onOpen, accordionButton } = this.options;
-    item.querySelector(accordionButton).setAttribute('aria-expanded', 'true');
-    item.classList.add(openClass);
-    onOpen(item);
-  }
-
-  closeAccordion(item) {
-    const { openClass, onClose, accordionButton } = this.options;
-    item.querySelector(accordionButton).setAttribute('aria-expanded', 'false');
-    item.classList.remove(openClass)
-    onClose(item);
-  }
-
-  handleClick(event) {
-    const target = event.currentTarget;
-    let accordionParent = target.closest(this.options.accordionContainer);
-    [...accordionParent.children].forEach((child, index) => {
-      if (child.contains(target)) {
-        this.currentFocusedIndex = index;
-        this.closeAllAccordions(accordionParent);
-        this.toggleAccordion(child);
-      }
-    });
-  }
-
-  defaults() {
+  static get methods() {
     return {
-      accordionContainer: '.accordion',
-      accordionHeading: '.accordion__heading',
-      accordionButton: '.accordion__heading-button',
-      accordionItem: '.accordion-item',
-      multiSelect: false,
-      collapse: true,
-      openClass: 'is-open',
-      prefix: '',
-      onOpen: () => {},
-      onClose: () => {}
-    }
+      /**
+       * Initialize accordion
+       */
+
+      init() {
+        this._initAttr();
+        this._initElements();
+        this._setTriggerId();
+        this._setPanelId();
+
+        Component.bindMethod(this, 'open', this.open);
+        Component.bindMethod(this, 'close', this.close);
+      },
+
+      /**
+       * Opens the accordion panel with the ID value
+       *
+       * @param {string} panelId - Panel ID
+       */
+
+      open(panelId) {
+        let panel = document.querySelector(`#${panelId}`);
+        if (!this._dispatchEvent('AccordionOpen', panel)) {
+          return;
+        }
+        let panelItem = panel.closest('.accordion-item');
+        let panelBody = panel.closest('.accordion__body');
+        let trigger = document.querySelector(
+          `#${panel.getAttribute('aria-labelledby')}`
+        );
+
+        if (this._isTransitioning || panelItem.classList.contains('is-open')) {
+          return;
+        }
+        if (!this._isMultiOpen) {
+          this._closeAllPanels();
+        }
+        panelItem.classList.add('is-opening');
+        panelBody.style['height'] = 0;
+
+        trigger.setAttribute('aria-expanded', true);
+
+        this._isTransitioning = true;
+
+        const completeTransition = () => {
+          this._isTransitioning = false;
+          panelItem.classList.remove('is-opening');
+          panelItem.classList.add('is-open');
+          panelBody.style['height'] = '';
+        };
+        Component._queueCallback(completeTransition, panelBody, true);
+        panelBody.style['height'] = `${panel.scrollHeight}px`;
+      },
+
+      /**
+       * Close the accordion panel with the ID value
+       *
+       * @param {panelId} panelId - Panel ID
+       */
+
+      close(panelId) {
+        let panel = document.querySelector(`#${panelId}`);
+        if (!this._dispatchEvent('AccordionClose', panel)) {
+          return;
+        }
+        let panelItem = panel.closest('.accordion-item');
+        let panelBody = panel.closest('.accordion__body');
+        let trigger = document.querySelector(
+          `#${panel.getAttribute('aria-labelledby')}`
+        );
+        if (this._isTransitioning) {
+          return;
+        }
+        panelBody.style['height'] = `${
+          panelBody.getBoundingClientRect()['height']
+        }px`;
+        panelBody.offsetHeight;
+        panelItem.classList.remove('is-open');
+        panelItem.classList.add('is-opening');
+        trigger.setAttribute('aria-expanded', false);
+
+        this._isTransitioning = true;
+        const completeTransition = () => {
+          this._isTransitioning = false;
+          panelItem.classList.remove('is-opening');
+        };
+        panelBody.style['height'] = '';
+        Component._queueCallback(completeTransition, panelBody, true);
+      },
+
+      /**
+       * Handles click event for open/close
+       *
+       * @param {Event} event - Click event
+       */
+
+      onClick(event) {
+        if (this.triggers && this.triggers.includes(event.target)) {
+          const id = event.target.getAttribute('data-ucla-trigger');
+          const panelItem = event.target.closest('.accordion-item');
+          if (panelItem.classList.contains('is-open')) {
+            this.close(id);
+          } else {
+            this.open(id);
+          }
+        }
+      },
+
+      /**
+       * Initialize accordion attributes based on CSS class
+       *
+       * @private
+       */
+
+      _initAttr() {
+        this.triggerAttr = '.accordion__heading-button';
+        this.panelAttr = '.accordion__content';
+      },
+
+      /**
+       * Initialize all accordion panel elements and detects if multiselect
+       *
+       * @private
+       */
+
+      _initElements() {
+        this.triggers = Array.from(
+          this.element.querySelectorAll(this.triggerAttr)
+        );
+        this.panels = Array.from(this.element.querySelectorAll(this.panelAttr));
+        this._isMultiOpen = this.element.classList.contains('is-multiselect');
+      },
+
+      /**
+       * Assigns random IDs to the button that triggers the accordion panel if IDs were not specified in the element.
+       *
+       * @private
+       */
+
+      _setTriggerId() {
+        this.triggers.forEach((trigger) => {
+          const id = Component.generateUID();
+          Component.setAttrIfNotSpecified(trigger, 'data-ucla-trigger', id);
+          Component.setAttrIfNotSpecified(trigger, 'id', `${id}-label`);
+        });
+      },
+
+      /**
+       * Assigns rantom IDs to panels of the accordion if IDs were not specified in the element.
+       *
+       * @private
+       */
+
+      _setPanelId() {
+        const numPanels = this.panels.length;
+
+        for (let i = 0; i < numPanels; i++) {
+          const trigger = this.triggers[i];
+          const triggerId = trigger.getAttribute('id');
+          const panelId = trigger.getAttribute('data-ucla-trigger');
+          const panel = this.panels[i];
+          Component.setAttrIfNotSpecified(trigger, 'aria-controls', panelId);
+          Component.setAttrIfNotSpecified(panel, 'id', panelId);
+          Component.setAttrIfNotSpecified(panel, 'aria-labelledby', triggerId);
+        }
+      },
+
+      /**
+       * Closes all accordion panels
+       *
+       * @private
+       */
+
+      _closeAllPanels() {
+        this.panels.forEach((panel) => {
+          let panelItem = panel.closest('.accordion-item');
+          if (panelItem.classList.contains('is-open')) {
+            let panelId = panel.getAttribute('id');
+            this.close(panelId);
+          }
+        });
+      },
+
+      /**
+       *
+       * @param {string} name - Event name
+       * @param {HTMLElement} panel - Accordion panel DOM element toggled by event
+       * @returns {boolean} Event successfully dispatched
+       */
+
+      _dispatchEvent(name, panel) {
+        const dispatch = Component.dispatchCustomEvent(name, this.element, {
+          panel,
+        });
+        return dispatch;
+      },
+    };
   }
-
-  accordionOptions(options) {
-		this.options = Object.assign(this.defaults(), options);
-	}
-}
-
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  module.exports = Accordion;
-} else {
-  window.Accordion = Accordion;
 }

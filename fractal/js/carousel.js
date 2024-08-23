@@ -1,66 +1,60 @@
-const vendor = require('./vendors/splide');
+import Swiper from 'swiper';
+import { Pagination, A11y, Keyboard } from 'swiper/modules';
+import Component from './component';
 
-class Carousel {
-  init(options) {
-    this.carouselOptions(options);
-    this.setup();
+export default class Carousel extends Component {
+  static get selector() {
+    return '.ucla-carousel';
   }
-
-  setup() {
-    let elm = document.querySelectorAll(this.options.carouselClass);
-    for (let i = 0; i < elm.length; i++) {
-      let data = elm[i].dataset;
-      let sliderOptions = {
-        ...(Object.keys(data).length === 0 ?
-          this.options :
-          {
-            ...this.options,
-            perPage: data.perPage ? data.perPage : 1,
-            arrows: data.arrows ? data.arrows : false,
-            breakpoints: {
-              768: {
-                perPage: data.perPageMd ? data.perPageMd : 2,
-              },
-              960: {
-                perPage: data.perPageLg ? data.perPageLg : 3,
-              },
-            },
-          }
-        )
-      }
-      const slider = new vendor(elm[i], sliderOptions);
-      slider.mount();
-    }
-  }
-  defaults() {
+  static get methods() {
     return {
-      carouselClass: '.ucla-carousel',
-      classes: {
-        pagination: 'splide__pagination ucla-carousel__pagination',
-        page: 'splide__pagination__page ucla-carousel__page',
+      init(options) {
+        this._initSelector();
+        this._initOptions(options);
+        this._initSlider();
       },
-      mediaQuery: 'min',
-      gap: '1.5rem',
-      autoHeight: true,
-      perPage: 1,
-      arrows: false,
-      breakpoints: {
-        768: {
-          perPage: 2,
-        },
-        960: {
-          perPage: 3
-        }
-      }
-    }
+      _initSelector() {
+        this.slider = '.ucla-carousel';
+        this.pagination = '.ucla-carousel__pagination';
+        this.paginationBullet = 'ucla-carousel__page';
+        this.slidePerPage = 'data-ucla-per-page';
+        this.slidePerPageMd = 'data-ucla-per-page-md';
+        this.slidePerPageLg = 'data-ucla-per-page-lg';
+      },
+      _initOptions(options) {
+        const slidePerPage = this.element.getAttribute(this.slidePerPage);
+        const slidePerPageMd = this.element.getAttribute(this.slidePerPageMd);
+        const slidePerPageLg = this.element.getAttribute(this.slidePerPageLg);
+        const defaults = {
+          modules: [Pagination, A11y, Keyboard],
+          a11y: {
+            scrollOnFocus: false,
+          },
+          keyboard: {
+            enabled: true,
+          },
+          slidesPerView: slidePerPage ? slidePerPage : 1,
+          spaceBetween: 24,
+          pagination: {
+            el: this.pagination,
+            clickable: true,
+            bulletClass: `${this.paginationBullet} swiper-pagination-bullet`,
+            bulletActiveClass: 'is-active',
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: slidePerPageMd ? slidePerPageMd : 2,
+            },
+            960: {
+              slidesPerView: slidePerPageLg ? slidePerPageLg : 3,
+            },
+          },
+        };
+        this.sliderOptions = Object.assign(defaults, options);
+      },
+      _initSlider() {
+        const swiper = new Swiper(this.slider, this.sliderOptions);
+      },
+    };
   }
-  carouselOptions(options) {
-    this.options = Object.assign(this.defaults(), options);
-  }
-}
-
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  module.exports = Carousel;
-} else {
-  window.Carousel = Carousel;
 }

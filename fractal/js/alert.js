@@ -1,39 +1,85 @@
-class Alert {
-  init(options) {
-    this.alertOptions(options);
-    this.setup();
-  } 
+import Component from './component';
 
-  setup() {
-    const closeAlert = document.querySelectorAll(this.options.closeButton);
-    for (let i = 0; i < closeAlert.length; i++) {
-      closeAlert[i].addEventListener('click', e => {
-        this.dismissAlert(e);
-      })
-    }
+/**
+ * An alert keeps users informed of important and sometimes time-sensitive changes.
+ */
+
+export default class Alert extends Component {
+  /**
+   * Gets the alert CSS class
+   *
+   * @static
+   * @returns {string}
+   */
+
+  static get selector() {
+    return '.ucla-alert';
   }
 
-  dismissAlert(event) {
-    const { alertContainer, onClose } = this.options;
-    event.stopPropagation();
-    event.currentTarget.closest(alertContainer).style.display = 'none';
-    onClose(event);
-  }
+  /**
+   * Gets an object containing methods attached to the DOM element.
+   *
+   * @static
+   * @returns {Object}
+   */
 
-  defaults() {
+  static get methods() {
     return {
-      alertContainer: '.ucla-alert',
-      closeButton: '.ucla-alert--close',
-      onClose: () => {}
-    }
-  }
-  alertOptions(options) {
-    this.options = Object.assign(this.defaults(), options);
-  }
-}
+      /**
+       * Initialize alert
+       */
 
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  module.exports = Alert;
-} else {
-  window.Alert = Alert;
+      init() {
+        this._initCloseButton();
+        Component.bindMethod(this, 'dismiss', this.dismiss);
+      },
+
+      /**
+       * Dismisses alert
+       */
+
+      dismiss() {
+        if (!this._dismissEvent()) return;
+        this.element.remove();
+      },
+
+      /**
+       * Initializes alert close button
+       *
+       * @private
+       */
+
+      _initCloseButton() {
+        this.closeButtonAttr = '.ucla-alert--close';
+        this.closeButton = this.element.querySelector(this.closeButtonAttr);
+      },
+
+      /**
+       * Handles click event for dismissal/close
+       *
+       * @param {Event} event - Click event
+       */
+
+      onClick(event) {
+        if (this.closeButton && this.closeButton.contains(event.target)) {
+          this.dismiss();
+        }
+      },
+
+      /**
+       * Returns true if alert dismiss event was dispatched
+       *
+       * @private
+       * @returns {boolean} Event sucessfully dispatched
+       */
+
+      _dismissEvent() {
+        const dispatch = Component.dispatchCustomEvent(
+          'AlertDismissed',
+          this.element
+        );
+        return dispatch;
+      },
+    };
+  }
 }

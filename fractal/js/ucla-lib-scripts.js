@@ -1,19 +1,20 @@
-const Alert = require('./alert');
-const Accordion = require('./accordion');
-const Tabs = require('./tabs');
-const Navigation = require('./navigation');
-const Table = require('./table');
-const Carousel = require('./carousel');
+require('./polyfills/remove');
+require('./polyfills/customEvent');
 
-const Bruin = {
-  initAll: function() {
-    new Alert().init();
-    new Accordion().init();
-    new Tabs().init();
-    new Navigation().init();
-    new Table().init();
-    new Carousel().init();
-  }
+import Alert from './alert';
+import Accordion from './accordion';
+import Carousel from './carousel';
+import Navigation from './navigation';
+import Table from './table';
+import Tabs from './tabs';
+
+function init() {
+  Accordion.initAll();
+  Alert.initAll();
+  Carousel.initAll();
+  Navigation.initAll();
+  Table.initAll();
+  Tabs.initAll();
 }
 
-Bruin.initAll();
+export { Accordion, Alert, Carousel, Navigation, Table, Tabs, init };

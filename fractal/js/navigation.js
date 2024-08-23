@@ -1,306 +1,287 @@
-class Navigation {
-  init(options) {
-    this.navigationOptions(options)
-    this.setup();
+import Component from './component';
+
+export default class Navigation extends Component {
+  static get selector() {
+    return '#header-wrap';
   }
-
-  setup() {
-    const hamburger = document.getElementById('primary-ham');
-    const header = document.getElementById("header-wrap");
-    const $navPrimaryHasChildren = this._getAll(".ucla-main-nav__item--has-children");
-    const $navPrimaryItem = this._getAll(".ucla-main-nav__item");
-    const searchButton = document.getElementById("search-button");
-    const primaryNavSearch = document.getElementById("primary-nav-search");
-    const $navPrimaryToggles = this._getAll(".ucla-main-nav__toggle");
-    
-    hamburger?.addEventListener('click', event => {
-      event.stopPropagation();
-      this.toggleOffCanvas(header, hamburger);
-    });
-
-    $navPrimaryToggles?.forEach(($el) => {
-      $el.addEventListener("click", e => {
-        e.stopPropagation();
-        this.toggleSubMenu($el)
-      });
-      $el.addEventListener("keydown", e => {
-        if ([ 13 ].includes(e.keyCode) || ['Enter'].includes(e.key)) {
-          e.preventDefault();
-          if (e.keyCode === 13 || e.key === 'Enter') {
-            this.toggleSubMenu($el)
-          }
-        }
-      })
-    });
-
-    $navPrimaryHasChildren?.forEach(item => {
-      item.addEventListener('mouseover', () => {
-        item.setAttribute('aria-expanded', "true")
-      })
-      item.addEventListener('mouseout', () => {
-        item.setAttribute('aria-expanded', "false")
-      })
-      item.querySelector('.ucla-main-nav__sublist').addEventListener('focusout', e => {
-        e.stopPropagation();
-        if (item.contains(e.relatedTarget)) {
-          return;
-        }
-        item.classList.remove('is-open');
-        item.setAttribute('aria-expanded', 'false');
-      })
-    });
-
-    $navPrimaryItem?.forEach($el => {
-      $el.addEventListener('keydown', e => {
-        this.primaryNavEventKeyHandler(e);
-      })
-    });
-
-    searchButton?.addEventListener('keydown', e => {
-      this.searchEventKeyHandler(e);
-    });
-
-    searchButton?.addEventListener('click', e => {
-      this.togglePrimaryNavSearch(searchButton, primaryNavSearch);
-    });
-
-    primaryNavSearch?.addEventListener("focusout", (e) => {
-      e.stopPropagation();
-      if (primaryNavSearch.contains(e.relatedTarget)) {
-        return;
-      }
-      this.closeSearch(searchButton, primaryNavSearch);
-    });
-
-    primaryNavSearch?.addEventListener("keydown", (e) => {
-      if (e.keyCode === 27 || e.key === 'Escape') {
-        if (primaryNavSearch.classList.contains('is-open')) {
-          searchButton.focus();
-          this.closeSearch(searchButton, primaryNavSearch);
-        } else {
-          return;
-        }
-      }
-    })
-
-    document.addEventListener('click', e => {
-      if (!document.getElementById('nav-main')?.contains(e.target)) {
-        this.hideOffCanvas(header, hamburger);
-      }
-    })
-  }
-
-  toggleOffCanvas(container, e) {
-    const isActive = container.classList.contains('is-open')
-    return !isActive ? this.showOffCanvas(container, e) : this.hideOffCanvas(container, e);
-  }
-
-  showOffCanvas(el, hamburgerEl) {
-    const { onCanvasOpen } = this.options;
-    el.classList.add('is-open');
-    hamburgerEl.setAttribute('aria-expanded', 'true')
-    onCanvasOpen(el);
-  }
-
-  hideOffCanvas(el, hamburgerEl) {
-    const { onCanvasClose } = this.options;
-    el?.classList.remove('is-open');
-    hamburgerEl?.setAttribute('aria-expanded', 'false')
-    onCanvasClose(el);
-  }
-
-  primaryNavEventKeyHandler(e) {
-    if ([ 27, 37, 38, 39, 40 ].includes(e.keyCode) || ['Escape', 'ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(e.key)) {
-			e.preventDefault();
-      let parentListItem = e.target.parentElement;
-      let firstTierListItem = e.target.closest('.ucla-main-nav__item--has-children');
-      // let toggle = parentListItem.querySelector('.ucla-main-nav__toggle');
-
-      if (e.keyCode === 40 || e.key === 'ArrowDown') {
-        if (parentListItem.classList.contains('ucla-main-nav__item--has-children')) {
-          this.openSubMenu(e.target);
-          parentListItem.querySelector('.ucla-main-nav__sublist > li > a').focus();
-        } else if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
-          if (parentListItem.nextElementSibling === null) {
-            if (firstTierListItem.nextElementSibling !== null) {
-              firstTierListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
-            } else {
-              document.getElementById('search-button').focus();
-            }
-            this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
-          } else {
-            parentListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
-          }
-        } else {
-          if (parentListItem.nextElementSibling !== null) {
-            parentListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
-          } else {
-            document.getElementById('search-button').focus();
-          }
-        }
-      }
-
-      if (e.keyCode === 39 || e.key === 'ArrowRight') {
-        if (parentListItem.classList.contains('ucla-main-nav__item--has-children')) {
-          if (parentListItem.nextElementSibling === null) {
-            document.getElementById('search-button').focus();
-          } else {
-            parentListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
-          }
-        } else if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
-          if (firstTierListItem.nextElementSibling !== null) {
-            firstTierListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
-          } else {
-            document.getElementById('search-button').focus();
-          }
-          this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
-        } else {
-          if (parentListItem.nextElementSibling === null) {
-            document.getElementById('search-button').focus();
-          } else {
-            parentListItem.nextElementSibling.querySelector('.ucla-main-nav__link').focus();
-          }
-        }
-      }
-      if (e.keyCode === 38 || e.key === 'ArrowUp') {
-        if (parentListItem.classList.contains('ucla-main-nav__item--has-children')) {
-          if (parentListItem.previousElementSibling !== null) {
-            if (parentListItem.previousElementSibling.classList.contains('ucla-main-nav__item--has-children')) {
-              this.openSubMenu(parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link'))
-              parentListItem.previousElementSibling.querySelector('.ucla-main-nav__sublist > li:last-of-type > a').focus();
-            } else {
-              parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
-            }
-          } else {return;}
-        } else if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
-          if (parentListItem.previousElementSibling === null) {
-            firstTierListItem.querySelector('.ucla-main-nav__link').focus();
-            this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
-          } else {
-            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
-          }
-        } else {
-          if (parentListItem.previousElementSibling.classList.contains('ucla-main-nav__item--has-children')) {
-            this.openSubMenu(parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link'))
-            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__sublist > li:last-of-type > a').focus();
-          } else {
-            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
-          }
-        }
-      }
-      if (e.keyCode === 37 || e.key === 'ArrowLeft') {
-        if (parentListItem.classList.contains('ucla-main-nav__item--has-children')) {
-          if (parentListItem.previousElementSibling === null) {
-            return;
-          } else {
-            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
-          }
-        } else if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
-          if (firstTierListItem.previousElementSibling !== null) {
-            firstTierListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
-          } else {
-            firstTierListItem.querySelector('.ucla-main-nav__link').focus();
-          }
-          this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
-        } else {
-          if (parentListItem.previousElementSibling === null) {
-            return;
-          } else {
-            parentListItem.previousElementSibling.querySelector('.ucla-main-nav__link').focus();
-          }
-        }
-      }
-      if (e.keyCode === 27 || e.key === 'Escape') {
-        if (parentListItem.closest('ul').classList.contains('ucla-main-nav__sublist')) {
-          firstTierListItem.querySelector('.ucla-main-nav__link').focus();
-          this.closeSubMenu(e.target.closest('.ucla-main-nav__sublist'));
-        } else {
-          return;
-        }
-      }
-		}
-  }
-
-  searchEventKeyHandler(e) {
-    if ([ 13, 27, 37, 38, 40 ].includes(e.keyCode) || ['Enter', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLeft'].includes(e.key)) {
-      e.preventDefault();
-      let primaryNavSearch = document.getElementById("primary-nav-search");
-      let isActive = primaryNavSearch.classList.contains('is-open')
-      if (e.keyCode === 13 || e.key === 'Enter') {
-        this.togglePrimaryNavSearch(document.getElementById("search-button"), primaryNavSearch);
-      }
-      if (e.keycode === 27 || e.key === 'Escape') {
-        if (primaryNavSearch.classList.contains('is-open')) {
-          this.closeSearch(document.getElementById("search-button"), primaryNavSearch);
-        } else {
-          return;
-        }
-      }
-      if (e.keyCode === 40 || e.key === 'ArrowDown') {
-        if (isActive) return;
-        this.openSearch(e.target, primaryNavSearch);
-      }
-      if (e.keyCode === 37 || e.key === 'ArrowLeft') {
-        if (isActive) this.closeSearch(e.target, primaryNavSearch);
-        if (document.querySelector('.ucla-main-nav__list > .ucla-main-nav__item:last-child > .ucla-main-nav__link')) {
-          document.querySelector('.ucla-main-nav__list > .ucla-main-nav__item:last-child > .ucla-main-nav__link').focus();
-        } else {return;}
-      }
-    }
-  }
-
-  toggleSubMenu(el) {
-    let isActive = el.parentElement.classList.contains('is-open')
-    return isActive ? this.closeSubMenu(el) : this.openSubMenu(el);
-  }
-
-  openSubMenu(el) {
-    let menuListItem = el.parentElement;
-    menuListItem.classList.add('is-open');
-    menuListItem.setAttribute('aria-expanded', 'true');
-  }
-
-  closeSubMenu(el) {
-    let menuListItem = el.parentElement;
-    menuListItem.classList.remove('is-open');
-    menuListItem.setAttribute('aria-expanded', 'false');
-  }
-
-  togglePrimaryNavSearch(button, el) {
-    let isActive = el.classList.contains('is-open');
-    return isActive ? this.closeSearch(button, el) : this.openSearch(button, el);
-  }
-
-  openSearch(e, el) {
-    el.classList.add('is-open');
-    el.querySelector('.ucla-main-nav__search-field').focus();
-    e.setAttribute('aria-expanded', 'true');
-  }
-
-  closeSearch(e, el) {
-    el.classList.remove('is-open');
-    e.setAttribute('aria-expanded', 'false');
-  }
-
-  _getAll(selector) {
-    let parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
-    return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
-  }
-
-  defaults() {
+  static get methods() {
     return {
-      onCanvasOpen: () => {},
-      onCanvasClose: () => {}
-    }
+      init() {
+        this._initAttr();
+        this._initElements();
+        this._attachEventListener();
+      },
+      _initAttr() {
+        this.navItemHasChildrenSelector = '.ucla-main-nav__item--has-children';
+        this.subNavItemHasChildrenSelector = '.ucla-nav_sublist--has-children';
+        this.navItemToggle = '.ucla-main-nav__toggle';
+        this.subNavSelector = '.ucla-main-nav__sublist';
+        this.navItemList = '.ucla-main-nav__item';
+        this.navItemLink = '.ucla-main-nav__link';
+        this.mainNavAttr = '#nav-main';
+        this.searchButtonAttr = '#search-button';
+        this.navSearchAttr = '#primary-nav-search';
+        this.hamburgerButtonAttr = '#primary-ham';
+      },
+      _initElements() {
+        this.parentNavItems = Array.from(
+          this.element.querySelectorAll(this.navItemHasChildrenSelector)
+        );
+        this.subNav = Array.from(
+          this.element.querySelectorAll(this.subNavSelector)
+        );
+        this.triggers = Array.from(
+          this.element.querySelectorAll(this.navItemToggle)
+        );
+        this.navItems = Array.from(
+          this.element.querySelectorAll(this.navItemList)
+        );
+        this.navLinks = Array.from(
+          this.element.querySelectorAll(this.navItemLink)
+        );
+        this.mainNav = this.element.querySelector(this.mainNavAttr);
+        this.hamburgerButton = this.element.querySelector(
+          this.hamburgerButtonAttr
+        );
+        this.searchButton = this.element.querySelector(this.searchButtonAttr);
+        this.navSearch = this.element.querySelector(this.navSearchAttr);
+      },
+      open(el) {
+        el.classList.add('is-open');
+        el.querySelector('button').setAttribute('aria-expanded', true);
+      },
+      close(el) {
+        el.classList.remove('is-open');
+        el.querySelector('button').setAttribute('aria-expanded', false);
+      },
+      onClick(event) {
+        if (this.triggers && this._eventInsideNavToggle(event)) {
+          if (
+            event.target.closest(this.navItemList).classList.contains('is-open')
+          ) {
+            this.close(event.target.closest(this.navItemList));
+          } else {
+            this.open(event.target.closest(this.navItemList));
+          }
+        }
+        if (this.searchButton.contains(event.target)) {
+          const parent = event.target.closest('.ucla-main-nav__search-desktop');
+          if (parent.classList.contains('is-open')) {
+            this.close(parent);
+          } else {
+            this.open(parent);
+          }
+        }
+        if (this.hamburgerButton.contains(event.target)) {
+          if (this.element.classList.contains('is-open')) {
+            this.close(this.element);
+          } else {
+            this.open(this.element);
+          }
+        }
+      },
+      onFocusout(event) {
+        const currNavList = event.target.closest(this.navItemList);
+        if (currNavList?.closest(this.subNavSelector)) {
+          const isChild = currNavList
+            .closest(this.navItemHasChildrenSelector)
+            .querySelector(this.subNavSelector);
+          if (isChild.contains(event.relatedTarget)) return;
+          this.close(currNavList.closest(this.navItemHasChildrenSelector));
+        }
+      },
+      onKeydown(event) {
+        event.stopPropagation();
+        switch (event.keyCode) {
+          case 27: // escape
+            this._handleEscapeKey(event);
+            break;
+          case 40: // down
+            this._handleDownKey(event);
+            break;
+          case 38: // up
+            this._handleUpKey(event);
+            break;
+          case 37: // left
+            this._handleLeftKey(event);
+            break;
+          case 39: // right
+            this._handleRightKey(event);
+            break;
+          default:
+            return;
+        }
+      },
+      _attachEventListener() {
+        window.addEventListener('resize', () => {
+          this.parentNavItems.forEach((el) => this.close(el));
+          this.close(this.element);
+          this.close(this.navSearch);
+        });
+        document.addEventListener('click', (event) => {
+          if (!document.getElementById('nav-main').contains(event.target)) {
+            this.close(this.navSearch);
+          }
+          if (
+            !this.mainNav.contains(event.target) &&
+            !this.hamburgerButton.contains(event.target)
+          ) {
+            this.close(this.element);
+          }
+        });
+      },
+      _handleEscapeKey(event) {
+        this.subNav?.forEach((menu) => {
+          if (menu.contains(event.target)) {
+            menu
+              .closest(this.navItemHasChildrenSelector)
+              .querySelector(this.navItemLink)
+              .focus();
+          }
+        });
+        if (this.navSearch?.contains(event.target)) {
+          this.close(this.navSearch);
+          this.searchButton.focus();
+        }
+      },
+      _handleDownKey(event) {
+        this.navLinks?.forEach((link) => {
+          if (link.contains(event.target)) {
+            const parentCls = event.target.closest(
+              this.navItemHasChildrenSelector
+            );
+            const cls = event.target.closest(this.navItemList);
+            switch (true) {
+              case cls.matches(this.navItemHasChildrenSelector):
+                this.open(cls);
+                cls
+                  .querySelector(`${this.subNavSelector} ${this.navItemLink}`)
+                  .focus();
+                break;
+              case parentCls?.matches(this.navItemHasChildrenSelector):
+                if (!cls.nextElementSibling) {
+                  if (
+                    !cls.closest(this.navItemHasChildrenSelector)
+                      .nextElementSibling
+                  ) {
+                    this.searchButton.focus();
+                    return;
+                  }
+                  cls
+                    .closest(this.navItemHasChildrenSelector)
+                    .nextElementSibling.querySelector(this.navItemLink)
+                    .focus();
+                  return;
+                }
+                cls.nextElementSibling.querySelector(this.navItemLink).focus();
+                break;
+              default:
+                cls.nextElementSibling.querySelector(this.navItemLink).focus();
+                break;
+            }
+          }
+        });
+      },
+      _handleUpKey(event) {
+        this.navLinks?.forEach((link) => {
+          if (link.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            const prevParent = cls.previousElementSibling;
+            switch (true) {
+              case cls.matches(
+                `${this.subNavSelector}>${this.navItemList}:first-child`
+              ):
+                event.target
+                  .closest(this.navItemHasChildrenSelector)
+                  .querySelector(this.navItemLink)
+                  .focus();
+                // this.close(
+                //   event.target.closest(this.navItemHasChildrenSelector)
+                // );
+                break;
+              case prevParent?.matches(this.navItemHasChildrenSelector):
+                this.open(prevParent);
+                prevParent
+                  .querySelector(
+                    `${this.subNavSelector}>${this.navItemList}:last-child>${this.navItemLink}`
+                  )
+                  .focus();
+                break;
+              default:
+                if (!prevParent) return;
+                prevParent.querySelector(this.navItemLink).focus();
+                break;
+            }
+          }
+        });
+      },
+      _handleLeftKey(event) {
+        this.navLinks?.forEach((link) => {
+          if (link.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            const parentCls = cls.closest(this.subNavSelector);
+            switch (true) {
+              case parentCls?.matches(this.subNavSelector):
+                const hasParent = cls.closest(
+                  this.navItemHasChildrenSelector
+                ).previousElementSibling;
+                if (hasParent) {
+                  cls
+                    .closest(this.navItemHasChildrenSelector)
+                    .previousElementSibling.querySelector(this.navItemLink)
+                    .focus();
+                } else {
+                  cls
+                    .closest(this.navItemHasChildrenSelector)
+                    .querySelector(this.navItemLink)
+                    .focus();
+                }
+                break;
+              default:
+                if (!cls.previousElementSibling) return;
+                cls.previousElementSibling
+                  .querySelector(this.navItemLink)
+                  .focus();
+                break;
+            }
+          }
+        });
+      },
+      _handleRightKey(event) {
+        this.navLinks?.forEach((link) => {
+          if (link.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            const parentCls = cls.closest(this.subNavSelector);
+            switch (true) {
+              case parentCls?.matches(this.subNavSelector):
+                const hasParent = cls.closest(
+                  this.navItemHasChildrenSelector
+                ).nextElementSibling;
+                if (hasParent) {
+                  cls
+                    .closest(this.navItemHasChildrenSelector)
+                    .nextElementSibling.querySelector(this.navItemLink)
+                    .focus();
+                } else {
+                  this.searchButton.focus();
+                }
+                break;
+              default:
+                if (!cls.nextElementSibling) {
+                  this.searchButton.focus();
+                } else {
+                  cls.nextElementSibling
+                    .querySelector(this.navItemLink)
+                    .focus();
+                }
+                break;
+            }
+          }
+        });
+      },
+      _eventInsideNavToggle(event) {
+        return event.target.closest(this.navItemToggle);
+      },
+    };
   }
-
-  navigationOptions(options) {
-		this.options = Object.assign(this.defaults(), options);
-	}
-}
-
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  module.exports = Navigation;
-} else {
-  window.Navigation = Navigation;
 }
