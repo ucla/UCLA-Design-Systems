@@ -26,9 +26,17 @@
     box-shadow: 8px 0 0 variables.$ucla-blue;
     padding: 1px 0 1px 8px;
 
+    @media (min--moz-device-pixel-ratio: 0) {
+      padding: 4px 0 1px 8px;
+    }
+
     @include mixins.for-size(tablet-up) {
       box-shadow: 10px 0 0 variables.$ucla-blue;
       padding: 2px 0 2px 12px;
+
+      @media (min--moz-device-pixel-ratio: 0) {
+        padding: 8px 0 2px 8px;
+      }
     }
   }
 }
@@ -47,5 +55,9 @@
     padding: 8px 0 8px 12px;
     background-color: variables.$ucla-gold;
     box-shadow: 10px 0 0 variables.$ucla-gold;
+
+    @media (min--moz-device-pixel-ratio: 0) {
+      padding: 10px 0 8px 12px;
+    }
   }
 }
