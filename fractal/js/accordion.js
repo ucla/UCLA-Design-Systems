@@ -1,4 +1,8 @@
 import Component from './component';
+
+/**
+ * Display content in a compact manner. Accordions provide a space-saving technique for displaying content in your viewport.
+ */
 export default class Accordion extends Component {
   /**
    * Gets the accordion CSS class

@@ -1,11 +1,32 @@
 import Component from './component';
 
+/**
+ * Tabs provide the ability to navigate different views or facets of the same content.
+ */
 export default class Tabs extends Component {
+
+  /**
+   * Gets the tabs CSS class
+   *
+   * @static
+   * @returns {string}
+   */
   static get selector() {
     return '.ucla-tabs';
   }
+
+  /**
+   * Gets an object containing methods attached to the DOM element.
+   *
+   * @static
+   * @returns {Object}
+   */
   static get methods() {
     return {
+
+      /**
+       * Initialize tabs
+       */
       init() {
         this._initAttr();
         this._initElements();
@@ -14,16 +35,34 @@ export default class Tabs extends Component {
 
         Component.bindMethod(this, 'activateTab', this.activateTab);
       },
+
+      /**
+       * Initialize tab attributes based on CSS class
+       *
+       * @private
+       */
       _initAttr() {
         this.tabAttr = '.ucla-tablink';
         this.tabPanelAttr = '.ucla-tabpanel';
       },
+
+      /**
+       * Initialize tab and tabpanel elements
+       *
+       * @private
+       */
       _initElements() {
         this.tabs = Array.from(this.element.querySelectorAll(this.tabAttr));
         this.panels = Array.from(
           this.element.querySelectorAll(this.tabPanelAttr)
         );
       },
+      
+      /**
+       * Assigns unique IDs to tabs and reference for tab panels
+       * 
+       * @private
+       */
       _setTabIds() {
         this.tabs.forEach((tab) => {
           const id = Component.generateUID();
@@ -31,6 +70,12 @@ export default class Tabs extends Component {
           Component.setAttrIfNotSpecified(tab, 'id', `${id}-tab`);
         });
       },
+
+      /**
+       * Assigns IDs to tabpanels based off of tab reference
+       * 
+       * @private
+       */
       _setPanelIds() {
         const numPanels = this.panels.length;
         for (let i = 0; i < numPanels; i++) {
@@ -41,6 +86,12 @@ export default class Tabs extends Component {
           Component.setAttrIfNotSpecified(panel, 'id', panelId);
         }
       },
+
+      /**
+       * Activates the tab panel with the given panel ID value.
+       * 
+       * @param {string} panelId - Panel ID
+       */
       activateTab(panelId) {
         const tabToBeActive = this.element.querySelector(`#${panelId}-tab`);
         const panelToBeActive = this.element.querySelector(`#${panelId}`);
@@ -50,6 +101,12 @@ export default class Tabs extends Component {
         tabToBeActive.removeAttribute('tabindex');
         panelToBeActive.removeAttribute('hidden');
       },
+
+      /**
+       * Deactivates all tab panels.
+       * 
+       * @private
+       */
       _deactivateAllTabs() {
         this.tabs.forEach((tab) => {
           tab.setAttribute('aria-selected', false);
@@ -60,6 +117,12 @@ export default class Tabs extends Component {
           panel.setAttribute('hidden', '');
         });
       },
+
+      /**
+       * Handles onClick events in the tabs
+       * 
+       * @param {Event} event - onClick event
+       */
       onClick(event) {
         if (this.tabs && this.tabs.includes(event.target)) {
           const id = event.target.getAttribute('data-ucla-tab');
@@ -67,6 +130,12 @@ export default class Tabs extends Component {
           this.activateTab(id);
         }
       },
+
+      /**
+       * Handles keydown events inside the tabs
+       * 
+       * @param {Event} event - Keydown event
+       */
       onKeydown(event) {
         if (!event.target.closest(this.tabAttr)) return;
         const currTab = event.target.closest(this.tabAttr);
@@ -87,6 +156,13 @@ export default class Tabs extends Component {
             break;
         }
       },
+
+      /**
+       * Returns true if custom  event is dispatched.
+       * 
+       * @private
+       * @returns {boolean} - Event successfully dispatched
+       */
       _tabActivatedEvent() {
         const dispatch = Component.dispatchCustomEvent(
           'TabActivated',

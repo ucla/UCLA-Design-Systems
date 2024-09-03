@@ -1,30 +1,74 @@
 import Component from './component';
 
+/**
+ * Tables help logically organize information and group like things together, and they make it easier to understand complex content.
+ */
 export default class Table extends Component {
+
+  /**
+   * Gets the table CSS class
+   *
+   * @static
+   * @returns {string}
+   */
   static get selector() {
     return '.ucla-table__sort';
   }
 
+  /**
+   * Gets an object containing methods attached to the DOM element.
+   *
+   * @static
+   * @returns {Object}
+   */
   static get methods() {
     return {
+
+      /**
+       * Initialize table
+       */
       init() {
         this._initAttr();
         this._initElements();
       },
+
+      /**
+       * Initialize table attributes based on CSS class
+       *
+       * @private
+       */
       _initAttr() {
         this.sortAttr = '.ucla-sortable';
       },
+
+      /**
+       * Initialize all sort triggers and row elements
+       *
+       * @private
+       */
       _initElements() {
         this.sortTriggers = Array.from(
           this.element.querySelectorAll(this.sortAttr)
         );
         this.bodyTr = Array.from(this.element.querySelectorAll('tbody tr'));
       },
+
+      /**
+       * Handles click event for sorting
+       *
+       * @param {Event} event - Click event
+       */
       onClick(event) {
         if (this.sortTriggers && this.sortTriggers.includes(event.target)) {
           this.sort(event);
         }
       },
+
+      /**
+       * Sorts table column
+       * 
+       * @param {Event} event - Click event
+       */
       sort(event) {
         const tableHeader = event.target;
         const sortIcon = event.target.querySelector('svg');

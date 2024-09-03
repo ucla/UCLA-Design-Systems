@@ -5,13 +5,14 @@ import Component from './component';
  */
 
 export default class Alert extends Component {
+
   /**
    * Gets the alert CSS class
    *
    * @static
    * @returns {string}
    */
-
+  
   static get selector() {
     return '.ucla-alert';
   }

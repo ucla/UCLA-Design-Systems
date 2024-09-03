@@ -1,16 +1,43 @@
 import Component from './component';
 
+/**
+ * Header navigation is a robust component offering standardized navigation, search, and accessibility.
+ */
 export default class Navigation extends Component {
+
+  /**
+   * Gets the header CSS ID
+   *
+   * @static
+   * @returns {string}
+   */
   static get selector() {
     return '#header-wrap';
   }
+
+  /**
+   * Gets an object containing methods attached to the DOM element.
+   *
+   * @static
+   * @returns {Object}
+   */
   static get methods() {
     return {
+
+      /**
+       * Initialize navigation
+       */
       init() {
         this._initAttr();
         this._initElements();
         this._attachEventListener();
       },
+
+      /**
+       * Initialize navigation attributes based on CSS class or ID
+       *
+       * @private
+       */
       _initAttr() {
         this.navItemHasChildrenSelector = '.ucla-main-nav__item--has-children';
         this.subNavItemHasChildrenSelector = '.ucla-nav_sublist--has-children';
@@ -23,6 +50,12 @@ export default class Navigation extends Component {
         this.navSearchAttr = '#primary-nav-search';
         this.hamburgerButtonAttr = '#primary-ham';
       },
+
+      /**
+       * Initialize all navigation elements
+       *
+       * @private
+       */
       _initElements() {
         this.parentNavItems = Array.from(
           this.element.querySelectorAll(this.navItemHasChildrenSelector)
@@ -46,14 +79,32 @@ export default class Navigation extends Component {
         this.searchButton = this.element.querySelector(this.searchButtonAttr);
         this.navSearch = this.element.querySelector(this.navSearchAttr);
       },
+
+      /**
+       * Triggers the element to be opened.
+       * 
+       * @param {HTMLElement} el - Parent navigation list-item
+       */
       open(el) {
         el.classList.add('is-open');
         el.querySelector('button').setAttribute('aria-expanded', true);
       },
+
+      /**
+       * Triggers the element to be closed.
+       * 
+       * @param {HTMLElement} el - Parent navigation list-item (must be opened)
+       */
       close(el) {
         el.classList.remove('is-open');
         el.querySelector('button').setAttribute('aria-expanded', false);
       },
+
+      /**
+       * Handles onclick events in the navigation
+       * 
+       * @param {Event} event - Onclick event
+       */
       onClick(event) {
         if (this.triggers && this._eventInsideNavToggle(event)) {
           if (
@@ -80,6 +131,12 @@ export default class Navigation extends Component {
           }
         }
       },
+
+      /**
+       * Handles onfocusout events in the navigation
+       * 
+       * @param {Event} event - Onfocusout event
+       */
       onFocusout(event) {
         const currNavList = event.target.closest(this.navItemList);
         if (currNavList?.closest(this.subNavSelector)) {
@@ -90,6 +147,12 @@ export default class Navigation extends Component {
           this.close(currNavList.closest(this.navItemHasChildrenSelector));
         }
       },
+
+      /**
+       * Handles keydown events in the navigation
+       * 
+       * @param {Event} event - Keydown event
+       */
       onKeydown(event) {
         event.stopPropagation();
         switch (event.keyCode) {
@@ -112,6 +175,12 @@ export default class Navigation extends Component {
             return;
         }
       },
+
+      /**
+       * Attaches event listeners on instances outside of component.
+       * 
+       * @private
+       */
       _attachEventListener() {
         window.addEventListener('resize', () => {
           this.parentNavItems.forEach((el) => this.close(el));
@@ -130,6 +199,13 @@ export default class Navigation extends Component {
           }
         });
       },
+
+      /**
+       * Handles user's Escape key press when in sub-menu or in nav search dropdown
+       * 
+       * @private
+       * @param {Event} event - Keydown event
+       */
       _handleEscapeKey(event) {
         this.subNav?.forEach((menu) => {
           if (menu.contains(event.target)) {
@@ -144,6 +220,13 @@ export default class Navigation extends Component {
           this.searchButton.focus();
         }
       },
+
+      /**
+       * Handles user's Down arrow press when in sub-menu or in nav search dropdown
+       * 
+       * @private
+       * @param {Event} event - Keydown event
+       */
       _handleDownKey(event) {
         this.navLinks?.forEach((link) => {
           if (link.contains(event.target)) {
@@ -182,6 +265,13 @@ export default class Navigation extends Component {
           }
         });
       },
+
+      /**
+       * Handles user's Up arrow press when in sub-menu or in nav search dropdown
+       * 
+       * @private
+       * @param {Event} event - Keyup event
+       */
       _handleUpKey(event) {
         this.navLinks?.forEach((link) => {
           if (link.contains(event.target)) {
@@ -215,6 +305,13 @@ export default class Navigation extends Component {
           }
         });
       },
+
+      /**
+       * Handles user's Left arrow press when in sub-menu or in nav search dropdown
+       * 
+       * @private
+       * @param {Event} event - Keydown event
+       */
       _handleLeftKey(event) {
         this.navLinks?.forEach((link) => {
           if (link.contains(event.target)) {
@@ -247,6 +344,13 @@ export default class Navigation extends Component {
           }
         });
       },
+
+      /**
+       * Handles user's Right arrow press when in sub-menu or in nav search dropdown
+       * 
+       * @private
+       * @param {Event} event - Keydown event
+       */
       _handleRightKey(event) {
         this.navLinks?.forEach((link) => {
           if (link.contains(event.target)) {
@@ -279,6 +383,13 @@ export default class Navigation extends Component {
           }
         });
       },
+
+      /**
+       * Returns true if click event originated inside nav item caret
+       * 
+       * @param {Event} event - Click event
+       * @returns {boolean} Click originated inside content area
+       */
       _eventInsideNavToggle(event) {
         return event.target.closest(this.navItemToggle);
       },
