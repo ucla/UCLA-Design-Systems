@@ -93,6 +93,7 @@ export default class Tabs extends Component {
        * @param {string} panelId - Panel ID
        */
       activateTab(panelId) {
+        this._deactivateAllTabs();
         const tabToBeActive = this.element.querySelector(`#${panelId}-tab`);
         const panelToBeActive = this.element.querySelector(`#${panelId}`);
         if (!this._tabActivatedEvent()) return;
@@ -126,7 +127,6 @@ export default class Tabs extends Component {
       onClick(event) {
         if (this.tabs && this.tabs.includes(event.target)) {
           const id = event.target.getAttribute('data-ucla-tab');
-          this._deactivateAllTabs();
           this.activateTab(id);
         }
       },
