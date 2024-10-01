@@ -121,15 +121,14 @@ export default class Accordion extends Component {
        */
 
       onClick(event) {
-        if (this.triggers && this.triggers.includes(event.target)) {
-          const id = event.target.getAttribute('data-ucla-trigger');
-          const panelItem = event.target.closest('.accordion-item');
-          if (panelItem.classList.contains('is-open')) {
-            this.close(id);
-          } else {
-            this.open(id);
+        if (!event.target.closest('.accordion__heading-button')) {return}
+        const id = event.target.closest('.accordion__heading-button').getAttribute('data-ucla-trigger');
+        const panelItem = event.target.closest('.accordion-item');
+        if (panelItem.classList.contains('is-open')) {
+          this.close(id);
+        } else {
+          this.open(id);
           }
-        }
       },
 
       /**
