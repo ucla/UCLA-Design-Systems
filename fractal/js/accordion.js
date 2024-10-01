@@ -121,8 +121,8 @@ export default class Accordion extends Component {
        */
 
       onClick(event) {
-        if (!event.target.closest('.accordion__heading-button')) {return}
-        const id = event.target.closest('.accordion__heading-button').getAttribute('data-ucla-trigger');
+        if (!event.target.closest(this.triggerAttr)) {return}
+        const id = event.target.closest(this.triggerAttr).getAttribute('data-ucla-trigger');
         const panelItem = event.target.closest('.accordion-item');
         if (panelItem.classList.contains('is-open')) {
           this.close(id);
