@@ -137,16 +137,19 @@ export default class Navigation extends Component {
        * 
        * @param {Event} event - Onfocusout event
        */
-      onFocusout(event) {
-        const currNavList = event.target.closest(this.navItemList);
-        if (currNavList?.closest(this.subNavSelector)) {
-          const isChild = currNavList
-            .closest(this.navItemHasChildrenSelector)
-            .querySelector(this.subNavSelector);
-          if (isChild.contains(event.relatedTarget)) return;
-          this.close(currNavList.closest(this.navItemHasChildrenSelector));
-        }
-      },
+      // onFocusout(event) {
+      //   const currNavList = event.target.closest(this.navItemList);
+      //   if (currNavList?.closest(this.subNavSelector)) {
+      //     console.log('closest ucla-main-nav__sublist', currNavList.closest(this.subNavSelector))
+      //     const isChild = currNavList
+      //       .closest(this.navItemHasChildrenSelector)
+      //       .querySelector(this.subNavSelector);
+      //     console.log('isChild', isChild);
+      //     if (isChild.contains(event.relatedTarget)) return;
+      //     // this.close(currNavList.closest(this.navItemHasChildrenSelector));
+      //     console.log('this should close')
+      //   }
+      // },
 
       /**
        * Handles keydown events in the navigation
@@ -170,6 +173,13 @@ export default class Navigation extends Component {
             break;
           case 39: // right
             this._handleRightKey(event);
+            break;
+          case 9: // tab
+            if (event.shiftKey) {
+              this._handleShiftTabKey(event);
+            } else {
+              this._handleTabKey(event);
+            }
             break;
           default:
             return;
@@ -243,6 +253,8 @@ export default class Navigation extends Component {
                 break;
               case parentCls?.matches(this.navItemHasChildrenSelector):
                 if (!cls.nextElementSibling) {
+                  this.close(cls
+                    .closest(this.navItemHasChildrenSelector));
                   if (
                     !cls.closest(this.navItemHasChildrenSelector)
                       .nextElementSibling
@@ -285,9 +297,9 @@ export default class Navigation extends Component {
                   .closest(this.navItemHasChildrenSelector)
                   .querySelector(this.navItemLink)
                   .focus();
-                // this.close(
-                //   event.target.closest(this.navItemHasChildrenSelector)
-                // );
+                this.close(
+                  event.target.closest(this.navItemHasChildrenSelector)
+                );
                 break;
               case prevParent?.matches(this.navItemHasChildrenSelector):
                 this.open(prevParent);
@@ -322,6 +334,8 @@ export default class Navigation extends Component {
                 const hasParent = cls.closest(
                   this.navItemHasChildrenSelector
                 ).previousElementSibling;
+                this.close(cls
+                  .closest(this.navItemHasChildrenSelector));
                 if (hasParent) {
                   cls
                     .closest(this.navItemHasChildrenSelector)
@@ -361,6 +375,8 @@ export default class Navigation extends Component {
                 const hasParent = cls.closest(
                   this.navItemHasChildrenSelector
                 ).nextElementSibling;
+                this.close(cls
+                  .closest(this.navItemHasChildrenSelector));
                 if (hasParent) {
                   cls
                     .closest(this.navItemHasChildrenSelector)
@@ -382,6 +398,32 @@ export default class Navigation extends Component {
             }
           }
         });
+      },
+
+      /**
+       * Handles user's tab press when in sub-menu
+       * 
+       * @private
+       * @param {Event} event - Keydown event
+       */
+      _handleTabKey(event) {
+        const currNavList = event.target.closest(this.navItemList);
+        const isDesktop = window.matchMedia('(min-width: 960px)')
+        if (currNavList?.closest(this.subNavSelector)) {
+          if (!currNavList.nextElementSibling && isDesktop.matches) {
+            this.close(currNavList
+              .closest(this.navItemHasChildrenSelector));
+          }
+        }
+      },
+
+      _handleShiftTabKey(event) {
+        const currNavList = event.target.closest(this.navItemList);
+        const isDesktop = window.matchMedia('(min-width: 960px)')
+        if (currNavList?.matches(`${this.subNavSelector}>${this.navItemList}:first-child`) && isDesktop.matches) {
+          this.close(currNavList
+            .closest(this.navItemHasChildrenSelector));
+        }
       },
 
       /**
