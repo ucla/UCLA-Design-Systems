@@ -4,7 +4,6 @@ import Component from './component';
  * Header navigation is a robust component offering standardized navigation, search, and accessibility.
  */
 export default class Navigation extends Component {
-
   /**
    * Gets the header CSS ID
    *
@@ -23,7 +22,6 @@ export default class Navigation extends Component {
    */
   static get methods() {
     return {
-
       /**
        * Initialize navigation
        */
@@ -82,7 +80,7 @@ export default class Navigation extends Component {
 
       /**
        * Triggers the element to be opened.
-       * 
+       *
        * @param {HTMLElement} el - Parent navigation list-item
        */
       open(el) {
@@ -92,7 +90,7 @@ export default class Navigation extends Component {
 
       /**
        * Triggers the element to be closed.
-       * 
+       *
        * @param {HTMLElement} el - Parent navigation list-item (must be opened)
        */
       close(el) {
@@ -102,7 +100,7 @@ export default class Navigation extends Component {
 
       /**
        * Handles onclick events in the navigation
-       * 
+       *
        * @param {Event} event - Onclick event
        */
       onClick(event) {
@@ -134,7 +132,7 @@ export default class Navigation extends Component {
 
       /**
        * Handles onfocusout events in the navigation
-       * 
+       *
        * @param {Event} event - Onfocusout event
        */
       // onFocusout(event) {
@@ -153,7 +151,7 @@ export default class Navigation extends Component {
 
       /**
        * Handles keydown events in the navigation
-       * 
+       *
        * @param {Event} event - Keydown event
        */
       onKeydown(event) {
@@ -188,7 +186,7 @@ export default class Navigation extends Component {
 
       /**
        * Attaches event listeners on instances outside of component.
-       * 
+       *
        * @private
        */
       _attachEventListener() {
@@ -212,7 +210,7 @@ export default class Navigation extends Component {
 
       /**
        * Handles user's Escape key press when in sub-menu or in nav search dropdown
-       * 
+       *
        * @private
        * @param {Event} event - Keydown event
        */
@@ -233,11 +231,12 @@ export default class Navigation extends Component {
 
       /**
        * Handles user's Down arrow press when in sub-menu or in nav search dropdown
-       * 
+       *
        * @private
        * @param {Event} event - Keydown event
        */
       _handleDownKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
         this.navLinks?.forEach((link) => {
           if (link.contains(event.target)) {
             const parentCls = event.target.closest(
@@ -245,16 +244,34 @@ export default class Navigation extends Component {
             );
             const cls = event.target.closest(this.navItemList);
             switch (true) {
+              case cls.matches(this.subNavItemHasChildrenSelector):
+                if (!isDesktop.matches) {
+                  cls.querySelector(this.navItemToggle).focus();
+                } else {
+                  this.close(cls.closest(this.navItemHasChildrenSelector));
+                  if (cls.closest(this.navItemHasChildrenSelector).nextElementSibling) {
+
+                    cls.closest(this.navItemHasChildrenSelector).nextElementSibling.querySelector(this.navItemLink).focus();
+                  } else {
+                    this.searchButton.focus();
+                  }
+                }
+                break;
               case cls.matches(this.navItemHasChildrenSelector):
-                this.open(cls);
-                cls
-                  .querySelector(`${this.subNavSelector} ${this.navItemLink}`)
-                  .focus();
+                if (isDesktop.matches) {
+                  this.open(cls);
+                  cls
+                    .querySelector(`${this.subNavSelector} ${this.navItemLink}`)
+                    .focus();
+                } else {
+                  cls.querySelector(this.navItemToggle).focus();
+                }
                 break;
               case parentCls?.matches(this.navItemHasChildrenSelector):
                 if (!cls.nextElementSibling) {
-                  this.close(cls
-                    .closest(this.navItemHasChildrenSelector));
+                  if (isDesktop.matches) {
+                    this.close(cls.closest(this.navItemHasChildrenSelector));
+                  }
                   if (
                     !cls.closest(this.navItemHasChildrenSelector)
                       .nextElementSibling
@@ -276,15 +293,34 @@ export default class Navigation extends Component {
             }
           }
         });
+        this.triggers?.forEach((toggle) => {
+          if (toggle.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            if (cls.classList.contains('is-open')) {
+              cls
+                .querySelector(
+                  `${this.subNavSelector} > ${this.navItemList}:first-child > ${this.navItemLink}`
+                )
+                .focus();
+            } else if (cls.matches(this.subNavItemHasChildrenSelector)) {
+              if (cls.closest(this.navItemHasChildrenSelector).nextElementSibling){
+              cls.closest(this.navItemHasChildrenSelector).nextElementSibling.querySelector(this.navItemLink).focus();
+              } else return;
+            } else if (cls.nextElementSibling) {
+              cls.nextElementSibling.querySelector(this.navItemLink).focus();
+            } else return;
+          }
+        });
       },
 
       /**
        * Handles user's Up arrow press when in sub-menu or in nav search dropdown
-       * 
+       *
        * @private
        * @param {Event} event - Keyup event
        */
       _handleUpKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
         this.navLinks?.forEach((link) => {
           if (link.contains(event.target)) {
             const cls = event.target.closest(this.navItemList);
@@ -293,21 +329,67 @@ export default class Navigation extends Component {
               case cls.matches(
                 `${this.subNavSelector}>${this.navItemList}:first-child`
               ):
-                event.target
-                  .closest(this.navItemHasChildrenSelector)
-                  .querySelector(this.navItemLink)
-                  .focus();
-                this.close(
-                  event.target.closest(this.navItemHasChildrenSelector)
-                );
+                if (isDesktop.matches) {
+                  event.target
+                    .closest(this.navItemHasChildrenSelector)
+                    .querySelector(this.navItemLink)
+                    .focus();
+                  this.close(
+                    event.target.closest(this.navItemHasChildrenSelector)
+                  );
+                } else {
+                  if (event.target.closest(this.subNavItemHasChildrenSelector)) {
+                    event.target
+                      .closest(this.subNavItemHasChildrenSelector)
+                      .querySelector(this.navItemToggle)
+                      .focus();
+                  } else {
+                    event.target
+                      .closest(this.navItemHasChildrenSelector)
+                      .querySelector(this.navItemToggle)
+                      .focus();
+                  }
+                }
                 break;
               case prevParent?.matches(this.navItemHasChildrenSelector):
-                this.open(prevParent);
-                prevParent
-                  .querySelector(
-                    `${this.subNavSelector}>${this.navItemList}:last-child>${this.navItemLink}`
-                  )
-                  .focus();
+                if (isDesktop.matches) {
+                  this.open(prevParent);
+                  prevParent
+                    .querySelector(
+                      `${this.subNavSelector}>${this.navItemList}:last-child>${this.navItemLink}`
+                    )
+                    .focus();
+                } else {
+                  if (prevParent.classList.contains('is-open')) {
+                    if (prevParent.querySelector(this.subNavItemHasChildrenSelector)) {
+
+                      const lastChildIsParent = prevParent.querySelector(this.subNavItemHasChildrenSelector);
+                      if (lastChildIsParent.classList.contains('is-open')) {
+                        // check if last child is parent
+                        if (lastChildIsParent.querySelector(this.subNavItemHasChildrenSelector)) {
+                          // TODO: refactor and rename to something more appropriate
+                          const lastGrandChildIsParent = lastChildIsParent.querySelector(this.subNavItemHasChildrenSelector)
+                          if (lastGrandChildIsParent.classList.contains('is-open')) {
+                            
+
+                            const lastNavChild = lastGrandChildIsParent.querySelector(this.subNavSelector);
+                            
+                            lastNavChild.querySelector(`${this.navItemList}:last-child>${this.navItemLink}`).focus();
+                            
+                          } else {
+                            lastGrandChildIsParent.querySelector(`${this.navItemList}:last-child>${this.navItemToggle}`).focus();
+                          }
+                        }
+                      } else {
+                        lastChildIsParent.querySelector(`${this.navItemList}:last-child>${this.navItemToggle}`).focus();
+                      }
+                    } else {
+                      prevParent.querySelector(`${this.subNavSelector}>${this.navItemList}:last-child > ${this.navItemLink}`).focus();
+                    }
+                  } else {
+                    prevParent.querySelector(this.navItemToggle).focus();
+                  }
+                }
                 break;
               default:
                 if (!prevParent) return;
@@ -316,11 +398,19 @@ export default class Navigation extends Component {
             }
           }
         });
+        this.triggers?.forEach((toggle) => {
+          if (toggle.contains(event.target)) {
+            event.target
+              .closest(this.navItemList)
+              .querySelector(this.navItemLink)
+              .focus();
+          }
+        });
       },
 
       /**
        * Handles user's Left arrow press when in sub-menu or in nav search dropdown
-       * 
+       *
        * @private
        * @param {Event} event - Keydown event
        */
@@ -334,8 +424,7 @@ export default class Navigation extends Component {
                 const hasParent = cls.closest(
                   this.navItemHasChildrenSelector
                 ).previousElementSibling;
-                this.close(cls
-                  .closest(this.navItemHasChildrenSelector));
+                this.close(cls.closest(this.navItemHasChildrenSelector));
                 if (hasParent) {
                   cls
                     .closest(this.navItemHasChildrenSelector)
@@ -361,7 +450,7 @@ export default class Navigation extends Component {
 
       /**
        * Handles user's Right arrow press when in sub-menu or in nav search dropdown
-       * 
+       *
        * @private
        * @param {Event} event - Keydown event
        */
@@ -375,8 +464,7 @@ export default class Navigation extends Component {
                 const hasParent = cls.closest(
                   this.navItemHasChildrenSelector
                 ).nextElementSibling;
-                this.close(cls
-                  .closest(this.navItemHasChildrenSelector));
+                this.close(cls.closest(this.navItemHasChildrenSelector));
                 if (hasParent) {
                   cls
                     .closest(this.navItemHasChildrenSelector)
@@ -402,33 +490,36 @@ export default class Navigation extends Component {
 
       /**
        * Handles user's tab press when in sub-menu
-       * 
+       *
        * @private
        * @param {Event} event - Keydown event
        */
       _handleTabKey(event) {
         const currNavList = event.target.closest(this.navItemList);
-        const isDesktop = window.matchMedia('(min-width: 960px)')
+        const isDesktop = window.matchMedia('(min-width: 960px)');
         if (currNavList?.closest(this.subNavSelector)) {
           if (!currNavList.nextElementSibling && isDesktop.matches) {
-            this.close(currNavList
-              .closest(this.navItemHasChildrenSelector));
+            this.close(currNavList.closest(this.navItemHasChildrenSelector));
           }
         }
       },
 
       _handleShiftTabKey(event) {
         const currNavList = event.target.closest(this.navItemList);
-        const isDesktop = window.matchMedia('(min-width: 960px)')
-        if (currNavList?.matches(`${this.subNavSelector}>${this.navItemList}:first-child`) && isDesktop.matches) {
-          this.close(currNavList
-            .closest(this.navItemHasChildrenSelector));
+        const isDesktop = window.matchMedia('(min-width: 960px)');
+        if (
+          currNavList?.matches(
+            `${this.subNavSelector}>${this.navItemList}:first-child`
+          ) &&
+          isDesktop.matches
+        ) {
+          this.close(currNavList.closest(this.navItemHasChildrenSelector));
         }
       },
 
       /**
        * Returns true if click event originated inside nav item caret
-       * 
+       *
        * @param {Event} event - Click event
        * @returns {boolean} Click originated inside content area
        */
