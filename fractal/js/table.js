@@ -59,9 +59,12 @@ export default class Table extends Component {
        * @param {Event} event - Click event
        */
       onClick(event) {
-        if (this.sortTriggers && this.sortTriggers.includes(event.target)) {
-          this.sort(event);
-        }
+        if (!event.target.closest(this.sortAttr)) {return}
+        this.sort(event);
+        
+        // if (event.target.closest(this.sortAttr)) {
+        //   this.sort(event);
+        // }
       },
 
       /**
@@ -70,8 +73,9 @@ export default class Table extends Component {
        * @param {Event} event - Click event
        */
       sort(event) {
-        const tableHeader = event.target;
-        const sortIcon = event.target.querySelector('svg');
+        const eventHeader = event.target.closest(this.sortAttr);
+        const tableHeader = eventHeader;
+        const sortIcon = eventHeader.querySelector('svg');
         const order = sortIcon.classList;
         const separator = '-----';
         const value_list = {}; // <tr> Object
