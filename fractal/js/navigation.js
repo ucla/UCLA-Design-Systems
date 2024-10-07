@@ -415,35 +415,101 @@ export default class Navigation extends Component {
        * @param {Event} event - Keydown event
        */
       _handleLeftKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
         this.navLinks?.forEach((link) => {
           if (link.contains(event.target)) {
             const cls = event.target.closest(this.navItemList);
             const parentCls = cls.closest(this.subNavSelector);
+            const prevParent = cls.previousElementSibling;
             switch (true) {
               case parentCls?.matches(this.subNavSelector):
                 const hasParent = cls.closest(
                   this.navItemHasChildrenSelector
                 ).previousElementSibling;
-                this.close(cls.closest(this.navItemHasChildrenSelector));
-                if (hasParent) {
-                  cls
-                    .closest(this.navItemHasChildrenSelector)
-                    .previousElementSibling.querySelector(this.navItemLink)
-                    .focus();
+                if (isDesktop.matches) {
+                  this.close(cls.closest(this.navItemHasChildrenSelector));
+                  if (hasParent) {
+                    cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .previousElementSibling.querySelector(this.navItemLink)
+                      .focus();
+                  } else {
+                    cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .querySelector(this.navItemLink)
+                      .focus();
+                  }
                 } else {
-                  cls
-                    .closest(this.navItemHasChildrenSelector)
+                  if (!cls.previousElementSibling) {
+                    if (cls.closest(this.subNavItemHasChildrenSelector)) {
+                      cls.closest(this.subNavItemHasChildrenSelector).querySelector(this.navItemToggle).focus();
+                    } else {
+                      cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .querySelector(this.navItemToggle)
+                      .focus();
+                    }
+                  } else {
+                    cls.previousElementSibling
                     .querySelector(this.navItemLink)
                     .focus();
+                  }
                 }
                 break;
               default:
                 if (!cls.previousElementSibling) return;
-                cls.previousElementSibling
-                  .querySelector(this.navItemLink)
-                  .focus();
+                if (isDesktop.matches) {
+                  cls.previousElementSibling
+                    .querySelector(this.navItemLink)
+                    .focus();
+                } else {
+                  if (cls.previousElementSibling.matches(this.navItemHasChildrenSelector)) {
+                     if (cls.previousElementSibling.classList.contains('is-open')) {
+                      if (cls.previousElementSibling.querySelector(this.subNavItemHasChildrenSelector)) {
+  
+                        const lastChildIsParent = cls.previousElementSibling.querySelector(this.subNavItemHasChildrenSelector);
+                        if (lastChildIsParent.classList.contains('is-open')) {
+                          // check if last child is parent
+                          if (lastChildIsParent.querySelector(this.subNavItemHasChildrenSelector)) {
+                            // TODO: refactor and rename to something more appropriate
+                            const lastGrandChildIsParent = lastChildIsParent.querySelector(this.subNavItemHasChildrenSelector)
+                            if (lastGrandChildIsParent.classList.contains('is-open')) {
+                              
+  
+                              const lastNavChild = lastGrandChildIsParent.querySelector(this.subNavSelector);
+                              
+                              lastNavChild.querySelector(`${this.navItemList}:last-child>${this.navItemLink}`).focus();
+                              
+                            } else {
+                              lastGrandChildIsParent.querySelector(`${this.navItemList}:last-child>${this.navItemToggle}`).focus();
+                            }
+                          }
+                        } else {
+                          lastChildIsParent.querySelector(`${this.navItemList}:last-child>${this.navItemToggle}`).focus();
+                        }
+                      } else {
+                        prevParent?.querySelector(`${this.subNavSelector}>${this.navItemList}:last-child > ${this.navItemLink}`).focus();
+                      }
+                    } else {
+                      cls.previousElementSibling.querySelector(this.navItemToggle)
+                      .focus();
+                    }
+                  } else {
+                    cls.previousElementSibling
+                    .querySelector(this.navItemLink)
+                    .focus();
+                  }
+                }
                 break;
             }
+          }
+        });
+        this.triggers?.forEach((toggle) => {
+          if (toggle.contains(event.target)) {
+            event.target
+              .closest(this.navItemList)
+              .querySelector(this.navItemLink)
+              .focus();
           }
         });
       },
@@ -455,35 +521,80 @@ export default class Navigation extends Component {
        * @param {Event} event - Keydown event
        */
       _handleRightKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
         this.navLinks?.forEach((link) => {
           if (link.contains(event.target)) {
             const cls = event.target.closest(this.navItemList);
             const parentCls = cls.closest(this.subNavSelector);
             switch (true) {
               case parentCls?.matches(this.subNavSelector):
-                const hasParent = cls.closest(
-                  this.navItemHasChildrenSelector
-                ).nextElementSibling;
-                this.close(cls.closest(this.navItemHasChildrenSelector));
-                if (hasParent) {
-                  cls
-                    .closest(this.navItemHasChildrenSelector)
-                    .nextElementSibling.querySelector(this.navItemLink)
-                    .focus();
+                if (isDesktop.matches) {
+                  const hasParent = cls.closest(
+                    this.navItemHasChildrenSelector
+                  ).nextElementSibling;
+                  this.close(cls.closest(this.navItemHasChildrenSelector));
+                  if (hasParent) {
+                    cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .nextElementSibling.querySelector(this.navItemLink)
+                      .focus();
+                  } else {
+                    this.searchButton.focus();
+                  }
                 } else {
-                  this.searchButton.focus();
+                  if (cls.nextElementSibling) {
+                    cls.nextElementSibling.querySelector(this.navItemLink).focus();
+                  } else if (cls.matches(this.subNavItemHasChildrenSelector)) {
+                    cls.querySelector(this.navItemToggle).focus();
+                  } else if (cls
+                    .closest(this.navItemHasChildrenSelector)
+                    .nextElementSibling) {
+                    cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .nextElementSibling.querySelector(this.navItemLink)
+                      .focus();
+                  } else return;
                 }
                 break;
               default:
-                if (!cls.nextElementSibling) {
-                  this.searchButton.focus();
+                if (isDesktop.matches) {
+                  if (!cls.nextElementSibling) {
+                    this.searchButton.focus();
+                  } else {
+                    cls.nextElementSibling
+                      .querySelector(this.navItemLink)
+                      .focus();
+                  }
                 } else {
-                  cls.nextElementSibling
-                    .querySelector(this.navItemLink)
-                    .focus();
+                  const hasParent = cls.closest(this.navItemHasChildrenSelector);
+                  if (hasParent) {
+                    cls.querySelector(this.navItemToggle).focus();
+                  } else  {
+                    cls.nextElementSibling
+                      .querySelector(this.navItemLink)
+                      .focus();
+                  }
                 }
                 break;
             }
+          }
+        });
+        this.triggers?.forEach((toggle) => {
+          if (toggle.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            if (cls.classList.contains('is-open')) {
+              cls
+                .querySelector(
+                  `${this.subNavSelector} > ${this.navItemList}:first-child > ${this.navItemLink}`
+                )
+                .focus();
+            } else if (cls.matches(this.subNavItemHasChildrenSelector)) {
+              if (cls.closest(this.navItemHasChildrenSelector).nextElementSibling){
+              cls.closest(this.navItemHasChildrenSelector).nextElementSibling.querySelector(this.navItemLink).focus();
+              } else return;
+            } else if (cls.nextElementSibling) {
+              cls.nextElementSibling.querySelector(this.navItemLink).focus();
+            } else return;
           }
         });
       },
