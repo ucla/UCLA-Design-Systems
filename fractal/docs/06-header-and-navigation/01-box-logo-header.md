@@ -4,7 +4,7 @@
     <button id="box-logo-header-design" onclick="openTab(event)" class="ucla-doc-tablink is-active" role="tab" aria-selected="true" aria-controls="tab-box-logo-header-design">
       Design Specifications
     </button>
-    <button id="box-logo-header-development" onclick="openTab(event)" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-box-logo-header-development">
+    <button id="box-logo-header-development" onclick="openTab(event);Bruin.initAll();" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-box-logo-header-development">
       Developer Documentation
     </button>
   </nav>

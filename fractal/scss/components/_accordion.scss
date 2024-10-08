@@ -11,6 +11,17 @@
   &:last-child {
     border-bottom: 1px solid variables.$grey-20;
   }
+  &:not(.is-open) {
+    .accordion__body {
+      display: none;
+    }
+  }
+  &.is-opening > .accordion__body {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    transition: height .35s ease;
+  }
 }
 
 .accordion__heading {
@@ -94,9 +105,4 @@
 
 .accordion__content {
   padding: 1.125rem 1rem;
-  display: none;
-
-  .is-open & {
-    display: block;
-  }
 }
