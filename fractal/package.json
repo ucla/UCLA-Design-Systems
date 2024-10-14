@@ -45,7 +45,7 @@
     "css-lint-stylelint": "stylelint \"scss/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
     "css-lint-vars": "fusv scss/**/",
     "js": "npm-run-all js-lint js-compile js-minify",
-    "js-compile": "esbuild js/ucla-lib-scripts.js --bundle --format=iife --outdir=public/js --allow-overwrite --global-name=Bruin",
+    "js-compile": "node ./tasks/compile-js.js",
     "js-minify": "terser public/js/ucla-lib-scripts.js -o public/js/ucla-lib-scripts.min.js -c --source-map \"root='js'\"",
     "js-lint": "eslint --cache --cache-location .cache/.eslintcache --report-unused-disable-directives --ext js/*.js",
     "svg": "npm-run-all svg-compile-*",
@@ -60,7 +60,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "clean-css-cli": "^5.6.2",
-    "del": "^6.0.0",
+    "del": "^6.1.1",
     "esbuild": "^0.17.12",
     "eslint": "^8.57.0",
     "find-unused-sass-variables": "^4.0.6",
