@@ -81,7 +81,7 @@
   order: 2;
   width: 100%;
   flex-direction: column;
-  z-index: 1;
+  z-index: 10;
   top: calc(100% + 1px);
   background-color: variables.$white;
   transition: all 0.3s;
