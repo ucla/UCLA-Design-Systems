@@ -19,6 +19,7 @@ The video banner is a video that plays in the background while having other elem
         </ul>
       </li>
       <li><code>.ucla-banner__video_content</code> - Content inside the video banner</li>
+    </ul>
   </li>
 </ul>
 
