@@ -1,3 +1,6 @@
+---
+status: has_js
+---
 <div class="ucla-doc-tabs">
   <!-- .tablist is the container for tabs only -->
   <nav class="ucla-doc-tabslist" role="tablist" aria-label="content-tabs">

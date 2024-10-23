@@ -113,7 +113,7 @@ export default class Banner extends Component {
       onClick(event) {
         if (this.videoControlButton && this.videoControlButton.contains(event.target)) {
           event.stopPropagation();
-          this.toggleVideoState();
+          this._toggleVideoState();
         }
       },
     }
