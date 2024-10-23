@@ -130,7 +130,7 @@ To have an adjustable height, you will need to do so in a CSS file with media-qu
 
 #### Video Files
 
-It is recommended to compress the video file as much as possible without reducing quality. Fortunately the `<video>` element supports multiple sources as a child. (MDN Docs)[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video]
+It is recommended to compress the video file as much as possible without reducing quality. Fortunately the `<video>` element supports multiple sources as a child. [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
 
 You can use any video file but make sure to use `mp4` as a fallback just in case your desired video format isn't supported by a browser.
 
