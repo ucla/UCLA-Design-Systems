@@ -136,3 +136,38 @@ You can set any elements to our branded colors using the following classes:
     </tr>
   </tbody>
 </table>
+
+#### Opacity
+
+<table class="ucla-table ucla-table__border docs-table mb-5">
+  <thead>
+      <th><h5>Class</h5></th>
+      <th><h5>Properties</h5></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.ucla-opacity-100</code></td>
+      <td><code>opacity: 1;</code></td>
+    </tr>
+    <tr>
+      <td><code>.ucla-opacity-80</code></td>
+      <td><code>opacity: 0.8;</code></td>
+    </tr>
+    <tr>
+      <td><code>.ucla-opacity-60</code></td>
+      <td><code>opacity: 0.6;</code></td>
+    </tr>
+    <tr>
+      <td><code>.ucla-opacity-40</code></td>
+      <td><code>opacity: 0.4;</code></td>
+    </tr>
+    <tr>
+      <td><code>.ucla-opacity-20</code></td>
+      <td><code>opacity: 0.2;</code></td>
+    </tr>
+    <tr>
+      <td><code>.ucla-opacity-0</code></td>
+      <td><code>opacity: 0;</code></td>
+    </tr>
+  </tbody>
+</table>
