@@ -36,7 +36,7 @@ The emergency links is a simple inline navigation list. To build it, simply foll
 <ul class="ucla-global-footer__list">
     <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="https://www.bso.ucla.edu/">Emergency</a></li>
     <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="https://www.ucla.edu/accessibility">Accessibility</a></li>
-    <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="https://ucla-gme-advocate.symplicity.com/public_report/index.php/pid855869">Report Misconduct</a></li>
+    <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="https://equity.ucla.edu/report-an-incident">Report Misconduct</a></li>
     <li class="ucla-global-footer__list-item"><a class="ucla-global-footer__link" href="/terms-of-use/">Privacy &amp; Terms of Use</a></li>
 </ul>
 <!-- ... -->
