@@ -17,9 +17,15 @@ Checkboxes also visibly show users what's been selected and makes it easy for th
 
 <img alt="Checkbox Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/checkbox-anatomy.svg" />
 
-**1. Checkbox (required)**
+**1. Title (optional)**
 
-**2. Label (required)**
+**2. Checkbox (required)**
+
+**3. Label (required)**
+
+Checkbox groups can be either horizontal or vertical. When a checkbox selection is required it should be reflected in the fieldset label.
+
+<img alt="Checkbox Variations" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/checkbox-variations.svg" />
 
 #### Best Practices
 

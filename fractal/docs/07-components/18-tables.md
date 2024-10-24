@@ -7,7 +7,7 @@ status: has_js
     <button id="tables-design" onclick="openTab(event)" class="ucla-doc-tablink is-active" role="tab" aria-selected="true" aria-controls="tab-tables-design">
       Design Specifications
     </button>
-    <button id="tables-development" onclick="openTab(event)" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-tables-development">
+    <button id="tables-development" onclick="openTab(event);Bruin.init();" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-tables-development">
       Developer Documentation
     </button>
   </nav>
