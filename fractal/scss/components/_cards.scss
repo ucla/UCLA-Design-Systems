@@ -42,6 +42,14 @@
 }
 
 .ucla-card__event {
+  &-image-link {
+    display: inline-block;
+    width: 100%;
+
+    &> .ucla-card__image {
+      width: inherit;
+    }
+  }
   &-body {
     display: flex;
     gap: 1rem;
