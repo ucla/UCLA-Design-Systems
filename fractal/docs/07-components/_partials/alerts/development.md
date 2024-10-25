@@ -90,6 +90,6 @@ An icon can be added to the alert by simply adding the `<svg>` with the `.ucla-a
 An `<img>` may also be used instead of an `<svg>`, but the `src` must be colored beforehand.
 
 <div class="ucla-alert ucla-alert--success" role="alert">
-    <img class="ucla-alert--icon" src="/icons/alert/success.svg">
+    <img class="ucla-alert--icon" src="{{path '/icons/alert/success.svg'}}">
     A simple success alert-check it out!
 </div>
