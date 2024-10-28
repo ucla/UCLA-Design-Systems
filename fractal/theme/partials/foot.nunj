@@ -1,0 +1,4 @@
+{% include 'partials/scripts.nunj' %}
+<script>
+  Bruin.init();
+</script>

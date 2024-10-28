@@ -7,7 +7,7 @@ status: has_js
     <button onclick="openTab(event)" id="accordion-design" class="ucla-doc-tablink is-active" role="tab" aria-selected="true" aria-controls="tab-accordion-design">
       Design Specifications
     </button>
-    <button onclick="openTab(event);Bruin.init();" id="accordion-development" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-accordion-development">
+    <button onclick="openTab(event)" id="accordion-development" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-accordion-development">
       Developer Documentation
     </button>
   </nav>
