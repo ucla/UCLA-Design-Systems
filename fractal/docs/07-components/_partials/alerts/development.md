@@ -78,7 +78,7 @@ There are 4 contextual options for alerts:
 </div>
 ```
 
-### Icon
+#### Icon
 
 An icon can be added to the alert by simply adding the `<svg>` with the `.ucla-alert--icon` class.
 
@@ -93,3 +93,28 @@ An `<img>` may also be used instead of an `<svg>`, but the `src` must be colored
     <img class="ucla-alert--icon" src="{{path '/icons/alert/success.svg'}}">
     A simple success alert-check it out!
 </div>
+
+#### JavaScript
+
+**Methods**
+
+`dismiss()`
+
+Dismisses the alert with the ID value of `.ucla-alert`
+
+```js
+const alert = document.querySelector('your alert')
+alert.dismiss()
+```
+
+**Events**
+
+`bruinAlertDismissed`
+
+Emits when an alert is dismissed.
+
+```js
+document.addEventListener('bruinAlertDismissed', function(event) {
+    // Your JavaScript here
+})
+```
