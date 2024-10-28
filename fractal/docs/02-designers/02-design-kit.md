@@ -15,21 +15,27 @@ For details on what’s new, check the release notes below. For how to get the m
 
 #### Using Figma
 
-To get access to the UCLA Design Kit in Figma, you must have a Figma user account, education license or above and an invite to the Strategic Communications team space. If you don’t have an account then sign-up here. Request to access the team space via email.
+To get access to the UCLA Design Kit in Figma, you must have a Figma user account. If you don’t have an account then sign-up [here](https://www.figma.com/signup). Request to access the UCLA Design Kit by filling out the [request form](https://forms.gle/VMRft7krvj396hUG7).
+
+After submitting the form, you will receive an email invite to view the UCLA Design Kit.
 
 <img alt="Figma invite modal" class="ucla-break-container mb-6" src="/theme-assets/img/docs/designer/invite.svg" />
 
-The UCLA Design Kit library will need to be enabled to access all the styles and components. In the left side panel, click on the book icon in the **Assets** panel to access available libraries.
+To use the UCLA Design Kit library, you will need to enable the library in your account settings. In the left side panel, click on your **Name**, then go to **Settings**. Scroll down to **Library** and you will need to Enable libraries for all files in your drafts.
 
 <img alt="Figma Assets" class="ucla-break-container mb-6" src="/theme-assets/img/docs/designer/assets.svg" />
 
-Locate the UCLA Design Kit inside the Library dialog box and toggle switch on.
+Go to **Other teams** within the Libraries menu. Toggle the dropdown menu from “Off” to “All Files” to enable the design kit library for all files.
 
 <img alt="Toggle UCLA Design Kit" class="ucla-break-container mb-6" src="/theme-assets/img/docs/designer/toggle-library.svg" />
 
-#### Styles Library
+You should now be able to see all Design Kit components on the left bar. Simply drag/drop components onto your design file.
 
-Once connected, you can apply style presets in the categories below from the Team Library. Many of these are contextual based on selection or rollover of element in the right side panel in the Design section.
+<img alt="UCLA Design Kit Assets" class="ucla-break-container mb-6" src="/theme-assets/img/docs/designer/library-assets.svg" />
+
+#### Styles Libraries
+
+Once connected, you can apply style presets in the categories below from the Design Kit Library. Many of these are contextual based on selection or rollover of element in the right side panel in the Design section.
 
 Select the object(s) you'd like to apply a Style to.
 
@@ -65,9 +71,9 @@ The Assets panel in the left sidebar allows you to search for components to add 
 
 <img alt="Component Library" class="ucla-break-container mb-6" src="/theme-assets/img/docs/designer/component-library.svg" />
 
-#### Variations
+#### Variants
 
-As you create components and build out your design system, you'll find the need for components that are similar to each other, with only slight differences.
+As you create layouts from the design system, you may find the need for components that are similar to each other, with only slight differences. These are called variants.
 
 For example: you might have multiple components for buttons, with separate components for various states and sizes.
 
