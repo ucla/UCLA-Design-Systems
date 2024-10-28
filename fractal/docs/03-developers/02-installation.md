@@ -14,7 +14,7 @@ Copy and paste this in the `<head>` of your document before any other stylesheet
 
 #### JavaScript
 
-Copy and paste this before the closing `</body>` tag.
+Copy and paste this before the closing `</body>` tag. Please refer to our [JavaScript Documentation]({{path '/docs/developers/javascript'}}) for more details.
 
 ```html
 
