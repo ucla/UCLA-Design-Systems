@@ -21,9 +21,9 @@ In order to build a carousel, start with the following HTML:
 <section
   class="ucla-carousel swiper doc-slider-is-overflow"
   role="group"
-  data-per-page="1"
-  data-per-page-md="2"
-  data-per-page-lg="3"
+  data-ucla-per-page="1"
+  data-ucla-per-page-md="2"
+  data-ucla-per-page-lg="3"
   aria-label="Basic UCLA Slider"
 >
   <div class="swiper-wrapper">
@@ -65,22 +65,22 @@ If you would like to override these, add the following attribute to the `.ucla-c
 ```html
 <section
   class="swiper ucla-carousel"
-  data-per-page="1"
-  data-per-page-md="2"
-  data-per-page-lg="3"
+  data-ucla-per-page="1"
+  data-ucla-per-page-md="2"
+  data-ucla-per-page-lg="3"
 >
 ```
 
-- `data-per-page` - Mobile slide per page
-- `data-per-page-md` - Tablet slide per page
-- `data-per-page-lg` - Desktop slide per page
+- `data-ucla-per-page` - Mobile slide per page
+- `data-ucla-per-page-md` - Tablet slide per page
+- `data-ucla-per-page-lg` - Desktop slide per page
 
 <section
   class="ucla-carousel swiper doc-slider-is-overflow"
   role="group"
-  data-per-page="2"
-  data-per-page-md="1"
-  data-per-page-lg="4"
+  data-ucla-per-page="2"
+  data-ucla-per-page-md="1"
+  data-ucla-per-page-lg="4"
   aria-label="Basic UCLA Slider"
 >
   <div class="swiper-wrapper">
@@ -112,8 +112,8 @@ If you would like to override these, add the following attribute to the `.ucla-c
 ```html
 <section
   class="ucla-carousel swiper"
-  data-per-page="2"
-  data-per-page-md="1"
-  data-per-page-lg="4"
+  data-ucla-per-page="2"
+  data-ucla-per-page-md="1"
+  data-ucla-per-page-lg="4"
 >
 ```
