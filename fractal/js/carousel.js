@@ -99,7 +99,7 @@ export default class Carousel extends Component {
        * @private
        */
       _initSlider() {
-        const swiper = new Swiper(this.slider, this.sliderOptions);
+        const swiper = new Swiper(this.element, this.sliderOptions);
       },
     };
   }
