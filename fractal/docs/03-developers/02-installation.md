@@ -14,13 +14,24 @@ Copy and paste this in the `<head>` of your document before any other stylesheet
 
 #### JavaScript
 
-Copy and paste this before the closing `</body>` tag.
+Copy and paste this before the closing `</body>` tag. Please refer to our [JavaScript Documentation]({{path '/docs/developers/javascript'}}) for more details.
 
 ```html
 
 <script type="text/javascript" crossorigin="anonymous" integrity="sha384-%!JSHash%!" src="https://cdn.designsystem.brand.ucla.edu/build/%!CurrentVersion%!/js/ucla-lib-scripts.min.js" />
 
 ```
+
+#### Package Managers
+Make your you have the latest Node.js installed and your current working directory is where you want to install the UCLA Design System. Run the following command in your command line:
+
+##### Install with npm
+
+`npm install ucla-design-systems`
+
+##### Install with yarn
+
+`yarn add ucla-design-systems`
 
 #### Download source
 

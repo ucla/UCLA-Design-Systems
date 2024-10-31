@@ -1,5 +1,5 @@
 ---
-handle: radio-buttons-development
+handle: radio-group-development
 ---
 To build a radio button, use the following structure:
 

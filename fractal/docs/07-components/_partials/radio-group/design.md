@@ -1,7 +1,7 @@
 ---
-handle: radio-buttons-design
+handle: radio-group-design
 ---
-Radio buttons are a common way to allow users to make a single selection from a list of options. Since only one radio button can be selected at a time (within the same group), each available choice must be its own item and label. 
+Radio groups are a common way to allow users to make a single selection from a list of options. Since only one radio button can be selected at a time (within the same group), each available choice must be its own item and label. 
 
 #### When to use
 
@@ -11,9 +11,16 @@ Radio buttons are a common way to allow users to make a single selection from a 
 
 <img alt="Radio Buttons Anatomy" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/radio-buttons-anatomy.svg" />
 
-**1. Radio Button (required)**
+**1. Title (required)**
 
-**2. Label (required)**
+**2. Radio Button (required)**
+
+**3. Label (required)**
+
+
+Radio groups can be either horizontal or vertical. When radio button selection is required it should be reflected in the fieldset label.
+
+<img alt="Radio Buttons Variation" class="ucla-break-container" src="/theme-assets/img/docs/components/forms/radio-buttons-variations.svg" />
 
 
 #### Examples

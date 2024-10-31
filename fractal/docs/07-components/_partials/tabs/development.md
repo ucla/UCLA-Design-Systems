@@ -17,7 +17,7 @@ The first part of the tabs component is the navigation. It's comprised of inline
 ```html
 <!-- ... -->
 <nav class="ucla-tabslist" role="tablist" aria-label="content-tabs">
-  <button id="panel-01" class="ucla-tablink"  aria-selected="false" aria-controls="panel-01-tab">
+  <button class="ucla-tablink"  aria-selected="false" role="tab">
     Tab 1
   </button>
   <!-- ... -->
@@ -37,28 +37,36 @@ The second part of the tabs component is the content. Like the navigation, the t
 ```html
 <!-- ... -->
 <section class="ucla-tabpanels">
-  <article id="panel-01-tab" tabindex="0" role="tabpanel" aria-labelledby="panel-01" class="ucla-tabpanel">
+  <article tabindex="0" role="tabpanel" class="ucla-tabpanel">
     <!-- ... -->
   </article>
 </section>
 <!-- ... -->
 ```
 
-_Note: The id of the `.ucla-tabpanel` must match the `aria-controls` in order for the tabs to function. See example below:
+[Preview Example]({{path '/components/preview/tabs'}})
 
-```html
-<div class="ucla-tabs">
-  <nav class="ucla-tabslist" role="tablist" aria-label="content-tabs">
-    <button id="panel-01" class="ucla-tablink"  aria-selected="false" aria-controls="panel-01-tab">
-      Tab 1
-    </button>
-  </nav>
-  <section class="ucla-tabpanels">
-    <article id="panel-01-tab" tabindex="0" role="tabpanel" aria-labelledby="panel-01" class="ucla-tabpanel">
-      <!-- ... -->
-    </article>
-  </section>
-</div>
+#### JavaScript
+
+**Methods**
+
+`activateTab(panelID)`
+
+Activates the tab item with the ID value of `.ucla-tabpanels"`.
+
+```js
+const tabs = document.querySelector('your tabs component');
+tabs.activateTab('your tab panel ID');
 ```
 
-[Preview Example]({{path '/components/preview/tabs'}})
+**Events**
+
+`bruinTabActivated`
+
+Emits when an tab panel is activated.
+
+```js
+document.addEventListener('bruinTabActivated', function() {
+  // Your JavaScript here
+})
+```

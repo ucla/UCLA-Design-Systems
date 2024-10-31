@@ -15,9 +15,9 @@ For branding purposes, we suggest you add an element with the class `.accordion_
 
 A `<button>` with the class `.accordion__heading-button` should be placed inside the  `.accordion__heading` with a corresponding arrow svg. This element is what triggers the content to expand or collapse.
 
-##### Accordion Content
+##### Accordion Body & Content
 
-An element with the class `.accordion__content` needs to be the Accordion Title sibling. This will hold the content you are going to display/hide when the Title is clicked.
+An element with the class `.accordion__body` needs to be the Accordion Title sibling. The `.accordion__content` will hold the content you are going to display/hide when the Title is clicked.
 
 
 ```html
@@ -35,8 +35,10 @@ An element with the class `.accordion__content` needs to be the Accordion Title 
             <button>
         </h4>
         <!-- Accordion Content -->
-        <div class="accordion__content">
-            <p>Lorem Ipsum</p>
+        <div class="accordion__body">
+            <div class="accordion__content">
+                <p>Lorem Ipsum</p>
+            </div>
         </div>
     </div>
     <!-- ... -->
@@ -61,4 +63,48 @@ By default, the accordion will only open one panel at a time. If you would like 
 
 ```html
 {{view '@accordion--multi'}}
+```
+
+#### JavaScript
+
+**Methods**
+
+`open(panelID)`
+
+Opens the accordion item with the ID value of `.accordion__content`.
+
+```js
+const accordion = document.querySelector('your accordion');
+accordion.open('your accordion panel ID')
+```
+
+`close(panelID)`
+
+Closes the accordion item with the ID value of `.accordion__content`.
+
+```js
+const accordion = document.querySelector('your accordion');
+accordion.close('your accordion panel ID')
+```
+
+**Events**
+
+`bruinAccordionOpen`
+
+Emits when an accordion panel is opened.
+
+```js
+document.addEventListener('bruinAccordionOpen', function(event) {
+    // Your JavaScript here
+})
+```
+
+`bruinAccordionClose`
+
+Emits when an accordion panel is closed.
+
+```js
+document.addEventListener('bruinAccordionClose', function(event) {
+    // Your JavaScript here
+})
 ```
