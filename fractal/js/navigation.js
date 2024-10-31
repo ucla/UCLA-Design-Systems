@@ -1,244 +1,642 @@
-"use strict";
+import Component from './component';
 
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * Header navigation is a robust component offering standardized navigation, search, and accessibility.
+ */
+export default class Navigation extends Component {
   /**
-   * Declare Variables
+   * Gets the header CSS ID
+   *
+   * @static
+   * @returns {string}
    */
-  const hamburger = document.getElementById("primary-ham");
-  const header = document.getElementById("header-wrap");
-  const $navPrimaryItem = getAll(".ucla-main-nav__item");
-  const $navPrimaryHasChildren = getAll(".ucla-main-nav__item--has-children");
-  const $navPrimaryToggles = getAll(".ucla-main-nav__toggle");
-  const searchButton = document.getElementById("search-button");
-  const primaryNavSearch = document.getElementById("primary-nav-search");
+  static get selector() {
+    return '#header-wrap';
+  }
 
   /**
-   * Event Listeners
+   * Gets an object containing methods attached to the DOM element.
+   *
+   * @static
+   * @returns {Object}
    */
-  if (hamburger) {
-    hamburger.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (header.classList.contains("is-open")) {
-        hamburger.setAttribute("aria-expanded", "false");
-      } else {
-        hamburger.setAttribute("aria-expanded", "true");
-      }
-      header.classList.toggle("is-open");
-    });
-  }
-  if (searchButton) {
-    searchButton.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (primaryNavSearch.classList.contains("is-open")) {
-        searchButton.setAttribute("aria-expanded", "false");
-      } else {
-        searchButton.setAttribute("aria-expanded", "true");
-      }
-      primaryNavSearch.classList.toggle("is-open");
-    });
-  }
-  if (primaryNavSearch) {
-    primaryNavSearch.addEventListener("focusout", (e) => {
-      e.stopPropagation();
-      if (primaryNavSearch.contains(e.relatedTarget)) {
-        return;
-      }
-      primaryNavSearch.classList.remove("is-open");
-      searchButton.setAttribute("aria-expanded", "false");
-    });
-  }
-  if (document.getElementById("nav-main")) {
-    document.addEventListener("click", (e) => {
-      if (!document.getElementById("nav-main").contains(e.target)) {
-        header.classList.remove("is-open");
-        hamburger.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
+  static get methods() {
+    return {
+      /**
+       * Initialize navigation
+       */
+      init() {
+        this._initAttr();
+        this._initElements();
+        this._attachEventListener();
+      },
 
-  if ($navPrimaryItem.length > 0) {
-    $navPrimaryItem.forEach($el => {
-      $el.addEventListener("keydown", (e) => {
-        e.stopPropagation();
-        let currentFocusedEl = document.activeElement;
-        let navItemHasChildren = $el.classList.contains('ucla-main-nav__item--has-children');
-        let previousListItem = currentFocusedEl.closest('.ucla-main-nav__item').previousElementSibling;
-        let nextListItem = currentFocusedEl.closest('.ucla-main-nav__item').nextElementSibling;
-        if (e.keyCode === "ArrowRight" || e.keyCode === 39) {
-          e.preventDefault();
-          // check if inside sub-menu
-          if (currentFocusedEl.parentElement.parentElement.classList.contains('ucla-main-nav__sublist')) {
-            currentFocusedEl.closest('.ucla-main-nav__item--has-children').nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+      /**
+       * Initialize navigation attributes based on CSS class or ID
+       *
+       * @private
+       */
+      _initAttr() {
+        this.navItemHasChildrenSelector = '.ucla-main-nav__item--has-children';
+        this.subNavItemHasChildrenSelector = '.ucla-nav_sublist--has-children';
+        this.navItemToggle = '.ucla-main-nav__toggle';
+        this.subNavSelector = '.ucla-main-nav__sublist';
+        this.navItemList = '.ucla-main-nav__item';
+        this.navItemLink = '.ucla-main-nav__link';
+        this.mainNavAttr = '#nav-main';
+        this.searchButtonAttr = '#search-button';
+        this.navSearchAttr = '#primary-nav-search';
+        this.hamburgerButtonAttr = '#primary-ham';
+      },
+
+      /**
+       * Initialize all navigation elements
+       *
+       * @private
+       */
+      _initElements() {
+        this.parentNavItems = Array.from(
+          this.element.querySelectorAll(this.navItemHasChildrenSelector)
+        );
+        this.subNav = Array.from(
+          this.element.querySelectorAll(this.subNavSelector)
+        );
+        this.triggers = Array.from(
+          this.element.querySelectorAll(this.navItemToggle)
+        );
+        this.navItems = Array.from(
+          this.element.querySelectorAll(this.navItemList)
+        );
+        this.navLinks = Array.from(
+          this.element.querySelectorAll(this.navItemLink)
+        );
+        this.mainNav = this.element.querySelector(this.mainNavAttr);
+        this.hamburgerButton = this.element.querySelector(
+          this.hamburgerButtonAttr
+        );
+        this.searchButton = this.element.querySelector(this.searchButtonAttr);
+        this.navSearch = this.element.querySelector(this.navSearchAttr);
+      },
+
+      /**
+       * Triggers the element to be opened.
+       *
+       * @param {HTMLElement} el - Parent navigation list-item
+       */
+      open(el) {
+        el.classList.add('is-open');
+        el.querySelector('button').setAttribute('aria-expanded', true);
+      },
+
+      /**
+       * Triggers the element to be closed.
+       *
+       * @param {HTMLElement} el - Parent navigation list-item (must be opened)
+       */
+      close(el) {
+        el.classList.remove('is-open');
+        el.querySelector('button').setAttribute('aria-expanded', false);
+      },
+
+      /**
+       * Handles onclick events in the navigation
+       *
+       * @param {Event} event - Onclick event
+       */
+      onClick(event) {
+        if (this.triggers && this._eventInsideNavToggle(event)) {
+          if (
+            event.target.closest(this.navItemList).classList.contains('is-open')
+          ) {
+            this.close(event.target.closest(this.navItemList));
           } else {
-            if (nextListItem) {
-              nextListItem.querySelector('a').focus();
-            } else {
-              return;
-              // console.log(document.querySelector('.ucla-main-nav').nextElementSibling)
-              // document.querySelector('.ucla-main-nav').nextElementSibling.focus();
-            }
+            this.open(event.target.closest(this.navItemList));
           }
         }
-        if (e.keyCode === "ArrowLeft" || e.keyCode === 37) {
-          e.preventDefault();
-          if (currentFocusedEl.parentElement.parentElement.classList.contains('ucla-main-nav__sublist')) {
-            currentFocusedEl.closest('.ucla-main-nav__item--has-children').previousElementSibling.querySelector('.ucla-main-nav__link').focus();
+        if (this.searchButton.contains(event.target)) {
+          const parent = event.target.closest('.ucla-main-nav__search-desktop');
+          if (parent.classList.contains('is-open')) {
+            this.close(parent);
           } else {
-            if (previousListItem) {
-              previousListItem.querySelector('a').focus();
-            } else {
-              return;
-              // document.querySelector('.ucla-main-nav').previousElementSibling.focus();
-            }
+            this.open(parent);
           }
         }
-        if (e.keyCode === "ArrowDown" || e.keyCode === 40) {
-          e.preventDefault();
-          
-          // Check if focused on parent
-          if (navItemHasChildren) {
-            // open and focus first list item
-            $el.classList.add("is-open");
-            $el.setAttribute("aria-expanded", "true");
-            $el.querySelector('.ucla-main-nav__sublist > li > a').focus();
+        if (this.hamburgerButton.contains(event.target)) {
+          if (this.element.classList.contains('is-open')) {
+            this.close(this.element);
           } else {
-            // check if nav item exist
-            if (nextListItem) {
-                nextListItem.querySelector('.ucla-main-nav__link').focus();
+            this.open(this.element);
+          }
+        }
+      },
+
+      /**
+       * Handles onfocusout events in the navigation
+       *
+       * @param {Event} event - Onfocusout event
+       */
+      // onFocusout(event) {
+      //   const currNavList = event.target.closest(this.navItemList);
+      //   if (currNavList?.closest(this.subNavSelector)) {
+      //     console.log('closest ucla-main-nav__sublist', currNavList.closest(this.subNavSelector))
+      //     const isChild = currNavList
+      //       .closest(this.navItemHasChildrenSelector)
+      //       .querySelector(this.subNavSelector);
+      //     console.log('isChild', isChild);
+      //     if (isChild.contains(event.relatedTarget)) return;
+      //     // this.close(currNavList.closest(this.navItemHasChildrenSelector));
+      //     console.log('this should close')
+      //   }
+      // },
+
+      /**
+       * Handles keydown events in the navigation
+       *
+       * @param {Event} event - Keydown event
+       */
+      onKeydown(event) {
+        event.stopPropagation();
+        switch (event.keyCode) {
+          case 27: // escape
+            this._handleEscapeKey(event);
+            break;
+          case 40: // down
+            this._handleDownKey(event);
+            break;
+          case 38: // up
+            this._handleUpKey(event);
+            break;
+          case 37: // left
+            this._handleLeftKey(event);
+            break;
+          case 39: // right
+            this._handleRightKey(event);
+            break;
+          case 9: // tab
+            if (event.shiftKey) {
+              this._handleShiftTabKey(event);
             } else {
-              // check if in sublist
-              if (currentFocusedEl.parentElement.parentElement.classList.contains('ucla-main-nav__sublist')) {
-                if (currentFocusedEl.closest('.ucla-main-nav__item--has-children').nextElementSibling) {
-                  currentFocusedEl.closest('.ucla-main-nav__item--has-children').nextElementSibling.querySelector('.ucla-main-nav__link').focus();
+              this._handleTabKey(event);
+            }
+            break;
+          default:
+            return;
+        }
+      },
+
+      /**
+       * Attaches event listeners on instances outside of component.
+       *
+       * @private
+       */
+      _attachEventListener() {
+        window.addEventListener('resize', () => {
+          this.parentNavItems.forEach((el) => this.close(el));
+          this.close(this.element);
+          this.close(this.navSearch);
+        });
+        document.addEventListener('click', (event) => {
+          if (!document.getElementById('nav-main').contains(event.target)) {
+            this.close(this.navSearch);
+          }
+          if (
+            !this.mainNav.contains(event.target) &&
+            !this.hamburgerButton.contains(event.target)
+          ) {
+            this.close(this.element);
+          }
+        });
+      },
+
+      /**
+       * Handles user's Escape key press when in sub-menu or in nav search dropdown
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       */
+      _handleEscapeKey(event) {
+        this.subNav?.forEach((menu) => {
+          if (menu.contains(event.target)) {
+            menu
+              .closest(this.navItemHasChildrenSelector)
+              .querySelector(this.navItemLink)
+              .focus();
+          }
+        });
+        if (this.navSearch?.contains(event.target)) {
+          this.close(this.navSearch);
+          this.searchButton.focus();
+        }
+      },
+
+      /**
+       * Handles user's Down arrow press when in sub-menu or in nav search dropdown
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       */
+      _handleDownKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
+        this.navLinks?.forEach((link) => {
+          if (link.contains(event.target)) {
+            const parentCls = event.target.closest(
+              this.navItemHasChildrenSelector
+            );
+            const cls = event.target.closest(this.navItemList);
+            switch (true) {
+              case cls.matches(this.subNavItemHasChildrenSelector):
+                if (!isDesktop.matches) {
+                  cls.querySelector(this.navItemToggle).focus();
                 } else {
+                  this.close(cls.closest(this.navItemHasChildrenSelector));
+                  if (cls.closest(this.navItemHasChildrenSelector).nextElementSibling) {
+
+                    cls.closest(this.navItemHasChildrenSelector).nextElementSibling.querySelector(this.navItemLink).focus();
+                  } else {
+                    this.searchButton.focus();
+                  }
+                }
+                break;
+              case cls.matches(this.navItemHasChildrenSelector):
+                if (isDesktop.matches) {
+                  this.open(cls);
+                  cls
+                    .querySelector(`${this.subNavSelector} ${this.navItemLink}`)
+                    .focus();
+                } else {
+                  cls.querySelector(this.navItemToggle).focus();
+                }
+                break;
+              case parentCls?.matches(this.navItemHasChildrenSelector):
+                if (!cls.nextElementSibling) {
+                  if (isDesktop.matches) {
+                    this.close(cls.closest(this.navItemHasChildrenSelector));
+                  }
+                  if (
+                    !cls.closest(this.navItemHasChildrenSelector)
+                      .nextElementSibling
+                  ) {
+                    this.searchButton.focus();
+                    return;
+                  }
+                  cls
+                    .closest(this.navItemHasChildrenSelector)
+                    .nextElementSibling.querySelector(this.navItemLink)
+                    .focus();
                   return;
                 }
-              } else {
-                return;
-              }
+                cls.nextElementSibling.querySelector(this.navItemLink).focus();
+                break;
+              default:
+                cls.nextElementSibling.querySelector(this.navItemLink).focus();
+                break;
             }
           }
-        }
-        if (e.keyCode === "ArrowUp" || e.keyCode === 38) {
-          e.preventDefault();
-
-          // Check if focused on parent
-          if (navItemHasChildren) {
-            // check if previous list exist
-            if (currentFocusedEl.closest('.ucla-main-nav__item--has-children').previousElementSibling) {
-              
-              // check if previous list is a parent
-              if (currentFocusedEl.closest('.ucla-main-nav__item--has-children').previousElementSibling.classList.contains('ucla-main-nav__item--has-children')) {
-                
-                // open previous sub menu
-                previousListItem.classList.add("is-open");
-                previousListItem.setAttribute("aria-expanded", "true");
-              
-                // focus last child link
-                previousListItem.querySelector('.ucla-main-nav__sublist > li:last-of-type > a').focus();
-              } else {
-                previousListItem.querySelector('.ucla-main-nav__link').focus();
-              }
-            } else {
-              return;
-            }
-          } else {
-            // check if no other list item
-            if (previousListItem) {
-              previousListItem.querySelector('.ucla-main-nav__link').focus();
-            } else {
-              // check if in sublist
-              if (currentFocusedEl.parentElement.parentElement.classList.contains('ucla-main-nav__sublist')) {
-
-              // close current sub menu
-              currentFocusedEl.closest('.ucla-main-nav__item--has-children').classList.remove("is-open");
-              currentFocusedEl.closest('.ucla-main-nav__item--has-children').setAttribute("aria-expanded", "false");
-              // focus parent link
-              currentFocusedEl.closest('.ucla-main-nav__item--has-children').querySelector('.ucla-main-nav__link').focus();
-              } else {
-                return;
-              }
-            }
-          }
-          
-        }
-        if (e.keyCode === "Escape" || e.keyCode === 27) {
-          e.preventDefault();
-          if (navItemHasChildren) {
-            return;
-          } else {
-           
-              currentFocusedEl.closest('.ucla-main-nav__item--has-children').classList.remove("is-open");
-              currentFocusedEl.closest('.ucla-main-nav__item--has-children').setAttribute("aria-expanded", "false");
-              // focus parent link
-              currentFocusedEl.closest('.ucla-main-nav__item--has-children').querySelector('.ucla-main-nav__link').focus();
-            
-          }
-        }
-      });
-    });
-  }
-
-  // Checks for Navigation items with children
-  if ($navPrimaryHasChildren.length > 0) {
-    $navPrimaryHasChildren.forEach(($el) => {
-      $el.addEventListener("mouseover", () => {
-        $el.setAttribute("aria-expanded", "true");
-      });
-      $el.addEventListener("mouseout", () => {
-        $el.setAttribute("aria-expanded", "false");
-      });
-
-      // Hide dropdown when tab out
-      $el
-        .querySelector(".ucla-main-nav__sublist")
-        .addEventListener("focusout", (e) => {
-          e.stopPropagation();
-          if ($el.contains(e.relatedTarget)) {
-            return;
-          }
-          $el.classList.remove("is-open");
-          $el.setAttribute("aria-expanded", "false");
         });
-    });
-  }
+        this.triggers?.forEach((toggle) => {
+          if (toggle.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            if (cls.classList.contains('is-open')) {
+              cls
+                .querySelector(
+                  `${this.subNavSelector} > ${this.navItemList}:first-child > ${this.navItemLink}`
+                )
+                .focus();
+            } else if (cls.matches(this.subNavItemHasChildrenSelector)) {
+              if (cls.closest(this.navItemHasChildrenSelector).nextElementSibling){
+              cls.closest(this.navItemHasChildrenSelector).nextElementSibling.querySelector(this.navItemLink).focus();
+              } else return;
+            } else if (cls.nextElementSibling) {
+              cls.nextElementSibling.querySelector(this.navItemLink).focus();
+            } else return;
+          }
+        });
+      },
 
+      /**
+       * Handles user's Up arrow press when in sub-menu or in nav search dropdown
+       *
+       * @private
+       * @param {Event} event - Keyup event
+       */
+      _handleUpKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
+        this.navLinks?.forEach((link) => {
+          if (link.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            const prevParent = cls.previousElementSibling;
+            switch (true) {
+              case cls.matches(
+                `${this.subNavSelector}>${this.navItemList}:first-child`
+              ):
+                if (isDesktop.matches) {
+                  event.target
+                    .closest(this.navItemHasChildrenSelector)
+                    .querySelector(this.navItemLink)
+                    .focus();
+                  this.close(
+                    event.target.closest(this.navItemHasChildrenSelector)
+                  );
+                } else {
+                  if (event.target.closest(this.subNavItemHasChildrenSelector)) {
+                    event.target
+                      .closest(this.subNavItemHasChildrenSelector)
+                      .querySelector(this.navItemToggle)
+                      .focus();
+                  } else {
+                    event.target
+                      .closest(this.navItemHasChildrenSelector)
+                      .querySelector(this.navItemToggle)
+                      .focus();
+                  }
+                }
+                break;
+              case prevParent?.matches(this.navItemHasChildrenSelector):
+                if (isDesktop.matches) {
+                  this.open(prevParent);
+                  prevParent
+                    .querySelector(
+                      `${this.subNavSelector}>${this.navItemList}:last-child>${this.navItemLink}`
+                    )
+                    .focus();
+                } else {
+                  if (prevParent.classList.contains('is-open')) {
+                    if (prevParent.querySelector(this.subNavItemHasChildrenSelector)) {
+
+                      const lastChildIsParent = prevParent.querySelector(this.subNavItemHasChildrenSelector);
+                      if (lastChildIsParent.classList.contains('is-open')) {
+                        // check if last child is parent
+                        if (lastChildIsParent.querySelector(this.subNavItemHasChildrenSelector)) {
+                          // TODO: refactor and rename to something more appropriate
+                          const lastGrandChildIsParent = lastChildIsParent.querySelector(this.subNavItemHasChildrenSelector)
+                          if (lastGrandChildIsParent.classList.contains('is-open')) {
+                            
+
+                            const lastNavChild = lastGrandChildIsParent.querySelector(this.subNavSelector);
+                            
+                            lastNavChild.querySelector(`${this.navItemList}:last-child>${this.navItemLink}`).focus();
+                            
+                          } else {
+                            lastGrandChildIsParent.querySelector(`${this.navItemList}:last-child>${this.navItemToggle}`).focus();
+                          }
+                        }
+                      } else {
+                        lastChildIsParent.querySelector(`${this.navItemList}:last-child>${this.navItemToggle}`).focus();
+                      }
+                    } else {
+                      prevParent.querySelector(`${this.subNavSelector}>${this.navItemList}:last-child > ${this.navItemLink}`).focus();
+                    }
+                  } else {
+                    prevParent.querySelector(this.navItemToggle).focus();
+                  }
+                }
+                break;
+              default:
+                if (!prevParent) return;
+                prevParent.querySelector(this.navItemLink).focus();
+                break;
+            }
+          }
+        });
+        this.triggers?.forEach((toggle) => {
+          if (toggle.contains(event.target)) {
+            event.target
+              .closest(this.navItemList)
+              .querySelector(this.navItemLink)
+              .focus();
+          }
+        });
+      },
+
+      /**
+       * Handles user's Left arrow press when in sub-menu or in nav search dropdown
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       */
+      _handleLeftKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
+        this.navLinks?.forEach((link) => {
+          if (link.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            const parentCls = cls.closest(this.subNavSelector);
+            const prevParent = cls.previousElementSibling;
+            switch (true) {
+              case parentCls?.matches(this.subNavSelector):
+                const hasParent = cls.closest(
+                  this.navItemHasChildrenSelector
+                ).previousElementSibling;
+                if (isDesktop.matches) {
+                  this.close(cls.closest(this.navItemHasChildrenSelector));
+                  if (hasParent) {
+                    cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .previousElementSibling.querySelector(this.navItemLink)
+                      .focus();
+                  } else {
+                    cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .querySelector(this.navItemLink)
+                      .focus();
+                  }
+                } else {
+                  if (!cls.previousElementSibling) {
+                    if (cls.closest(this.subNavItemHasChildrenSelector)) {
+                      cls.closest(this.subNavItemHasChildrenSelector).querySelector(this.navItemToggle).focus();
+                    } else {
+                      cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .querySelector(this.navItemToggle)
+                      .focus();
+                    }
+                  } else {
+                    cls.previousElementSibling
+                    .querySelector(this.navItemLink)
+                    .focus();
+                  }
+                }
+                break;
+              default:
+                if (!cls.previousElementSibling) return;
+                if (isDesktop.matches) {
+                  cls.previousElementSibling
+                    .querySelector(this.navItemLink)
+                    .focus();
+                } else {
+                  if (cls.previousElementSibling.matches(this.navItemHasChildrenSelector)) {
+                     if (cls.previousElementSibling.classList.contains('is-open')) {
+                      if (cls.previousElementSibling.querySelector(this.subNavItemHasChildrenSelector)) {
   
+                        const lastChildIsParent = cls.previousElementSibling.querySelector(this.subNavItemHasChildrenSelector);
+                        if (lastChildIsParent.classList.contains('is-open')) {
+                          // check if last child is parent
+                          if (lastChildIsParent.querySelector(this.subNavItemHasChildrenSelector)) {
+                            // TODO: refactor and rename to something more appropriate
+                            const lastGrandChildIsParent = lastChildIsParent.querySelector(this.subNavItemHasChildrenSelector)
+                            if (lastGrandChildIsParent.classList.contains('is-open')) {
+                              
+  
+                              const lastNavChild = lastGrandChildIsParent.querySelector(this.subNavSelector);
+                              
+                              lastNavChild.querySelector(`${this.navItemList}:last-child>${this.navItemLink}`).focus();
+                              
+                            } else {
+                              lastGrandChildIsParent.querySelector(`${this.navItemList}:last-child>${this.navItemToggle}`).focus();
+                            }
+                          }
+                        } else {
+                          lastChildIsParent.querySelector(`${this.navItemList}:last-child>${this.navItemToggle}`).focus();
+                        }
+                      } else {
+                        prevParent?.querySelector(`${this.subNavSelector}>${this.navItemList}:last-child > ${this.navItemLink}`).focus();
+                      }
+                    } else {
+                      cls.previousElementSibling.querySelector(this.navItemToggle)
+                      .focus();
+                    }
+                  } else {
+                    cls.previousElementSibling
+                    .querySelector(this.navItemLink)
+                    .focus();
+                  }
+                }
+                break;
+            }
+          }
+        });
+        this.triggers?.forEach((toggle) => {
+          if (toggle.contains(event.target)) {
+            event.target
+              .closest(this.navItemList)
+              .querySelector(this.navItemLink)
+              .focus();
+          }
+        });
+      },
 
-  // Down caret click triggers dropdown
-  if ($navPrimaryToggles.length > 0) {
-    $navPrimaryToggles.forEach(($el) => {
-      $el.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if ($el.closest("li").classList.contains("is-open")) {
-          $el.setAttribute("aria-expanded", "false");
-        } else {
-          $el.setAttribute("aria-expanded", "true");
+      /**
+       * Handles user's Right arrow press when in sub-menu or in nav search dropdown
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       */
+      _handleRightKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
+        this.navLinks?.forEach((link) => {
+          if (link.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            const parentCls = cls.closest(this.subNavSelector);
+            switch (true) {
+              case parentCls?.matches(this.subNavSelector):
+                if (isDesktop.matches) {
+                  const hasParent = cls.closest(
+                    this.navItemHasChildrenSelector
+                  ).nextElementSibling;
+                  this.close(cls.closest(this.navItemHasChildrenSelector));
+                  if (hasParent) {
+                    cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .nextElementSibling.querySelector(this.navItemLink)
+                      .focus();
+                  } else {
+                    this.searchButton.focus();
+                  }
+                } else {
+                  if (cls.nextElementSibling) {
+                    cls.nextElementSibling.querySelector(this.navItemLink).focus();
+                  } else if (cls.matches(this.subNavItemHasChildrenSelector)) {
+                    cls.querySelector(this.navItemToggle).focus();
+                  } else if (cls
+                    .closest(this.navItemHasChildrenSelector)
+                    .nextElementSibling) {
+                    cls
+                      .closest(this.navItemHasChildrenSelector)
+                      .nextElementSibling.querySelector(this.navItemLink)
+                      .focus();
+                  } else return;
+                }
+                break;
+              default:
+                if (isDesktop.matches) {
+                  if (!cls.nextElementSibling) {
+                    this.searchButton.focus();
+                  } else {
+                    cls.nextElementSibling
+                      .querySelector(this.navItemLink)
+                      .focus();
+                  }
+                } else {
+                  const hasParent = cls.closest(this.navItemHasChildrenSelector);
+                  if (hasParent) {
+                    cls.querySelector(this.navItemToggle).focus();
+                  } else  {
+                    cls.nextElementSibling
+                      .querySelector(this.navItemLink)
+                      .focus();
+                  }
+                }
+                break;
+            }
+          }
+        });
+        this.triggers?.forEach((toggle) => {
+          if (toggle.contains(event.target)) {
+            const cls = event.target.closest(this.navItemList);
+            if (cls.classList.contains('is-open')) {
+              cls
+                .querySelector(
+                  `${this.subNavSelector} > ${this.navItemList}:first-child > ${this.navItemLink}`
+                )
+                .focus();
+            } else if (cls.matches(this.subNavItemHasChildrenSelector)) {
+              if (cls.closest(this.navItemHasChildrenSelector).nextElementSibling){
+              cls.closest(this.navItemHasChildrenSelector).nextElementSibling.querySelector(this.navItemLink).focus();
+              } else return;
+            } else if (cls.nextElementSibling) {
+              cls.nextElementSibling.querySelector(this.navItemLink).focus();
+            } else return;
+          }
+        });
+      },
+
+      /**
+       * Handles user's tab press when in sub-menu
+       *
+       * @private
+       * @param {Event} event - Keydown event
+       */
+      _handleTabKey(event) {
+        const currNavList = event.target.closest(this.navItemList);
+        const isDesktop = window.matchMedia('(min-width: 960px)');
+        if (currNavList?.closest(this.subNavSelector)) {
+          if (!currNavList.nextElementSibling && isDesktop.matches) {
+            this.close(currNavList.closest(this.navItemHasChildrenSelector));
+          }
         }
-        $el.closest("li").classList.toggle("is-open");
-      });
-    });
+      },
+
+      _handleShiftTabKey(event) {
+        const currNavList = event.target.closest(this.navItemList);
+        const isDesktop = window.matchMedia('(min-width: 960px)');
+        if (
+          currNavList?.matches(
+            `${this.subNavSelector}>${this.navItemList}:first-child`
+          ) &&
+          isDesktop.matches
+        ) {
+          this.close(currNavList.closest(this.navItemHasChildrenSelector));
+        }
+      },
+
+      /**
+       * Returns true if click event originated inside nav item caret
+       *
+       * @param {Event} event - Click event
+       * @returns {boolean} Click originated inside content area
+       */
+      _eventInsideNavToggle(event) {
+        return event.target.closest(this.navItemToggle);
+      },
+    };
   }
-
-  // Reset Navigation on window resize
-  window.addEventListener("resize", () => {
-    primaryNavSearch.classList.remove("is-open");
-    header.classList.remove("is-open");
-    $navPrimaryHasChildren.forEach(($el) => {
-      $el.setAttribute("aria-expanded", "false");
-      $el.classList.remove("is-open");
-    });
-    searchButton.setAttribute("aria-expanded", "false");
-    hamburger.setAttribute("aria-expanded", "false");
-  });
-
-  // Get all selectors
-  function getAll(selector) {
-    let parent =
-      arguments.length > 1 && arguments[1] !== undefined
-        ? arguments[1]
-        : document;
-
-    return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
-  }
-});
+}

@@ -1,36 +1,105 @@
-"use strict";
+import Component from './component';
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("th").forEach((el) => {
-    el.addEventListener("click", function () {
-      let table = this.closest("table");
+/**
+ * Tables help logically organize information and group like things together, and they make it easier to understand complex content.
+ */
+export default class Table extends Component {
 
-      // Check if column is sortable
-      if (
-        this.classList.contains("ucla-sortable") &&
-        this.querySelector("svg")
-      ) {
-        let sortIcon = this.querySelector("svg");
-        let order = sortIcon.classList;
-        let separator = "-----";
-        let value_list = {}; // <tr> Object
-        let obj_key = []; // Values of selected column
+  /**
+   * Gets the table CSS class
+   *
+   * @static
+   * @returns {string}
+   */
+  static get selector() {
+    return '.ucla-table__sort';
+  }
+
+  /**
+   * Gets an object containing methods attached to the DOM element.
+   *
+   * @static
+   * @returns {Object}
+   */
+  static get methods() {
+    return {
+
+      /**
+       * Initialize table
+       */
+      init() {
+        this._initAttr();
+        this._initElements();
+      },
+
+      /**
+       * Initialize table attributes based on CSS class
+       *
+       * @private
+       */
+      _initAttr() {
+        this.sortAttr = '.ucla-sortable';
+      },
+
+      /**
+       * Initialize all sort triggers and row elements
+       *
+       * @private
+       */
+      _initElements() {
+        this.sortTriggers = Array.from(
+          this.element.querySelectorAll(this.sortAttr)
+        );
+        this.bodyTr = Array.from(this.element.querySelectorAll('tbody tr'));
+      },
+
+      /**
+       * Handles click event for sorting
+       *
+       * @param {Event} event - Click event
+       */
+      onClick(event) {
+        if (!event.target.closest(this.sortAttr)) {return}
+        this.sort(event);
+        
+        // if (event.target.closest(this.sortAttr)) {
+        //   this.sort(event);
+        // }
+      },
+
+      /**
+       * Sorts table column
+       * 
+       * @param {Event} event - Click event
+       */
+      sort(event) {
+        const eventHeader = event.target.closest(this.sortAttr);
+        const tableHeader = eventHeader;
+        const sortIcon = eventHeader.querySelector('svg');
+        const order = sortIcon.classList;
+        const separator = '-----';
+        const value_list = {}; // <tr> Object
         let string_count = 0;
         let number_count = 0;
+        const obj_key = [];
 
-        let getSiblings = (n) =>
+        const _getSiblings = (n) =>
           [...n.parentElement.children].filter((c) => c !== n);
-        let siblings = getSiblings(this);
+        const siblings = _getSiblings(event.target);
 
-        // Get <tbody> rows
-        table.querySelectorAll("tbody tr").forEach((line, index_line) => {
-          // Value of each field
-          let key = line.children[el.cellIndex].textContent.toUpperCase();
+        this.bodyTr.forEach((line, index_line) => {
+          let key =
+            line.children[tableHeader.cellIndex].textContent.toUpperCase();
 
           // Check if value is date, numeric, or string
-          if (line.children[el.cellIndex].hasAttribute("date-timestamp")) {
-            key = line.children[el.cellIndex].getAttribute("date-timestamp");
-          } else if (key.replace("-", "").match(/^[0-9,.]*$/g)) {
+          if (
+            line.children[tableHeader.cellIndex].hasAttribute('date-timestamp')
+          ) {
+            key =
+              line.children[tableHeader.cellIndex].getAttribute(
+                'date-timestamp'
+              );
+          } else if (key.replace('-', '').match(/^[0-9,.]*$/g)) {
             number_count++;
           } else {
             string_count++;
@@ -38,43 +107,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
           value_list[key + separator + index_line] = line.outerHTML.replace(
             /(\t)|(\n)/g,
-            ""
+            ''
           ); // Adding <tr> to object
+
           obj_key.push(key + separator + index_line);
         });
+
         if (string_count === 0) {
           // If all values are numeric
-          obj_key.sort(function (a, b) {
-            return a.split(separator)[0] - b.split(separator)[0];
-          });
+          obj_key.sort((a, b) => a.split(separator)[0] - b.split(separator)[0]);
         } else {
           obj_key.sort();
         }
+
         siblings.forEach((e) => {
-          if (e.querySelector("svg.asc") || e.querySelector("svg.desc")) {
-            e.removeAttribute("aria-sort");
-            e.querySelector("svg").classList.replace("asc", "sort-default");
-            e.querySelector("svg").classList.replace("desc", "sort-default");
+          if (e.querySelector('svg.asc') || e.querySelector('svg.desc')) {
+            e.setAttribute('aria-sort', 'none');
+            e.querySelector('svg').classList.replace('asc', 'sort-default');
+            e.querySelector('svg').classList.replace('desc', 'sort-default');
           }
         });
-        if (order.contains("sort-default")) {
-          order.replace("sort-default", "desc");
-          el.setAttribute("aria-sort", "descending");
-        } else if (order.contains("desc")) {
-          obj_key.reverse();
-          order.replace("desc", "asc");
-          el.setAttribute("aria-sort", "ascending");
-        } else {
-          order.replace("asc", "desc");
-          el.setAttribute("aria-sort", "descending");
-        }
 
-        let html = "";
-        obj_key.forEach(function (chave) {
+        if (order.contains('sort-default')) {
+          order.replace('sort-default', 'asc');
+          tableHeader.setAttribute('aria-sort', 'ascending');
+        } else if (order.contains('desc')) {
+          order.replace('desc', 'asc');
+          tableHeader.setAttribute('aria-sort', 'ascending');
+        } else {
+          obj_key.reverse();
+          order.replace('asc', 'desc');
+          tableHeader.setAttribute('aria-sort', 'descending');
+        }
+        let html = '';
+        obj_key.forEach((chave) => {
           html += value_list[chave];
         });
-        table.getElementsByTagName("tbody")[0].innerHTML = html;
-      }
-    });
-  });
-});
+        this.element.getElementsByTagName('tbody')[0].innerHTML = html;
+      },
+    };
+  }
+}

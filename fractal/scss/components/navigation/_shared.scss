@@ -77,13 +77,13 @@
 
 .ucla-main-nav {
   display: flex;
+  visibility: hidden;
   order: 2;
   width: 100%;
   flex-direction: column;
-  z-index: 1;
+  z-index: 10;
   top: calc(100% + 1px);
   background-color: variables.$white;
-  z-index: 1;
   transition: all 0.3s;
 
   @include mixins.for-size(up-to-tablet) {
@@ -96,6 +96,7 @@
     justify-content: flex-end;
     align-items: center;
     margin-top: 1.5rem;
+    visibility: visible;
   }
 
   &__wrapper {
@@ -123,6 +124,7 @@
 
   .is-open & {
     transform: translateX(0);
+    visibility: visible;
   }
 }
 

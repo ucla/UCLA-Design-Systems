@@ -5,8 +5,13 @@
   word-wrap: break-word;
 }
 
+.ucla-card__image {
+  width: 100%;
+}
+
 .ucla-card__body {
   padding: 1.5rem 1.5rem 2.25rem;
+
   .ucla-card__title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -42,6 +47,11 @@
 }
 
 .ucla-card__event {
+  &-image-link {
+    display: inline-block;
+    width: 100%;
+  }
+  
   &-body {
     display: flex;
     gap: 1rem;

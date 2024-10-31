@@ -12,12 +12,12 @@
 <section class="ucla-doc-tabpanels">
 <article id="tab-form-radio-buttons-design" tabindex="0" role="tabpanel" aria-labelledby="form-radio-buttons-design" class="ucla-doc-tabpanel ucla-prose">
 
-{{> @radio-buttons-design}}
+{{> @radio-group-design}}
 
 </article>
 <article id="tab-form-radio-buttons-development" tabindex="0" role="tabpanel" aria-labelledby="form-radio-buttons-development" class="ucla-doc-tabpanel ucla-prose" hidden>
   
-{{> @radio-buttons-development}}  
+{{> @radio-group-development}}  
 
 </article>
   </section>

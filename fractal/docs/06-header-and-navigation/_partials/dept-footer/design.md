@@ -20,7 +20,7 @@ All website pages should have a department footer.
   - static header that gives a category or context to show link below
 
 **4. Department Social Media**
-  - Link to Department specific social media channge profile pages if available.
+  - Link to Department specific social media channel profile pages if available.
 
 **5. Container (required)**
 

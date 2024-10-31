@@ -1,0 +1,6 @@
+# Ignore all HTML files
+**/*.html
+## Ignore all HBS files
+**/*.hbs
+# Ignore all vendor scripts
+fractal/js/vendors/*
