@@ -1,13 +1,15 @@
+@use "../utilities/variables";
+
 .ucla-progress {
-    max-width: 467px;
+    width: 100%;
     
     &__bar {
         all: revert;
         width: 100%;
 
         &[value] {
-            --color: #00598C; 
-            --background: #E5E5E5; 
+            --color: #{variables.$default-state}; 
+            --background: #{variables.$grey-10}; 
           
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -32,14 +34,14 @@
           }
 
         &--ucla-blue[value] {
-            --color: #2774AE;
+            --color: #{variables.$ucla-blue};
         }
         &--gold[value] {
-            --color: #FFD100;
+            --color: #{variables.$ucla-gold};
         }
 
         &--light-blue[value] {
-            --color: #8BB8E8;
+            --color: #{variables.$lighter-blue};
         }
 
         &--thin[value] {
@@ -66,6 +68,6 @@
     &__assistive {
         font-size: .75rem;
         margin-top: .5rem;
-        color: #666666;
+        color: variables.$grey-60;
     }
 }
