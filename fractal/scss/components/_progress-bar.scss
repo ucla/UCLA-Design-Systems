@@ -1,0 +1,71 @@
+.ucla-progress {
+    max-width: 467px;
+    
+    &__bar {
+        all: revert;
+        width: 100%;
+
+        &[value] {
+            --color: #00598C; 
+            --background: #E5E5E5; 
+          
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: none;
+            width: 100%;
+            border-radius: 10em;
+            height: .75rem;
+            background: var(--background);
+          }
+          &[value]::-webkit-progress-bar {
+            border-radius: 10em;
+            background: var(--background);
+          }
+          &[value]::-webkit-progress-value {
+            border-radius: 10em;
+            background: var(--color);
+          }
+          &[value]::-moz-progress-bar {
+            border-radius: 10em;
+            background: var(--color);
+          }
+
+        &--ucla-blue[value] {
+            --color: #2774AE;
+        }
+        &--gold[value] {
+            --color: #FFD100;
+        }
+
+        &--light-blue[value] {
+            --color: #8BB8E8;
+        }
+
+        &--thin[value] {
+            height: .375rem;
+        }
+
+        &--thick[value] {
+            height: 1.125rem;
+        }
+
+        &--thicker[value] {
+            height: 1.5rem;
+        }
+    }
+
+    
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+    }
+
+    &__assistive {
+        font-size: .75rem;
+        margin-top: .5rem;
+        color: #666666;
+    }
+}
