@@ -4,16 +4,15 @@
 .ucla-breadcrumb {
   font-size: 1rem;
   white-space: nowrap;
+  margin-bottom: 0.55rem;
 
   .ucla-breadcrumb__link {
-    align-items: center;
     color: variables.$default-state;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
+    line-height: 1.25;
     cursor: pointer;
     text-decoration: none;
-    padding: 0 8px;
+    margin: 0 8px;
 
     &:hover {
       background-color: variables.$hover-state;
@@ -35,7 +34,7 @@
     display: flex;
 
     &:first-child .ucla-breadcrumb__link {
-      padding-left: 0;
+      margin-left: 0;
     }
 
     & + .ucla-breadcrumb__list-item {
@@ -49,10 +48,7 @@
   }
 
   .ucla-breadcrumb__list {
-    align-items: flex-start;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
     margin: 0;
   }
 }

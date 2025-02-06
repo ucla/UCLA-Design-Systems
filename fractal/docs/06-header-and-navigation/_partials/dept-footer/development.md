@@ -23,7 +23,7 @@ A simple `<img>` is used for the UCLA logo. Simply add this inside the `.ucla-de
 ```html
 <!-- ... -->
   <div class="ucla-dept-footer__container">
-    <img class="ucla-dept-footer__logo" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA Logo" />
+    <img class="ucla-dept-footer__logo" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA" />
   </div>
 <!-- ... -->
 ```
@@ -33,7 +33,7 @@ You should be left with the following:
 <footer class="mb-5">
   <div class="ucla-dept-footer">
     <div class="ucla-dept-footer__container">
-    <img class="ucla-dept-footer__logo" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA Logo" /></div>
+    <img class="ucla-dept-footer__logo" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA" /></div>
   </div>
 </footer>
 
@@ -59,7 +59,7 @@ This element houses the address, phone number and social media links to the depa
 <footer class="mb-5">
   <div class="ucla-dept-footer">
     <div class="ucla-dept-footer__container">
-      <img class="ucla-dept-footer__logo" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA Logo" />
+      <img class="ucla-dept-footer__logo" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA" />
       <div class="ucla-dept-footer__body">
             <div class="ucla-dept-footer__info">
                 <address class="ucla-dept-footer__info-address">

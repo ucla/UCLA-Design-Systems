@@ -161,15 +161,19 @@ export default class Navigation extends Component {
             this._handleEscapeKey(event);
             break;
           case 40: // down
+            event.preventDefault();
             this._handleDownKey(event);
             break;
           case 38: // up
+            event.preventDefault();
             this._handleUpKey(event);
             break;
           case 37: // left
+            event.preventDefault();
             this._handleLeftKey(event);
             break;
           case 39: // right
+            event.preventDefault();
             this._handleRightKey(event);
             break;
           case 9: // tab
@@ -215,12 +219,34 @@ export default class Navigation extends Component {
        * @param {Event} event - Keydown event
        */
       _handleEscapeKey(event) {
+        const isDesktop = window.matchMedia('(min-width: 960px)');
         this.subNav?.forEach((menu) => {
           if (menu.contains(event.target)) {
-            menu
-              .closest(this.navItemHasChildrenSelector)
-              .querySelector(this.navItemLink)
-              .focus();
+            const cls = event.target.closest(this.navItemList);
+            if (cls.matches(`${this.subNavSelector}>${this.navItemList}`)) {
+              if (isDesktop.matches) {
+                menu
+                .closest(this.navItemHasChildrenSelector)
+                .querySelector(this.navItemLink)
+                .focus();
+              this.close(menu
+                .closest(this.navItemHasChildrenSelector))
+              } else {
+                if (event.target.closest(this.subNavItemHasChildrenSelector)) {
+                  event.target.closest(this.subNavSelector).parentElement
+                    .querySelector(this.navItemToggle)
+                    .focus();
+                  this.close(event.target.closest(this.subNavSelector).parentElement)
+                } else {
+                  event.target
+                    .closest(this.navItemHasChildrenSelector)
+                    .querySelector(this.navItemToggle)
+                    .focus();
+                  this.close(event.target
+                    .closest(this.navItemHasChildrenSelector))
+                }
+              }
+            }
           }
         });
         if (this.navSearch?.contains(event.target)) {
@@ -288,7 +314,11 @@ export default class Navigation extends Component {
                 cls.nextElementSibling.querySelector(this.navItemLink).focus();
                 break;
               default:
-                cls.nextElementSibling.querySelector(this.navItemLink).focus();
+                if (cls.nextElementSibling) {
+                  cls.nextElementSibling.querySelector(this.navItemLink).focus();
+                } else {
+                  this.searchButton.focus();
+                }
                 break;
             }
           }

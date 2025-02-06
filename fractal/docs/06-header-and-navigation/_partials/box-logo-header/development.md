@@ -35,6 +35,7 @@ _Note: In this example, we used an SVG for the UCLA boxed logo. You can use an `
 <!-- ... -->
 <a class="ucla-header--school__logo-link" href="https://www.ucla.edu">
   <svg xmlns="http://www.w3.org/2000/svg" id="ucla-box-black" viewBox="0 0 360 168.84">
+    <title>UCLA</title>
     <defs></defs>
     <rect class="cls-1" width="360" height="168.84" fill="#2774ae" />
     <path fill="#ffffff" d="M57.57,100.65a72.15,72.15,0,0,1-.18-8.51l4.06-46H76.52L72.39,92.54c-.89,10,3,17.22,13.08,17.22,10.26,0,15.68-7.29,16.57-16.21l4.28-47.44h15.06L117.21,93c-1.68,18-13.64,31.54-33,31.54-15.08,0-24.8-9.75-26.65-23.85" />
@@ -78,6 +79,7 @@ Put it all together and you should have something like this:
         <div class="ucla-header__container">
         <a class="ucla-header--school__logo-link" href="https://www.ucla.edu">
             <svg xmlns="http://www.w3.org/2000/svg" id="ucla-box-black" viewBox="0 0 360 168.84">
+            <title>UCLA</title>
             <defs></defs>
             <rect class="cls-1" width="360" height="168.84" fill="#2774ae" />
             <path fill="#ffffff" d="M57.57,100.65a72.15,72.15,0,0,1-.18-8.51l4.06-46H76.52L72.39,92.54c-.89,10,3,17.22,13.08,17.22,10.26,0,15.68-7.29,16.57-16.21l4.28-47.44h15.06L117.21,93c-1.68,18-13.64,31.54-33,31.54-15.08,0-24.8-9.75-26.65-23.85" />
@@ -85,8 +87,6 @@ Put it all together and you should have something like this:
             <path fill="#ffffff" d="M199.28,46.11h15l-5.48,62.5h21.53c1.52,0,6.65-.08,8-.16-.08.75-1.37,14.44-1.37,14.44H192.46Z" />
             <path fill="#ffffff" d="M277.57,74.77a18,18,0,0,0,1.11-3.22h.24a18.25,18.25,0,0,0,.57,3.25c.83,3.5,6.68,22.94,6.68,22.94h-19s10.17-22.46,10.37-23m3.85-32.18-1,0-41.15,80.28h16L261,110.71h29l3.62,12.18h15.93Z" />
             </svg>
-        </a>
-        <a class="ucla-header--school__site-title-link" href="#">
             Department Signature
         </a>
         </div>
@@ -107,8 +107,6 @@ Put it all together and you should have something like this:
                     <path fill="#ffffff" d="M199.28,46.11h15l-5.48,62.5h21.53c1.52,0,6.65-.08,8-.16-.08.75-1.37,14.44-1.37,14.44H192.46Z" />
                     <path fill="#ffffff" d="M277.57,74.77a18,18,0,0,0,1.11-3.22h.24a18.25,18.25,0,0,0,.57,3.25c.83,3.5,6.68,22.94,6.68,22.94h-19s10.17-22.46,10.37-23m3.85-32.18-1,0-41.15,80.28h16L261,110.71h29l3.62,12.18h15.93Z" />
                 </svg>
-            </a>
-            <a class="ucla-header--school__site-title-link" href="#">
                 Department Signature
             </a>
             <nav id="nav-second" class="ucla-secondary-nav" aria-label="Secondary Menu">
@@ -310,6 +308,7 @@ Put it all together and you should have something like this:
     <div class="ucla-header__container" id="header-wrap">
         <a class="ucla-header--school__logo-link" href="https://www.ucla.edu">
             <svg xmlns="http://www.w3.org/2000/svg" id="ucla-box-black" viewBox="0 0 360 168.84">
+                <title>UCLA</title>
                 <defs></defs>
                 <rect class="cls-1" width="360" height="168.84" fill="#2774ae" />
                 <path fill="#ffffff" d="M57.57,100.65a72.15,72.15,0,0,1-.18-8.51l4.06-46H76.52L72.39,92.54c-.89,10,3,17.22,13.08,17.22,10.26,0,15.68-7.29,16.57-16.21l4.28-47.44h15.06L117.21,93c-1.68,18-13.64,31.54-33,31.54-15.08,0-24.8-9.75-26.65-23.85" />
@@ -317,8 +316,6 @@ Put it all together and you should have something like this:
                 <path fill="#ffffff" d="M199.28,46.11h15l-5.48,62.5h21.53c1.52,0,6.65-.08,8-.16-.08.75-1.37,14.44-1.37,14.44H192.46Z" />
                 <path fill="#ffffff" d="M277.57,74.77a18,18,0,0,0,1.11-3.22h.24a18.25,18.25,0,0,0,.57,3.25c.83,3.5,6.68,22.94,6.68,22.94h-19s10.17-22.46,10.37-23m3.85-32.18-1,0-41.15,80.28h16L261,110.71h29l3.62,12.18h15.93Z" />
             </svg>
-        </a>
-        <a class="ucla-header--school__site-title-link" href="#">
             Department Signature
         </a>
         <nav id="nav-second" class="ucla-secondary-nav" aria-label="Secondary Menu">
