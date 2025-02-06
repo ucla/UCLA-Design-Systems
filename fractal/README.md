@@ -21,8 +21,8 @@
 
 There are several ways to install the UCLA Design System into your project.
 
-- [Download the latest version](https://cdn.designsystem.brand.ucla.edu/build/v2.0.0/dist.zip)
-- [Add the CDN into your project](https://designsystem.brand.ucla.edu/build/v2.0.0/docs/developers/installation.html)
+- [Download the latest version](https://cdn.designsystem.brand.ucla.edu/build/v2.2.0/dist.zip)
+- [Add the CDN into your project](https://designsystem.brand.ucla.edu/build/v2.2.0/docs/developers/installation.html)
 - Install with [npm](https://www.npmjs.com/): `npm install ucla-design-systems`
 - Install with [yarn](https://yarnpkg.com/): `yarn add ucla-design-systems`
 
@@ -43,7 +43,9 @@ ucla-design-systems
 │   ├── js
 │   │   ├── ucla-lib-scripts.js
 │   │   ├── ucla-lib-scripts.min.js
-│   │   └── ucla-lib-scripts.min.js.map
+│   │   ├── ucla-lib-scripts.min.js.map
+│   │   ├── ucla-lib-scripts.esm.js
+│   │   └── ucla-lib-scripts.cjs.js
 │   └── icons
 ├── scss
 │   ├── components

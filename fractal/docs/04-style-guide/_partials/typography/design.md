@@ -132,6 +132,32 @@ Font: Helvetica Bold, Arial Bold, Roboto Bold<br />
 Size: 14px<br />
 Line-height: 24px</p>
 
+#### Inline Styles
+
+![Strong](/theme-assets/img/docs/style-guide/typography/inline-styles/strong.svg)
+<p class="mt-0">Strong<br />
+Font: Helvetica Bold, Arial Bold, Roboto Bold</p>
+
+![Emphasis](/theme-assets/img/docs/style-guide/typography/inline-styles/strong.svg)
+<p class="mt-0">Emphasis<br />
+Font: Helvetica Oblique, Arial Oblique, Roboto Oblique</p>
+
+![Strike](/theme-assets/img/docs/style-guide/typography/inline-styles/strong.svg)
+<p class="mt-0">Delete<br />
+Text-decoration: Line-through</p>
+
+![Inserted](/theme-assets/img/docs/style-guide/typography/inline-styles/inserted.svg)
+<p class="mt-0">Insert<br />
+Background-color: #DAEBFE</p>
+
+![Marked](/theme-assets/img/docs/style-guide/typography/inline-styles/marked.svg)
+<p class="mt-0">Marked<br />
+Background-color: #FFE500</p>
+
+![Marked](/theme-assets/img/docs/style-guide/typography/inline-styles/code.svg)
+<p class="mt-0">Code<br />
+Font: Courier, Monospace</p>
+
 #### Blockquote
 
 ![Blockquote](/theme-assets/img/docs/style-guide/typography/blockquote.svg)
@@ -143,3 +169,58 @@ Line-height: 24px</p>
 <p>Vertical Rule<br />
 Stroke: 8px<br />
 Color: #2774AE</p>
+
+#### Unordered List
+
+![Unordered List](/theme-assets/img/docs/style-guide/typography/unordered-list.svg)
+<p>Unordered List<br />
+Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 24px</p>
+
+#### Ordered List
+
+![Ordered List](/theme-assets/img/docs/style-guide/typography/ordered-list.svg)
+<p>Ordered List<br />
+Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 24px</p>
+
+#### Plain List
+
+![Plain List](/theme-assets/img/docs/style-guide/typography/plain-list.svg)
+<p>Plain List<br />
+Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 24px</p>
+
+#### Description List
+
+![Description List](/theme-assets/img/docs/style-guide/typography/description-list.svg)
+<p>Description List<br />
+Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 24px</p>
+
+#### Inline List
+
+![Inline List](/theme-assets/img/docs/style-guide/typography/inline-list.svg)
+<p>Inline List<br />
+Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 24px</p>
+
+#### Definition List
+
+![Definition List](/theme-assets/img/docs/style-guide/typography/definition-list.svg)
+<p>Definition List<br />
+Font: Helvetica, Arial, Roboto<br />
+Size: 16px<br />
+Line-height: 24px</p>
+
+#### Horizontal Rule
+
+<hr />
+<p>Horizontal Rule<br />
+Stroke: 1px<br />
+Color: #CCCCCC</p>

@@ -7,12 +7,6 @@ status: hide_title
 
 The Design Kit is made in Figma, a cloud-based design tool used for user interface design. It includes a library of **styles** and **components** for designers to quickly apply to designs and prototypes for digital products. It is built iteratively and will be updated periodically with refinements and additions.
 
-For access to the UCLA Design Kit in Figma, you must have a Figma user account. If you don’t have an account, you can sign up at [figma.com](https://www.figma.com).
-
-Once you have a Figma account, you must request file access to use the library feature. Request access via email at [designsystem@stratcomm.ucla.edu](mailto:designsystem@stratcomm.ucla.edu).
-
-For details on what’s new, check the release notes below. For how to get the most out of Figma library features, see the documentation within the Figma file. All updates are pushed to the file automatically.
-
 #### Using Figma
 
 To get access to the UCLA Design Kit in Figma, you must have a Figma user account. If you don’t have an account then sign-up [here](https://www.figma.com/signup). Request to access the UCLA Design Kit by filling out the [request form](https://forms.gle/VMRft7krvj396hUG7).

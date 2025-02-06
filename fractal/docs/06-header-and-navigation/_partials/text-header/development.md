@@ -20,7 +20,7 @@ The Text Header has many parts that is organized in the following structure:
   <div class="ucla-header__logo-container">
       <div class="ucla-header__logo">
           <a href="https://www.ucla.edu/">
-              <img class="ucla-header__logo-image" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA Logo" />
+              <img class="ucla-header__logo-image" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA" />
           </a>
       </div>
   </div>
@@ -59,7 +59,7 @@ Inside the `.ucla-header__container` will have a `.ucla-header__site-name` eleme
     <div class="ucla-header__logo-container">
         <div class="ucla-header__logo">
             <a href="https://www.ucla.edu/">
-                <img class="ucla-header__logo-image" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA Logo" />
+                <img class="ucla-header__logo-image" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA" />
             </a>
         </div>
     </div>
