@@ -1,64 +1,21 @@
 <div class="ucla-prose">
 
-## v2.2.0 Release
-October 31, 2024
+## v2.3.0 Release
+February 6, 2024
 
 ---
-
-### Accessibility
-
-<article class="ucla-card ucla-card__info mt-6 mb-8">
-  <div class="ucla-card__body">
-    <p class="ucla-card__title my-0">Navigation</p>
-    <ul class="mt-0">
-      <li>Improve navigation with Tab key and arrow keys</li>
-    </ul>
-  </div>
-</article>
 
 ### Features
 
 <article class="ucla-card ucla-card__info mt-6 mb-8">
   <div class="ucla-card__body">
-    <p class="ucla-card__title my-0">Global</p>
+    <p class="ucla-card__title my-0">Progress Bar</p>
     <ul class="mt-0">
-      <li>Refactor JavaScript and added modules</li>
+      <li>Added Progress Bar Component</li>
     </ul>
-    <p class="ucla-card__title my-0">Accordion</p>
+    <p class="ucla-card__title my-0">Icon</p>
     <ul class="mt-0">
-      <li>JavaScript Refactor
-        <ul class="mt-0">
-          <li>Added component methods and custom event listeners</li>
-        </ul>
-      </li>
-    </ul>
-    <p class="ucla-card__title my-0">Alert</p>
-    <ul class="mt-0">
-      <li>JavaScript Refactor
-        <ul class="mt-0">
-          <li>Added component methods and custom event listeners</li>
-        </ul>
-      </li>
-    </ul>
-    <p class="ucla-card__title my-0">Banners</p>
-    <ul class="mt-0">
-      <li>Added Video Banner component</li>
-    </ul>
-    <p class="ucla-card__title my-0">Carousel</p>
-    <ul class="mt-0">
-      <li>Replace Splide with Swiper</li>
-    </ul>
-    <p class="ucla-card__title my-0">Table</p>
-    <ul class="mt-0">
-      <li>JavaScript Refactor</li>
-    </ul>
-    <p class="ucla-card__title my-0">Tabs</p>
-    <ul class="mt-0">
-      <li>JavaScript Refactor
-        <ul class="mt-0">
-          <li>Added component methods and custom event listeners</li>
-        </ul>
-      </li>
+      <li>Added Bluesky icon</li>
     </ul>
   </div>
 </article>
@@ -68,21 +25,13 @@ October 31, 2024
 
 <article class="ucla-card ucla-card__info mt-6 mb-8">
   <div class="ucla-card__body">
-    <p class="ucla-card__title my-0">Banners</p>
+    <p class="ucla-card__title my-0">Logo</p>
     <ul class="mt-0">
-      <li>Fix font size in banners</li>
+      <li>Remove the string logo from ucla image alt text</li>
     </ul>
-    <p class="ucla-card__title my-0">Cards</p>
+    <p class="ucla-card__title my-0">Navigation</p>
     <ul class="mt-0">
-      <li>Fix image width not spanning if too small</li>
-    </ul>
-    <p class="ucla-card__title my-0">Ribbon</p>
-    <ul class="mt-0">
-      <li>Fix spacing on FireFox</li>
-    </ul>
-    <p class="ucla-card__title my-0">Typography</p>
-    <ul class="mt-0">
-      <li>List margin in prose</li>
+      <li>prevent arrow keys from scrolling, esc key closes submenu in mobile</li>
     </ul>
   </div>
 </article>
@@ -90,6 +39,103 @@ October 31, 2024
 ## Previous Releases
 
 <div class="accordion is-multiselect mt-5">
+  <div class="accordion-item">
+    <h4 class="accordion__heading">
+      <button
+        type="button"
+        class="accordion__heading-button"
+        aria-expanded="true"
+      >
+        Release Notes v2.2.0
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 9.41L16.59 8L12 12.58L7.41 8L6 9.41L12 15.41L18 9.41Z"
+            fill="#333333"
+          />
+        </svg>
+      </button>
+    </h4>
+    <div class="accordion__body">
+      <div class="accordion__content">
+          <p>October 31, 2024</p>
+          <h4 class="mt-2 mb-4">Accessibility</h4>
+          <div class="pl-5">
+            <p class="my-0">Navigation</p>
+            <ul class="mt-0">
+              <li>Improve navigation with Tab key and arrow keys</li>
+            </ul>
+          </div>
+          <h4 class="mt-7 mb-4">Features</h4>
+          <div class="pl-5">
+            <p class="my-0">Global</p>
+            <ul class="mt-0">
+              <li>Refactor JavaScript and added modules</li>
+            </ul>
+            <p class="my-0">Accordion</p>
+            <ul class="mt-0">
+              <li>JavaScript Refactor
+                <ul class="mt-0">
+                  <li>Added component methods and custom event listeners</li>
+                </ul>
+              </li>
+            </ul>
+            <p class="my-0">Alert</p>
+            <ul class="mt-0">
+              <li>JavaScript Refactor
+                <ul class="mt-0">
+                  <li>Added component methods and custom event listeners</li>
+                </ul>
+              </li>
+            </ul>
+            <p class="my-0">Banners</p>
+            <ul class="mt-0">
+              <li>Added Video Banner component</li>
+            </ul>
+            <p class="my-0">Carousel</p>
+            <ul class="mt-0">
+              <li>Replace Splide with Swiper</li>
+            </ul>
+            <p class="my-0">Table</p>
+            <ul class="mt-0">
+              <li>JavaScript Refactor</li>
+            </ul>
+            <p class="my-0">Tabs</p>
+            <ul class="mt-0">
+              <li>JavaScript Refactor
+                <ul class="mt-0">
+                  <li>Added component methods and custom event listeners</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <h4 class="mt-7 mb-4">Fixes</h4>
+          <div class="pl-5">
+            <p class="my-0">Banners</p>
+            <ul class="mt-0">
+              <li>Fix font size in banners</li>
+            </ul>
+            <p class="my-0">Cards</p>
+            <ul class="mt-0">
+              <li>Fix image width not spanning if too small</li>
+            </ul>
+            <p class="my-0">Ribbon</p>
+            <ul class="mt-0">
+              <li>Fix spacing on FireFox</li>
+            </ul>
+            <p class="my-0">Typography</p>
+            <ul class="mt-0">
+              <li>List margin in prose</li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
   <div class="accordion-item">
     <h4 class="accordion__heading">
       <button
