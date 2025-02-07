@@ -1,7 +1,7 @@
 <div class="ucla-prose">
 
 ## v2.3.0 Release
-February 6, 2024
+February 6, 2025
 
 ---
 
