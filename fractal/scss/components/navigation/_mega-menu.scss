@@ -5,12 +5,13 @@
   position: static;
 
   &> .ucla-main-nav__link {
-    &--current-page + .ucla-main-nav__toggle {
-      border-color: variables.$ucla-gold;
-    }
 
     @include mixins.for-size(desktop-up) {
       padding-right: 0.5rem;
+      
+      &--current-page + .ucla-main-nav__toggle {
+        border-color: variables.$ucla-gold;
+      }
     }
   }
 
