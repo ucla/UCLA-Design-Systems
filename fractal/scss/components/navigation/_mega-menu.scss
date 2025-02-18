@@ -1,0 +1,86 @@
+@use "../../utilities/mixins";
+@use "../../utilities/variables";
+
+.ucla-main-nav__item--has-mega-menu {
+  position: static;
+
+  &> .ucla-main-nav__link {
+    &--current-page + .ucla-main-nav__toggle {
+      border-color: variables.$ucla-gold;
+    }
+
+    @include mixins.for-size(desktop-up) {
+      padding-right: 0.5rem;
+    }
+  }
+
+  &> .ucla-main-nav__toggle {
+    @include mixins.for-size(desktop-up) {
+      position: unset;
+      // padding: 0.825rem 2.125rem 0.5rem 0;
+      box-sizing: initial;
+      padding-top: 0.875rem;
+      padding-right: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 4px solid transparent;
+    }
+    
+    &:hover, &.is-open {
+      &> .ucla-main-nav__toggle {
+        background-color: variables.$hover-state;
+      }
+    }
+  }
+}
+
+.ucla-main-nav__mega-menu {
+  display: none;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  border-top: 1px solid variables.$grey-20;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  white-space: normal;
+  background-color: variables.$white;
+
+  &-header {
+    font-size: clamp(1.125rem, 0.915rem + 0.438vw, variables.$text-sm);
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: variables.$grey-60;
+  }
+
+  &-list {
+    margin: 0 0 2.5rem;
+    padding: 0;
+    list-style: none;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &-link {
+    color: variables.$default-state;
+    font-weight: bold;
+
+    &:hover {
+      color: variables.$white;
+      background-color: variables.$hover-state;
+    }
+  }
+  
+  .ucla-main-nav__item--has-mega-menu.is-open &  {
+    display: unset;
+  }
+
+  @include mixins.for-size(desktop-up) {
+    position: absolute;
+    border-bottom: 1px solid variables.$grey-20;
+
+    .ucla-main-nav__item--has-mega-menu:hover &, .ucla-main-nav__item--has-mega-menu:focus & {
+      display: unset;
+    }
+  }
+}

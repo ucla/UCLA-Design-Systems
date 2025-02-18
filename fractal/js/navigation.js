@@ -47,6 +47,7 @@ export default class Navigation extends Component {
         this.searchButtonAttr = '#search-button';
         this.navSearchAttr = '#primary-nav-search';
         this.hamburgerButtonAttr = '#primary-ham';
+        this.navItemHasMegaMenuAttr = '.ucla-main-nav__item--has-mega-menu';
       },
 
       /**
@@ -76,6 +77,9 @@ export default class Navigation extends Component {
         );
         this.searchButton = this.element.querySelector(this.searchButtonAttr);
         this.navSearch = this.element.querySelector(this.navSearchAttr);
+        this.navItemHasMegaMenus = Array.from(
+          this.element.querySelectorAll(this.navItemHasMegaMenuAttr)
+        )
       },
 
       /**
@@ -135,19 +139,16 @@ export default class Navigation extends Component {
        *
        * @param {Event} event - Onfocusout event
        */
-      // onFocusout(event) {
-      //   const currNavList = event.target.closest(this.navItemList);
-      //   if (currNavList?.closest(this.subNavSelector)) {
-      //     console.log('closest ucla-main-nav__sublist', currNavList.closest(this.subNavSelector))
-      //     const isChild = currNavList
-      //       .closest(this.navItemHasChildrenSelector)
-      //       .querySelector(this.subNavSelector);
-      //     console.log('isChild', isChild);
-      //     if (isChild.contains(event.relatedTarget)) return;
-      //     // this.close(currNavList.closest(this.navItemHasChildrenSelector));
-      //     console.log('this should close')
-      //   }
-      // },
+      onFocusout(event) {
+        
+        const currNavList = event.target.closest(this.navItemList);
+        if (currNavList?.closest(this.navItemHasMegaMenuAttr)) {
+          const isDesktop = window.matchMedia('(min-width: 960px)');
+          if (!event.relatedTarget?.closest(this.navItemHasMegaMenuAttr) && isDesktop.matches) {
+            this.close(currNavList.closest(this.navItemHasMegaMenuAttr))
+          }
+        }
+      },
 
       /**
        * Handles keydown events in the navigation
@@ -253,6 +254,17 @@ export default class Navigation extends Component {
           this.close(this.navSearch);
           this.searchButton.focus();
         }
+        this.navItemHasMegaMenus?.forEach((menu) => {
+          if (menu.contains(event.target)) {
+            // const cls = event.target.closest(this.navItemHasMegaMenuAttr);
+            if (isDesktop.matches) {
+              menu.closest(this.navItemHasMegaMenuAttr).querySelector(this.navItemLink).focus();
+            } else {
+              menu.closest(this.navItemHasMegaMenuAttr).querySelector(this.navItemToggle).focus();
+            }
+            this.close(menu.closest(this.navItemHasMegaMenuAttr))
+          }
+        })
       },
 
       /**

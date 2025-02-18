@@ -1,6 +1,10 @@
 @use "../../utilities/mixins";
 @use "../../utilities/variables";
 
+.ucla-header {
+  position: relative;
+}
+
 .ucla-header__container {
   display: flex;
   flex-wrap: nowrap;
@@ -199,7 +203,7 @@
   }
 
   &:not([disabled]):focus {
-    outline-offset: 0;
+    outline-offset: -2px;
   }
 
   .ucla-main-nav__search-close {
@@ -232,7 +236,7 @@
 
   @include mixins.for-size(desktop-up) {
     display: inline-flex;
-    position: relative;
+    // position: relative;
     border: none;
 
     &:hover,
@@ -241,8 +245,13 @@
         background-color: variables.$hover-state;
         color: variables.$white;
       }
-      & > .ucla-main-nav__toggle svg {
-        fill: variables.$white;
+      & > .ucla-main-nav__toggle {
+        background-color: variables.$hover-state;
+        color: variables.$white;
+
+        svg {
+          fill: variables.$white;
+        }
       }
 
       & > .ucla-main-nav__sublist {
@@ -252,6 +261,12 @@
           display: none;
         }
       }
+    }
+
+    &:not(.ucla-main-nav__item--has-mega-menu):nth-last-of-type(-n + 2).is-open,
+    &:not(.ucla-main-nav__item--has-mega-menu):nth-last-of-type(-n + 2):hover,
+    &:not(.ucla-main-nav__item--has-mega-menu):nth-last-of-type(-n + 2):focus {
+      position: relative;
     }
   }
 
@@ -308,10 +323,16 @@
 
   &--current-page {
     border-color: variables.$ucla-gold;
+
+    @include mixins.for-size(desktop-up) {
+      & + .ucla-main-nav__toggle {
+        border-color: variables.$ucla-gold;
+      }
+    }
   }
 
   &:focus {
-    outline-offset: 0px;
+    outline-offset: -2px;
   }
 
   &:visited {
@@ -342,7 +363,7 @@
     }
 
     .ucla-main-nav__item--has-children & {
-      padding-right: 2.625rem;
+      padding-right: 0.5rem;
     }
 
     .is-open > & {
@@ -365,28 +386,40 @@
     height: 0.463rem;
   }
 
+  // &:hover {
+  //   background-color: variables.$hover-state;
+  //   svg {
+  //     fill: variables.$white;
+  //   }
+  // }
+
   @include mixins.for-size(up-to-tablet) {
     width: 44px;
     height: 44px;
     text-align: center;
     border-left: 1px solid variables.$grey-20;
+  }
 
-    &:hover {
+  @include mixins.for-size(desktop-up) {
+    // position: absolute;
+    // right: 1.375rem;
+    // padding: 0.875rem 2.125rem 0.5rem 0;
+    box-sizing: initial;
+    padding-top: 0.875rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 4px solid transparent;
+
+    .is-open > & {
       background-color: variables.$hover-state;
+      
       svg {
         fill: variables.$white;
       }
     }
-  }
 
-  @include mixins.for-size(desktop-up) {
-    position: absolute;
-    right: 1.375rem;
-
-    .is-open > & {
-      svg {
-        fill: variables.$white;
-      }
+    &:not([disabled]):focus {
+      outline-offset: -2px;
     }
   }
 
