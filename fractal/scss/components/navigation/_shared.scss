@@ -392,6 +392,9 @@
   //     fill: variables.$white;
   //   }
   // }
+  &:not([disabled]):focus {
+    outline-offset: -2px;
+  }
 
   @include mixins.for-size(up-to-tablet) {
     width: 44px;
@@ -416,10 +419,6 @@
       svg {
         fill: variables.$white;
       }
-    }
-
-    &:not([disabled]):focus {
-      outline-offset: -2px;
     }
   }
 
