@@ -24,6 +24,11 @@
       padding-right: 1rem;
       padding-bottom: 0.5rem;
       border-bottom: 4px solid transparent;
+
+      @-moz-document url-prefix() {
+        height: 1.375rem;
+        padding-top: 0.625rem;
+      }
     }
     
     &:hover, &.is-open {
