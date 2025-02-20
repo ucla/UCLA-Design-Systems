@@ -144,7 +144,9 @@ export default class Navigation extends Component {
         const currNavList = event.target.closest(this.navItemList);
         if (currNavList?.closest(this.navItemHasMegaMenuAttr)) {
           const isDesktop = window.matchMedia('(min-width: 960px)');
-          if (!event.relatedTarget?.closest(this.navItemHasMegaMenuAttr) && isDesktop.matches) {
+          // console.log('relatedTarget', event.relatedTarget);
+          // console.log(event.relatedTarget?.closest(this.navItemHasMegaMenuAttr).classList)
+          if (!event.relatedTarget?.closest(this.navItemHasMegaMenuAttr)?.classList.contains('is-open') && isDesktop.matches) {
             this.close(currNavList.closest(this.navItemHasMegaMenuAttr))
           }
         }
@@ -298,9 +300,14 @@ export default class Navigation extends Component {
               case cls.matches(this.navItemHasChildrenSelector):
                 if (isDesktop.matches) {
                   this.open(cls);
-                  cls
-                    .querySelector(`${this.subNavSelector} ${this.navItemLink}`)
-                    .focus();
+                  if (this.navItemHasMegaMenuAttr) {
+                    cls.querySelector(`${this.navItemHasMegaMenuAttr} > .ucla-main-nav__mega-menu a`).focus();
+                  }
+                  else {
+                    cls
+                      .querySelector(`${this.subNavSelector} ${this.navItemLink}`)
+                      .focus();
+                  }
                 } else {
                   cls.querySelector(this.navItemToggle).focus();
                 }
@@ -396,11 +403,16 @@ export default class Navigation extends Component {
               case prevParent?.matches(this.navItemHasChildrenSelector):
                 if (isDesktop.matches) {
                   this.open(prevParent);
-                  prevParent
-                    .querySelector(
-                      `${this.subNavSelector}>${this.navItemList}:last-child>${this.navItemLink}`
-                    )
-                    .focus();
+                  if (prevParent.classList.contains('ucla-main-nav__item--has-mega-menu')) {
+                    const allMegaMenuLinks = prevParent.querySelectorAll('a');
+                    allMegaMenuLinks[(allMegaMenuLinks.length - 1)].focus();
+                  } else {
+                    prevParent
+                      .querySelector(
+                        `${this.subNavSelector}>${this.navItemList}:last-child>${this.navItemLink}`
+                      )
+                      .focus();
+                  }
                 } else {
                   if (prevParent.classList.contains('is-open')) {
                     if (prevParent.querySelector(this.subNavItemHasChildrenSelector)) {
@@ -649,12 +661,19 @@ export default class Navigation extends Component {
        */
       _handleTabKey(event) {
         const currNavList = event.target.closest(this.navItemList);
+        // console.log('event', event)
+        // console.log('classList', event.target);
         const isDesktop = window.matchMedia('(min-width: 960px)');
         if (currNavList?.closest(this.subNavSelector)) {
           if (!currNavList.nextElementSibling && isDesktop.matches) {
             this.close(currNavList.closest(this.navItemHasChildrenSelector));
           }
         }
+        // if (currNavList?.closest(this.navItemHasMegaMenuAttr)) {
+        //   if (event.target.nextSibling === null) {
+        //     console.log('no more focus items')
+        //   }
+        // }
       },
 
       _handleShiftTabKey(event) {
