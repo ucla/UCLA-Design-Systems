@@ -18,17 +18,11 @@
   &> .ucla-main-nav__toggle {
     @include mixins.for-size(desktop-up) {
       position: unset;
-      // padding: 0.825rem 2.125rem 0.5rem 0;
-      box-sizing: initial;
-      padding-top: 0.875rem;
       padding-right: 1rem;
       padding-bottom: 0.5rem;
       border-bottom: 4px solid transparent;
-
-      @-moz-document url-prefix() {
-        height: 1.375rem;
-        padding-top: 0.625rem;
-      }
+      height: 44px;
+      width: 30px;
     }
     
     &:hover, &.is-open {
