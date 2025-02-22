@@ -12,7 +12,7 @@ The parent navigation item inherits CSS classes from the primary navigation item
 ```html
 <!-- ... -->
 <li class="ucla-main-nav__item ucla-main-nav__item--has-children ucla-main-nav__item--has-mega-menu">
-  <a style="transition: none" href="#" class="ucla-main-nav__link">Parent Item</a>
+  <a href="#" class="ucla-main-nav__link">Parent Item</a>
   <button class="ucla-main-nav__toggle" aria-expanded="false" aria-label="toggle">
     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="12 17.2 24 14.8"><title>Arrow Down</title><path class="down-arrow--blue" d="m14.8 17.2 9.2 9.2 9.2-9.2L36 20 24 32 12 20l2.8-2.8z"></path></svg>
   </button>
