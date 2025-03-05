@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Pagination, A11y, Keyboard } from 'swiper/modules';
+import { Pagination, A11y, Keyboard, Navigation } from 'swiper/modules';
 import Component from './component';
 
 /**
@@ -49,6 +49,8 @@ export default class Carousel extends Component {
         this.slider = '.ucla-carousel';
         this.pagination = '.ucla-carousel__pagination';
         this.paginationBullet = 'ucla-carousel__page';
+        this.navNext = '.ucla-carousel__next';
+        this.navPrev = '.ucla-carousel__prev';
         this.slidePerPage = 'data-ucla-per-page';
         this.slidePerPageMd = 'data-ucla-per-page-md';
         this.slidePerPageLg = 'data-ucla-per-page-lg';
@@ -66,7 +68,7 @@ export default class Carousel extends Component {
         const slidePerPageMd = this.element.getAttribute(this.slidePerPageMd);
         const slidePerPageLg = this.element.getAttribute(this.slidePerPageLg);
         const defaults = {
-          modules: [Pagination, A11y, Keyboard],
+          modules: [Pagination, A11y, Keyboard, Navigation],
           a11y: {
             scrollOnFocus: false,
           },
@@ -80,6 +82,10 @@ export default class Carousel extends Component {
             clickable: true,
             bulletClass: `${this.paginationBullet} swiper-pagination-bullet`,
             bulletActiveClass: 'is-active',
+          },
+          navigation: {
+            nextEl: this.navNext,
+            prevEl: this.navPrev
           },
           breakpoints: {
             768: {
