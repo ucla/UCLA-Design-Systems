@@ -183,6 +183,60 @@ To nest your content, add a new `.ucla` and a set of `.col` columns inside of an
 </div>
 ```
 
+#### Column Order
+
+If you want to change the order of a specific column, you'll need to add the `.ucla-order-{num}` to the column element.
+
+<div class="ucla example">
+  <div class="col ucla-order-1">
+      <p class="example-content example-content--highlight">1st Column</p>
+  </div>
+  <div class="col ucla-order-0">
+      <p class="example-content example-content--highlight">2nd Column</p>
+  </div>  
+</div>
+
+```html
+<div class="ucla example">
+  <div class="col ucla-order-1">
+      <p class="example-content example-content--highlight">1st Column</p>
+  </div>
+  <div class="col ucla-order-0">
+      <p class="example-content example-content--highlight">2nd Column</p>
+  </div>  
+</div>
+```
+
+##### Responsive Column Order
+
+To have a specific order for a certain viewpoint, you will need to add the `-md-` and/or `-lg-` modifier to the `.ucla-order` class. Example: `.ucla-order-md-2`
+
+<div class="ucla example">
+  <div class="col ucla-order-2 ucla-order-lg-1">
+      <p class="example-content example-content--highlight">1st Column</p>
+  </div>
+  <div class="col ucla-order-0 ucla-order-lg-2">
+      <p class="example-content example-content--highlight">2nd Column</p>
+  </div>
+  <div class="col ucla-order-1 ucla-order-lg-0">
+      <p class="example-content example-content--highlight">3rd Column</p>
+  </div>  
+</div>
+
+```html
+<div class="ucla example">
+  <div class="col ucla-order-2 ucla-order-lg-1">
+      <p class="example-content example-content--highlight">1st Column</p>
+  </div>
+  <div class="col ucla-order-0 ucla-order-lg-2">
+      <p class="example-content example-content--highlight">2nd Column</p>
+  </div>
+  <div class="col ucla-order-1 ucla-order-lg-0">
+      <p class="example-content example-content--highlight">3rd Column</p>
+  </div>  
+</div>
+```
+
 #### CSS Grid
 
 While the default grid system is built around flexbox, we've added the another grid system utilizing CSS Grid.
