@@ -17,7 +17,7 @@
     "@frctl/fractal": "^1.5.15",
     "@frctl/mandelbrot": "^1.10.3",
     "fractal-status-helper": "^1.0.0",
-    "swiper": "^11.1.9",
+    "swiper": "^11.2.4",
     "wicked-elements": "^3.1.2"
   },
   "browserslist": [
