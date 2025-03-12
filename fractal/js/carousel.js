@@ -76,7 +76,7 @@ export default class Carousel extends Component {
         const slidePerGroup = this.element.getAttribute(this.slidePerGroup);
         const slidePerGroupMd = this.element.getAttribute(this.slidePerGroupMd);
         const slidePerGroupLg = this.element.getAttribute(this.slidePerGroupLg);
-        const sliderAutoPlay = this.element.getAttribute(this.sliderAutoPlay);
+        const sliderAutoPlay = (this.element.getAttribute(this.sliderAutoPlay)==='true');
         const sliderAutoPlayDelay = this.element.getAttribute(this.sliderAutoPlayDelay);
         const sliderLoop = (this.element.getAttribute(this.sliderLoop)==='true');
         const defaults = {
