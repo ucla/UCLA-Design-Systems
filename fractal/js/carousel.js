@@ -1,5 +1,5 @@
-import Swiper from 'swiper';
-import { Pagination, A11y, Keyboard, Navigation, Autoplay } from 'swiper/modules';
+import Swiper from 'swiper/bundle';
+// import { Pagination, A11y, Keyboard, Navigation, Autoplay } from 'swiper/modules';
 import Component from './component';
 
 /**
@@ -80,7 +80,7 @@ export default class Carousel extends Component {
         const sliderAutoPlayDelay = this.element.getAttribute(this.sliderAutoPlayDelay);
         const sliderLoop = (this.element.getAttribute(this.sliderLoop)==='true');
         const defaults = {
-          modules: [Pagination, A11y, Keyboard, Navigation, Autoplay],
+          // modules: [Pagination, A11y, Keyboard, Navigation, Autoplay],
           a11y: {
             scrollOnFocus: false,
           },
