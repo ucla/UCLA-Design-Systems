@@ -29,15 +29,18 @@
 .ucla-has-background {
   &-ucla-blue {
     background-color: variables.$ucla-blue !important;
+    color: variables.$white;
   }
   &-ucla-gold {
     background-color: variables.$ucla-gold !important;
   }
   &-grey-80 {
     background-color: variables.$grey-80 !important;
+    color: variables.$white;
   }
   &-grey-60 {
     background-color: variables.$grey-60 !important;
+    color: variables.$white;
   }
   &-grey-40 {
     background-color: variables.$grey-40 !important;
@@ -74,6 +77,7 @@
   }
   &-black {
     background-color: variables.$black !important;
+    color: variables.$white;
   }
   &-white {
     background-color: variables.$white !important;
