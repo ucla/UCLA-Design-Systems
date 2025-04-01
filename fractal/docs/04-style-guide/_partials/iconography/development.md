@@ -6,7 +6,7 @@ handle: icons-development
 
 <h5 class="mt-8">Navigation Icons</h5>
 
-<div class="ucla mt-5">
+<div class="ucla mt-5 ucla-docs-grid">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
     <article class="ucla-card icon-docs">
       <div style="display: block; text-align: center">
@@ -46,7 +46,7 @@ handle: icons-development
       {{render '@navigation-icons--chevron-up'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">chevron up</p>
+        <p class="ucla-card__description">chevron-up</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -57,7 +57,7 @@ handle: icons-development
       {{render '@navigation-icons--chevron-down'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">chevron down</p>
+        <p class="ucla-card__description">chevron-down</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -68,7 +68,7 @@ handle: icons-development
       {{render '@navigation-icons--chevron-left'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">chevron left</p>
+        <p class="ucla-card__description">chevron-left</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -79,7 +79,7 @@ handle: icons-development
       {{render '@navigation-icons--chevron-right'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">chevron right</p>
+        <p class="ucla-card__description">chevron-right</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -90,7 +90,7 @@ handle: icons-development
       {{render '@navigation-icons--chevrons-left'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">chevrons left</p>
+        <p class="ucla-card__description">chevrons-left</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -101,7 +101,7 @@ handle: icons-development
       {{render '@navigation-icons--chevrons-right'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">chevrons right</p>
+        <p class="ucla-card__description">chevrons-right</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -112,7 +112,7 @@ handle: icons-development
       {{render '@navigation-icons--arrow-up'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">arrow up</p>
+        <p class="ucla-card__description">arrow-up</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -123,7 +123,7 @@ handle: icons-development
       {{render '@navigation-icons--arrow-down'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">arrow down</p>
+        <p class="ucla-card__description">arrow-down</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -134,7 +134,7 @@ handle: icons-development
       {{render '@navigation-icons--arrow-left'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">arrow left</p>
+        <p class="ucla-card__description">arrow-left</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -145,7 +145,7 @@ handle: icons-development
       {{render '@navigation-icons--arrow-right'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">arrow right</p>
+        <p class="ucla-card__description">arrow-right</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -154,7 +154,7 @@ handle: icons-development
 
 ##### Social Icons
 
-<div class="ucla mt-5">
+<div class="ucla mt-5 ucla-docs-grid">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
     <article class="ucla-card icon-docs">
       <div style="display: block; text-align: center">
@@ -247,7 +247,7 @@ handle: icons-development
 
 ##### Communication Icons
 
-<div class="ucla mt-5">
+<div class="ucla mt-5 ucla-docs-grid">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
     <article class="ucla-card icon-docs">
       <div style="display: block; text-align: center">
@@ -298,7 +298,7 @@ handle: icons-development
       {{render '@communication-icons--user-circle-solid'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">user circle solid</p>
+        <p class="ucla-card__description">user-circle-solid</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -320,7 +320,7 @@ handle: icons-development
       {{render '@communication-icons--video-camera'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">video camera</p>
+        <p class="ucla-card__description">video-camera</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -329,7 +329,7 @@ handle: icons-development
 
 ##### Content Icons
 
-<div class="ucla mt-5">
+<div class="ucla mt-5 ucla-docs-grid">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
     <article class="ucla-card icon-docs">
       <div style="display: block; text-align: center">
@@ -347,7 +347,7 @@ handle: icons-development
       {{render '@content-icons--close-circle-solid'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">close circle solid</p>
+        <p class="ucla-card__description">close-circle-solid</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -380,7 +380,7 @@ handle: icons-development
       {{render '@content-icons--image-gallery'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">image gallery</p>
+        <p class="ucla-card__description">image-gallery</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -402,7 +402,7 @@ handle: icons-development
       {{render '@content-icons--link-external'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">link external</p>
+        <p class="ucla-card__description">link-external</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -424,7 +424,7 @@ handle: icons-development
       {{render '@content-icons--pause-circle'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">pause circle</p>
+        <p class="ucla-card__description">pause-circle</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -435,7 +435,7 @@ handle: icons-development
       {{render '@content-icons--play-circle'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">play circle</p>
+        <p class="ucla-card__description">play-circle</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -466,7 +466,7 @@ handle: icons-development
 
 ##### Weather
 
-<div class="ucla mt-5">
+<div class="ucla mt-5 ucla-docs-grid">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
     <article class="ucla-card icon-docs">
       <div style="display: block; text-align: center">
@@ -495,7 +495,7 @@ handle: icons-development
       {{render '@weather-icons--partly-cloudy'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">partly cloudy</p>
+        <p class="ucla-card__description">partly-cloudy</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -561,7 +561,7 @@ handle: icons-development
       {{render '@weather-icons--full-moon'}}
       </div>
       <div class="ucla-card__body" style="text-align: center">
-        <p class="ucla-card__description">full moon</p>
+        <p class="ucla-card__description">full-moon</p>
         <button onclick="copySvg(event, 'Copied!', 'Copy SVG')" class="ucla-btn ucla-btn--secondary">Copy SVG</button>
       </div>
     </article>
@@ -570,7 +570,7 @@ handle: icons-development
 
 ##### Date &amp; Time Icons
 
-<div class="ucla mt-5">
+<div class="ucla mt-5 ucla-docs-grid">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
     <article class="ucla-card icon-docs">
       <div style="display: block; text-align: center">
@@ -597,7 +597,7 @@ handle: icons-development
 
 ##### Alert Icons
 
-<div class="ucla mt-5">
+<div class="ucla mt-5 ucla-docs-grid">
   <div class="col span_6_of_12 span_4_of_12-md span_3_of_12-lg">
     <article class="ucla-card icon-docs">
       <div style="display: block; text-align: center">

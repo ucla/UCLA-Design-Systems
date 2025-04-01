@@ -108,6 +108,7 @@ export default class Navigation extends Component {
        * @param {Event} event - Onclick event
        */
       onClick(event) {
+        event.stopPropagation();
         if (this.triggers && this._eventInsideNavToggle(event)) {
           if (
             event.target.closest(this.navItemList).classList.contains('is-open')
@@ -140,12 +141,10 @@ export default class Navigation extends Component {
        * @param {Event} event - Onfocusout event
        */
       onFocusout(event) {
-        
+        event.stopPropagation();
         const currNavList = event.target.closest(this.navItemList);
         if (currNavList?.closest(this.navItemHasMegaMenuAttr)) {
           const isDesktop = window.matchMedia('(min-width: 960px)');
-          // console.log('relatedTarget', event.relatedTarget);
-          // console.log(event.relatedTarget?.closest(this.navItemHasMegaMenuAttr).classList)
           if (!event.relatedTarget?.closest(this.navItemHasMegaMenuAttr)?.classList.contains('is-open') && isDesktop.matches) {
             this.close(currNavList.closest(this.navItemHasMegaMenuAttr))
           }
@@ -197,10 +196,13 @@ export default class Navigation extends Component {
        * @private
        */
       _attachEventListener() {
+        const mobileWindowSize = window.innerWidth;
         window.addEventListener('resize', () => {
+          if (mobileWindowSize !== window.innerWidth) {
           this.parentNavItems.forEach((el) => this.close(el));
           this.close(this.element);
           this.close(this.navSearch);
+          }
         });
         document.addEventListener('click', (event) => {
           if (!document.getElementById('nav-main').contains(event.target)) {

@@ -383,3 +383,15 @@ a {
     margin-top: 0;
   }
 }
+
+.Document-content > .Prose1 .ucla-docs-grid {
+  flex-wrap: wrap !important;
+}
+
+.ucla-link-grid {
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    width: 976px;
+  }
+}

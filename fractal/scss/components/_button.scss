@@ -180,6 +180,35 @@
     & > svg path {
       fill: variables.$white;
     }
+    
+  }
+  &--link#{$this} {
+    padding: 0;
+    border-radius: 0;
+    color: variables.$default-state;
+    &:hover {
+      color: variables.$hover-state;
+    }
+    &:focus {
+      outline-offset: 2px;
+      outline: 2px solid variables.$focus-state;
+    }
+    &:active {
+      border-color: variables.$active-state;
+      color: variables.$active-state;
+    }
+    &:disabled {
+      color: variables.$disabled-state;
+    }
+    &:hover > svg path {
+      fill: variables.$hover-state;
+    }
+    &:active > svg path {
+      fill: variables.$active-state;
+    }
+    & > svg path {
+      fill: variables.$default-state;
+    }
   }
   &:disabled {
     cursor: not-allowed;
