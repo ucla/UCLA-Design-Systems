@@ -1,0 +1,506 @@
+@use "../utilities/variables";
+
+a.ucla-link__has-icon {
+
+  // Alert Icons
+  &--error {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/alert/error.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/alert/error.svg');
+    }
+  }
+  &--information {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/alert/information.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/alert/information.svg');
+    }
+  }
+  &--success {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/alert/success.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/alert/success.svg');
+    }
+  }
+  &--warning {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/alert/warning.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/alert/warning.svg');
+    }
+  }
+
+  // Communication Icons
+  &--chat {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/communcation/chat.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/communcation/chat.svg');
+    }
+  }
+  &--comment {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/communcation/comment.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/communcation/comment.svg');
+    }
+  }
+  &--envelope {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/communcation/envelope.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/communcation/envelope.svg');
+    }
+  }
+  &--location {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/communcation/location.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/communcation/location.svg');
+    }
+  }
+  &--user-circle-solid {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/communcation/user-circle-solid.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/communcation/user-circle-solid.svg');
+    }
+  }
+  &--user {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/communcation/user.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/communcation/user.svg');
+    }
+  }
+  &--video-camera {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/communcation/video-camera.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/communcation/video-camera.svg');
+    }
+  }
+
+  // Content Icons
+  &--check {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/check.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/check.svg');
+    }
+  }
+  &--close-circle-solid {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/close-circle-solid.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/close-circle-solid.svg');
+    }
+  }
+  &--copy {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/copy.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/copy.svg');
+    }
+  }
+  &--download {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/download.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/download.svg');
+    }
+  }
+  &--image-gallery {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/image-gallery.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/image-gallery.svg');
+    }
+  }
+  &--image {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/image.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/image.svg');
+    }
+  }
+  &--link-external {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/link-external.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/link-external.svg');
+    }
+  }
+  &--minus {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/minus.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/minus.svg');
+    }
+  }
+  &--pause-circle-solid {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/pause-circle-solid.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/pause-circle-solid.svg');
+    }
+  }
+  &--pause-circle {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/pause-circle.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/pause-circle.svg');
+    }
+  }
+  &--play-circle-solid {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/play-circle-solid.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/play-circle-solid.svg');
+    }
+  }
+  &--play-circle {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/play-circle.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/play-circle.svg');
+    }
+  }
+  &--plus {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/plus.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/plus.svg');
+    }
+  }
+  &--sort {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/content/sort.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/content/sort.svg');
+    }
+  }
+
+  // Date Time Icons
+  &--calendar {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/date-time/calendar.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/date-time/calendar.svg');
+    }
+  }
+  &--clock {
+    &::after {
+      
+      @supports (mask: url("")) {
+        mask-image: url('../icons/date-time/clock.svg'), linear-gradient(transparent,transparent);
+      }
+      background-image: url('../icons/date-time/clock.svg');
+    }
+  }
+
+  // Navigation Icons
+  &--arrow-down {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/arrow-down.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/arrow-down.svg');
+    }
+  }
+  &--arrow-left {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/arrow-left.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/arrow-left.svg');
+    }
+  }
+  &--arrow-right {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/arrow-right.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/arrow-right.svg');
+    }
+  }
+  &--arrow-up {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/arrow-up.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/arrow-up.svg');
+    }
+  }
+  &--chevron-up {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/chevron-up.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/chevron-up.svg');
+    }
+  }
+  &--chevron-down {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/chevron-down.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/chevron-down.svg');
+    }
+  }
+  &--chevron-left {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/chevron-left.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/chevron-left.svg');
+    }
+  }
+  &--chevron-right {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/chevron-right.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/chevron-right.svg');
+    }
+  }
+  &--chevrons-left {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/chevrons-left.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/chevrons-left.svg');
+    }
+  }
+  &--chevrons-right {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/chevrons-right.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/chevrons-right.svg');
+    }
+  }
+  &--menu {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/menu.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/menu.svg');
+    }
+  }
+  &--close {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/close.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/close.svg');
+    }
+  }
+  &--search {
+    &::after {
+      @supports (mask: url("")) {
+        mask-image: url('../icons/navigation/search.svg'), linear-gradient(transparent,transparent);
+      }
+
+      background-image: url('../icons/navigation/search.svg');
+    }
+  }
+}
+
+.ucla-has-background-black, .ucla-has-background-ucla-blue, .ucla-has-background-grey-80, .ucla-has-background-grey-60 {
+  a.ucla-link__has-icon {
+    color: variables.$white;
+    text-decoration: underline;
+
+    &::after {
+      @supports (mask: url("")) {
+        background: none;
+        background-color: variables.$white;
+      }
+    }
+  
+    &:visited {
+      color: variables.$white;
+      text-decoration: underline;
+
+      &::after {
+        @supports (mask: url("")) {
+          background: none;
+          background-color: variables.$white;
+        }
+      }
+    }
+  
+    &:hover {
+      color: variables.$white;
+      text-decoration: none;
+
+      &::after {
+        @supports (mask: url("")) {
+          background: none;
+          background-color: variables.$white;
+        }
+      }
+    }
+    &:focus {
+      outline: 2px solid variables.$white;
+      outline-offset: 2px;
+      text-decoration: underline;
+    }
+    &:active {
+      color: variables.$white;
+
+      &::after {
+        @supports (mask: url("")) {
+          background: 0 0;
+          background-color: variables.$white;
+        }
+      }
+    }
+  }
+}
+
+a.ucla-link__has-icon {
+  color: variables.$default-state;
+  text-decoration: underline;
+
+  &:visited {
+    color: variables.$visited-state;
+    text-decoration: underline;
+
+    &::after {
+      @supports (mask: url("")) {
+        background: none;
+        background-color: variables.$visited-state;
+      }
+    }
+  }
+
+  &:hover {
+    color: variables.$hover-state;
+    text-decoration: none;
+
+    &::after {
+      @supports (mask: url("")) {
+        background: none;
+        background-color: variables.$hover-state;
+      }
+    }
+  }
+  &:focus {
+    outline: 2px solid variables.$focus-state;
+    outline-offset: 2px;
+    text-decoration: underline;
+  }
+  &:active {
+    color: variables.$active-state;
+
+    &::after {
+      @supports (mask: url("")) {
+        background: 0 0;
+        background-color: variables.$active-state;
+      }
+    }
+  }
+  &:not(h1>a,h2>a,h3>a,h4>a,h5>a,h6>a,p>strong>a)::after {
+    @supports (mask: url("")) {
+      mask-size: 1rem 1rem;
+      background-color: variables.$default-state;
+    }
+    display: inline;
+    vertical-align: bottom;
+    width: 1rem;
+    height: 1rem;
+    padding-left: 1rem;
+  }
+  &::after {
+    @supports (mask: url("")) {
+      background: none;
+      background-color: variables.$default-state;
+      mask-size: 1.5rem 1.5rem;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+    }
+
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding-left: 1.5rem;
+    margin-left: 2px;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @-moz-document url-prefix() {
+      vertical-align: baseline;
+    }
+  }
+  
+}
