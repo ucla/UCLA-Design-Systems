@@ -377,6 +377,13 @@ a.ucla-link__has-icon {
   a.ucla-link__has-icon {
     color: variables.$white;
     text-decoration: underline;
+
+    &::after {
+      @supports (mask: url("")) {
+        background: none;
+        background-color: variables.$white;
+      }
+    }
   
     &:visited {
       color: variables.$white;
