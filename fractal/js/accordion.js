@@ -121,6 +121,7 @@ export default class Accordion extends Component {
        */
 
       onClick(event) {
+        event.stopPropagation();
         if (!event.target.closest(this.triggerAttr)) {return}
         const id = event.target.closest(this.triggerAttr).getAttribute('data-ucla-trigger');
         const panelItem = event.target.closest('.accordion-item');
@@ -128,7 +129,7 @@ export default class Accordion extends Component {
           this.close(id);
         } else {
           this.open(id);
-          }
+        }
       },
 
       /**

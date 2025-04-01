@@ -88,7 +88,7 @@
       fill: variables.$default-state;
     }
   }
-  .is-open & {
+  .is-open > .accordion__heading > & {
     // background-image: url("/icons/denotive/up-arrow--blue.svg");
 
     svg {

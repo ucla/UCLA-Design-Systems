@@ -83,18 +83,45 @@ a:not([class]) {
 
   &:visited {
     color: variables.$visited-state;
+    text-decoration: underline;
   }
 
   &:hover {
-    color: variables.$white;
-    background-color: variables.$hover-state;
+    color: variables.$hover-state;
+    text-decoration: none;
   }
   &:focus {
     outline: 2px solid variables.$focus-state;
     outline-offset: 2px;
+    text-decoration: underline;
   }
   &:active {
     color: variables.$active-state;
+  }
+}
+
+.ucla-has-background-black, .ucla-has-background-ucla-blue, .ucla-has-background-grey-80, .ucla-has-background-grey-60 {
+  a:not([class]) {
+    color: variables.$white;
+    text-decoration: underline;
+  
+    &:visited {
+      color: variables.$white;
+      text-decoration: underline;
+    }
+  
+    &:hover {
+      color: variables.$hover-state;
+      text-decoration: none;
+    }
+    &:focus {
+      outline: 2px solid variables.$white;
+      outline-offset: 2px;
+      text-decoration: underline;
+    }
+    &:active {
+      color: variables.$white;
+    }
   }
 }
 
