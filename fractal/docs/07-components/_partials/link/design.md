@@ -59,6 +59,19 @@ You use inline links when you want to provide a hyperlink within a block of text
 - Write out email and phone links.
 - Encode email and phone links.
 
+#### States
+<a href="#" style="color:#00598C;">Default State</a>
+<a href="#" class="ml-8" style="text-decoration: none;color:#0079BF">Hover State</a>
+<a href="#" class="ml-8" style="outline:2px solid #00598C;outline-offset: 2px;color:#00598C">Focus State</a>
+<a href="#" class="ml-8" style="color:#5223B0;text-decoration: underline;">Visited State</a>
+
+<div class="ucla-has-background-ucla-blue py-5">
+<a href="#" style="color:#ffffff;">Default State</a>
+<a href="#" class="ml-8" style="text-decoration: none;color:#ffffff">Hover State</a>
+<a href="#" class="ml-8" style="outline:2px solid #ffffff;outline-offset: 2px;color:#ffffff">Focus State</a>
+<a href="#" class="ml-8" style="color:#ffffff;text-decoration: underline;">Visited State</a>
+</div>
+
 #### Examples
 
 <iframe id="docIframe" style="min-height: 35rem" class="docs-iframe mt-5"
