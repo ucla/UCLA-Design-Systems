@@ -117,3 +117,71 @@ If you would like to override these, add the following attribute to the `.ucla-c
   data-ucla-per-page-lg="4"
 >
 ```
+
+#### Navigation
+
+**Pagination**
+
+To add pagination to the carousel, add `<div class="swiper-pagination ucla-carousel__pagination"></div>` after the `.swiper-wrapper` element in your carousel.
+
+```html
+<section class="swiper ucla-carousel" aria-label="My Carousel">
+  <div class="swiper-wrapper">
+    <!-- ... -->
+  </div>
+  <div class="swiper-pagination ucla-carousel__pagination"></div>
+</section>
+```
+
+**Arrows**
+
+To add arrow navigation to the carousel, add the following HTML elements after the `.swiper-wrapper` element in your carousel:
+
+- `<div class="swiper-button-prev ucla-carousel__prev"></div>`
+- `<div class="swiper-button-next ucla-carousel__next"></div>`
+
+```html
+<section class="swiper ucla-carousel" aria-label="My Carousel">
+  <div class="swiper-wrapper">
+    <!-- ... -->
+  </div>
+  <div class="swiper-button-prev ucla-carousel__prev"></div>
+  <div class="swiper-button-next ucla-carousel__next"></div>
+</section>
+```
+
+#### Autoplay
+
+To enable autoplay to your carousel, add the `data-ucla-carousel-loop` attribute to the `.ucla-carousel` element and set it to true.
+
+```html
+  <section class="swiper ucla-carousel" data-ucla-carousel-loop="true">
+    <!-- ... -->
+  </section>
+```
+
+**Adjust autoplay delay**
+
+By default, the autoplay automatically slides to the next slide every 5 seconds. To change the delay, add the `data-ucla-carousel-autoplay-delay` and set the number value in milliseconds.
+
+```html
+  <section class="swiper ucla-carousel" data-ucla-carousel-loop="true" data-ucla-carousel-autoplay-delay="3000">
+    <!-- ... -->
+  </section>
+```
+
+#### Other Swiper options
+
+If you want to use other [Swiper Parameters](https://swiperjs.com/swiper-api#parameters), you can use add the `data-swiper` attribute to the carousel and add the parameters as a JSON object:
+
+```html
+  <section
+    class="swiper ucla-carousel"
+    data-swiper="{
+      'spaceBetween': 24,
+      'threshold': 3,
+      'scrollbar': true
+    }">
+    <!-- ... -->
+  </section>
+```
