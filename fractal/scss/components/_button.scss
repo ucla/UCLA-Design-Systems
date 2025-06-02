@@ -307,6 +307,7 @@
   padding: 0.625rem 1rem;
   border-top: 1px solid variables.$grey-20;
   border-bottom: 1px solid variables.$grey-20;
+  margin-bottom: 1.5rem;
 
   svg {
     width: 18px;
@@ -314,10 +315,6 @@
     & > path {
       fill: variables.$default-state;
     }
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 1.5rem;
   }
 
   &:hover {
@@ -340,5 +337,11 @@
     svg > path {
       fill: variables.$white;
     }
+  }
+  &:has(+ .ucla-related-link) {
+    margin-bottom: 0;
+  }
+  &+ .ucla-related-link {
+    border-top: 0;
   }
 }

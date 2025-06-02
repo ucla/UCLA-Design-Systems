@@ -57,6 +57,36 @@ To add any validation or helper text, a `.ucla-field` wrapper is needed:
 </div>
 ```
 
+#### Multiple
+
+Add a `multiple` attribute to the `<select>` element to enable multiple selection. Set a `size` to the `<select>` element if you don't want a scrollbar in your selection menu.
+
+<div class="ucla-field">
+    <label class="ucla-field__label" for="exampleSelectionMultiple">Label</label>
+    <select class="ucla-field__select" multiple id="exampleSelectionMultiple">
+        <option value="Lorem">Lorem Ipsum</option>
+        <option value="Epsum">Epsum factorial non deposit quid</option>
+        <option value="Pro">Pro quo hic escorol olypian</option>
+        <option value="Et">Et gorilla congolium sic</option>
+        <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
+    </select>
+    <p class="ucla-field__help">This is a help text.</p>
+</div>
+
+```html
+<div class="ucla-field">
+    <label class="ucla-field__label" for="exampleSelectionMultiple">Label</label>
+    <select class="ucla-field__select" multiple id="exampleSelectionMultiple">
+        <option value="Lorem">Lorem Ipsum</option>
+        <option value="Epsum">Epsum factorial non deposit quid</option>
+        <option value="Pro">Pro quo hic escorol olypian</option>
+        <option value="Et">Et gorilla congolium sic</option>
+        <option value="Ad">Ad nauseum souvlaki ignitus carborundum</option>
+    </select>
+    <p class="ucla-field__help">This is a help text.</p>
+</div>
+```
+
 #### States
 
 To add different states to the select menu, a contextual class must be added depending on the state:
