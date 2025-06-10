@@ -14,7 +14,7 @@
 # Requirements
 
 - Terminal (macOS) or Command Prompt (PC)
-- [Node](https://nodejs.org/en/) - Tested with node 14.19.2
+- [Node](https://nodejs.org/en/) - Tested with node 18.20.8
 - [npm](https://www.npmjs.com/get-npm)
 - [nvm](https://github.com/nvm-sh/nvm) - Recommended to use tested Node version
 
@@ -42,7 +42,7 @@
 
   - If installed successfully, these commands should return a version number, similar to below:
 
-    ![npm v6.14.17, node v14.19.2](../../images/dependency-versions.png)
+    ![npm v10.8.2, node v18.20.8](../../images/dependency-versions.png)
 
 4. Prepare the development environment:
 
@@ -54,11 +54,11 @@
 
 6. Switch to tested node version
 
-  - In order to install node v14 on a mac with arm64(Apple Processor), you would need to use [Rosseta](https://support.apple.com/en-us/102527).
+  - In order to install node v18 on a mac with arm64(Apple Processor), you would need to use [Rosseta](https://support.apple.com/en-us/102527).
 You can install Rosseta using the following command:
       - `/usr/sbin/softwareupdate --install-rosetta --agree-to-license`
       - Then run `arch -x86_64 zsh` and continue instructions using the next nvm command. 
-  - `nvm install 14`
+  - `nvm install 18`
   - `nvm use`
 
 7. Install Node Modules for Fractal
