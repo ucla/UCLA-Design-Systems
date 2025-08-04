@@ -4,6 +4,20 @@ handle: icons-development
 
 #### Icon Library
 
+<div class="ucla-doc-tabs mt-8">
+  <!-- .tablist is the container for tabs only -->
+  <nav class="ucla-doc-tabslist" role="tablist" aria-label="content-tabs">
+    <button onclick="openTab(event)" id="icon-design" class="ucla-doc-tablink is-active" role="tab" aria-selected="true" aria-controls="tab-icon-design">
+      UCLA Icons
+    </button>
+    <button onclick="openTab(event)" id="icon-development" class="ucla-doc-tablink" role="tab" aria-selected="false" aria-controls="tab-icon-development">
+      Material Icons
+    </button>
+  </nav>
+  <!-- .tabcontent contain panels of content -->
+<section class="ucla-doc-tabpanels">
+<article id="tab-icon-design" tabindex="0" role="tabpanel" aria-labelledby="icon-design" class="ucla-doc-tabpanel ucla-prose">
+
 <h5 class="mt-8">Navigation Icons</h5>
 
 <div class="ucla mt-5 ucla-docs-grid">
@@ -643,3 +657,24 @@ handle: icons-development
     </article>
   </div>
 </div>
+
+</article>
+<article id="tab-icon-development" tabindex="0" role="tabpanel" aria-labelledby="icon-development" class="ucla-doc-tabpanel ucla-prose" hidden>
+  
+{{render '@material-icons--copy'}}
+
+</article>
+  </section>
+</div>
+
+<script>
+  const materialWrapper = document.querySelectorAll('.ucla-material-button-wrapper');
+  for (let i = 0; i < materialWrapper.length; i++) {
+    materialWrapper[i].onmousemove = function (e) {
+      const tooltip = materialWrapper[i].querySelector('.ucla-material-tooltip');
+      let x = (e.clientX) + 'px', y = (e.clientY + 24) + 'px';
+      tooltip.style.top = y;
+      tooltip.style.left = x;
+    }
+  }
+</script>

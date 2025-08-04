@@ -370,6 +370,36 @@ a {
   }
 }
 
+.ucla-material-button-wrapper {
+  display: inline;
+  position: relative;
+}
+
+.ucla-material-button {
+  cursor: pointer;
+}
+
+.ucla-material-tooltip {
+  visibility: hidden;
+  position: fixed;
+  background-color: #FFD100;
+  font-size: 12px;
+  padding: 4px;
+  font-weight: bold;
+  color: #333;
+  z-index: 10;
+}
+
+.ucla-material-button:hover {
+  background: #FFD100;
+}
+.ucla-material-button:hover > svg {
+  fill: #333;
+}
+.ucla-material-button:hover + .ucla-material-tooltip {
+  visibility: visible;
+}
+
 /***************** STOP!!! READ THIS!! *****************/
 .Header {
   background-color: #2774ae;
