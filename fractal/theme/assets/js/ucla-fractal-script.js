@@ -48,6 +48,34 @@ async function copySvg(e, text, changeTextBackTo) {
   }, 1500);
 }
 
+async function copyMaterialSvg(e) {
+  const svg = e.target.closest('svg');
+  const s = new XMLSerializer();
+  const svgStr = s.serializeToString(svg);
+  const changeBackTo = e.target.closest('.ucla-material-button-wrapper').querySelector('.ucla-material-tooltip').textContent;
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(svgStr);
+  } else {
+    const textArea = document.createElement("textarea");
+    textArea.value = svgStr;
+    textArea.style.position = "absolute";
+    textArea.style.opacity = "0";
+    document.body.prepend(textArea);
+    textArea.select();
+    try {
+      document.execCommand("copy");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      textArea.remove();
+    }
+  }
+  e.target.closest('.ucla-material-button-wrapper').querySelector('.ucla-material-tooltip').textContent = 'copied!';
+  setTimeout(function () {
+    e.target.closest('.ucla-material-button-wrapper').querySelector('.ucla-material-tooltip').textContent = changeBackTo;
+  }, 1500);
+}
+
 function changeIframe(value) {
   let ext = window.frctl.env === "static" ? ".html" : "";
   let pathArray = window.location.pathname.split("/");
