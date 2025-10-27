@@ -187,6 +187,21 @@ handle: typography-development
 {{render '@typography--blockquote'}}
 ```
 
+#### Horizontal Rule
+
+{{ render '@horizontal-rule'}}
+<hr class="ucla-horizontal__yellow mx-auto">
+<hr class="ucla-horizontal__yellow ml-auto">
+
+```html
+<!-- Left Align -->
+{{ render '@horizontal-rule'}}
+<!-- Center -->
+<hr class="ucla-horizontal__yellow mx-auto">
+<!-- Right Align -->
+<hr class="ucla-horizontal__yellow ml-auto">
+```
+
 #### Automatic styling for body copy
 
 <hr />
