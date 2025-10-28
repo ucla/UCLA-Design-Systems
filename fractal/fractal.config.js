@@ -6,6 +6,11 @@
 const path = require("path");
 
 /*
+ * Require the fs module
+ */
+const fs = require("fs");
+const Handlebars = require('handlebars');
+/*
  * Require the Fractal module
  */
 const fractal = (module.exports = require("@frctl/fractal").create());
@@ -121,10 +126,28 @@ myCustomisedTheme.addStatic(__dirname + "/theme/assets", "/theme-assets");
 fractal.web.theme(myCustomisedTheme);
 fractal.web.set("static.path", __dirname + "/public");
 
-//fractal.web.set('static.mount', '/public');
 // https://github.com/jwir3/fractal-status-helper
 const FractalStatusHelper = require("fractal-status-helper")(fractal);
-// fractal.components.set('default.collated', true);
+
+fractal.components.engine(
+  require("@frctl/handlebars")({
+    helpers: {
+      inline_svg: function (iconName) {
+        const outlinedIconPath = path.resolve(__dirname, 'public/icons/material');
+        // const outlinedIconPath = __dirname + '/build/icons/material';
+        const svgPath = path.join(outlinedIconPath, `${iconName}.svg`);
+        try {
+          const svgContent = fs.readFileSync(svgPath, 'utf8');
+          return new Handlebars.SafeString(svgContent); // 'this' is the helper context here
+        } catch (err) {
+          console.error('[SVG ERROR] File not found or unreadable:', svgPath, '\n', err.message);
+          return new Handlebars.SafeString(`<!-- Icon "${iconName}" not found in ${svgPath} -->`);
+        }
+      }
+    }
+  })
+);
+
 fractal.docs.engine(
   require("@frctl/handlebars")({
     helpers: {

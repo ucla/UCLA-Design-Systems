@@ -1,0 +1,8 @@
+{{#each icons}}
+  <div class="ucla-material-button-wrapper">
+    <button class="ucla-material-button" type="button" onclick="copyMaterialSvg(event)">
+    {{{ inline_svg this }}}
+    </button>
+    <span class="ucla-material-tooltip">{{this}}</span>
+  </div>
+{{/each}}
