@@ -224,3 +224,8 @@ Line-height: 24px</p>
 <p>Horizontal Rule<br />
 Stroke: 1px<br />
 Color: #CCCCCC</p>
+
+<hr class="ucla-horizontal__yellow" />
+<p>Horizontal Rule - Gold<br />
+Stroke: 4px<br />
+Color: #FFD100</p>

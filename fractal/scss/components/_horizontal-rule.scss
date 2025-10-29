@@ -1,0 +1,13 @@
+@use "../utilities/variables";
+
+.ucla-horizontal {
+    width: 100%;
+
+    &__yellow {
+        color: #{variables.$ucla-gold};
+        background: #{variables.$ucla-gold};
+        width: 40px; 
+        height: 4px;
+        border: none;
+    }
+}
