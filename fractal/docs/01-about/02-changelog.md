@@ -1,7 +1,7 @@
 <div class="ucla-prose">
 
-## v2.4.3 Release
-April 2, 2025
+## v2.5.0 Release
+October 28, 2025
 
 ---
 
@@ -9,26 +9,13 @@ April 2, 2025
 
 <article class="ucla-card ucla-card__info mt-6 mb-8">
   <div class="ucla-card__body">
-    <p class="ucla-card__title my-0">Link</p>
+    <p class="ucla-card__title my-0">Horizontal Rule</p>
     <ul class="mt-0">
-      <li>Re-work states</li>
-      <li>Added inline icons</li>
+      <li>Added yellow variation</li>
     </ul>
-  </div>
-</article>
-
-
-### Fixes
-
-<article class="ucla-card ucla-card__info mt-6 mb-8">
-  <div class="ucla-card__body">
-    <p class="ucla-card__title my-0">Accordion</p>
+    <p class="ucla-card__title my-0">Icons</p>
     <ul class="mt-0">
-      <li>Fix issue where inner accordion would close entire accordion</li>
-    </ul>
-    <p class="ucla-card__title my-0">Navigation</p>
-    <ul class="mt-0">
-      <li>Fix issue where mobile navigation would close when scrolling</li>
+      <li>Added support for Material Symbols</li>
     </ul>
   </div>
 </article>
@@ -36,6 +23,51 @@ April 2, 2025
 ## Previous Releases
 
 <div class="accordion is-multiselect mt-5">
+  <div class="accordion-item">
+    <h4 class="accordion__heading">
+      <button
+        type="button"
+        class="accordion__heading-button"
+        aria-expanded="true"
+      >
+        Release Notes v2.4.3
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        ><path
+            d="M18 9.41L16.59 8L12 12.58L7.41 8L6 9.41L12 15.41L18 9.41Z"
+            fill="#333333"
+          /></svg>
+      </button>
+    </h4>
+    <div class="accordion__body">
+      <div class="accordion__content">
+        <p>April 2, 2025</p>
+        <h4 class="mt-2 mb-4">Features</h4>
+        <div class="pl-5">
+          <p class="my-0">Link</p>
+          <ul class="mt-0">
+            <li>Re-work states</li>
+            <li>Added inline icons</li>
+          </ul>
+        </div>
+        <h4 class="mt-2 mb-4">Fixes</h4>
+        <div class="pl-5">
+          <p class="my-0">Accordion</p>
+          <ul class="mt-0">
+            <li>Fix issue where inner accordion would close entire accordion</li>
+          </ul>
+          <p class="my-0">Navigation</p>
+          <ul class="mt-0">
+            <li>Fix issue where mobile navigation would close when scrolling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="accordion-item">
     <h4 class="accordion__heading">
       <button
