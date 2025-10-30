@@ -45,7 +45,7 @@ October 28, 2025
     </h4>
     <div class="accordion__body">
       <div class="accordion__content">
-        <p>October 28, 2025</p>
+        <p>April 2, 2025</p>
         <h4 class="mt-2 mb-4">Features</h4>
         <div class="pl-5">
           <p class="my-0">Link</p>
