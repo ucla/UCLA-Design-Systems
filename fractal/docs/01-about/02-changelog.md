@@ -30,7 +30,7 @@ October 28, 2025
         class="accordion__heading-button"
         aria-expanded="true"
       >
-        Release Notes v2.4.2
+        Release Notes v2.4.3
         <svg
           width="24"
           height="24"
