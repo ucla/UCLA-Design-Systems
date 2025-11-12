@@ -1,7 +1,7 @@
 ---
 handle: alerts-development
 ---
-The alert component is avaiable with an optional close button and icon.
+The alert component is available with an optional close button and icon.
 
 <div class="ucla-alert ucla-alert--primary" style="margin: 1.4rem 0" role="alert">
     <svg class="ucla-alert--icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xml:space="preserve" role="img" aria-label="Information:">
