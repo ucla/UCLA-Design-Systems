@@ -1,0 +1,43 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+.ucla-table-of-contents {
+  &__content {
+    padding: 0;
+  }
+  
+  .ucla-side-navigation {
+    border-bottom: 0;
+
+    @include mixins.for-size(up-to-tablet) {
+      display: block;
+    }
+  }
+}
+
+@include mixins.for-size(desktop-up) {
+  .ucla-table-of-contents__wrapper.accordion-item {
+    border-top: 0;
+
+    &:not(.is-open)>.ucla-table-of-contents__body.accordion__body {
+      display: unset;
+    }
+  }
+  .ucla-table-of-contents__on-this-page {
+    color: variables.$black;
+
+    &_button.accordion__heading-button {
+      font-size: 1rem;
+      cursor: default;
+
+      &> svg {
+        display: none;
+      }
+
+      &:hover {
+        background-color: transparent;
+        color: variables.$black;
+      }
+    }
+  }
+}
