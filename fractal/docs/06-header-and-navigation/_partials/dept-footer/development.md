@@ -50,6 +50,7 @@ The footer body is the container for the contact information, social media icons
 This element houses the address, phone number and social media links to the department.
 
 - `.ucla-dept-footer__info` - Info container
+  - `.ucla-dept-footer__unit-link` - Department Link
   - `.ucla-dept-footer__info-address` - Address to the org/department
   - `.ucla-social` - List of org/department social media links
     - `.ucla-social__item` - List item of social media links
@@ -62,6 +63,7 @@ This element houses the address, phone number and social media links to the depa
       <img class="ucla-dept-footer__logo" src="https://www.ucla.edu/img/logo-ucla.svg" alt="UCLA" />
       <div class="ucla-dept-footer__body">
             <div class="ucla-dept-footer__info">
+                <a class="ucla-dept-footer__unit-link">Unit link</a>
                 <address class="ucla-dept-footer__info-address">
                     10889 Wilshire Blvd., Suite 1400<br />Los Angeles, CA 90024<br />(626) 123-4567<br /><a href="mailto:contact@stratcomm.ucla.edu">contact@stratcomm.ucla.edu</a>
                 </address>
@@ -123,6 +125,7 @@ This element houses the address, phone number and social media links to the depa
 ```html
 <!-- ... -->
 <div class="ucla-dept-footer__info">
+    <a class="ucla-dept-footer__unit-link">Unit link</a>
     <address class="ucla-dept-footer__info-address">
         10889 Wilshire Blvd., Suite 1400<br />Los Angeles, CA 90024<br />(626) 123-4567<br /><a href="mailto:contact@stratcomm.ucla.edu">contact@stratcomm.ucla.edu</a>
     </address>
