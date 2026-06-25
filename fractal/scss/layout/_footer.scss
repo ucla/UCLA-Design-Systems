@@ -13,13 +13,14 @@
     }
 
     &:hover {
-      text-decoration: underline;
+      color: variables.$black;
+      background-color: variables.$hover-state-light;
     }
-    &:focus {
-      outline: 1px solid variables.$white;
+    &:focus, &:focus-visible {
+      outline: 2px solid variables.$focus-state-light;
     }
     &:active {
-      color: variables.$white;
+      background-color: variables.$active-state-light;
     }
   }
 }
@@ -72,8 +73,21 @@
     color: variables.$white;
   }
 
-  a.ucla-dept-footer__unit-link:focus {
-    outline: 1px solid variables.$white;
+  a.ucla-dept-footer__unit-link{
+    &:visited {
+      color: variables.$visited-state-light;
+    }
+
+    &:hover {
+      color: variables.$black;
+      background-color: variables.$hover-state-light;
+    }
+    &:focus, &:focus-visible {
+      outline: 2px solid variables.$focus-state-light;
+    }
+    &:active {
+      background-color: variables.$active-state-light;
+    }
   }
   
   .ucla-dept-footer__info-address {
@@ -142,9 +156,13 @@
       }
     }
 
-    &:focus {
+    &:focus, &:focus-visible {
       outline: 1px solid variables.$focus-state-light;
       outline-offset: 2px;
+    }
+
+    &:active {
+      background-color: variables.$active-state-light;
     }
   }
 }
@@ -182,10 +200,6 @@
         a {
           font-size: 0.75rem;
           text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
         }
       }
     }
@@ -203,13 +217,14 @@
     }
 
     &:hover {
-      text-decoration: underline;
+      color: variables.$black;
+      background-color: variables.$hover-state-light;
     }
-    &:focus {
-      outline: 1px solid variables.$white;
+    &:focus, &:focus-visible {
+      outline: 2px solid variables.$focus-state-light;
     }
     &:active {
-      color: variables.$white;
+      background-color: variables.$active-state-light;
     }
   }
 }
