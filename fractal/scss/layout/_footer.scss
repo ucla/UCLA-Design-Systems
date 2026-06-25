@@ -20,6 +20,7 @@
       outline: 2px solid variables.$focus-state-light;
     }
     &:active {
+      color: variables.$black;
       background-color: variables.$active-state-light;
     }
   }
@@ -86,6 +87,7 @@
       outline: 2px solid variables.$focus-state-light;
     }
     &:active {
+      color: variables.$black;
       background-color: variables.$active-state-light;
     }
   }
@@ -162,6 +164,7 @@
     }
 
     &:active {
+      color: variables.$black;
       background-color: variables.$active-state-light;
     }
   }
@@ -224,6 +227,7 @@
       outline: 2px solid variables.$focus-state-light;
     }
     &:active {
+      color: variables.$black;
       background-color: variables.$active-state-light;
     }
   }
