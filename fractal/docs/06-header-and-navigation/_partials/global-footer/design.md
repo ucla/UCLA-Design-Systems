@@ -1,11 +1,11 @@
 ---
 handle: global-footer-design
 ---
-The global footer ends a web page and contains information for copyright, emergency, accessibility, and terms of use.
+The global footer appears at the bottom of every page and provides access to essential institutional and legal information. It includes the current copyright year and links to key resources such as Regents of the University of California, Emergency, Accessibility, Report Misconduct, Privacy & Terms of Use, and Cookie Settings.
 
 #### When to use
 
-The global footer ends a page and is placed below the department footer.
+Use the global footer on every page of a website or application to provide consistent access to required institutional, legal, and support links.
 
 #### Anatomy
 
@@ -13,29 +13,23 @@ The global footer ends a page and is placed below the department footer.
 
 **1. Copyright (required)**
 
-**2. University of California Link (required)**
+**2. Reagents of the University of California Link (required)**
   - Links to https://www.universityofcalifornia.edu
 
-**3. Emergency Link (required)**
+**3. UCLA link**
+  - Links to https://www.ucla.edu
+
+**4. Emergency Link (required)**
   - Links to https://bso.ucla.edu
 
-**4. Accessibility Link (required)**
+**5. Accessibility Link (required)**
   - Links to https://www.ucla.edu/accessibility
 
-**5. Report Misconduct Link (required)**
-  - Links to https://equity.ucla.edu/report-an-incident
+**6. Report Misconduct Link (required)**
+  - Links to https://ucla-ocr.caseiq.app/portal/reportonline
 
-**6. Privacy &amp; Terms of Use Link (required)**
+**7. Privacy &amp; Terms of Use Link (required)**
   - Links to https://www.ucla.edu/terms-of-use
-
-**7. Campus Wide Social Media Links**
-- https://www.facebook.com/UCLA/
-- https://www.instagram.com/ucla/
-- https://www.linkedin.com/school/ucla
-- https://twitter.com/ucla
-- https://www.youtube.com/user/UCLA
-- https://www.tiktok.com/@ucla?lang=en
-- https://story.snapchat.com/@uclaofficial
 
 #### Examples
 
