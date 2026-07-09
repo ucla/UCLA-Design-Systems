@@ -1,11 +1,13 @@
 ---
 handle: dept-footer-design
 ---
-The department footer contains additional information, navigation and actions for the user. The footer is made up of many pieces, some required, but many optional depending on a departments needs.
+The department footer appears above the global footer and provides department-specific information, navigation, and actions. It is designed to support local needs while complementing the global footer.
 
 #### When to use
 
-All website pages should have a department footer.
+Use the department footer on all website pages to provide consistent department-level information, navigation, and actions. It should appear above the global footer and be included on every page to ensure a complete and structured page ending across UCLA websites and applications.
+
+If a department logo is not available, the UCLA logo must be used as the default identifier. Always use the official logo lockup artwork provided in the UCLA Strategic Communcations.
 
 #### Anatomy
 
