@@ -2,18 +2,31 @@
 
 Documentation includes usage of Markdown files. Click here to see [more on Github Markdown](https://guides.github.com/features/mastering-markdown/).
 
-```
-/fractal
-|- components # Components Code
-   |- xx-components/ # contains markdown files that renders the component views
-|- docs # Documentation Code that appears on website
-   |- xx-documentation/ # contains markdown files that renders the documentation
-|- icons # SVG Icons used in the Design Kit
-|- js # JS scripts for documentation
-|- scss # Stylesheets for components
-   |- components/ # Component stylesheets
-   |- layout/ # Layout stylesheets
-   |- utilities/ # Utilities stylesheets
+```text
+ucla-design-systems
+└── fractal
+    ├── build
+    │   ├── css
+    │   │   ├── ucla-lib.css
+    │   │   ├── ucla-lib.css.map
+    │   │   ├── ucla-lib.min.css
+    │   │   └── ucla-lib.min.css.map
+    │   └── js
+    │       ├── ucla-lib-scripts.js
+    │       ├── ucla-lib-scripts.min.js
+    │       ├── ucla-lib-scripts.min.js.map
+    │       ├── ucla-lib-scripts.esm.js
+    │       └── ucla-lib-scripts.cjs.js
+    ├── scss
+    │   ├── components
+    │   ├── layout
+    │   └── utilities
+    ├── js
+    │   └── vendors
+    ├── icons
+    ├── components
+    │   └── xx-components
+    └── docs
 ```
 
 ---
