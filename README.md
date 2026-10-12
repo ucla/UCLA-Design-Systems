@@ -1,12 +1,29 @@
-# UCLA Design System
+<p align="center">
+  <a href="https://designsystem.brand.ucla.edu/">
+    <img src="http://dev.patternlab.it.ucla.edu/images/university-logo.svg" alt="UCLA logo" width="119" height="56">
+  </a>
+</p>
 
-Welcome to the UCLA Design System.
+<h3 align="center">Design System</h3>
 
-The digital application of UCLA's brand can be found here. We've developed a library of components, along with thoughtfully articulated guidelines, documentation, and code to assist campus partners in designing and developing robust and accessible experiences across all UCLA websites and applications.
+<p align="center">
+  Welcome to the UCLA Design System.
+  <br>
+  <br>
+  The digital application of UCLA's brand can be found here. We've developed a library of components, along with thoughtfully articulated guidelines, documentation, and code to assist campus partners in designing and developing robust and accessible experiences across all UCLA websites and applications.
+  <br>
+  <br>
+  Our goal is to provide flexible resources and tools for any person or team who contributes to UCLA's diverse and substantial digital infrastructure.
+  <br>
+  <a href="https://designsystem.brand.ucla.edu/"><strong>Explore the UCLA Design System Documentation</strong></a>
+  <br>
+  <br>
+  <a href="https://github.com/ucla/UCLA-Design-Systems/issues/new?assignees=&labels=enhancement&projects=&template=feature-request.md">Request feature</a>
+  ·
+  <a href="https://github.com/ucla/UCLA-Design-Systems/issues/new?assignees=&labels=bug&projects=&template=report-bug.md">Report Bug/Issue</a>
+</p>
 
-Our goal is to provide flexible resources and tools for any person or team who contributes to UCLA's diverse and substantial digital infrastructure.
-
----
+___
 
 ## For Developers
 - [Get Local Environment Setup](./help/developers/getSetup.md)
